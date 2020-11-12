@@ -1,0 +1,11 @@
+<div [formGroup]="form" fxLayout="row" fxLayoutGap="20px">
+  <mat-form-field class="form-field">
+    <input class="form-control" type="text" matInput placeholder="Font Family" formControlName="fontFamily" autocomplete="off">
+    <mat-error class="required">Font Family is required.</mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <input class="form-control" type="number" matInput placeholder="Font Size" formControlName="fontSize" autocomplete="off">
+    <span matSuffix>&nbsp; px</span>
+    <mat-error class="required">Font Size is required.</mat-error>
+  </mat-form-field>
+</div>

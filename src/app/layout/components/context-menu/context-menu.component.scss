@@ -1,0 +1,59 @@
+.context-menu {
+  position: fixed;
+  z-index: 999;
+  padding: 8px 0;
+  width: 192px;
+  min-width: 128px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transform-origin: top;
+  background-color: #fff;
+}
+
+.context-menu-item {
+  position: relative;
+  overflow: hidden;
+  height: 32px;
+  line-height: 32px;
+  padding-left: 32px;
+  font-family: "Poppins";
+  font-size: 15px;
+  z-index: 999;
+  cursor: pointer;
+
+  mat-icon {
+    position: relative;
+    top: 6px;
+    left: -8px;
+    font-size: 1.5em;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}
+
+.context-menu-ripple {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: ripple 0.1s;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.1);
+    opacity: 1;
+  }
+
+  65% {
+    transform: scale(200);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(300);
+    opacity: 0;
+  }
+}

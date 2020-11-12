@@ -1,0 +1,121 @@
+<div appTheme class="container" fxLayout="column">
+  <div fxFlex="100" fxLayout="row">
+    <div fxFlex="80" class="dashboard-list">
+      <div class="dashboard-summary" fxLayoutGap="10px">
+        <div fxFlex="20" class="summary-card dashboard-card">
+          <div fxFlex="50" fxLayoutAlign="center center">
+            <mat-icon>dashboard</mat-icon>
+          </div>
+          <div fxFlex="50">
+            <div class="card-number">{{getDisplayDashboard().length}}</div>
+            <div class="card-text">Dashboard</div>
+          </div>
+        </div>
+        <div fxFlex="20" class="summary-card dimension-card" (click)="filterType = dashboardFilter.Dimension">
+          <div fxFlex="50" fxLayoutAlign="center center">
+            <mat-icon>data_usage</mat-icon>
+          </div>
+          <div fxFlex="50">
+            <div class="card-number">{{filterData.dimensions.length}}</div>
+            <div class="card-text">Dimensions</div>
+          </div>
+        </div>
+        <div fxFlex="20" class="summary-card measure-card" (click)="filterType = dashboardFilter.Measure">
+          <div fxFlex="50"fxLayoutAlign="center center">
+            <mat-icon>category</mat-icon>
+          </div>
+          <div fxFlex="50">
+            <div class="card-number">{{filterData.measures.length}}</div>
+            <div class="card-text">Measures</div>
+          </div>
+
+        </div>
+        <div fxFlex="20" class="summary-card window-card" (click)="filterType = dashboardFilter.Window">
+          <div fxFlex="50" fxLayoutAlign="center center">
+            <mat-icon>timer</mat-icon>
+          </div>
+          <div fxFlex="50">
+            <div class="card-number">{{filterData.windows.length}}</div>
+            <div class="card-text">Windows</div>
+          </div>
+
+        </div>
+        <div fxFlex="20" class="summary-card widget-card" (click)="filterType = dashboardFilter.Widget">
+          <div fxFlex="50" fxLayoutAlign="center center">
+            <mat-icon>widgets</mat-icon>
+          </div>
+          <div fxFlex="50">
+            <div class="card-number">{{filterData.widgets.length}}</div>
+            <div class="card-text">Widgets</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="search-box" fxLayout="column" fxFlex="20">
+      <div fxFlex="10" class="search-form">
+        <mat-form-field>
+          <input autocomplete="off" [placeholder]="'widgets.edit_widget_form.search' | translate" matInput type="text" (keyup)="getDisplayDashboard($event)" />
+        </mat-form-field>
+        <mat-icon matPrefix>search</mat-icon>
+      </div>
+    </div>
+  </div>
+
+  <div fxFlex="100" class="filter-chip" *ngIf="getFilterChip().length > 0">
+    <mat-chip-list #filterChip>
+      <mat-chip *ngFor="let value of getFilterChip()" (click)="getDisplayDashboard($event)" [ngStyle]="getChipStyle(value)">
+        {{value}}
+      </mat-chip>
+      <mat-chip (click)="clearFilter()"><b>Clear</b></mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <div class="recent-dashboard" fxLayout="column">
+    <div class="recent-title">Recent Dashboards</div>
+    <div class="recent-body" fxFlex="100" fxLayout="row">
+      <div *ngFor="let recent of getRecentDashboard()" [routerLink]="['/dashboards', recent.id]"
+           fxFlex="25" fxLayout="column">
+        <app-dashboard-detail
+          [dashboard]="recent"
+          [total]="total_data"
+          [recent]="true"
+          (deleteDashboardEventEmitter)="handleDeleteDashboard($event)"
+          (onRenameDashboard)="renameDashboard($event)"
+          (onCopyDashboard)="copyDashboard($event)"
+        ></app-dashboard-detail>
+      </div>
+    </div>
+  </div>
+  <div class="dashboardManagementBody" fxLayout="row wrap" fxLayoutAlign="start start">
+    <div id="btnOpenCreateNewDashboard" class="card" fxFlex="32.5%" fxLayoutAlign="center center" (click)="addNewDashboard()"
+         fxLayout="column">
+      <div class="joulica-button">
+        <mat-icon>add_circle</mat-icon>
+      </div>
+      <div class="font-style" translate>dashboard.dashboard_list.add_new_dashboard</div>
+    </div>
+    <div *ngFor="let dashboard of getDisplayDashboard()" [routerLink]="['/dashboards', dashboard.id]" class="dashboard-detail"
+         fxLayoutGap="grid" fxFlex="33.3%" fxLayout="column">
+      <app-dashboard-detail
+        [dashboard]="dashboard"
+        [total]="total_data"
+        [recent]="false"
+        (deleteDashboardEventEmitter)="handleDeleteDashboard($event)"
+        (onRenameDashboard)="renameDashboard($event)"
+        (onCopyDashboard)="copyDashboard($event)"
+      ></app-dashboard-detail>
+    </div>
+  </div>
+</div>
+<app-context-menu [event]="contextMenuEvent">
+  <div appContextMenuItem>
+    <mat-icon>open_in_new</mat-icon> Launch
+  </div>
+  <div appContextMenuItem>
+    <mat-icon>settings</mat-icon> Setting
+  </div>
+  <div appContextMenuItem (click)="handleDeleteDashboard($event)">
+    <mat-icon>delete_forever</mat-icon> Delete
+  </div>
+</app-context-menu>

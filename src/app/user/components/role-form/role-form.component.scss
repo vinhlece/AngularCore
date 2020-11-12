@@ -1,0 +1,20 @@
+.mat-elevation-z8 {
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: var(--widget-list-header);
+}
+
+.header-cell {
+  color: var(--header-cell);
+  font-size: 14px;
+  background-color: var(--table-bg);
+}
+
+.table-cell {
+  background-color: var(--table-bg);
+  color: var(--table-text);
+}

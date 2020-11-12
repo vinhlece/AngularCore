@@ -1,0 +1,27 @@
+@import '~@angular/material/_theming';
+@import '../../../../styles/variables';
+
+:host ::ng-deep {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  background: var(--tab-grid-background);
+
+  .grid-stack>.grid-stack-item>.grid-stack-item-content {
+    left: 3px;
+    right: 3px;
+  }
+}
+
+.grid-stack {
+  position: relative;
+  z-index: 1000;
+  padding-bottom: 35px;
+}
+
+.tab-grid-content {
+  height: 100%;
+  background: var(--tab-grid-background);
+}

@@ -1,0 +1,14 @@
+<div fxLayout="column" class="event-tag-item">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <label fxFlex="80" class="event-name">{{eventTag.name}}</label>
+    <div class="button">
+      <button type="button" mat-icon-button (click)="handleEdit()">
+        <mat-icon class="icon-size">edit</mat-icon>
+      </button>
+      <button type="button" mat-icon-button (click)="handleDelete()">
+        <mat-icon class="icon-size">delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  <label class="event-query">{{eventTag.query}}</label>
+</div>

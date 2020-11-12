@@ -1,0 +1,17 @@
+<div class="tabs" fxLayout="row" appTheme>
+  <app-header-container [routerList]="routerList"></app-header-container>
+  <div class="full-height" fxFlex="fxFill">
+    <app-edit-bar-widget *ngIf="isBar" [id]="id"></app-edit-bar-widget>
+    <app-edit-line-widget *ngIf="isLine" [id]="id"></app-edit-line-widget>
+    <app-edit-trend-diff-line-widget *ngIf="isTrendDiff" [id]="id"></app-edit-trend-diff-line-widget>
+    <app-edit-billboard-widget *ngIf="isBillboard" [id]="id"></app-edit-billboard-widget>
+    <app-edit-liquid-fill-gauge-widget *ngIf="isLiquidFillGauge" [id]="id"></app-edit-liquid-fill-gauge-widget>
+    <app-edit-sankey-widget *ngIf="isSankey" [id]="id"></app-edit-sankey-widget>
+    <app-edit-solid-gauge-widget *ngIf="isSolidGauge" [id]="id"></app-edit-solid-gauge-widget>
+    <app-edit-geo-map-widget *ngIf="isGeoMap" [id]="id"></app-edit-geo-map-widget>
+    <app-edit-tabular-widget *ngIf="isTabular" [id]="id"></app-edit-tabular-widget>
+    <app-edit-sunburst-widget *ngIf="isSunburst" [id]="id"></app-edit-sunburst-widget>
+    <app-edit-call-time-line-widget *ngIf="isCallTimeLine" [id]="id"></app-edit-call-time-line-widget>
+    <app-edit-bubble-widget *ngIf="isBubble" [id]="id"></app-edit-bubble-widget>
+  </div>
+</div>

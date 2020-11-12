@@ -1,0 +1,14 @@
+{
+  "apiEndPoint": "http://localhost:3000",
+  "kafkaEndPoint": "http://zrh-zrh-dev-02-services.joulica.cloud//dashboardinfo/kafkaProxy",
+  "kafkaApiKey": "tc8jhfuBs6oePlfRIWbHEJZ8nDkgAKlVF4AvlsMeyBemnRtk",
+  "reportingDataGeneratorEndPoint": "http://zrh-zrh-dev-02-services.joulica.cloud/timelinequery/service",
+  "reportingDataSubscriptionEndPoint": "http://zrh-zrh-dev-02-services.joulica.cloud/timelinequery/service",
+  "webSocket": "http://zrh-zrh-dev-02-services.joulica.cloud/",
+  "logging": {
+    "log": false,
+    "level": "debug"
+  },
+  "version": "1.61",
+  "fqdn": "http://zrh-zrh-dev-02-services.joulica.cloud/"
+}

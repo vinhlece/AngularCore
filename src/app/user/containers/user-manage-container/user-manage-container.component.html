@@ -1,0 +1,10 @@
+<app-user-manage
+  *ngIf="users$ | async as users"
+  [users]="users"
+  (onEdit)="edit($event)"
+  (deleteUserEventEmitter)="deleteUser($event)"
+  (editUserEventEmitter)="handleEditUser($event)">
+</app-user-manage>
+<button id="btnOpenCreateNewUser" class="fab" mat-fab (click)="openCreateNewUserDialog()">
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,18 @@
+@import "../../../../styles/variables";
+
+.btn-save {
+  background-color: $button-primary-color;
+  color: #ffff;
+}
+
+.btn-cancel {
+  background-color: $button-secondary-color;
+  margin-left: 10px;
+  color: black;
+}
+
+.measure-form {
+  background-color: #ffff;
+  font-family: 'Poppins';
+  padding: 20px;
+}

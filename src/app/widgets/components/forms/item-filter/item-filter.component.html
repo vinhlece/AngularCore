@@ -1,0 +1,51 @@
+<div [formGroup]="form" class="item-filter" [ngSwitch]="mode">
+  <div class="search-box" fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field class="search-item" appearance="outline" fxFlexAlign="center">
+      <mat-icon matPrefix>search</mat-icon>
+      <input autocomplete="off" [placeholder]="'widgets.edit_widget_form.search' | translate" matInput type="text" (input)="onSearchChange($event)" />
+    </mat-form-field>
+  </div>
+  <div *ngIf="showAllData && type === 'dimensions'" class="form-control show-all-data">
+    <app-checkbox
+      formControlName="showAllData"
+      label="widgets.edit_widget_form.show_all_data"
+    ></app-checkbox>
+    <app-description><span translate>widgets.edit_widget_form.show_all_data_description</span></app-description>
+  </div>
+
+  <div class="item-container">
+    <mat-accordion *ngSwitchCase="'single'" class="package-item">
+      <mat-expansion-panel class="panel" *ngFor="let package of this.options" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span class="title">{{package.packageName}}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="radio-button">
+          <mat-radio-group fxLayout="column" fxLayoutGap="13px" formControlName="{{getSelectionName(package)}}">
+            <mat-radio-button class="radio-text" *ngFor="let item of package.values" [value]="item">
+              <span class="value-item">{{item}}</span>
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion *ngSwitchCase="'multiple'">
+      <mat-expansion-panel class="panel" *ngFor="let dimension of this.originalOptions" [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span class="title">{{dimension.packageName}}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div fxLayout="column" fxLayoutGap="13px">
+          <div *ngFor="let instance of dimension.values;  let i = index" [ngStyle]="checkExisted(instance)"
+            formArrayName="{{getSelectionName(dimension)}}">
+            <mat-checkbox [formControlName]="i" [value]="instance">
+              <span class="value-item">{{instance}}</span>
+            </mat-checkbox>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+@import "../../../../styles/variables";
+
+.main-form {
+  font-family: Poppins;
+}
+
+mat-card-content,
+mat-card-actions{
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  margin-right: 10px;
+}
+
+mat-card.no-shadow {
+  box-shadow: none;
+
+  .name {
+    color: $label-primary-color;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+}
+
+mat-card-title {
+  color: $icon-color;
+  font-size: 14px;
+  margin-top: -5px !important;
+  font-weight: 600;
+}
+
+::ng-deep {
+  .main-form {
+    .mat-card {
+      padding: 0px 20px 10px 20px !important;
+    }
+  }
+}
+
+.card-footer {
+  font-weight: normal;
+}
+
+.save-button {
+  background-color: $button-primary-color;
+  color: white;
+}
+
+.cancel-button {
+  background-color: $button-secondary-color;
+  color: rgba(0,0,0,0.87);
+}

@@ -1,0 +1,18 @@
+<div class="time-interval">
+  <label class="input-label" for="option" translate>{{label}}</label>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-select
+      id="option"
+      placeholder="Select interval..."
+      [value]="value"
+      [compareWith]="compareWith"
+      (selectionChange)="handleSelectionChange($event)">
+      <mat-option
+        *ngFor="let interval of intervals"
+        [class.dark-theme-box]="darkTheme"
+        [value]="interval">
+        {{getText(interval)}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

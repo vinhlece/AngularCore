@@ -1,0 +1,55 @@
+<div class="event-viewer-header">
+    <div class="title">
+        <h3>{{ streamName }} </h3>
+        <button 
+            *ngIf="storedEvents?.length > 0" 
+            mat-icon-button 
+            [matTooltip]="liveEvents ? 'Show Stored Events' : 'Show Live Events'" 
+            matTooltipShowDelay="1000" 
+            (click)="showStoredEvents()"
+            aria-label="Show favorite Events">
+            <mat-icon 
+                [matBadge]="storedEvents?.length" 
+                matBadgePosition="below after" 
+                matBadgeColor="accent"
+                *ngIf="liveEvents">
+                star
+            </mat-icon>
+            <mat-icon color="accent" *ngIf="!liveEvents">view_list</mat-icon>
+        </button>
+    </div>
+
+    <div class="event-viewer-actions">
+        <button 
+            *ngIf="events?.length > 0" 
+            (click)="clearEvents()" 
+            mat-icon-button 
+            matTooltip="Clear Events" 
+            matTooltipShowDelay="1000" 
+            aria-label="Clear Events">
+            <mat-icon>not_interested</mat-icon>
+        </button>
+        <button 
+            mat-icon-button 
+            matTooltip="Pause Incoming Events" 
+            aria-label="Pause Events" >
+            <mat-icon>pause_circle_outline</mat-icon>
+        </button>
+    </div>
+</div>
+
+<div class="live-event-container" appTheme>
+    <div *ngIf="events?.length === 0; else liveEventsTemplate" class="live-event-listener">
+        <!-- Translate below -->
+        <p>Listening For Events on Stream {{ streamName }}</p>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+
+    <ng-template #liveEventsTemplate>
+        <app-live-events 
+            (storeEvent)="handleStoreEvent($event)"
+            [liveEvents]="liveEvents" 
+            [events]="events">
+        </app-live-events>
+    </ng-template>
+</div>

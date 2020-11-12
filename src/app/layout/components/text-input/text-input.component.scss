@@ -1,0 +1,16 @@
+@import "../../../../styles/variables";
+
+:host {
+  display: block;
+}
+
+.field {
+  width: 100%;
+}
+
+::ng-deep {
+  .input-label {
+    color: var(--edit-form-label) !important;
+  }
+}
+

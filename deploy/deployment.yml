@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta1 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: $dockerImageName
+  namespace: $deploymentNamespace
+spec:
+  selector:
+    matchLabels:
+      app: $dockerImageName
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: $dockerImageName
+    spec:
+      containers:
+      - name: $dockerImageName
+        image: $dockerImagePrefix/$dockerImageName:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - readOnly: true
+            mountPath: /usr/share/nginx/html/assets/config/
+            name: dashboard-app-config-file
+      volumes:
+        - name: dashboard-app-config-file
+          configMap:
+            name: dashboard-config
+      imagePullSecrets:
+        - name: docker-registry-key

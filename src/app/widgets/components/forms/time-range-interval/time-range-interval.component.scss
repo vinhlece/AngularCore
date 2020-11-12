@@ -1,0 +1,10 @@
+@import "../../../../../styles/variables";
+
+.clear {
+  padding-top: 24px;
+
+  button {
+    background-color: $button-primary-color;
+    color: white
+  }
+}

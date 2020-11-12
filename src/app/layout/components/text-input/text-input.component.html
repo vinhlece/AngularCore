@@ -1,0 +1,16 @@
+<div [formGroup]="form" class="mat-typography">
+  <label [ngClass]="required ? 'input-label required-star' : 'input-label'" *ngIf="isShowTitle"
+         appTheme>{{placeholder | translate}}</label>
+  <mat-form-field class="field" appearance="outline">
+    <input matInput formControlName="value" autocomplete="off" type="text"
+           (blur)="handleBlur()" *ngIf="isShowTitle; else placeHolderInput">
+    <ng-template #placeHolderInput>
+      <input *ngIf="isReadonly" matInput formControlName="value" autocomplete="off" type="text" readonly
+             (blur)="handleBlur()" [placeholder]="placeholder">
+      <input *ngIf="!isReadonly" #inputPlaceholder matInput formControlName="value" autocomplete="off" type="text"
+             (blur)="handleBlur()" [placeholder]="placeholder" (keydown.enter)="keyEnter($event, inputPlaceholder.value)">
+    </ng-template>
+    <mat-hint *ngIf="hint" class="mat-hint">{{hint}}</mat-hint>
+    <mat-error class="required">{{placeholder}} is required.</mat-error>
+  </mat-form-field>
+</div>

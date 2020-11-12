@@ -1,0 +1,58 @@
+<form [formGroup]="form" class="measure-form" fxLayout="column" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <app-text-input formControlName="measureName" class="measure-name" [isReadonly]="false"
+                    [isShowTitle]="false" [placeholder]="'measure_specification.measure.placeholder_measure_name' | translate"></app-text-input>
+    <div>
+      <button type="button" class="metric-type" mat-icon-button (click)="handleAddMetricType(measureMetricTypes.Timer)">
+        <mat-icon [ngClass]="{'selected-metric-type': selectedMetricType === measureMetricTypes.Timer}"
+                  matTooltip="{{'measure_specification.measure.timer_tool_tip' | translate}}">timer</mat-icon>
+      </button>
+      <button type="button" class="metric-type" mat-icon-button (click)="handleAddMetricType(measureMetricTypes.Duration)">
+        <mat-icon [ngClass]="{'selected-metric-type': selectedMetricType === measureMetricTypes.Duration}"
+                  matTooltip="{{'measure_specification.measure.duration_tool_tip' | translate}}">filter_1</mat-icon>
+      </button>
+      <button type="button" class="metric-type" mat-icon-button (click)="handleAddMetricType(measureMetricTypes.Count)">
+        <mat-icon [ngClass]="{'selected-metric-type': selectedMetricType === measureMetricTypes.Count}"
+                  matTooltip="{{'measure_specification.measure.counter_tool_tip' | translate}}">schedule</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div fxLayout="column" class="down body-wrapper" fxLayoutAlign="space-between none">
+    <div fxLayout="column" class="add-events-container">
+      <app-search-box
+        class="add-events"
+        [placeHolder]="'measure_specification.measure.placeholder_add_events' | translate"
+        [autoCompleteOptions]="getEventsName()"
+        [required]="false"
+        [resetInComplete]="true"
+        (onEnter)="handleAddEvent($event)"
+      ></app-search-box>
+      <div formArrayName="events" class="event-tag">
+        <div *ngFor="let event of eventTags; let i = index">
+          <app-event-item [formControlName]="i" [eventTag]="event" [selectedMetricType]="selectedMetricType"
+            (onDelete)="handleDeleteEventTag($event)"></app-event-item>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="end none" class="option-container">
+      <app-search-list
+        class="search-list"
+        [placeHolder]="'measure_specification.measure.placeholder_add_dimension' | translate"
+        formControlName="dimensions"
+      ></app-search-list>
+      <app-search-box
+        [placeHolder]="'measure_specification.measure.placeholder_add_package' | translate"
+        [validateAutoComplete]="true"
+        [autoCompleteOptions]="getPackagesName()"
+        formControlName="packages"
+      ></app-search-box>
+      <app-search-box
+        [placeHolder]="'measure_specification.measure.placeholder_add_interval' | translate"
+        [required]="false"
+        [validateAutoComplete]="true"
+        formControlName="measureWindows"
+        [autoCompleteOptions]="displayWindows"
+      ></app-search-box>
+    </div>
+  </div>
+</form>

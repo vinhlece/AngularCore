@@ -1,0 +1,19 @@
+<form class="form" [formGroup]="newForm">
+  <mat-card class="no-shadow">
+    <mat-card-title>
+      <div>{{formTitle | translate}}</div>
+      <div><hr /></div>
+    </mat-card-title>
+    <mat-card-content>
+      <app-column-editor formControlName="editingColumn"></app-column-editor>
+    </mat-card-content>
+    <mat-card-actions class="action-button" fxLayoutAlign="end">
+      <button mat-flat-button type="button" [disabled]="!newForm.get('editingColumn').valid" class="save-button" (click)="onSave()">
+        {{'widgets.form.column_editor.save' | translate}}
+      </button>
+      <button mat-flat-button type="button" (click)="onCancel()" class="cancel-button">
+        {{'widgets.form.column_editor.cancel' | translate}}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

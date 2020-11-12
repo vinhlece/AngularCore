@@ -1,0 +1,79 @@
+@import "../../../../../../styles/variables";
+
+:host {
+    flex: 1 1 20em;
+    background-color: #ECECEF;
+    
+    &:first-of-type {
+        border-right: $color-primary 1px dashed;
+    }
+}
+/** Contains all event data per stream */
+    .event-viewer-header {
+        background-color: $color-primary;
+        box-shadow: 1px 4px 5px 0px #353535;
+        color: white;
+        display: flex;
+        flex: column nowrap;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .title {
+            display: inherit;
+            button {
+                background: $color-primary;
+                border: none;
+                color: white;
+            }
+        }
+        h3 {
+            margin: 0;
+            padding: 5px;
+            letter-spacing: 1px;
+        }
+        .event-viewer-actions {
+            button {
+                cursor: pointer;
+                background-color: $color-primary;
+                border: solid 1px $color-primary;
+            }
+            .mat-icon {
+                color: white;
+                margin-top: 3px;
+            }
+        }
+    }
+
+    @keyframes scalein {
+        from {
+            opacity: 0;
+            transform: scale(.5);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .live-event-container {
+        overflow: scroll;
+        margin-bottom: 10px;
+        height: 95vh;
+        background-color: var(--event-view-bg);
+
+        p {
+          color: var(--measure-definition-label-color);
+        }
+
+        .live-event-listener {
+            width: 70%;
+            margin: 25% auto;
+            text-align: center;
+        }
+
+        .no-events {
+            width: 500px;
+            margin: 20% auto;
+            text-align: center;
+        }
+    }

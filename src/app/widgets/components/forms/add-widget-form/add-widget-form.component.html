@@ -1,0 +1,20 @@
+<form class="mat-typography container" novalidate [formGroup]="form" (ngSubmit)="handleSubmit()" appTheme>
+  <app-text-input formControlName="name" placeholder="widgets.add_widget_form.label_widget_name"></app-text-input>
+
+  <app-widget-type-input formControlName="type" [types]="widgetTypes" class="widget-field"></app-widget-type-input>
+
+  <app-data-type-input formControlName="dataType" [dataTypes]="dataTypes" class="widget-field"></app-data-type-input>
+
+  <app-widget-size formControlName="defaultSize" [min]="1" [max]="12" class="widget-field"></app-widget-size>
+
+  <mat-checkbox formControlName="isTemplate">{{'widgets.add_widget_form.option_set_template' | translate}}</mat-checkbox>
+
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button type="submit" class="btn-save" mat-flat-button [disabled]="form.invalid">
+      {{'widgets.edit_widget_form.save' | translate}}
+    </button>
+    <button type="button" class="btn-cancel" mat-flat-button (click)="handleCancel()">
+      {{'widgets.edit_widget_form.cancel' | translate}}
+    </button>
+  </div>
+</form>

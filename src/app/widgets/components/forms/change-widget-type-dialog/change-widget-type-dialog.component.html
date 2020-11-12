@@ -1,0 +1,52 @@
+<form [formGroup]="newForm" (ngSubmit)="onSave()" class="change-chart-type-dialog">
+  <mat-card class="no-shadow">
+    <mat-card-title>{{formTitle | translate}}</mat-card-title><hr>
+    <mat-card-content fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="stretch">
+      <div *ngIf="dimensions; else noDimension"
+           [innerHtml]="'widgets.edit_widget_form.change_chart_type_description_1' | translate">
+      </div>
+      <ng-template #noDimension>
+        <div [innerHtml]="'widgets.edit_widget_form.change_chart_type_description_2' | translate"></div>
+      </ng-template>
+      <app-selection
+        *ngIf="measures"
+        formControlName="measure"
+        [placeholder]="'Measure'"
+        [options]="measures"
+      ></app-selection>
+      <app-selection
+        *ngIf="dimensions"
+        formControlName="dimension"
+        [placeholder]="'Dimension'"
+        [options]="dimensions"
+        [required]="true"
+      ></app-selection>
+      <app-selection
+        *ngIf="checkDimensionValue() && getInstances().length > 0"
+        formControlName="instance"
+        [placeholder]="'Instance'"
+        [options]="getInstances()"
+        [required]="true"
+      ></app-selection>
+      <app-selection
+        *ngIf="windows"
+        formControlName="window"
+        [placeholder]="'Window'"
+        [options]="windows"
+        [required]="true"
+      ></app-selection>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="bottom-action" fxLayoutAlign="end">
+      <div class="button-container" fxLayoutGap="10px">
+        <button class="normal-style save-button" id="saveButton" mat-flat-button type="submit" [disabled]="checkFormValid()">
+          {{'widgets.edit_widget_form.save' | translate}}
+        </button>
+        <button class="normal-style cancel-button" id="cancelButton" mat-flat-button
+                type="button" (click)="onCancel()">
+          {{'widgets.edit_widget_form.cancel' | translate}}
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>

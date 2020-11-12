@@ -1,0 +1,102 @@
+@import "../../../../../styles/variables.scss";
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+::ng-deep {
+  .change-chart-type-dialog {
+    overflow: hidden;
+    width: 480px;
+
+    mat-card-title {
+      font-weight: 600;
+      font-size: 16px !important;
+      color: $label-primary-color;
+    }
+
+    mat-card-content {
+      height: auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mat-card-actions {
+      padding: 8px 16px;
+    }
+
+    .mat-expansion-panel {
+      box-shadow: none !important;
+    }
+
+    .mat-icon {
+      padding: 7px 0 0 0;
+    }
+
+    .mat-form-field-prefix {
+      top: 0.4em !important;
+      left: -0.2em !important;
+    }
+  }
+
+  .mat-dialog-container {
+    padding: 0 !important;
+  }
+}
+
+.normal-style {
+  font-weight: normal;
+
+  &.save-button {
+    color: #fff;
+    background-color: $button-primary-color;
+
+    &:disabled,
+    &[disabled] {
+      background-color: rgba(0,0,0,0.12);
+      color: rgba(0,0,0,0.87);
+    }
+  }
+
+  &.cancel-button {
+    margin-left: 10px;
+    color: rgba(0,0,0,0.87);
+    background-color: $button-secondary-color;
+  }
+}
+
+.panel {
+  box-shadow: none;
+
+
+  .radio-button {
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+  }
+
+  .radio-text {
+    margin: 10px 0;
+  }
+}
+
+.bottom-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .button-container {
+    margin: 10px 0;
+  }
+}
+
+.add-link {
+  margin-left:  10px;
+  color: $button-primary-color;
+  text-decoration: underline;
+  font-size: 14px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+

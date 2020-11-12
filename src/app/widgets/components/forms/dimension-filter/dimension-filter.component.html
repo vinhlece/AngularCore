@@ -1,0 +1,89 @@
+<div [formGroup]="form" class="item-filter">
+  <div class="search-box" fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field class="search-item" appearance="outline" fxFlexAlign="center">
+      <mat-icon matPrefix>search</mat-icon>
+      <input autocomplete="off" placeholder="Search..." matInput type="text" (input)="onSearchChange($event)"/>
+    </mat-form-field>
+  </div>
+  <div class="filter-container">
+    <div *ngIf="!isSingleMode()">
+      <div *ngIf="displayInstances.length">
+        <div class="group-header">
+          <mat-checkbox (change)="checkAll($event)">{{dimension.dimension}}</mat-checkbox>
+          <div class="divider"></div>
+        </div>
+        <div class="instances-container system" formArrayName="systemSelections">
+          <div *ngFor="let name of displayInstances; let i = index" class="checkboxes"
+               [ngStyle]="checkExisted('system', name)">
+            <mat-checkbox [formControlName]="i" [value]="name">{{name}}</mat-checkbox>
+          </div>
+        </div>
+      </div>
+      <h4 *ngIf="!displayInstances.length" translate>widgets.edit_widget_form.no_instance</h4>
+      <div>
+        <div class="divider"></div>
+        <div class="group-header">
+          <div translate>widgets.edit_widget_form.custom</div>
+        </div>
+        <div class="instances-container custom">
+          <mat-radio-group fxLayout="column">
+            <div *ngIf="addInstance" class="add-box" fxLayout="row" fxLayoutGap="10px">
+              <mat-form-field fxFlex="60" appearance="outline" fxFlexAlign="center">
+                <input #inputDimension autocomplete="off" matInput type="text" (keydown.enter)="keyEnter($event, inputDimension.value)"/>
+              </mat-form-field>
+              <img src="assets/img/chart_thumbnails/done.svg" (click)="handleAddInstance(inputDimension.value)">
+              <img src="assets/img/chart_thumbnails/cancel.svg" (click)="clearInput()">
+            </div>
+            <mat-error *ngIf="showError">{{error}}</mat-error>
+            <div formArrayName="customSelections">
+              <div *ngFor="let name of customInstances; let i = index" class="checkboxes"
+                   [ngStyle]="checkExisted('custom', name)">
+                <mat-checkbox [formControlName]="i" [value]="name">{{name}}</mat-checkbox>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isSingleMode()" id="trend-type" fxLayout="column" fxLayoutAlign="start" class="trend-type">
+      <div *ngIf="filterInstances.system.length">
+        <div class="group-header">
+          <div class="header-title">{{dimension.dimension}}</div>
+          <div class="divider"></div>
+        </div>
+        <div class="instances-container system">
+          <mat-radio-group formControlName="systemSelections" fxLayout="column">
+            <mat-radio-button *ngFor="let instance of filterInstances.system;  let i = index" [value]="instance"
+              (change)="updateRadioGroupSystem()">
+              {{instance}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+      <h4 *ngIf="!filterInstances.system.length" translate>widgets.edit_widget_form.no_instance</h4>
+      <div>
+        <div class="divider"></div>
+        <div class="group-header">
+          <div translate>widgets.edit_widget_form.custom</div>
+        </div>
+        <div class="instances-container custom">
+          <mat-radio-group fxLayout="column" formControlName="customSelections">
+            <div *ngIf="addInstance" class="add-box" fxLayout="row" fxLayoutGap="10px">
+              <mat-form-field fxFlex="60" appearance="outline" fxFlexAlign="center">
+                <input #inputDimension autocomplete="off" matInput type="text" (keydown.enter)="keyEnter($event, inputDimension.value)"/>
+              </mat-form-field>
+              <img src="assets/img/chart_thumbnails/done.svg" (click)="handleAddInstance(inputDimension.value)">
+              <img src="assets/img/chart_thumbnails/cancel.svg" (click)="clearInput()">
+            </div>
+            <mat-error *ngIf="showError">{{error}}</mat-error>
+            <mat-radio-button *ngFor="let instance of filterInstances.custom;  let i = index" [value]="instance"
+              (change)="updateRadioGroupCustom()">
+              {{instance}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

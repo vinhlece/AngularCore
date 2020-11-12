@@ -1,0 +1,27 @@
+@import "../../../../styles/variables";
+
+.measure-list {
+  color: darkgray;
+}
+
+.formula-measure-form {
+  background-color: var(--time-explorer-bg);
+  font-family: 'Poppins';
+  padding: 20px;
+  height: 95.7vh;
+}
+
+.btn-cancel {
+  background-color: $button-secondary-color;
+  margin-left: 10px;
+  color: black;
+}
+
+.btn-save {
+  background-color: $button-primary-color;
+  color: #ffff;
+}
+
+label {
+  color: var(--label);
+}

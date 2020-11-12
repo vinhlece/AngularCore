@@ -1,0 +1,24 @@
+<mat-form-field class="search">
+  <input type="text"
+         class="form-control"
+         matInput
+         placeholder="{{'charts.call_timepline.call_timeline_filter_bar.placeholder_search' | translate}}"
+         [matAutocomplete]="auto"
+         [matChipInputFor]="searchInput"
+         [matChipInputAddOnBlur]="true"
+         (keyup)="handleSearchChange($event)"
+         (matChipInputTokenEnd)="handleAddSearch($event)">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of autoCompleteOptions" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+<mat-chip-list #searchInput matPrefix class="call-timeline-filter">
+  <mat-chip *ngFor="let value of searchList"
+            (removed)="handleRemoveSearch(value)">
+    {{value}}
+    <mat-icon matChipRemove>cancel</mat-icon>
+  </mat-chip>
+</mat-chip-list>

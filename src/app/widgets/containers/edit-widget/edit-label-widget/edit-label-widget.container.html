@@ -1,0 +1,17 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <div *ngIf="isEditingOnSideBar" fxLayout="row wrap" [style.height]="'100%'">
+    <app-edit-label-widget-form [widget]="widget" fxFlex="100"
+                              [chartTypes]="chartTypes"
+                              [chartStyles]="chartStyles"
+                              [dataTypes]="dataTypes$ | async"
+                              [measures]="measures$ | async"
+                              [packages]="packages$ | async"
+                              [saveSubject]="saveSubject"
+                              [editType]="EditWidgetType.OnData"
+                              (onSubmit)="handleSubmit($event)"
+                              (onCancel)="handleCancel()"
+                              (onChange)="handleChange($event)"
+                              (onValidate)="handleValidate($event)"
+    ></app-edit-label-widget-form>
+  </div>
+</ng-container>

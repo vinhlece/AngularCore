@@ -1,0 +1,72 @@
+@import '../../../../styles/variables';
+
+:host {
+  display: block;
+  width: 100%;
+
+  :hover {
+    .menu-icon {
+      visibility: visible;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  color: var(--placeholder-header-text);
+
+  .title-position {
+    position: relative;
+  }
+}
+
+.title {
+  padding: 3px 0 0 0;
+  width: 100%;
+  font-weight: bold;
+  font-size: $placeholder-title-font-size;
+  color: inherit;
+  background-color: transparent;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 28px);
+}
+
+.input {
+  padding: 0 5px 0 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.sub-title-input {
+  font-weight: normal;
+  font-size: $placeholder-subtitle-font-size;
+  color: $icon-color;
+}
+
+.input :hover {
+  cursor: text;
+}
+
+.input:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.menu-icon {
+  width: 16px;
+  padding: 0 0 0 7px;
+  display: initial;
+  visibility: hidden;
+  position: absolute;
+  bottom: 4px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

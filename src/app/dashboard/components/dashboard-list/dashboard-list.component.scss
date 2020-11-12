@@ -1,0 +1,233 @@
+@import "../../../../styles/variables";
+
+.card-text,
+.card-number {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.container {
+  width: 95.7vw;
+  max-height: 99vh;
+  overflow-x: hidden;
+
+  .dashboard-detail {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  mat-chip {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .dashboard-list {
+    max-height: 99.3vh;
+    overflow: hidden;
+
+    .dashboard-summary {
+      margin: 10px 10px 0 10px;
+
+      .summary-card {
+        height: 90px;
+        color: $white;
+        font-size: 14px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .mat-icon {
+          font-size: 70px;
+          height: 70px;
+          width: 70px;
+        }
+      }
+
+      .card-number {
+        top: -8%;
+        font-size: 60px;
+      }
+
+      .card-text {
+        top: -28%;
+      }
+    }
+  }
+
+  .recent-dashboard {
+    height: auto;
+    width: 100%;
+    padding: 5px 10px 10px 10px;
+
+    .recent-title {
+      font-size: 20px;
+      color: $button-primary-color;
+    }
+  }
+}
+
+
+.dashboard-card {
+  background-color: $dashboard-card;
+}
+
+.dimension-card {
+  background-color: $dimension-card;
+}
+
+.measure-card {
+  background-color: $measure-card;
+}
+
+.window-card {
+  background-color: $window-card;
+}
+
+.widget-card {
+  background-color: $widget-card;
+}
+
+.dashboardManagementBody {
+  margin-left: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  min-height: 50vh;
+
+  .font-style {
+    font-family: Poppins;
+  }
+}
+.hiddenMenu{
+  position: absolute;
+  visibility: hidden;
+}
+
+.header {
+  margin: 0 20px;
+  width: 100%;
+}
+
+
+
+.search-box {
+  margin-top: 10px;
+  margin-right: 20px;
+  padding: 5px 0px;
+  background-color: $white;
+
+  .search-form {
+    padding: 0 20px;
+  }
+
+  ::ng-deep {
+    .mat-form-field-appearance-legacy .mat-form-field-infix {
+      padding-bottom: 10px !important;
+      padding-top: 10px !important;
+    }
+
+    .mat-form-field-wrapper {
+      top: 7px;
+    }
+  }
+
+  mat-icon {
+    position: relative;
+    top: 12px;
+  }
+
+  .mat-form-field {
+    margin-top: 7px;
+    width: 195px;
+  }
+}
+
+.filter-chip {
+  overflow: auto;
+  margin: 10px 20px 0 10px;
+  padding: 10px;
+  background-color: $white;
+  min-height: 50px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  background-color: var(--dashboard-card-background);
+  color: var(--dashboard-card-text);
+  transition: 0.3s;
+  width: 250px;
+  height: 140px;
+  margin: 10px 10px 0 0;
+  font-size: 20px;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+  .dashboard-body {
+    height: 100%;
+    .logo {
+      color: $white;
+      padding: 5px;
+
+      .logo-content {
+        width: 100%;
+        height: 50%;
+
+        .card-number {
+          top: 20%;
+          font-size: 15px;
+        }
+
+        .card-text {
+          top: 25%;
+          font-size: 8px;
+        }
+      }
+    }
+
+    .description {
+      padding-top: 5px;
+      font-size: 10px;
+    }
+  }
+}
+
+label {
+  text-align: right;
+  clear: both;
+  float:left;
+  margin-right:10px;
+}
+
+.joulica-button {
+  color: $button-primary-color;
+
+  .mat-icon {
+    font-size: 35px;
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.menu-icon {
+  width: 16px !important;
+  padding: 0px 15px 0 0 !important;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+::ng-deep {
+  .dashboard-menu-item {
+    .mat-menu-content {
+      padding: 0 !important;
+    }
+  }
+}

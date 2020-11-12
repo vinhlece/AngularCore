@@ -1,0 +1,8 @@
+---
+applications:
+- name: joulica-reporting-dashboard
+  #no-route: false
+  memory: 128M
+  instances: 1
+  path: ./dist/app
+  buildpack: staticfile_buildpack

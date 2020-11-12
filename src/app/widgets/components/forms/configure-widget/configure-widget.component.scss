@@ -1,0 +1,111 @@
+@import "../../../../../styles/variables";
+
+.form {
+  width: 500px !important;
+  font-size: 20px;
+  background-color: var(--edit-form-bg);
+
+  .mat-icon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .bold-text {
+    font-weight: bold;
+  }
+
+  .btn-link {
+    &:hover {
+      cursor: pointer;
+      color: dodgerblue;
+    }
+  }
+
+  .button-container {
+    position: absolute;
+    bottom: 20px;
+
+    .btn-cancel {
+      margin-left: 220px;
+    }
+
+    button {
+      width: 90px;
+      height: 40px;
+    }
+  }
+
+  .btn-group {
+    padding: 0 20px 0px 20px;
+  }
+
+  .save-button {
+    background-color: $button-primary-color;
+    color: white;
+
+    &:disabled,
+    &[disabled] {
+      background-color: rgba(0,0,0,0.12);
+      color: rgba(0,0,0,0.87);
+    }
+  }
+
+  .cancel-button {
+    background-color: $button-secondary-color;
+    color: rgba(0,0,0,0.87);
+  }
+
+  .normal-style {
+    font-weight: normal;
+  }
+
+  .add-button {
+    background-color: $button-secondary-color;
+    min-width: 60px;
+    height: 32px;
+    line-height: 0px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #545454;
+  }
+}
+
+.autoScroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.tab-group {
+  width: 100%;
+}
+
+::ng-deep {
+  .mat-dialog-container {
+    -webkit-box-shadow: 0px 2px 5px 1px rgba(166,159,166,1) !important;
+    box-shadow: 0px 2px 5px 1px rgba(166,159,166,1) !important;
+  }
+
+  .tab-group {
+    .mat-tab-body.mat-tab-body-active {
+      overflow-y: hidden;
+    }
+
+    .mat-tab-label {
+      font-weight: normal;
+      color: var(--edit-form-label);
+    }
+
+    .mat-ink-bar {
+      background-color: var(--ink-bar) !important;
+    }
+  }
+}
+
+.side-bar {
+  position: relative;
+}

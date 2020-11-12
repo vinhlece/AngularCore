@@ -1,0 +1,54 @@
+<div appTheme class="edit-form-expand">
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="label-container">
+    <div class="input-label">{{'dashboard.placeholder_header.preferences' | translate}}</div>
+    <div>
+      <mat-icon class="save-btn" matTooltip="Save" (click)="triggerSave()">save</mat-icon>
+      <mat-icon matTooltip="Cancel" (click)="handleCancel()">close</mat-icon>
+    </div>
+  </div>
+  <mat-accordion>
+    <app-edit-widget-expand-content
+      [title]="'widgets.configure_widget.widget_info'"
+      [options]="options"
+      [packages]="packages"
+      [section]="section.info"
+      [saveSubject]="saveSubject"
+      [widget]="widget"
+      [expanded]="true"
+      (onSubmit)="handleSubmit($event)"
+      (onChange)="handleChange($event)"
+      (onCancel)="handleCancel()"
+      (onValidate)="handleValidate($event)"
+      (onChangeType)="handleChangeType($event)"
+    ></app-edit-widget-expand-content>
+    <app-edit-widget-expand-content
+      [title]="'widgets.configure_widget.data'"
+      [options]="options"
+      [packages]="packages"
+      [packageDetails]="packageDetails"
+      [allDimensions]="allDimensions"
+      [allInstance]="allInstance"
+      [section]="section.data"
+      [saveSubject]="saveSubject"
+      [widget]="widget"
+      (onSubmit)="handleSubmit($event)"
+      (onChange)="handleChange($event)"
+      (onCancel)="handleCancel()"
+      (onValidate)="handleValidate($event)"
+      (onChangeType)="handleChangeType($event)"
+    ></app-edit-widget-expand-content>
+    <app-edit-widget-expand-content
+      [title]="'widgets.configure_widget.appearance'"
+      [options]="options"
+      [packages]="packages"
+      [section]="section.appearance"
+      [saveSubject]="saveSubject"
+      [widget]="widget"
+      (onSubmit)="handleSubmit($event)"
+      (onChange)="handleChange($event)"
+      (onCancel)="handleCancel()"
+      (onValidate)="handleValidate($event)"
+      (onChangeType)="handleChangeType($event)"
+    ></app-edit-widget-expand-content>
+  </mat-accordion>
+</div>

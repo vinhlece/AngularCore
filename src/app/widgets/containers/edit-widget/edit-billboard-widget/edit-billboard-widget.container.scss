@@ -1,0 +1,21 @@
+:host {
+  display: grid;
+  width: 100%;
+}
+
+.mat-typography {
+  height: 100vh;
+}
+
+.form {
+  float: left;
+}
+
+.preview {
+  float: right;
+  height: 100%;
+}
+
+.sample-widget {
+  width: 60%;
+}

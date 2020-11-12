@@ -1,0 +1,9 @@
+<div [formGroup]="form">
+  <label for="radio-buttons" class="input-label" translate>widgets.edit_widget_form.group_by</label>
+  <mat-radio-group id="radio-buttons" formControlName="value" fxLayout="row">
+    <mat-radio-button *ngFor="let item of values.availableValues" [value]="item.key" fxFlex="1 1 auto">{{item.value | translate}}</mat-radio-button>
+  </mat-radio-group>
+  <div *ngIf="isTimeRange">
+    <app-time-range formControlName="timeGroup"></app-time-range>
+  </div>
+</div>

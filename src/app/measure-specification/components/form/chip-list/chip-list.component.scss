@@ -1,0 +1,11 @@
+.wrapper {
+  width: 100%;
+  display: table-caption;
+
+  .chip-item {
+    border: 1px solid #000;
+    color: #000;
+    background-color: #fff;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,9 @@
+<mat-card class="root mat-elevation-z0">
+  <mat-card-title>{{data.title}}</mat-card-title>
+  <mat-card-content>
+    <p>{{data.message}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngFor="let choice of data.choices" (click)="handleClick(choice)" mat-raised-button color="accent">{{choice}}</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,170 @@
+@import "../../../../../styles/variables";
+
+.main-form {
+  font-family: Poppins;
+
+  .close-button-area {
+    position: relative;
+
+    .close-button {
+      position: absolute;
+      top: -18px;
+      right: -19px;
+      width: 23px;
+      font-size: 21px;
+      height: 25px;
+      opacity: 0.5;
+      color: var(--mat-icon);
+      &:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+    }
+
+    .save {
+      right: 5px;
+    }
+
+    .view-button {
+      position: absolute;
+      top: -18px;
+      right: 6px;
+      width: 23px;
+      font-size: 21px;
+      height: 25px;
+      opacity: 0.5;
+      color: var(--mat-icon);
+      &:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+mat-card-content,
+mat-card-actions{
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  margin-right: 10px;
+}
+
+mat-card.no-shadow {
+  box-shadow: none;
+  background: var(--mat-card);
+
+  .name {
+    margin-top: 10px;
+    font-weight: 500;
+    color: var(--mat-card-subtitle);
+  }
+}
+
+mat-card-title {
+  color: $icon-color;
+  font-size: 14px;
+  margin-top: -5px !important;
+  font-weight: 600;
+}
+
+.card-footer {
+  font-weight: normal;
+}
+
+.save-button {
+  background-color: $button-primary-color;
+  color: white;
+}
+
+.cancel-button {
+  background-color: $button-secondary-color;
+  color: rgba(0,0,0,0.87);
+}
+
+.chart-style-type {
+  margin-top: 20px;
+}
+
+.card-title {
+  color: var(--mat-card-title);
+  font-size: 15px;
+}
+.card-name {
+  font-size: 14px;
+  color: var(--mat-card-subtitle);
+}
+
+.chart-icon {
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+::ng-deep {
+  .mat-dialog-container-custom {
+    .mat-dialog-container {
+      position: absolute;
+      width: 40%;
+      top: 11vh;
+      height: auto;
+      left: 30vw;
+    }
+  }
+
+  .form-simple-name {
+
+    .mat-tab-label {
+      height: 35px;
+      min-width: 4vw;
+      padding: 0 18px;
+    }
+
+    .mat-tab-group.mat-primary .mat-ink-bar {
+      background-color: #5867DD;
+    }
+
+    .chart-all-style-type {
+      height: auto;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .mat-tab-body-content {
+      padding-top: 15px;
+      text-align: center;
+
+      .chart-style-type {
+        height: 390px;
+      }
+    }
+
+    .mat-tab-body.mat-tab-body-active {
+      overflow-y: hidden;
+      overflow-x: hidden;
+    }
+
+    .mat-stroked-button {
+      padding: 0.5rem;
+
+      &.flex100 {
+        .mat-button-wrapper {
+          img {
+            width: 25%;
+          }
+        }
+      }
+
+      .mat-button-wrapper {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

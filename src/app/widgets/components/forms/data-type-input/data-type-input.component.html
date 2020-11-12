@@ -1,0 +1,9 @@
+<div [formGroup]="form" class="mat-typography">
+  <label class="input-label" for="option" translate>widgets.edit_widget_form.package</label>
+  <mat-form-field class="field-data-type" appearance="outline">
+    <mat-select formControlName="dataType" placeholder="{{'widgets.add_widget_form.package_placeholder' | translate}}" [disabled]="isDisabled">
+      <mat-option [class.dark-theme-box]="isDarkTheme()" id="option" *ngFor="let dataType of dataTypes" [value]="dataType">{{dataType}}</mat-option>
+    </mat-select>
+    <mat-error class="required">Package is required.</mat-error>
+  </mat-form-field>
+</div>

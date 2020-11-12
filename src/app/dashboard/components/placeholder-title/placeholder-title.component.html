@@ -1,0 +1,13 @@
+<div class="container" [formGroup]="form" appTheme>
+  <div *ngIf="title && !editable" fxLayout="row" class="title-position">
+    <span
+      [ngStyle]="getTitleStyle()"
+      [ngClass]="!isSubTitle ? 'title' : 'title sub-title-input'"
+    >
+      {{title}}
+      <img *ngIf="!isOverlayWidget" [ngClass]="!isSubTitle ? 'menu-icon' : 'menu-icon sub-menu-icon'" src="assets/img/menu/rename.svg" (click)="toggleEditMode()">
+    </span>
+  </div>
+  <input *ngIf="editable" #inputTitle class="title input" autocomplete="off" placeholder="Title" (keydown.enter)="submit()"
+         formControlName="title" (blur)="handleCancel()">
+</div>

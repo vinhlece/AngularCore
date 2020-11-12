@@ -1,0 +1,18 @@
+<div #divContainer class="container" *ngIf="data" (mousedown)="handleMouseDown($event)" (dblclick)="handleDoubleClick($event)"
+     (contextmenu)="handleRightClick($event)">
+  <div [ngClass]="isDarkTheme() ? 'only-latest dark-theme' : 'only-latest'" *ngIf="isLatest(); else showPast" fxLayout="row" fxLayoutAlign="center center">
+    <label class="latest-data no-margin" [ngStyle]="latestStyles">{{format ? showLastestValue() : data.current.value | number}}</label>
+  </div>
+  <ng-template #showPast>
+    <div [ngClass]="isDarkTheme() ? 'dual dark-theme' : 'dual'">
+      <div class="dual-latest" fxLayout="row" fxLayoutAlign="end center">
+        <label class="latest-data no-margin" [ngStyle]="latestStyles">{{format ? showLastestValue() : data.current.value | number}}</label>
+      </div>
+      <div class="dual-past" fxLayout="row" fxLayoutAlign="start center">
+        <label [ngStyle]="pastStyles" class="previous-data no-margin">({{format ? showHistoricalValue() : data.passed.value | number}})</label>
+        <mat-icon [ngStyle]="indicatorStyles" *ngIf="data.current.value < data.passed.value">arrow_upward</mat-icon>
+        <mat-icon [ngStyle]="indicatorStyles" *ngIf="data.current.value > data.passed.value">arrow_downward</mat-icon>
+      </div>
+    </div>
+  </ng-template>
+</div>

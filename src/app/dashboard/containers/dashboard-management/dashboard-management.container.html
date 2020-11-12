@@ -1,0 +1,19 @@
+<div fxLayout="row">
+  <app-header-container [routerList]="routerList"></app-header-container>
+  <app-progress-spinner [data$]="dashboards$">
+
+  </app-progress-spinner>
+  <app-dashboard-list *ngIf="dashboards$ | async"
+    [dashboards]="dashboards$ | async"
+    [tabs]="tabs$ | async"
+    [user]="user$ | async"
+    [widgets]="widgets$ | async"
+    (deleteDashboardEventEmitter)="deleteDashboard($event)"
+    (addDashboard)="openDashboardDialog()"
+    (onRenameDashboard)="openDashboardDialog($event)"
+    (onCopyDashboard)="copyDashboard($event)"
+    fxFlex="fxFill"
+    appTheme
+  >
+  </app-dashboard-list>
+</div>

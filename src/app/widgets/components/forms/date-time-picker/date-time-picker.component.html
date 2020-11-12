@@ -1,0 +1,41 @@
+<div [formGroup]="form">
+  <owl-date-time #dt
+                 [showSecondsTimer]="true"
+  ></owl-date-time>
+  <label class="input-label" for="input">{{placeholder | translate}}</label>
+  <div *ngIf="isSingleMode; else multiple">
+    <mat-form-field class="form-field" appearance="outline">
+      <input matInput
+             autocomplete="off"
+             class="input"
+             [placeholder]="placeholder | translate"
+             formControlName="values"
+             [owlDateTimeTrigger]="dt"
+             [owlDateTime]="dt"/>
+    </mat-form-field>
+  </div>
+  <ng-template #multiple>
+    <mat-form-field class="form-field" appearance="outline">
+      <input matInput
+             autocomplete="off"
+             class="input"
+             id="input"
+             [placeholder]="placeholder | translate"
+             [owlDateTimeTrigger]="dt"
+             [owlDateTime]="dt"
+             [matChipInputFor]="timestamp"
+             [matChipInputSeparatorKeyCodes]="separatorKeyCodes"
+             [matChipInputAddOnBlur]="true"
+             (matChipInputTokenEnd)="handleAddValue($event)"/>
+    </mat-form-field>
+    <mat-error *ngIf="showError">Please input with correct format.</mat-error>
+    <mat-chip-list #timestamp matPrefix>
+      <mat-chip *ngFor="let value of displayData()"
+                (removed)="handleRemoveValue(value)">
+        {{value}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </ng-template>
+</div>
+

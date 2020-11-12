@@ -1,0 +1,520 @@
+{
+  "layout": {
+    "header": {
+      "close_menu": "Đóng danh sách",
+      "dashboard_management": "Quản lý bảng",
+      "widget_management": "Quản lý tiện ích",
+      "measure_directory": "Danh sách đơn vị đo lường",
+      "language": "Ngôn ngữ",
+      "color_palette": "Bảng màu",
+      "user_manage": "Quản lý người dùng",
+      "version": "Phiên bản",
+      "logout": "Đăng xuất",
+      "library": "Thư viện",
+      "widget": "Các tiện ích",
+      "widget_name": "Tiện ích",
+      "measure": "Đơn vị đo lường",
+      "instance": "Các trường hợp",
+      "label_widget": "Thư viện tiện ích",
+      "label_measure": "Thư viện các đơn vị đo lường",
+      "label_instance": "Thư viện các trường hợp",
+      "dark_mode": "Chế độ ban đêm",
+      "light_mode": "Chế độ sáng"
+    }
+  },
+  "dashboard": {
+    "dashboard_list": {
+      "add_new_dashboard": "Thêm bảng điều khiển mới",
+      "rename": "Đổi tên",
+      "delete": "Xóa",
+      "copy": "Sao chép"
+    },
+    "placeholder": {
+      "show_table": "Hiển thị bảng",
+      "show_timeline": "Hiển thị dòng thời gian",
+      "show_billboard": "Hiển thị Billboard",
+      "delete_instance": "Xoá trường hợp",
+      "delete_measure": "Xoá đơn vị đo lường",
+      "delete_agent": "Xoá đại diện",
+      "delete_queue": "Xoá hàng đợi",
+      "delete_segment_type": "Xoá loại phân khúc",
+      "invoke_url": "Gọi đường dẫn",
+      "edit_measure": "Chỉnh sữa đơn vị đo lường",
+      "blank_widget": "Tiện ích trống",
+      "no_data": "Không có dữ liệu",
+      "websocket": "WebSocket",
+      "has_lost": "Mất kết nối",
+      "no_connection": "Không thể kết nối"
+    },
+    "placeholder_header": {
+      "search": "Tìm kiếm",
+      "fullscreen": "Toàn màn hình",
+      "minimize": "Thu gọn",
+      "select_time": "Chọn thời gian",
+      "real_time_mode": "Thời gian thực",
+      "toggle_export": "Bật \\ Tắt lựa chọn xuất",
+      "gauge_mode": "Chế độ hiển thị",
+      "preferences": "Cài đặt",
+      "delete": "Xoá",
+      "add_measure": "Thêm đơn vị đo lường",
+      "export_menu": "Lựa chọn xuất",
+      "export_to_pdf": "Xuất tệp PDF",
+      "export_to_csv": "Xuất tệp CSV",
+      "export_to_xls": "Xuất tệp XLS",
+      "copy": "Sao chép"
+    },
+    "header": {
+      "add_label_widget": "Tạo nhãn widget",
+      "add_event_viewer_widget": "Tạo nhãn widget",
+      "add_new_widget": "Tạo widget mới",
+      "logging": "Bật/Tắt ghi chú",
+      "shift_trend_diff": "Trend Diff theo ca",
+      "day_trend_diff": "Trend Diff theo ngày",
+      "week_trend_diff": "Trend Diff tuần",
+      "global_filter": "Bộ lọc toàn cục",
+      "time_explorer": "Chức năng thời gian",
+      "notifications": "Thông báo",
+      "color_palette": "Bảng màu",
+      "instance_color": "Màu trường hợp"
+    },
+    "time_explorer": {
+      "time_range": "Khoảng thời gian",
+      "interval_value": "Chu kỳ",
+      "interval_unit": "Đơn vị",
+      "predictive_range": "Khoảng tương lai",
+      "play": "Bắt đầu",
+      "reset": "Đặt lại",
+      "pause": "Tạm dừng",
+      "resume": "Tiếp tục",
+      "replaying_event": "Chạy lại các sự kiện",
+      "replaying_pause": "Tạm dừng chạy lại",
+      "off": "Tắt"
+    },
+    "simple_name_form": {
+      "label_widget_type": "Loại tiện ích",
+      "placeholder_widget_type": "Vui lòng chọn loại tiện ích",
+      "error_widget_type": "Loại tiện ích là bắt buộc",
+      "label_dashboard_name": "Tên bảng",
+      "placeholder_dashboard_name": "Vui lòng nhập tên bảng",
+      "placeholder_dashboard_description": "Phụ lục",
+      "error_dashboard_name": "Tên bảng là bắt buộc",
+      "cancel": "Hủy",
+      "save": "Lưu",
+      "next": "Tiếp tục",
+      "title_new_dashboard": "Tạo bảng mới",
+      "title_rename_dashboard": "Đổi tên bảng",
+      "title_create_new_widget": "Tạo tiện ích mới",
+      "create": "Tạo"
+    },
+    "time_range_settings": {
+      "second": "giây",
+      "minute": "phút",
+      "hour": "giờ",
+      "day": "ngày",
+      "week": "tuần",
+      "month": "tháng",
+      "year": "năm"
+    }
+  },
+  "widgets": {
+    "widget_list": {
+      "widget_management": "Quản lý tiện ích",
+      "name": "Tên",
+      "package": "Gói dữ liệu",
+      "type": "Loại",
+      "default_size": "Kích thước mặc định",
+      "launch": "Mở",
+      "edit": "Sửa",
+      "delete": "Xóa"
+    },
+    "configure_widget": {
+      "data": "Chọn dữ liệu",
+      "appearance": "Hiển thị",
+      "widget_info": "Thông tin tiện ích"
+    },
+    "edit_widget_form": {
+      "title": "Tiêu đề",
+      "description": "Miêu tả",
+      "package": "Gói dữ liệu",
+      "chart_type": "Loại biểu đồ",
+      "chart_type_placeholder": "Chọn loại biểu đồ...",
+      "chart_type_required": "Vui lòng chọn loại biểu đồ",
+      "chart_style": "Kiểu biểu đồ",
+      "chart_style_placeholder": "Chọn kiểu biểu đồ...",
+      "chart_style_required": "Vui lòng chọn kiểu biểu đồ.",
+      "hide_legends": "Ẩn các chú thích",
+      "hide_legends_description": "Lựa chọn này sẽ ẩn chú thích",
+      "hide_kpi_upper": "Ẩn giới hạn trên",
+      "hide_kpi_lower": "Ẩn giới hạn dưới",
+      "legend_options": "Tùy chỉnh huyền thoại",
+      "hide_measure": "Giấu đo lường",
+      "hide_instance": "Giấu trường hợp",
+      "hide_window": "Giấu cửa sổ",
+      "alias": "Tên khác",
+      "hide_kpi_description": "Lựa chọn này sẽ ẩn miền giới hạn",
+      "enable_navigator": "Hiện hoa tiêu",
+      "enable_navigator_description": "Kích hoạt hoa tiêu",
+      "measure": "Đơn vị đo lường",
+      "clear": "Làm mới",
+      "add": "Thêm",
+      "dimension": "Kích thước",
+      "font_color": "Màu chữ",
+      "color": "Màu",
+      "show_all_data": "Hiện tất cả dữ liệu",
+      "show_all_data_description": "Hiện tất cả dữ liệu của tiện ích khi không có các trường hợp",
+      "window": "Cửa sổ",
+      "instance": "Thực thể",
+      "display_data": "Hiển thị dữ liệu",
+      "display_data_placeholder": "Chọn dữ liệu hiển thị",
+      "display_data_required": "Vui lòng chọn dữ liệu hiển thị.",
+      "hide_icon": "Ẩn biểu tượng mở rộng",
+      "hide_icon_description": "Ân biểu tượng mở rộng của dòng cuối cùng",
+      "time_range": "Khoảng thời gian",
+      "from": "Từ",
+      "to": "Đến",
+      "interval_value": "Chu kì",
+      "interval_unit": "Khoảng chu kì",
+      "display_mode": "Chế độ hiển thị",
+      "label_option": "Tùy chọn nhãn",
+      "required": " là cần thiết.",
+      "larger": "phải lớn hơn",
+      "smaller": "phải nhỏ hơn",
+      "min_value": "Gía trị nhỏ nhất",
+      "max_value": "Gía trị lớn nhất",
+      "threshold": "Ngưỡng:",
+      "breakpoint_required": "Vui lòng nhập điểm dừng",
+      "greater_color": "Màu cho giá trị lớn hơn",
+      "greater_color_placeholder": "Chọn màu cho giá trị lớn hơn",
+      "color_required": "Vui lòng chọn màu",
+      "lesser_color": "Màu cho giá trị nhỏ hơn",
+      "lesser_color_placeholder": "Chọn màu cho giá trị nhỏ hơn",
+      "trend_type": "Loại trend",
+      "default_rows": "Dòng mặc định",
+      "default_rows_required": "Vui lòng nhập số dòng",
+      "default_rows_check": "Số dòng phải từ {{min}} đến {{max}}",
+      "default_columns": "Cột mặc định",
+      "default_columns_required": "Vui lòng nhập số cột",
+      "default_columns_check": "Số cột phải từ {{min}} đến {{max}}",
+      "parent_state_color": "Màu đất",
+      "capital_color": "Màu thành phố",
+      "threshold_line": "Hiển thị ngưỡng",
+      "threshold_line_placeholder": "Hiển thị ngưỡng",
+      "flashing": "Nhấp nháy",
+      "segment_types": "Loại bộ phận",
+      "measure_select": "Chọn 1 đơn vị đo lường ...",
+      "no_measure": "Không có các đơn vị đo lường",
+      "group_by": "Nhóm bởi",
+      "queues": "Các hàng đợi",
+      "agents": "Các đại diện",
+      "instance_example": "Ví dụ",
+      "instance_error": "Xin nhập đúng kiểu dữ liệu",
+      "instance_placeholder": "Nhập tên trường hợp",
+      "clear_all": "Làm mới tất cả",
+      "font_family": "Họ phông chữ",
+      "font_size": "Kích thước phông",
+      "font_weight": "Trọng lượng phông",
+      "x_minimum": "Gía trị nhỏ nhất trục X",
+      "arc_width": "Độ dày vòng cung",
+      "arc_width_default": "Mặc định 40",
+      "title_position": "Vị trí tiêu đề",
+      "advanced_setting": "Cài đặt nâng cao",
+      "historical_timestamps": "Dấu thời gian",
+      "y_minimum": "Gía trị nhỏ nhất trục Y",
+      "y_maximum": "Gía trị lớn nhất trục Y",
+      "period": "Giai đoạn",
+      "line_maximum": "Số dòng tối đa",
+      "nodes": "Nút",
+      "save": "Lưu",
+      "cancel": "Hủy",
+      "select": "Chọn",
+      "hyperlink": "Liên kết ngoài",
+      "search": "Tìm kiếm...",
+      "delete": "Xóa",
+      "filter": "Lọc",
+      "no_instance": "Không có instance",
+      "custom": "Tùy chỉnh",
+      "one_instance": "1 instance được chọn",
+      "more_instances": "{{count}} trường hợp được chọn",
+      "column": "Cột",
+      "new_url": "Đường dẫn mới",
+      "name_url": "Tên",
+      "base_url": "Đường dẫn chuẩn",
+      "example": "Ví dụ",
+      "columns_setting": "Thiết lập cột",
+      "add_instance": "+Thêm trường hợp",
+      "change_chart_type": "Đổi loại chart",
+      "change_chart_type_description_1": "Loại chart bạn chọn chỉ hỗ trợ 1 measure, 1 dimension và 1 window. <br> Vui lòng chọn dữ liệu mà bạn muốn áp dụng cho chart mới.",
+      "change_chart_type_description_2": "Loại chart bạn chọn chỉ hỗ trợ 1 measure và 1 window. <br> Vui lòng chọn dữ liệu mà bạn muốn áp dụng cho chart mới."
+    },
+    "add_widget_form": {
+      "option_set_template": "Tạo thành mẫu",
+      "label_widget_name": "Tên tiện ích",
+      "label_widget_type": "Loại tiện ích",
+      "package_placeholder": "Chọn tên gói dữ liệu ...",
+      "error_widget_type_required": "Loại tiện ích là bắt buộc."
+    },
+    "sidebar": {
+      "search_placeholder": "Tìm kiếm ...",
+      "search_box_sub_title": "Nhấp đúp chuột vào thẻ để thêm"
+    },
+    "form": {
+      "breakpoint_threshold_colors": "Màu {{value}}",
+      "column_editor": {
+        "label_name": "Tên: ",
+        "label_type": "Loại: ",
+        "label_title": "Tiêu đề: ",
+        "label_width": "Độ rộng: ",
+        "label_aggregation": "Tập hợp: ",
+        "label_group": "Nhóm",
+        "label_visibility": "Hiển thị",
+        "label_group_options": "Nhóm tuỳ chọn: ",
+        "label_group_hour": "Nhóm giờ: ",
+        "save": "Lưu",
+        "cancel": "Huỷ"
+      }
+    }
+  },
+  "user": {
+    "login_form": {
+      "username": "Tên đăng nhập",
+      "error_username_required": "Tên đăng nhập là bắt buộc",
+      "password": "Mật khẩu",
+      "error_password_required": "Mật khẩu là bắt buộc",
+      "label_login": "Đăng nhập"
+    }
+  },
+  "measure": {
+    "measure_component": {
+      "add_measure": "Thêm đơn vị đo lường",
+      "add_formula_measure": "Thêm công thức đo lường",
+      "name": "Tên",
+      "package": "Gói",
+      "status": "Trạng thái",
+      "enabled":  "Kích hoạt",
+      "disabled": "Chưa kích hoạt",
+      "edit": "Chỉnh sữa",
+      "delete": "Xoá",
+      "search_placeholder": "Tìm kiếm ..."
+    },
+    "edit_formula_measure_form": {
+      "name": "Tên: ",
+      "error_name_required": "Vui lòng nhập tên.",
+      "error_name_pattern": "Tên chỉ bao gồm các ký tự A-Z, a-z.",
+      "error_existing_name": "Tên đã được sử dụng. Vui lòng chọn tên khác.",
+      "package": "Gói: ",
+      "error_package_required": "Vui lòng chọn gói.",
+      "measure": "Các đơn vị đo lượng: ",
+      "expression": "Các biểu thức: ",
+      "error_expression_required": "Vui lòng nhập biểu thức.",
+      "save": "Lưu",
+      "cancel": "Huỷ bỏ"
+    }
+  },
+  "measure_specification": {
+    "side_bar": {
+      "tab_event_data": "Dữ liệu sự kiện",
+      "tab_event_tags": "Tags sự kiện",
+      "tab_event_measure": "Đơn vị đo lường",
+      "cancel": "Hủy bỏ",
+      "save": "Lưu",
+      "next": "Tiếp tục"
+    },
+    "event_data": {
+      "placeholder_event_source_url": "Đường dẫn đến nguồn sự kiện",
+      "error_cannot_connect_to": "Không thể kết nối đến",
+      "label_select_streams": "Lựa chọn luồng"
+    },
+    "event_tags": {
+      "other_events": "Sự kiện khác",
+      "placeholder_search_events": "Tìm kiếm tất cả sự kiện",
+      "placeholder_event_name": "Tên sự kiện",
+      "error_event_name_required": "Tên sự kiện là bắt buộc.",
+      "placeholder_query": "khóa = giá trị",
+      "error_query_required": "Truy vấn là bắt buộc.",
+      "error_query_invalid": "Chuỗi truy vấn không hợp lệ."
+    },
+    "measure": {
+      "placeholder_measure_name": "Tên đơn vị đo lường",
+      "placeholder_add_events": "Thêm sự kiện",
+      "placeholder_add_dimension": "Thêm kích thước",
+      "placeholder_add_package": "Thêm vào gói dữ liệu",
+      "placeholder_add_interval": "Thêm Interval (Tuỳ chọn)",
+      "timer_tool_tip": "Hẹn giờ",
+      "duration_tool_tip": "Thời lượng",
+      "counter_tool_tip": "Bộ đếm",
+      "error_input_data_required": "Dữ liệu là bắt buộc.",
+      "error_input_data_invalid": "Dữ liệu không hợp lệ."
+    }
+  },
+  "charts": {
+    "tabular": {
+      "ag_grid": {
+        "page": "Trang",
+        "to": "đến",
+        "of": "của",
+        "next": "Tiếp theo",
+        "last": "Cuối cùng",
+        "first": "Đầu tiên",
+        "previous": "Trước",
+        "loadingOoo": "Đang tải...",
+        "selectAll": "Chọn tất cả",
+        "searchOoo": "Tìm kiếm...",
+        "blanks": "Trống",
+        "autosizeThiscolumn": "Điều chỉnh kích thước cột này",
+        "autosizeAllColumns": "Điều chỉnh kích thước tất cả các cột",
+        "resetColumns": "Đặt lại tất cả các cột",
+        "pinColumn": "Ghim cột",
+        "pinLeft": "Ghim trái",
+        "pinRight": "Ghim phải",
+        "noPin": "Bỏ ghim",
+        "equals": "Bằng",
+        "notEqual": "Không bằng",
+        "lessThan": "Nhỏ hơn",
+        "greaterThan": "Lớn hơn",
+        "inRange": "Trong khoảng",
+        "lessThanOrEqual": "Nhỏ hơn hoặc bằng",
+        "greaterThanOrEqual": "Lớn hơn hoặc bằng",
+        "filterOoo": "Lọc ...",
+        "contains": "Bao gồm",
+        "notContains": "Không bao gồm",
+        "startsWith": "Bắt đầu với",
+        "endsWith": "Kết thúc với",
+        "andCondition": "Và",
+        "orCondition": "Hoặc",
+        "group": "Nhóm"
+      },
+      "other": {
+        "page_size": "Số trang"
+      }
+    },
+    "time_line": {
+      "start": "Bắt đầu",
+      "end": "Kết thúc"
+    },
+    "call_timepline": {
+      "call_timeline_filter_bar": {
+        "placeholder_search": "Chỉ nhập 1 giá trị cho mỗi loại."
+      }
+    },
+    "tooltip": {
+      "line_chart": "Hiện biểu đồ đường",
+      "spline_chart": "Hiện biểu đồ đường tròn",
+      "area_chart": "Hiện biểu đồ đường khu vực",
+      "show_legend": "Hiện huyền thoại",
+      "hide_legend": "Ẩn huyền thoại",
+      "play_moving_timeline": "Chạy đường chuyển động",
+      "pause_moving_timeline": "Dừng đường chuyển động"
+    }
+  },
+  "highchart": {
+    "contextButtonTitle": "Danh sách ngữ cảnh",
+    "downloadCSV": "Tải CSV",
+    "downloadJPEG": "Tải hình JPEG",
+    "downloadPDF": "Tải tài liệu PDF",
+    "downloadPNG": "Tải hình PNG",
+    "downloadSVG": "Tải hình SVG vector",
+    "downloadXLS": "Tải XLS",
+    "drillUpText": "◁ Trở về {series.name}",
+    "invalidDate": "Không phù hợp",
+    "loading": "Đang tải ...",
+    "months": ["Tháng Một", "Tháng Hai", "Tháng Ba", "Tháng Tư", "Tháng năm", "Tháng sáu", "Tháng bảy","Tháng tám", "Tháng chín", "Tháng mười", "Tháng mười một", "Tháng mười hai"],
+    "shortMonths": ["T.Một", "T.Hai", "T.Ba", "T.Bốn", "T.Năm", "T.Sáu", "T.Bảy", "T.Tám", "T.Chín", "T.Mười", "T.Mười một", "T.Mười hai"],
+    "shortWeekdays": "Không xác định",
+    "noData": "Không có dữ liệu",
+    "numericSymbolMagnitude": "1000",
+    "openInCloud": "Mở trong Highcharts Cloud",
+    "printChart": "In chart",
+    "resetZoom": "Đặt lại mức thu phóng",
+    "resetZoomTitle": "Đặt lại mức thu phóng 1:1",
+    "viewData": "Xem bảng dữ liệu",
+    "viewFullscreen": "Phóng đại toàn màn hình",
+    "rangeSelectorAll": "Tất cả",
+    "rangeSelectorZoom": "Phóng to",
+    "rangeSelectorTo": "Đến",
+    "rangeSelectorFrom": "Từ"
+  },
+  "select": {
+    "display_mode": {
+      "latest": "Mới nhất",
+      "historical": "Lịch sử",
+      "timestamp": "Thời điểm cụ thể"
+    },
+    "data_display_type": {
+      "show_interval": "Tất cả dữ liệu",
+      "end_of_timeline": "Thời gian cuối"
+    },
+    "line_chart_type": {
+      "line": "Đường",
+      "area": "Miền",
+      "spline": "Chốt trục"
+    },
+    "trend_type": {
+      "day": "Ngày",
+      "shift": "Ca"
+    },
+    "agg_function": {
+      "sum": "Tổng",
+      "avg": "Trung bình",
+      "min": "Nhỏ nhất",
+      "max": "Lớn nhất",
+      "count": "Đếm",
+      "first": "Đầu",
+      "last": "Cuối"
+    },
+    "group_option": {
+      "month": "tháng",
+      "week": "tuần",
+      "day": "ngày",
+      "hour": "giờ"
+    },
+    "widget_threshold_color": {
+      "green": "Xanh lục",
+      "red": "Đỏ"
+    },
+    "title_position": {
+      "left": "Trái",
+      "center": "Giữa",
+      "right": "Phải",
+      "justify": "Canh đều"
+    },
+    "bar_chart_style": {
+      "normal": "Bình thường",
+      "stacked": "Chồng",
+      "horizontal": "Ngang",
+      "vertical": "Dọc"
+    },
+    "time_group": {
+      "today": "Hôm nay",
+      "yesterday": "Hôm qua",
+      "last_24_hours": "24 giờ trước",
+      "last_7_days": "7 ngày trước",
+      "last_30_days": "30 ngày trước",
+      "this_month": "Tháng này",
+      "custom": "Tùy chỉnh",
+      "all": "Tất cả",
+      "day": "Ngày",
+      "hour": "Giờ",
+      "minute": "Phút"
+    },
+    "duration_type": {
+      "increment": "Tăng",
+      "decrement": "Giảm"
+    },
+    "font_weight": {
+      "normal": "Bình thường",
+      "bold": "Đậm",
+      "bolder": "Rất đậm",
+      "lighter": "Sáng"
+    },
+    "label_mode": {
+      "none": "Không hiện",
+      "show_name": "Hiện tên",
+      "show_value": "Hiện giá trị"
+    },
+    "data_mode": {
+      "instances": "Trường hợp",
+      "measures": "Đơn vị đo lường",
+      "time_range": "Khoảng thời gian"
+    }
+  }
+}

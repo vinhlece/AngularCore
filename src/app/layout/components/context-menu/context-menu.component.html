@@ -1,0 +1,8 @@
+<div class="context-menu"
+     *ngIf="visible"
+     [style.top.px]="top"
+     [style.left.px]="left">
+  <div class="context-menu-content">
+    <ng-content></ng-content>
+  </div>
+</div>

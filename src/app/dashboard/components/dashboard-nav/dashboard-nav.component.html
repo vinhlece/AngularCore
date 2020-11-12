@@ -1,0 +1,8 @@
+<div class="dashboard-nav">
+  <div class="nav-buttons">
+    <button class="btnNavToList" mat-button mat-fab  mat-tooltip="Dashboard Management" color="primary" [routerLink]="['/dashboard']">
+      <mat-icon>view_list</mat-icon>
+    </button>
+    <app-new-tab-button [dashboardId]="dashboard.id" (onNewTab)="handleAddTab($event)"></app-new-tab-button>
+  </div>
+</div>

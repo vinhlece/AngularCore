@@ -1,0 +1,11 @@
+<div [formGroup]="form" fxLayoutGap="15px" fxFlex="600px">
+  <app-number-input fxFlex="25" [min]="1"
+                    formControlName="value"
+                    class="form-control"
+                    label="dashboard.time_explorer.interval_value">
+  </app-number-input>
+  <app-selection fxFlex="25" formControlName="unit" [options]="intervalUnit" placeholder="dashboard.time_explorer.interval_unit"></app-selection>
+  <div class="clear">
+    <button type="button" mat-button (click)="clearInterval()">Clear</button>
+  </div>
+</div>

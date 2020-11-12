@@ -1,0 +1,14 @@
+<div fxLayout="row" [formGroup]="form" fxFlex="100">
+  <div>
+    <app-color-input-component
+      [label]="placeholder"
+      [required]="required"
+      [isLabel]="false"
+      formControlName="value"
+      fxFlex="70"
+    ></app-color-input-component>
+    <mat-checkbox class="checkbox" *ngIf="auto" fxFlex="30" formControlName="autoInvokeUrl" fxLayoutAlign="start center">
+      Auto Invoke URL
+    </mat-checkbox>
+  </div>
+</div>

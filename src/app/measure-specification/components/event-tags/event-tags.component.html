@@ -1,0 +1,88 @@
+<div fxLayout="column" fxFlex="100" class="container" fxLayoutAlign="space-between" [formGroup]="form">
+  <div fxLayout="column" class="event-qualifier">
+    <app-search-box [placeHolder]="'measure_specification.event_tags.placeholder_search_events' | translate"
+      class="add-events" fxLayout="start start" [required]="false" (onChange)="handleSearchEvent($event)">
+    </app-search-box>
+    <div class="event-qualifier-container" *ngIf="existEventTags.length">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="title">
+        <div class="other-event">Event Qualifier</div>
+        <div fxLayoutGap="10px">
+          <button type="button" mat-icon-button (click)="isSimpleListEQ = !isSimpleListEQ;">
+            <mat-icon>list</mat-icon>
+          </button>
+          <button type="button" mat-icon-button (click)="toggleEventQualifier = !toggleEventQualifier">
+            <mat-icon>{{toggleEventQualifier ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}}</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="event-qualifier-list" *ngIf="toggleEventQualifier">
+        <app-chip-list *ngIf="isSimpleListEQ; else cardListEQ" [data]="getEventsName()" class="custom-event"></app-chip-list>
+        <ng-template #cardListEQ>
+          <div fxLayout="column" fxLayoutGap="8px">
+            <div *ngFor="let event of existEventTags; let i = index">
+              <app-event-tag-item [eventTag]="event" (onDelete)="handleDeleteEvent(event, editingEventTag.OnEvent)"
+                (onEdit)="handleEditEvent(i, event, editingEventTag.OnEvent)"></app-event-tag-item>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="custom-event-qualifier" fxLayout="column" fxLayoutAlign="end none" *ngIf="isAddEvent || editingEvent === editingEventTag.OnEvent">
+    <mat-divider class="divider"></mat-divider>
+    <div fxLayout="column" class="custom-event-qualifier-container" *ngIf="displayEventList">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="title">
+        <div class="other-event">{{'measure_specification.event_tags.other_events' | translate}}</div>
+        <div fxLayoutGap="10px">
+          <button type="button" mat-icon-button (click)="handleSwitchMode()">
+            <mat-icon>list</mat-icon>
+          </button>
+          <button type="button" mat-icon-button (click)="hideAddForm()">
+            <mat-icon>{{toggleEventList ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}}</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="event-qualifier-list" *ngIf="toggleEventList">
+        <app-chip-list *ngIf="isSimpleList; else cardList" [data]="getEventsCustomName()" class="custom-event">
+        </app-chip-list>
+        <ng-template #cardList>
+          <div fxLayout="column" fxLayoutGap="8px">
+            <div *ngFor="let event of customEvents; let i = index">
+              <app-event-tag-item [eventTag]="event" (onDelete)="handleDeleteEvent(event, editingEventTag.OnCustom)"
+                (onEdit)="handleEditEvent(i, event, editingEventTag.OnCustom)"></app-event-tag-item>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div *ngIf="!displayEventList || editingEvent === editingEventTag.OnCustom || editingEvent === editingEventTag.OnEvent">
+      <mat-divider class="divider" *ngIf="editingEvent"></mat-divider>
+      <div fxLayout="row" fxLayoutAlign="none center" fxLayoutGap="20px">
+        <mat-form-field fxFlex="80" class="search-filed" appearance="outline">
+          <input #name_input placeholder="{{'measure_specification.event_tags.placeholder_event_name' | translate}}"
+            formControlName="input" autocomplete="off" matInput type="text" />
+          <mat-error class="required">{{'measure_specification.event_tags.error_event_name_required' | translate}}
+          </mat-error>
+        </mat-form-field>
+        <button type="button" mat-icon-button (click)="saveCustomEvent()">
+          <mat-icon [ngClass]="getIconClass()" [attr.disabled]="form.invalid">save</mat-icon>
+        </button>
+        <button type="button" mat-icon-button (click)="clearEvent()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+      <mat-form-field class="search-filed" appearance="outline">
+        <textarea #query_input placeholder="{{'measure_specification.event_tags.placeholder_query' | translate}}"
+          rows="2" autocomplete="off" matInput type="text" formControlName="query">
+        </textarea>
+        <mat-error class="required">{{'measure_specification.event_tags.error_query_required' | translate}}</mat-error>
+        <span *ngIf="!form.controls['query'].errors && !isValidQuery"
+          class="invalid-query mat-error mat-form-field-subscript-wrapper">
+          {{'measure_specification.event_tags.error_query_invalid' | translate}}
+        </span>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

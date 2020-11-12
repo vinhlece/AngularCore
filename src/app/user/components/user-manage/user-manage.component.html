@@ -1,0 +1,27 @@
+<div class="user-manage" appTheme>
+  <div class="userManageBody">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+      <ng-container matColumnDef="index">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">Index</mat-header-cell>
+        <mat-cell class="table-cell" *matCellDef="let element; let i = index">{{i+1}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="userId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">UserId</mat-header-cell>s
+        <mat-cell class="table-cell" *matCellDef="let element">{{element.id}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="displayName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="header-cell">UserName</mat-header-cell>
+        <mat-cell class="table-cell" *matCellDef="let element"> {{element.displayName}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns" class="header-cell"></mat-header-row>
+      <mat-row class="row" *matRowDef="let row; columns: displayedColumns;"
+               (click)="clickOnRow(row)"
+               (contextmenu)="handleShowContextMenu($event, row)"></mat-row>
+    </mat-table>
+  </div>
+</div>
+<app-context-menu [event]="contextMenuEvents">
+  <div appContextMenuItem (click)="handleEditUser()"><mat-icon>edits</mat-icon> Edit</div>
+  <div appContextMenuItem (click)="handleDeleteUser()"><mat-icon>delete_forever</mat-icon> Delete</div>
+</app-context-menu>
+

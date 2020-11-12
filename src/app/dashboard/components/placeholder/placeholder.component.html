@@ -1,0 +1,390 @@
+<mat-card *ngIf="widget"
+          class="widget-item-content"
+          [ngClass]="isSubTitle() ? 'card' : 'card sub-title'"
+          appTwinkle [color]="styles.backgroundColor"
+          appDroppable accept=".app-draggable-component"
+          [style.color]="styles.color"
+          [style.fontFamily]="styles.font"
+          (onDrop)="handleDrop($event)">
+  <mat-card-header class="heading" [ngStyle]="getHeaderStyle()" appTheme>
+    <app-placeholder-header
+                            [widget]="widget"
+                            [title]="widget.name"
+                            [subTitle]="widget.subtitle"
+                            [settings]="uiSettings"
+                            [menuStyles]="styles"
+                            [measures]="measures"
+                            [currentMeasures]="widget.measures"
+                            [isDisableRealTime]="isDisableRealTime()"
+                            [isRealTime]="getRealTimeMode()"
+                            [titlePosition]="widget.titlePosition"
+                            [isOverlayWidget]="isOverlayWidget()"
+                            [displayMode] = "displayMode"
+                            [exportMenu]="exportMenu"
+                            (onDelete)="handleDelete()"
+                            (onMaximize)="handleMaximize()"
+                            (onMinimize)="handleMinimize()"
+                            (onExport)="handleExport($event)"
+                            (onSearch)="handleSearch($event)"
+                            (onCopy)="handleCopy()"
+                            (onChangeTitle)="handleChangeTitle($event)"
+                            (onChangeSubTitle)="handleChangeSubTitle($event)"
+                            (onEdit)="handleEdit()"
+                            (onAddMeasure)="handleAddMeasure($event)"
+                            (onSetTimeMode)="handleSetTimeRange($event)"
+                            (onSetRealTimeMode)="handleSetRealTimeMode($event)"
+                            (onToggleExportMenu)="handleToggleExportMenu($event)"
+                            (onToggleGaugeMode)="handleToggleGaugeMode($event)"
+                            (onChangeShowLegend)="handleChangeShowLegend($event)"
+                            (onChangeChartType) = "handleChangeChartType($event)"
+                            (onChangePauseLineChart) = "handleChangePauseLineChart($event)"
+                            (onSwitchDisplayMode)="handleSwitchDisplayMode($event)"
+
+    >
+    </app-placeholder-header>
+  </mat-card-header>
+  <mat-card-content *ngIf="widget.type !== WIDGET_TYPES.LabelWidget" class="content-wrapper widget-item-content">
+    <div class="widget-item-content chart-container" [ngSwitch]="widget.type">
+      <app-liquid-fill-gauge *ngSwitchCase="WIDGET_TYPES.LiquidFillGauge"
+                    class="widget-grid-tile"
+                    [widget]="widget"
+                    [data]="data"
+                    [size]="chartSize"
+                    [styles]="styles"
+                    [measures]="measures"
+                    [isOverlayWidget]="isOverlayWidget()"
+                    (onChange)="handleLiquidFillDataChange()"
+                    (onMouseDown)="handleMouseDown($event)"
+                    (onContextMenu)="handleContextMenu($event)"
+                    (onDoubleClick)="handleInvokeUrl()">
+      </app-liquid-fill-gauge>
+      <app-bar-chart *ngSwitchCase="WIDGET_TYPES.Bar"
+                     class="widget-grid-tile"
+                     [widget]="widget"
+                     [showLegend]="showLegend"
+                     [placeholder]="placeholder"
+                     [data]="data"
+                     [size]="chartSize"
+                     [styles]="styles"
+                     [colorPalette]="colorPalette"
+                     [currentTimestamp]="currentTimestamp"
+                     [exportMenu]="exportMenu"
+                     [isOverlayWidget]="isOverlayWidget()"
+                     [instanceColors]="instanceColors"
+                     [isEmptyData]="isEmptyData()"
+                     (onClick)="handleClick($event)"
+                     (onMouseDown)="handleMouseDown($event)"
+                     (onContextMenu)="handleContextMenu($event)"
+                     (onLegendConfig)="handleLegendConfig($event)"
+                     (onDoubleClick)="handleInvokeUrl()">
+      </app-bar-chart>
+      <app-line-chart *ngSwitchCase="WIDGET_TYPES.Line"
+                      class="widget-grid-tile line-chart"
+                      [zoom]="zoom"
+                      [widget]="widget"
+                      [showLegend]="showLegend"
+                      [pauseLineChart] = "pauseLineChart"
+                      [placeholder]="placeholder"
+                      [data]="data"
+                      [size]="chartSize"
+                      [styles]="styles"
+                      [interval]="interval"
+                      [predictiveSetting]="predictiveSetting"
+                      [chartType]="chartType"
+                      [currentTimestamp]="currentTimestamp"
+                      [exportMenu]="exportMenu"
+                      [isEmptyData]="isEmptyData()"
+                      [isOverlayWidget]="isOverlayWidget()"
+                      (onZoom)="handleZoom($event)"
+                      (onMouseDown)="handleMouseDown($event)"
+                      (onContextMenu)="handleContextMenu($event)"
+                      (onChangeChartType)="handleChangeChartType($event)"
+                      (onLegendConfig)="handleLegendConfig($event)"
+                      (onDoubleClick)="handleInvokeUrl()">
+      </app-line-chart>
+      <app-line-chart *ngSwitchCase="WIDGET_TYPES.TrendDiff"
+                      class="widget-grid-tile line-chart"
+                      [widget]="widget"
+                      [showLegend]="showLegend"
+                      [pauseLineChart] = "pauseLineChart"
+                      [placeholder]="placeholder"
+                      [data]="data"
+                      [size]="chartSize"
+                      [styles]="styles"
+                      [chartType]="chartType"
+                      [exportMenu]="exportMenu"
+                      [isOverlayWidget]="isOverlayWidget()"
+                      [isEmptyData]="isEmptyData()"
+                      (onMouseDown)="handleMouseDown($event)"
+                      (onContextMenu)="handleContextMenu($event)"
+                      (onDoubleClick)="handleInvokeUrl()"
+      >
+      </app-line-chart>
+      <app-billboard *ngSwitchCase="WIDGET_TYPES.Billboard"
+                     class="widget-grid-tile"
+                     [widget]="widget"
+                     [data]="data"
+                     [size]="chartSize"
+                     [styles]="styles"
+                     [measures]="measures"
+                     [instanceColors]="instanceColors"
+                     [isOverlayWidget]="isOverlayWidget()"
+                     (onChange)="handleBillboardDataChange()"
+                     (onMouseDown)="handleMouseDown($event)"
+                     (onContextMenu)="handleContextMenu($event)"
+                     (onDoubleClick)="handleInvokeUrl()">
+      </app-billboard>
+      <app-sankey-chart *ngSwitchCase="WIDGET_TYPES.Sankey"
+                        class="widget-grid-tile"
+                        [widget]="widget"
+                        [placeholder]="placeholder"
+                        [data]="data"
+                        [size]="chartSize"
+                        [exportMenu]="exportMenu"
+                        [styles]="styles"
+                        [isEmptyData]="isEmptyData()"
+                        [isOverlayWidget]="isOverlayWidget()"
+                        (onMouseDown)="handleMouseDown($event)"
+                        (onDoubleClick)="handleInvokeUrl()"
+                        (onContextMenu)="handleContextMenu($event)">
+
+      </app-sankey-chart>
+      <app-solid-gauge *ngSwitchCase="WIDGET_TYPES.SolidGauge"
+                       class="widget-grid-tile"
+                       [widget]="widget"
+                       [placeholder]="placeholder"
+                       [data]="data"
+                       [size]="chartSize"
+                       [styles]="styles"
+                       [exportMenu]="exportMenu"
+                       [isMaximized]="isMaximized"
+                       [measures]="measures"
+                       [isOverlayWidget]="isOverlayWidget()"
+                       [isEmptyData]="isEmptyData()"
+                       (onMouseDown)="handleMouseDown($event)"
+                       (onDoubleClick)="handleInvokeUrl()"
+                       (onContextMenu)="handleContextMenu($event)"
+      >
+      </app-solid-gauge>
+      <app-sunburst *ngSwitchCase="WIDGET_TYPES.Sunburst"
+                    class="widget-grid-tile"
+                    [widget]="widget"
+                    [placeholder]="placeholder"
+                    [data]="data"
+                    [size]="chartSize"
+                    [styles]="styles"
+                    [exportMenu]="exportMenu"
+                    [isEmptyData]="isEmptyData()"
+                    [isOverlayWidget]="isOverlayWidget()"
+                    (onMouseDown)="handleMouseDown($event)"
+                    (onContextMenu)="handleContextMenu($event)"
+                    (onDoubleClick)="handleInvokeUrl()">
+        >
+      </app-sunburst>
+      <app-geo-map *ngSwitchCase="WIDGET_TYPES.GeoMap"
+                   class="widget-grid-tile"
+                   [widget]="widget"
+                   [showLegend]="showLegend"
+                   [placeholder]="placeholder"
+                   [data]="data"
+                   [size]="chartSize"
+                   [styles]="styles"
+                   [exportMenu]="exportMenu"
+                   [isOverlayWidget]="isOverlayWidget()"
+                   [isEmptyData]="isEmptyData()"
+                   (onMouseDown)="handleMouseDown($event)"
+                   (onContextMenu)="handleContextMenu($event)"
+                   (onDoubleClick)="handleInvokeUrl()">
+      </app-geo-map>
+      <app-table-component *ngSwitchCase="WIDGET_TYPES.Tabular"
+                           class="widget-grid-tile"
+                           [size]="chartSize"
+                           [widget]="widget"
+                           [data]="data"
+                           [interval]="interval"
+                           [isOverlayWidget]="isOverlayWidget()"
+                           (onPage)="handlePage($event)"
+                           (onMouseDown)="handleMouseDown($event)"
+                           (onContextMenu)="handleContextMenu($event)"
+                           (onChartReady)="handleChartReady($event)"
+                           (onMoveColumn)="handleMoveColumn($event)"
+                           (onColumnMouseDown)="handleColumnMouseDown($event)"
+                           (onAutoInvokeUrls)="handleAutoInvokeUrls($event)"
+                           (onDoubleClick)="handleInvokeUrl()"
+                           (onColumnResize)="handleUpdateColumnWidth($event)"
+      >
+      </app-table-component>
+      <app-call-timeline *ngSwitchCase="WIDGET_TYPES.CallTimeLine"
+                         class="widget-grid-tile"
+                         [size]="chartSize"
+                         [widget]="widget"
+                         [data]="data"
+                         [zoom]="callTimeLineZoom"
+                         [colorPalette]="colorPalette"
+                         [isOverlayWidget]="isOverlayWidget()"
+                         (onZoom)="handleZoom($event)"
+                         (onMouseDown)="handleMouseDown($event)"
+                         (onContextMenu)="handleContextMenu($event)"
+                         (onDoubleClick)="handleInvokeUrl()"
+                         (onSearchChange)="handleSearchChange($event)"
+      ></app-call-timeline>
+      <app-bubble-chart *ngSwitchCase="WIDGET_TYPES.Bubble"
+                        class="widget-grid-tile"
+                        [widget]="widget"
+                        [placeholder]="placeholder"
+                        [data]="data"
+                        [size]="chartSize"
+                        [styles]="styles"
+                        [colorPalette]="colorPalette"
+                        [exportMenu]="exportMenu"
+                        [isOverlayWidget]="isOverlayWidget()"
+                        [isEmptyData]="isEmptyData()"
+                        (onClick)="handleClick($event)"
+                        (onMouseDown)="handleMouseDown($event)"
+                        (onContextMenu)="handleContextMenu($event)"
+                        (onDoubleClick)="handleInvokeUrl()"
+      ></app-bubble-chart>
+      <app-event-viewer *ngSwitchCase="WIDGET_TYPES.EventViewer"
+                         class="widget-grid-tile"
+                         [widget]="widget"
+                         (onMouseDown)="handleMouseDown($event)"
+                         (onContextMenu)="handleContextMenu($event)"
+                         (onDoubleClick)="handleInvokeUrl()"
+                         (onSearchChange)="handleSearchChange($event)"
+      ></app-event-viewer>
+      <app-content-overlay *ngIf="isOverlayEmpty() || isOverlayWidget()" [ngStyle]="getOverlayStyle()" class="overlay">
+        <span *ngIf="!isOverlayWidget()">
+          <mat-icon (click)="handleEdit()" matTooltip="{{'dashboard.placeholder_header.preferences' | translate}}">
+            edit
+          </mat-icon>
+        </span>
+      </app-content-overlay>
+    </div>
+  </mat-card-content>
+</mat-card>
+<app-context-menu #ContextMenu *ngIf="uiSettings.contextMenu" [event]="contextMenuEvent">
+  <div class="show-table"
+       *ngIf="uiSettings.contextMenu.createTable"
+       appContextMenuItem
+       (click)="handleShowTableWidget()"
+  >
+    {{'dashboard.placeholder.show_table' | translate}}
+  </div>
+  <div class="show-timeline"
+       *ngIf="uiSettings.contextMenu.createTimeLine"
+       appContextMenuItem
+       (click)="handleShowTimeLineWidget()"
+  >
+    {{'dashboard.placeholder.show_timeline' | translate}}
+  </div>
+  <div class="show-billboard"
+       *ngIf="uiSettings.contextMenu.createBillboard"
+       appContextMenuItem
+       (click)="handleShowBillboardWidget()"
+  >
+    {{'dashboard.placeholder.show_billboard' | translate}}
+  </div>
+  <div class="show-billboard"
+       *ngIf="uiSettings.contextMenu.createLiquidFillGauge"
+       appContextMenuItem
+       (click)="handleShowLiquidFillGaugeWidget()"
+  >
+    {{'dashboard.placeholder.show_liquid_fill_gauge' | translate}}
+  </div>
+  <div class="delete-instance"
+       *ngIf="uiSettings.contextMenu.deleteInstance"
+       appContextMenuItem
+       (click)="handleDeleteMetric('instance')"
+  >
+    {{'dashboard.placeholder.delete_instance' | translate}}
+  </div>
+  <div class="delete-measure"
+       *ngIf="uiSettings.contextMenu.deleteMeasure"
+       appContextMenuItem
+       (click)="handleDeleteMetric('measure')"
+  >
+    {{'dashboard.placeholder.delete_measure' | translate}}
+  </div>
+  <div class="delete-agent"
+       *ngIf="uiSettings.contextMenu.deleteAgent"
+       appContextMenuItem
+       (click)="handleDeleteMetric('agent')"
+  >
+    {{'dashboard.placeholder.delete_agent' | translate}}
+  </div>
+  <div class="delete-queue"
+       *ngIf="uiSettings.contextMenu.deleteQueue"
+       appContextMenuItem
+       (click)="handleDeleteMetric('queue')"
+  >
+    {{'dashboard.placeholder.delete_queue' | translate}}
+  </div>
+  <div class="delete-segment-type"
+       *ngIf="uiSettings.contextMenu.deleteSegmentType"
+       appContextMenuItem
+       (click)="handleDeleteMetric('segmentType')"
+  >
+    {{'dashboard.placeholder.delete_segment_type' | translate}}
+  </div>
+  <div class="invoke-url"
+       *ngIf="uiSettings.contextMenu.invokeUrl"
+       appContextMenuItem
+       (click)="handleInvokeUrl()"
+  >
+    {{'dashboard.placeholder.invoke_url' | translate}}
+  </div>
+  <div
+    class="edit-measure-container"
+    *ngIf="uiSettings.contextMenu.editMeasure"
+  >
+    <div class="edit-measure-btn"
+         appContextMenuItem
+    >
+      {{'dashboard.placeholder.edit_measure' | translate}}
+    </div>
+    <div class="edit-measure-item-container context-menu" [ngStyle]="checkMenuStyle(ContextMenu)">
+      <div
+        *ngFor="let item of measures"
+        (click)="handleUpdateMeasure(item.name)"
+        class="edit-measure-item"
+        [ngStyle]="checkSelectedMeasure(item)"
+      >
+        {{item.name}}
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="uiSettings.contextMenu.shiftTrenddiff"
+  >
+    <div class="shift-trenddiff"
+         appContextMenuItem
+         (click)="handleClickShiftTrendDiff()"
+    >
+      {{'dashboard.header.shift_trend_diff' | translate}}
+    </div>
+  </div>
+
+  <div
+    *ngIf="uiSettings.contextMenu.dayTrenddiff"
+  >
+    <div class="day-trenddiff"
+         appContextMenuItem
+         (click)="handleClickDayTrendDiff()"
+    >
+      {{'dashboard.header.day_trend_diff' | translate}}
+    </div>
+  </div>
+
+  <div
+    *ngIf="uiSettings.contextMenu.weekTrenddiff"
+  >
+    <div class="week-trenddiff"
+         appContextMenuItem
+         (click)="handleClickWeekTrendDiff()"
+    >
+      {{'dashboard.header.week_trend_diff' | translate}}
+    </div>
+  </div>
+
+</app-context-menu>
+

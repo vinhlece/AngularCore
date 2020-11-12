@@ -1,0 +1,77 @@
+<div class="sidebar-wrapper mat-typography">
+  <nav class="sidebar-nav">
+    <div class="sidebar-nav-inner">
+      <div class="sidebar-nav-group">
+        <a href="#" class="nav-item">
+          <mat-icon class="nav-item-icon">menu</mat-icon>
+        </a>
+      </div>
+      <div class="sidebar-nav-group-divider"></div>
+      <div class="sidebar-nav-group">
+        <ul class="sidebar-nav-group-inner">
+          <li>
+            <a class="nav-item search" [class.selected-nav-item]="showSearch" href="#" matTooltip="Search" matTooltipPosition="right" (click)="handleClickSearch($event)">
+              <mat-icon class="nav-item-icon">search</mat-icon>
+            </a>
+          </li>
+          <li *ngIf="showReplayButton">
+            <a class="nav-item replay" href="#" [matTooltip]="replayStatus !== 'Pause' ? 'Pause' : 'Replay'" matTooltipPosition="right" (click)="handleClickReplay($event)">
+              <mat-icon *ngIf="replayStatus === 'Resume'" class="nav-item-icon">pause</mat-icon>
+              <mat-icon *ngIf="replayStatus !== 'Resume'" class="nav-item-icon">replay</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item shift-trend-diff" href="#" matTooltip="Shift Trend Diff" matTooltipPosition="right" (click)="handleClickShiftTrendDiff($event)">
+              <mat-icon class="nav-item-icon">filter_tilt_shift</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item day-trend-diff" href="#" matTooltip="Day Trend Diff" matTooltipPosition="right" (click)="handleClickDayTrendDiff($event)">
+              <mat-icon class="nav-item-icon">view_day</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item week-trend-diff" href="#" matTooltip="Week Trend Diff" matTooltipPosition="right" (click)="handleClickWeekTrendDiff($event)">
+              <mat-icon class="nav-item-icon">view_week</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item add" href="#" matTooltip="Add tab" matTooltipPosition="right" (click)="handleClickAdd($event)">
+              <mat-icon class="nav-item-icon">add</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" [routerLink]="['/measures/add_formula']" matTooltip="Add Formula Measure" matTooltipPosition="right">
+              <mat-icon class="nav-item-icon">slow_motion_video</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" href="#" matTooltip="History" matTooltipPosition="right">
+              <mat-icon class="nav-item-icon">history</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" href="#" matTooltip="Global Filter" (click)="handleToggleGlobalFilter($event)" matTooltipPosition="right">
+              <mat-icon class="nav-item-icon">horizontal_split</mat-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="sidebar-nav-group sidebar-nav-group-bottom">
+        <div class="sidebar-nav-group-divider"></div>
+        <ul class="sidebar-nav-group-inner">
+          <li>
+            <a class="nav-item" href="#" matTooltip="Settings" matTooltipPosition="right">
+              <mat-icon class="nav-item-icon">settings</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a class="nav-item" href="#" matTooltip="Helps" matTooltipPosition="right">
+              <mat-icon class="nav-item-icon">help</mat-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

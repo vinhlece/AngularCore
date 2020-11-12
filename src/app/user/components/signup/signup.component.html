@@ -1,0 +1,48 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+  <div fxLayout="column" fxLayoutAlign="center">
+    <!--Username input-->
+    <div fxLayout="row" fxLayoutGap="10px">
+      <div fxFlex="30" fxLayoutAlign="end center">
+        <label>Username:</label>
+      </div>
+      <div fxFlex="70">
+        <mat-form-field>
+          <input matInput
+                 autocomplete="off"
+                 type="text"
+                 id="username"
+                 formControlName="userName"/>
+          <mat-error class="username-error">Username is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <!--End Username input-->
+    <!--Password input-->
+    <div fxLayout="row" fxLayoutGap="10px">
+      <div fxFlex="30" fxLayoutAlign="end center">
+        <label>Password:</label>
+      </div>
+      <div fxFlex="70">
+        <mat-form-field>
+          <input matInput
+                 autocomplete="off"
+                 type="password"
+                 id="password"
+                 formControlName="password"/>
+          <mat-error class="password-error">Password is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <!--End Password input-->
+    <div fxLayout="row" fxFlexOffset="30px">
+      <div fxFlex="70" fxFlexOffset="30">
+        <button mat-raised-button color="primary" type="submit">Sign Up</button>
+      </div>
+    </div>
+    <div fxLayout="row" fxFlexOffset="30px">
+      <div fxFlex="70" fxFlexOffset="30">
+        <span class="signup-error" *ngIf="errorMessage$ | async as message" style="color: red">{{message}}</span>
+      </div>
+    </div>
+  </div>
+</form>

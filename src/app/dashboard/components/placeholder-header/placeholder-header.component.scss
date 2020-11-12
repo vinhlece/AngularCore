@@ -1,0 +1,119 @@
+@import '~@angular/material/theming';
+@import '../../../../styles/variables';
+
+:host {
+  width: 100%;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+:host:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.btn-group {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  min-width: 40px;
+  padding: 0;
+}
+
+.more-vert-menu {
+  padding: 0 2px;
+  min-width: 15px;
+  height: 25px;
+  right: -100px;
+  position: relative;
+}
+
+.btn {
+  margin: 0px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 10px 0 10px;
+
+  .option-position {
+    position: absolute;
+    right: 0px;
+    .menu-dynamic-container {
+      position: relative;
+      overflow: hidden;
+      width: 131px;
+      .menu-contain-dynamic {
+        width: 126px;
+        position: absolute;
+        right: -100px;
+        transition: 1s;
+        opacity: 0.7;
+        margin-top: -5px;
+        margin-left: 5px;
+      }
+    }
+
+    .menu-contain-static {
+      position: relative;
+      opacity: 0.7;
+      margin-top: -2px;
+      z-index: 100;
+    }
+  }
+}
+
+.subtitle {
+  width: 100%;
+  font-size: $placeholder-subtitle-font-size;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-icons {
+  vertical-align: baseline;
+  color: $button-more-vert-color;
+}
+
+.sub-title {
+  background-color: #F1F0F1;
+  font-size: 12px;
+  width: 100%;
+}
+
+.mat-menu-item {
+  .mat-icon{
+    margin-right: 10px;
+    margin-left: 0px;
+  }
+}
+
+.measure-item {
+  text-align: left;
+  overflow-y: auto;
+  text-overflow: clip;
+}
+
+button {
+  &[aria-disabled="true"] {
+    background-color: #ddd;
+  }
+}
+
+.add {
+  font-size: 14px;
+  padding-right: 10px
+}
+
+.submenu-container {
+  max-height: 300px;
+}

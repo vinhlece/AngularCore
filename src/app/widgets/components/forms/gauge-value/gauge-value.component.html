@@ -1,0 +1,5 @@
+<div class="mat-typography" [formGroup]="form" fxLayout="row wrap" fxLayoutAlign="space-between">
+  <app-number-input formControlName="min" [label]="'widgets.edit_widget_form.min_value'" [required]="required"></app-number-input>
+  <app-number-input formControlName="max" [label]="'widgets.edit_widget_form.max_value'" [required]="required"></app-number-input>
+  <app-color-input-component formControlName="color" [isLabel]="true" [required]="required"></app-color-input-component>
+</div>

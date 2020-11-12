@@ -1,0 +1,43 @@
+<ng-container *ngIf="widget$ | async as widget">
+<div *ngIf="!isEditingOnSideBar; else editSideBar" fxLayout="row nowrap" [style.height]="'100%'">
+  <app-edit-line-widget-form fxFlex="40" [style.height]="'100vh'"
+                             [widget]="widget"
+                             [chartTypes]="lineChartTypes"
+                             [dataTypes]="dataTypes$ | async"
+                             [measures]="measures$ | async"
+                             [packages]="packages$ | async"
+                             [allInstance]="allInstance$ | async"
+                             [packageDetails]="packageDetails$ | async"
+                             [allDimensions]="allDimensions$ | async"
+                             [editType]="EditWidgetType.OnWidget"
+                             (onChange)="handleChange($event)"
+                             (onSubmit)="handleSubmit($event)"
+                             (onCancel)="handleCancel()"
+                             (onChangeType)="handleChangeType($event)"
+  ></app-edit-line-widget-form>
+  <div class="sample-widget" appTheme>
+    <app-line-chart [widget]="widget"
+                    [data]="data$ | async"
+                    [styles]="styles"
+                    fxFlex="60"
+    ></app-line-chart>
+  </div>
+</div>
+<ng-template #editSideBar>
+  <app-edit-line-widget-form [widget]="widget" [style.height]="'100vh'"
+                             [chartTypes]="lineChartTypes"
+                             [dataTypes]="dataTypes$ | async"
+                             [measures]="measures$ | async"
+                             [packages]="packages$ | async"
+                             [packageDetails]="packageDetails$ | async"
+                             [allDimensions]="allDimensions$ | async"
+                             [allInstance]="allInstance$ | async"
+                             [saveSubject]="saveSubject"
+                             [editType]="EditWidgetType.OnData"
+                             (onChange)="handleChange($event)"
+                             (onSubmit)="handleSubmit($event)"
+                             (onCancel)="handleCancel()"
+                             (onValidate)="handleValidate($event)"
+                             (onChangeType)="handleChangeType($event)"
+  ></app-edit-line-widget-form>
+</ng-template>

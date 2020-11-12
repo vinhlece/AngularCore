@@ -1,0 +1,34 @@
+<div [formGroup]="form" class="container" fxLayout="row">
+  <div class="input-label" fxLayout="column" fxFlex="33">
+    <label for="font" translate>widgets.edit_widget_form.font_family</label>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-select formControlName="fontFamily" placeholder="{{'widgets.edit_widget_form.font_family' | translate}}">
+        <mat-option id="font" [class.dark-theme-box]="isDarkTheme" *ngFor="let font of fontFamily" [ngStyle]="styleForFontName(font)" [value]="font">
+          {{font}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="column" fxFlex="33">
+    <label class="input-label" for="size" translate>widgets.edit_widget_form.font_size</label>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-select formControlName="fontSize" placeholder="{{'widgets.edit_widget_form.font_size' | translate}}">
+        <mat-option id="size" [class.dark-theme-box]="isDarkTheme" *ngFor="let size of fontSize" [value]="size">
+          {{size}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="column" fxFlex="33">
+    <label class="input-label" for="weight" translate>widgets.edit_widget_form.font_weight</label>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-select formControlName="fontWeight" placeholder="{{'widgets.edit_widget_form.font_weight' | translate}}">
+        <mat-option id="weight" [class.dark-theme-box]="isDarkTheme" *ngFor="let option of fontWeights" [ngStyle]="styleForFontWeights(option.key)" [value]="option.key">
+          {{option.value | translate}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

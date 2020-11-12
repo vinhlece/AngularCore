@@ -1,0 +1,15 @@
+<div class="header" (click)="handleSort($event)" (mousedown)="handleMouseDown($event)">
+  <div class="main">
+    <span [ngStyle]="getHeaderStyle()">{{params.displayName}}</span>
+    <div class="icon-wrapper">
+      <mat-icon class="icon" *ngIf="sorted === 'asc'">arrow_upward</mat-icon>
+      <mat-icon class="icon" *ngIf="sorted === 'desc'">arrow_downward</mat-icon>
+    </div>
+  </div>
+  <div class="icon-wrapper">
+    <mat-icon *ngIf="params.column.isFilterActive()" class="icon">filter_list</mat-icon>
+  </div>
+  <div #openMenu class="menu icon-wrapper" (click)="handleOpenMenu($event)">
+    <mat-icon class="icon">menu</mat-icon>
+  </div>
+</div>

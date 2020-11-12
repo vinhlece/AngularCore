@@ -1,0 +1,13 @@
+<form [formGroup]="newForm" (ngSubmit)="onSave()">
+  <mat-card class="no-shadow">
+    <mat-card-title>{{data.title}}</mat-card-title>
+    <mat-card-content>
+      <mat-form-field class="field">
+        <input matInput formControlName="title" autocomplete="off">
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button id="saveButton" mat-raised-button type="submit" color="primary">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

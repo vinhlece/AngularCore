@@ -1,0 +1,14 @@
+<app-measure-side-bar
+  (getStream)="handleGetStream($event)"
+  (updateStream)="handleUpdateStream($event)"
+  (onSubmit)="handleSubmit($event)"
+  (onEventQualifier)="handleAddEventQualifier($event)"
+  (onUpdateEventQualifier)="handleUpdateEventQualifier($event)"
+  (onDeleteEventQualifier)="handleDeleteEventQualifier($event)"
+  (onEventStream)="handleEventStream($event)"
+  [streams]="streams$ | async"
+  [packages]="packages$ | async"
+  [windows]="windows$ | async"
+  [existEventTags]="eventTags$ | async"
+  [eventTags]="customEventTags | async"
+></app-measure-side-bar>

@@ -1,0 +1,16 @@
+<mat-form-field [formGroup]="form" class="search-box" appearance="outline" fxFlexAlign="center">
+  <mat-icon matPrefix>search</mat-icon>
+  <input placeholder="{{placeHolder}}" matInput type="text"
+         formArrayName="values"
+         [matChipInputFor]="searchInput"
+         [matChipInputAddOnBlur]="true"
+         (matChipInputTokenEnd)="handleAddSearch($event)"/>
+</mat-form-field>
+<mat-chip-list #searchInput matPrefix class="search-wrapper">
+  <mat-chip *ngFor="let value of searchList"
+            (removed)="handleRemoveSearch(value)">
+    {{value}}
+    <mat-icon matChipRemove>cancel</mat-icon>
+  </mat-chip>
+  <button mat-button *ngIf="searchList.length > 0" (click)="handleRemoveAll()">{{'widgets.edit_widget_form.clear_all' | translate}}</button>
+</mat-chip-list>

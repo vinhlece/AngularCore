@@ -1,0 +1,7 @@
+<div class="plot-line-labels">
+  <div *ngFor="let label of labels">
+    <span [style.color]="label.color">{{label.name}}:</span>
+    &nbsp;
+    <span>{{label.value}}</span>
+  </div>
+</div>

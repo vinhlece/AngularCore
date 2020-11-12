@@ -1,0 +1,9 @@
+<div class="side-bar" [@state]="state">
+  <app-new-side-bar [style.height]="'100%'"
+                    [widget]="widget$ | async"
+                    (onCancel)="handleCancel($event)"
+                    (onSave)="handleSave($event)"
+                    (onCreateWidgetType)="handleCreateWidget($event)"
+                    (onUpdateWidgetType)="handleUpdateWidget($event)"
+  ></app-new-side-bar>
+</div>

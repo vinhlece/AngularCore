@@ -1,0 +1,10 @@
+<form [formGroup]="form" fxLayout="row" fxLayoutGap="10px" class="event-item">
+  <app-text-input formControlName="eventName" class="event-name" [isReadonly]="true"
+                  [isShowTitle]="false" [placeholder]="'Event Tag'"></app-text-input>
+  <mat-radio-group *ngIf="selectedMetricType === measureMetricTypes.Duration" id="radio-buttons" formControlName="action" fxLayout="column">
+    <mat-radio-button *ngFor="let durationType of durationTypes" [value]="durationType.key" fxFlex="1 1 auto">{{durationType.value | translate}}</mat-radio-button>
+  </mat-radio-group>
+  <button type="button" mat-icon-button (click)="handleDelete()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</form>

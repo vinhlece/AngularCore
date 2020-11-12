@@ -1,0 +1,17 @@
+<div class="main-form" >
+  <mat-card class="no-shadow">
+    <mat-card-title>
+      <div>{{formTitle}}</div>
+      <div><hr /></div>
+    </mat-card-title>
+    <mat-card-content>
+      <div>
+        <label>{{inputData}}</label>
+      </div>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="end" fxLayoutGap="10px">
+      <button mat-flat-button type="button" class="card-footer save-button"
+              [mat-dialog-close]="inputData">OK</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

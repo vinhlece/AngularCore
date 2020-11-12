@@ -1,0 +1,29 @@
+<div class="table-container" *ngIf="localeText" appTheme>
+  <div>
+    <!--<app-range-selector
+      class="range-selector"
+      [interval]="interval"
+      (onChangeTimeRange)="handleChangeTimeRange($event)"
+    ></app-range-selector>-->
+  </div>
+  <ag-grid-angular #agGrid
+                   [ngStyle]="{'height': size ? (size.height - 25 )+'px' : '50px'}"
+                   class="ag-theme-material ag-grid-table"
+                   [columnDefs]="columnsDefs"
+                   [gridOptions]="gridOptions"
+                   [rowClassRules]="rowClassRules"
+                   [deltaRowDataMode]="true"
+                   [localeText]="localeText"
+                   (contextmenu)="handleContextMenu($event)"
+  >
+  </ag-grid-angular>
+
+  <div translate class="page-size-config" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="localeText">
+    charts.tabular.other.page_size
+    <div class="page-size" appTheme>
+      <mat-select class="page-size" [(value)]="currentPageSize" (selectionChange)="handlePageSizeChange()" style="color: var(--table-paging-text);">
+        <mat-option *ngFor="let size of pageSizeOptions" [value]="size">{{size}}</mat-option>
+      </mat-select>
+    </div>
+  </div>
+</div>

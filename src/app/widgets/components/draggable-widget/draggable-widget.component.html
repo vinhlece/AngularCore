@@ -1,0 +1,16 @@
+<div class="wrapper mat-typography" fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between center" fxLayoutGap="7px">
+  <div fxFlex="15%" class="icon-wrapper" fxLayoutAlign="center center">
+    <img class="icon" src="{{getIcon()}}">
+    <mat-icon class="template" *ngIf="widget.isTemplate">title</mat-icon>
+  </div>
+  <div fxFlex="80%">
+    <div fxLayout="column" fxLayoutAlign="end center">
+      <div class="name" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxFlex="100%"><strong>{{widget.name}}</strong></div>
+      </div>
+      <div class="stream mat-caption" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxFlex="100%">{{widget.dataType}}</div>
+      </div>
+    </div>
+  </div>
+</div>

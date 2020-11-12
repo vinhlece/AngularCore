@@ -1,0 +1,70 @@
+<div [formGroup]="form" class="mat-typography" fxLayout="column" fxLayoutGap="5px">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <label class="title" fxFlex="20">{{'widgets.form.column_editor.label_name' | translate}}</label>
+    <label fxFlex="80">{{column?.id}}</label>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <label class="title" fxFlex="20">{{'widgets.form.column_editor.label_type' | translate}}</label>
+    <label fxFlex="80">{{column?.type}}</label>
+  </div>
+  <div>
+    <label for="title" class="label">{{'widgets.form.column_editor.label_title' | translate}}</label>
+    <div>
+      <mat-form-field fxFlex="100" appearance="outline">
+        <input id="title" matInput type="text" formControlName="title" autocomplete="off"/>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between">
+    <div fxFlex="45">
+      <label for="number" class="label">{{'widgets.form.column_editor.label_width' | translate}}</label>
+      <div>
+        <app-number-input id="number" formControlName="width" [min]="0"></app-number-input>
+      </div>
+    </div>
+    <div fxFlex="45" *ngIf="form.get('aggFunc').enabled">
+      <label class="label">{{'widgets.form.column_editor.label_aggregation' | translate}}</label>
+      <div>
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-select formControlName="aggFunc">
+            <mat-option *ngFor="let option of availableFunctions" value="{{option.key}}">{{option.value | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutGap="40px">
+    <div formGroupName="group" *ngIf="form.get('group').enabled">
+      <mat-checkbox fxFlex="20" formControlName="enable">
+        {{'widgets.form.column_editor.label_group' | translate}}
+      </mat-checkbox>
+    </div>
+    <mat-checkbox fxFlex="20" formControlName="visibility">
+      {{'widgets.form.column_editor.label_visibility' | translate}}
+    </mat-checkbox>
+  </div>
+  <div *ngIf="isGroup()" fxLayout="row" fxLayoutAlign="space-between">
+    <div fxFlex="45">
+      <label class="label" for="group-option">{{'widgets.form.column_editor.label_group_options' | translate}}</label>
+      <mat-form-field class="group-form" appearance="outline">
+        <mat-select id="group-option" formControlName="groupBy">
+          <mat-option
+            *ngFor="let option of availableGroups"
+            value="{{option.key}}"
+          >
+            {{option.value | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxFlex="45" *ngIf="isGroupByHour">
+      <label class="label" for="group-range">{{'widgets.form.column_editor.label_group_hour' | translate}}</label>
+      <app-number-input class="group-form" id="group-range" formControlName="groupRange" [max]="24" [min]="1"></app-number-input>
+    </div>
+  </div>
+  <app-old-breakpoint-threshold-input *ngIf="column?.type && column.type === 'number'"
+                                  [title]="column.id + ' threshold'"
+                                  [required]="false"
+                                  formControlName="threshold"></app-old-breakpoint-threshold-input>
+</div>

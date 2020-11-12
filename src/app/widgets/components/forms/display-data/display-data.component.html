@@ -1,0 +1,10 @@
+<div [formGroup]="form" class="mat-typography">
+  <label class="input-label required-star" for="option" translate>widgets.edit_widget_form.display_data</label>
+  <mat-form-field class="field-display-data" appearance="outline">
+    <mat-select formControlName="displayData"
+                [placeholder]="'widgets.edit_widget_form.display_data_placeholder' | translate">
+      <mat-option [class.dark-theme-box]="isDarkTheme" id="option" *ngFor="let item of options" [value]="item.key">{{item.value | translate}}</mat-option>
+    </mat-select>
+    <mat-error class="required"><span translate>widgets.edit_widget_form.display_data_required</span></mat-error>
+  </mat-form-field>
+</div>

@@ -1,0 +1,212 @@
+@import '~@angular/material/theming';
+@import '../../../../styles/variables';
+
+:host {
+  display: block;
+
+  ::ng-deep .ag-theme-material {
+    .ag-paging-panel {
+      height: 25px;
+    }
+
+    .ag-cell {
+      border: 1px solid #ededed;
+    }
+
+    .ag-header-cell {
+      font-weight: bold;
+      line-height: 35px;
+      border-left: 1px solid #ededed;
+      border-right: 1px solid #ededed;
+    }
+
+    .ag-group-contracted {
+      span {
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
+    }
+
+    .ag-group-value {
+      span {
+        font-weight: bold;
+        position: relative;
+        top: -6px;
+      }
+    }
+
+    .ag-group-child-count {
+      font-weight: bold;
+      position: relative;
+      top: -6px;
+    }
+  }
+}
+
+::ng-deep {
+  .heading {
+    .mat-card-header-text {
+      margin: 0 !important;
+    }
+  }
+}
+
+.widget-item-content{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.card {
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--placeholder-header-bg);
+
+  &.sub-title {
+    padding-top: 11px;
+  }
+}
+
+.heading {
+  height: auto;
+}
+
+.content {
+  padding: 0 8px;
+}
+
+.overFlow{
+  overflow: auto;
+}
+
+.line-widget-dropdown {
+  color: #fff;
+  margin: auto 0 auto auto;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.widget-grid-tile {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--placeholder-bg);
+}
+
+.tabular-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.title-container{
+  width: 100%;
+}
+
+.billboard-timestamp-current {
+  font-size: 0.8em;
+  padding-top: 13px;
+  text-align: center;
+}
+
+.billboard-timestamp-past {
+  font-size: 0.6em;
+  padding-top: 13px;
+  text-align: center;
+}
+
+.thumbnail_img {
+  height: 100%;
+  width: 100%;
+
+}
+.card-title{
+  margin-top: -20px;
+}
+
+.content-wrapper{
+  position: relative;
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--overlay-bs);
+
+  .mat-icon {
+    font-size: 150px;
+    display: inline;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.drop-icon {
+  font-size: 5em;
+  width: 72px;
+  height: 62px;
+}
+
+.mat-card-header {
+  min-height: fit-content;
+  background-color: var(--placeholder-header-bg);
+  padding: 5px 0;
+}
+
+.edit-measure-container {
+  .edit-measure-btn {
+    &:after {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 0 5px 5px;
+      border-color: transparent transparent transparent currentColor;
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+    }
+  }
+
+  .edit-measure-item-container {
+    display: none;
+    position: absolute;
+    width: 192px;
+    bottom: 0;
+    background-color: white;
+    overflow: auto;
+    line-height: 32px;
+    font-family: "Poppins";
+    font-size: 15px;
+    max-height: 300px;
+
+    .edit-measure-item {
+      height: 32px;
+      padding-left: 32px;
+      padding-right: 32px;
+      cursor: pointer;
+      width: inherit;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  &:hover {
+    .edit-measure-item-container {
+      display: block;
+    }
+  }
+}

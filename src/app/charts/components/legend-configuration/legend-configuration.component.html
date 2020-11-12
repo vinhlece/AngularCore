@@ -1,0 +1,30 @@
+<form [formGroup]="newForm" (ngSubmit)="onSave()" class="legend-config">
+  <mat-card class="no-shadow">
+    <mat-card-title>{{formTitle | translate}}</mat-card-title><hr>
+    <mat-card-content>
+      <div fxLayout="column" class="middle-content">
+        <span>Instance: {{inputData.user.instance}}</span>
+        <span>Measure: {{inputData.user.measureName}}</span>
+        <mat-checkbox *ngIf="checkControl('lower')" formControlName="lower">{{'widgets.edit_widget_form.hide_kpi_lower' | translate}}</mat-checkbox>
+        <mat-checkbox *ngIf="checkControl('upper')" formControlName="upper">{{'widgets.edit_widget_form.hide_kpi_upper' | translate}}</mat-checkbox>
+        <mat-checkbox *ngIf="checkControl('hideMeasure')" formControlName="hideMeasure">{{'widgets.edit_widget_form.hide_measure' | translate}}</mat-checkbox>
+        <mat-checkbox *ngIf="checkControl('hideInstance')" formControlName="hideInstance">{{'widgets.edit_widget_form.hide_instance' | translate}}</mat-checkbox>
+        <mat-checkbox *ngIf="checkControl('hideWindow')" formControlName="hideWindow">{{'widgets.edit_widget_form.hide_window' | translate}}</mat-checkbox>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <label for="alias-input" translate>widgets.edit_widget_form.alias</label>
+          <mat-form-field class="search-item" appearance="outline" fxFlexAlign="center">
+            <input id="alias-input" formControlName="alias" autocomplete="off" matInput type="text"/>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="bottom-action" fxLayoutAlign="end end">
+      <div>
+        <button class="normal-style cancel-button" id="cancelButton" mat-flat-button
+                type="button" (click)="onCancel()">Cancel</button>
+        <button class="normal-style save-button" id="saveButton" mat-flat-button type="submit">Done</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>

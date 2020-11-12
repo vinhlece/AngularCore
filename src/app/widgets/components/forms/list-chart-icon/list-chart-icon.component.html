@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="chart-all-style-type" fxLayout="row wrap">
+    <button mat-stroked-button *ngFor="let type of chartTypeObjs; let i = index;" (click)="handleSelectChartType(type)" class="chart-icon"  fxFlex="{{getFlexForAllImages(i, chartTypeObjs)}}"
+            matTooltip="{{'dashboard.simple_name_form.create' | translate}} {{type.styleKey | translate}}{{type.styleKey ? ' - ' : ''}}{{type.typeKey | translate}} {{'layout.header.widget_name' | translate}}">
+      <img src="{{type.url}}" width="50px" height="auto">
+      <div *ngIf="isSelectedIcon(type)" class="selected-icon"></div>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="header" appTheme>
+  <mat-sidenav-container class="example-container" autosize>
+    <mat-sidenav class="side-nav" #sidenav fixedInViewport="true" [fixedInViewport]="true" [mode]="'side'"
+      [opened]="true" fxLayout="column" disableClose="true">
+      <button *ngIf="isLogin" mat-icon-button>
+      </button>
+      <mat-nav-list class="list-item">
+        <ng-container *ngIf="isExpanded; else minimizeClose">
+          <mat-list-item (click)="isExpanded = !isExpanded">
+            <img mat-list-icon class="menu-icon" src="assets/img/menu/close.svg">
+            <h4 mat-line translate>layout.header.close_menu</h4>
+          </mat-list-item>
+        </ng-container>
+        <ng-template #minimizeClose>
+          <mat-list-item (click)="isExpanded = !isExpanded" [matTooltip]="'Expand Menu'" matTooltipPosition="right">
+            <img mat-list-icon class="menu-icon" src="assets/img/menu/menu.svg">
+          </mat-list-item>
+        </ng-template>
+        <div *ngFor="let item of routerList" (click)="handleSideBarClick($event, item)" [class.highlight-item]="item.isSelected">
+          <ng-container *ngIf="isExpanded">
+            <ng-container *ngIf="!item.childs">
+              <mat-list-item class="expand-menu">
+                <img mat-list-icon class="menu-icon" src="assets/img/menu/{{item.icon}}.svg">
+                <h4 mat-line translate>{{item.property}}</h4>
+              </mat-list-item>
+            </ng-container>
+            <ng-container *ngIf="item.childs">
+              <mat-list-item>
+                <img mat-list-icon class="menu-icon" src="assets/img/menu/{{item.icon}}.svg">
+                <h4 mat-line translate>{{item.property}}</h4>
+                <mat-icon *ngIf="!item.openChild">expand_more</mat-icon>
+                <mat-icon *ngIf="item.openChild">expand_less</mat-icon>
+              </mat-list-item>
+              <div *ngFor="let child of item.childs" [class.highlight-item]="child.isSelected">
+                <mat-list-item *ngIf="item.openChild" (click)="handleSideBarClick($event, child)">
+                  <img mat-list-icon fxFlexOffset="5" class="menu-icon" src="assets/img/menu/{{child.icon}}.svg">
+                  <h4 mat-line translate>{{child.property}}</h4>
+                </mat-list-item>
+              </div>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="!isExpanded">
+            <mat-list-item matTooltip="{{item.property | translate}}"  matTooltipPosition="right">
+              <img mat-list-icon class="menu-icon" src="assets/img/menu/{{item.icon}}.svg">
+            </mat-list-item>
+          </ng-container>
+        </div>
+        <mat-list-item class="dark-mode-icon" (click)="toggleTheme()">
+          <mat-icon matTooltip="{{'layout.header.dark_mode' | translate}}" *ngIf="isDefaultTheme(); else darkMode">brightness_3</mat-icon>
+          <ng-template #darkMode>
+            <mat-icon matTooltip="{{'layout.header.light_mode' | translate}}">wb_sunny</mat-icon>
+          </ng-template>
+        </mat-list-item>
+
+        <ng-container *ngIf="!isLogin; else userProfileLink" class="right-account">
+          <mat-list-item routerLink="login" [queryParams]="{reLogin: 'false'}" id="btnLogin">
+            <mat-icon mat-list-icon>account_circle</mat-icon>
+            <h4 mat-line *ngIf="isExpanded">Login</h4>
+          </mat-list-item>
+          <mat-list-item routerLink="signup" id="btnSignup">
+            <mat-icon mat-list-icon>edit</mat-icon>
+            <h4 mat-line *ngIf="isExpanded">Sign Up</h4>
+          </mat-list-item>
+        </ng-container>
+
+        <ng-template #userProfileLink>
+          <mat-list-item class="bottom-user-profile" [matMenuTriggerFor]="menu" [matTooltip]="user.displayName"
+            matTooltipPosition="right">
+            <img mat-list-icon class="menu-icon" src="assets/img/menu/account_circle.svg">
+            <h4 mat-line *ngIf="isExpanded">{{user.displayName}}</h4>
+            <mat-icon *ngIf="isExpanded">keyboard_arrow_right</mat-icon>
+          </mat-list-item>
+          <mat-menu #menu="matMenu" [overlapTrigger]="false" class="{{isDarkTheme()}}">
+            <button mat-menu-item [matMenuTriggerFor]="Language" translate>layout.header.language</button>
+            <button mat-menu-item *ngIf="palettes" [matMenuTriggerFor]="colorPalette" translate>layout.header.color_palette</button>
+            <button mat-menu-item [matMenuTriggerFor]="manageUser" translate>layout.header.user_manage</button>
+            <button id="version" *ngIf="hasVersion()" mat-menu-item><span translate>layout.header.version</span> {{version}}</button>
+            <button mat-menu-item (click)="onLogout()" id="btnLogout">
+              <mat-icon>exit_to_app</mat-icon>
+              <span translate>layout.header.logout</span>
+            </button>
+          </mat-menu>
+          <mat-menu #manageUser="matMenu" class="{{isDarkTheme()}}">
+            <button mat-menu-item [routerLink]="['/role']">Roles</button>
+            <button mat-menu-item [routerLink]="['/user']">Users</button>
+          </mat-menu>
+          <mat-menu #colorPalette="matMenu" class="{{isDarkTheme()}}">
+            <div *ngFor="let palette of palettes" fxLayout="row"
+                 [ngClass]="{'selected': palette.id === user.selectedPalette}">
+              <button mat-menu-item (click)="handleChangeColorPalette(palette)" class="colorPalette">
+                {{palette.name}}
+              </button>
+              <span *ngIf="!isDefaultColorPalettes(palette.id)" class="colorPaletteIcon" fxLayoutAlign="start center">
+                  <mat-icon [routerLink]="['/palette', palette.id]">edit</mat-icon>
+                  <button mat-icon-button [disabled]="palette.id === user.selectedPalette"
+                          (click)="deleteColorPalette(palette.id)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </span>
+            </div>
+            <mat-divider></mat-divider>
+            <div mat-menu-item routerLink="palette" fxLayout="row" fxLayoutAlign="center center">
+              <button mat-icon-button>
+                <mat-icon class="no-padding-margin">add</mat-icon>
+              </button>
+            </div>
+          </mat-menu>
+
+          <mat-menu #Language="matMenu" class="{{isDarkTheme()}}">
+            <button *ngFor="let language of translate.getLangs()"
+                    [ngClass]="{'selected': language === translate.currentLang}"
+                    mat-menu-item (click)="selectLanguage(language)">
+              {{language}}
+            </button>
+          </mat-menu>
+
+        </ng-template>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>

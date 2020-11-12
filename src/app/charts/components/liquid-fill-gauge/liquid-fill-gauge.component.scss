@@ -1,0 +1,51 @@
+
+.liquidFillGaugeText {
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+.coin__face--back {
+  transform: rotateY(180deg);
+}
+
+.title {
+  font-family: Arial;
+}
+
+.frame {
+  width: 400px;
+  height: 400px;
+}
+
+.coin:active {
+  transform: rotateY(180deg);
+}
+
+.rotate {
+  transform: rotateY(180deg);
+}
+
+.coin__face {
+  position:  absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+.coin {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.container{
+  // width: 400px;
+  // height: 400px;
+width: 100%;
+height: 100%;
+}

@@ -1,0 +1,59 @@
+@import "../../../../../styles/variables";
+
+.container {
+  height: 312px;
+
+  ::ng-deep {
+    .mat-pseudo-checkbox {
+      border-color: var(--edit-form-primary);
+    }
+    .mat-pseudo-checkbox-checked {
+      background: $button-primary-color;
+    }
+  }
+
+  .item {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--edit-form-primary);
+  }
+
+  .setting-column {
+    color: #848484;
+
+    mat-icon {
+      font-size: 18px;
+    }
+  }
+}
+
+.move-btn-group {
+  padding: 0 8px;
+
+  &.btn-up-down {
+    position: relative;
+    top: 120px;
+  }
+}
+
+.move-btn {
+  margin: 4px;
+  color: $button-primary-color;
+  padding-top: 7px;
+  .material-icons {
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+    color: var(--edit-form-label);
+  }
+}
+
+.panel {
+  height: 100%;
+  border: 1px solid;
+  border-color: var(--panel-border);
+  border-radius: 4px;
+  overflow-y: auto;
+}

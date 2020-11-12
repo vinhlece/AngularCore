@@ -1,0 +1,12 @@
+<div [formGroup]="form" *ngIf="instances$ | async as instance">
+  <app-dimension-filter #dimensionFilter
+    *ngIf="customInstances"
+    formControlName="values"
+    [instances]="instance"
+    [mode]="mode"
+    [inputValidators]="inputValidators"
+    [selections]="selections"
+    [dimension]="dimension"
+  ></app-dimension-filter>
+</div>
+

@@ -1,0 +1,10 @@
+<app-header
+            [user]="loginInformation$ | async"
+            [currentLocation]="currentLocation"
+            [routerList]="routerList"
+            (logout)="logoutUser()"
+            (onChangeColorPalette)="handleChangeColorPalette($event)"
+            (onDeleteColorPalette)="handleDeleteColorPalette($event)"
+            (onTriggerAction)="handleTriggerAction($event)"
+>
+</app-header>

@@ -1,0 +1,37 @@
+@import '../../../../../node_modules/@angular/material/theming';
+@import '../../../../styles/variables';
+
+$config: mat-typography-config();
+
+.wrapper {
+  padding: 12px 7px;
+  background-color: var(--library-item-bg);
+  border-radius: 3px;
+}
+
+.icon-wrapper {
+  margin: auto;
+}
+
+.icon {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.name {
+  width: 100%;
+  color: var(--library-text);
+
+  .word-style {
+    overflow-wrap: break-word;
+  }
+}
+
+.data-type {
+  width: 100%;
+  color: #848484;
+  margin: 0;
+}
+
+.instance {
+  margin-top: 4px;
+}

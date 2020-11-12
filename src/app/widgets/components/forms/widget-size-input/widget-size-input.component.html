@@ -1,0 +1,41 @@
+<div [formGroup]="form" fxLayout="row wrap" fxLayoutAlign="space-between">
+  <div fxLayout="column" fxFlex="45">
+    <label class="input-label" for="min" translate>widgets.edit_widget_form.default_rows</label>
+    <mat-form-field appearance="outline">
+      <input matInput class="form-control"
+             id="min"
+             type="number"
+             placeholder="{{'widgets.edit_widget_form.default_rows' | translate}}"
+             formControlName="rows"
+             (keypress)="handleKeyPress($event)"
+             autocomplete="off"
+      >
+      <mat-error class="required" *ngIf="errors.rows.required">
+        <span translate>widgets.edit_widget_form.default_rows_required</span>
+      </mat-error>
+      <mat-error class="invalid-size" *ngIf="errors.rows.invalidSize">
+        {{'widgets.edit_widget_form.default_rows_check' | translate: {min: min, max: max} }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="column" fxFlex="45">
+    <label class="input-label" for="max" translate>widgets.edit_widget_form.default_columns</label>
+    <mat-form-field appearance="outline">
+      <input matInput class="form-control"
+             type="number"
+             id="max"
+             placeholder="{{'widgets.edit_widget_form.default_columns' | translate}}"
+             formControlName="columns"
+             (keypress)="handleKeyPress($event)"
+             autocomplete="off"
+      >
+      <mat-error class="required" *ngIf="errors.columns.required">
+        <span translate>widgets.edit_widget_form.default_columns_required</span>
+      </mat-error>
+      <mat-error class="invalid-size" *ngIf="errors.columns.invalidSize">
+        {{'widgets.edit_widget_form.default_columns_check' | translate: {min: min, max: max} }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+</div>

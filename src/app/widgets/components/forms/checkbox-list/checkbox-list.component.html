@@ -1,0 +1,7 @@
+<div [formGroup]="form">
+  <div formArrayName="selections">
+    <div *ngFor="let name of options; let i = index" class="checkboxes">
+      <mat-checkbox [value]="name" [formControlName]="i">{{name}}</mat-checkbox>
+    </div>
+  </div>
+</div>

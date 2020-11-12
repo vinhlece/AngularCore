@@ -1,0 +1,10 @@
+<div fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <h2 mat-dialog-title>Delete Tab</h2>
+  </div>
+  <mat-dialog-content fxLayout="row" fxLayoutAlign="center" class="mat-typography">Are you sure to delete &nbsp; <strong> {{data.name}} </strong> ?</mat-dialog-content>
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="center">
+    <button mat-raised-button color="accent" (click)="onCancel()" >No</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="data">Yes</button>
+  </mat-dialog-actions>
+</div>

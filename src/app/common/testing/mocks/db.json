@@ -1,0 +1,3138 @@
+{
+  "widgets": [
+    {
+      "name": "Joulica QueuePerf Vertical Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 3,
+        "columns": 3
+      },
+      "dataType": "Queue Performance",
+      "mode": "Measures",
+      "measures": [
+        "SankeyLayer1"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Checking,Bronze",
+            "Checking,Gold",
+            "Checking,Platinum"
+          ],
+          "customInstances": []
+        }
+      ],
+      "chartType": "Vertical",
+      "xAxisLabel": "Measure",
+      "yAxisLabel": "Instance",
+      "userId": "adminUser",
+      "id": "16008a13-d882-4993-999c-27aea376a214"
+    },
+    {
+      "name": "Calls Answered - Instance Idaho-Boise",
+      "type": "Billboard",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "userId": "adminUser",
+      "id": "c58c84b6-c143-4079-ac8c-bfa122418a33",
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["Idaho-Boise"],
+          "customInstances": []
+        }
+      ],
+      "thresholdColor": {
+        "greater": "Red",
+        "lesser": "Green"
+      }
+    },
+    {
+      "name": "Joulica Bronze Happy Billboard",
+      "type": "Billboard",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "userId": "adminUser",
+      "id": "00151d7e-1fef-4359-bfc6-aa7e76dfd23c",
+      "measures": [
+        "SankeyLayer1"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["Bronze,Happy"],
+          "customInstances": []
+        }
+      ],
+      "thresholdColor": {
+        "greater": "Green",
+        "lesser": "Red"
+      }
+    },
+    {
+      "name": "Apple Sankey",
+      "type": "Sankey",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "userId": "adminUser",
+      "id": "b0ab4bd2-2fdf-4058-80d9-7e6be2bf32c0",
+      "measures": [
+        "SankeyLayer1"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ]
+    },
+    {
+      "name": "New Call TimeLine",
+      "type": "Call TimeLine",
+      "defaultSize": {
+        "rows": 5,
+        "columns": 5
+      },
+      "isTemplate": false,
+      "id": "26f42b57-b045-469c-8dc3-b23c5487098a",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["New Sales"],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAnswered",
+        "ServiceLevel",
+        "SankeyLayer2"
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "chartType": "Vertical",
+      "queues": [
+        "Performance"
+      ],
+      "agents": [
+        "Sean",
+        "Tom",
+        "Antonio"
+      ],
+      "showAllData": false,
+      "segmentTypes": [
+        "TalkTime"
+      ]
+    },
+    {
+      "name": "Joulica QueuePerf Line",
+      "type": "Line",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Business Banking,Chat,en,West North Central",
+            "Checking,Bronze"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "SankeyLayer1"
+      ],
+      "userId": "adminUser",
+      "id": "4e441657-6757-4fcd-a30e-f188220acea4",
+      "chartType": "Area",
+      "xAxisLabel": "Date",
+      "yAxisLabel": "Measure"
+    },
+    {
+      "name": "Joulica QueuePerf LineFocus",
+      "type": "Line",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Business Banking,Email,esp,West South Central",
+            "Checking,Platinum"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "SankeyLayer1"
+      ],
+      "userId": "adminUser",
+      "id": "7e2cc1be-b7a6-4748-98aa-93725985a920",
+      "chartType": "Area",
+      "enableNavigator": true,
+      "xAxisLabel": "Date",
+      "yAxisLabel": "Measure"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Joulica QueuePerf Trenddiff",
+      "dataType": "Queue Performance",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "type": "TrendDiff",
+      "chartType": "Area",
+      "xAxisLabel": "Time",
+      "yAxisLabel": "Value",
+      "trendType": "Shift",
+      "period": 3,
+      "id": "667b5802-12dc-494a-8ef8-c5fc7c145a50",
+      "measures": [
+        "SankeyLayer1"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["Checking,Gold"],
+          "customInstances": []
+        }
+      ]
+    },
+    {
+      "name": "Joulica QueuePerf Horizontal Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "mode": "Measures",
+      "measures": [
+        "SankeyLayer1"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Checking,Gold",
+            "Checking,Platinum",
+            "Checking,Bronze"
+          ],
+          "customInstances": []
+        }
+      ],
+      "chartType": "Horizontal",
+      "xAxisLabel": "Date",
+      "yAxisLabel": "Measure",
+      "userId": "adminUser",
+      "id": "f336aa8f-7d1b-43f5-9a3e-2a37558487b9"
+    },
+    {
+      "name": "Fruits Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "mode": "Instances",
+      "measures": [
+        "ContactsOffered",
+        "ContactsAnswered",
+        "ContactsAbandoned"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Orange",
+            "Apple",
+            "Durian",
+            "Lemon",
+            "Mango",
+            "Watermelon",
+            "Avocado",
+            "Cherry",
+            "Fig",
+            "Guava",
+            "Kiwi",
+            "Lime",
+            "Mandarin",
+            "Papaya",
+            "Coconut"
+          ],
+          "customInstances": []
+        }
+      ],
+      "chartType": "Vertical",
+      "xAxisLabel": "Name",
+      "yAxisLabel": "Price",
+      "userId": "adminUser",
+      "id": "67d459fc-9b48-4603-a4fa-adc71deeefa3"
+    },
+    {
+      "name": "Line Focus",
+      "type": "Line",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "New Sales"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAnswered",
+        "ContactsAbandoned"
+      ],
+      "userId": "adminUser",
+      "id": "cc2fc6ef-b586-43c5-a347-0acdeed87dad",
+      "chartType": "Area",
+      "enableNavigator": true,
+      "xAxisLabel": "Date",
+      "yAxisLabel": "Measure"
+    },
+    {
+      "name": "Contacts Answered",
+      "type": "Billboard",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "userId": "adminUser",
+      "id": "ca8e5c4a-3c4a-4594-9b30-04d2a14b5f3a",
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "New Sales"
+          ],
+          "customInstances": []
+        }
+      ],
+      "thresholdColor": {
+        "greater": "Green",
+        "lesser": "Red"
+      }
+    },
+    {
+      "name": "Contacts Abandoned",
+      "type": "Billboard",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "userId": "adminUser",
+      "id": "27a57ffc-6f9c-43f4-ac76-823db4f8b42c",
+      "measures": [
+        "ContactsAbandoned"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "New Sales"
+          ],
+          "customInstances": []
+        }
+      ],
+      "thresholdColor": {
+        "greater": "Red",
+        "lesser": "Green"
+      }
+    },
+    {
+      "name": "Contacts Offered",
+      "type": "Billboard",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "userId": "adminUser",
+      "id": "0aecbcd0-5fb9-4dce-98d1-6d3db1907dbc",
+      "measures": [
+        "ContactsOffered"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["New Sales"],
+          "customInstances": []
+        }
+      ],
+      "thresholdColor": {
+        "greater": "Green",
+        "lesser": "Red"
+      }
+    },
+    {
+      "name": "Line Without Focus",
+      "type": "Line",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["New Sales"],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAnswered",
+        "ContactsAbandoned"
+      ],
+      "userId": "adminUser",
+      "id": "75ffa3dd-7d2d-412a-9f70-335c81d3140d",
+      "chartType": "Area",
+      "enableNavigator": false,
+      "xAxisLabel": "Date",
+      "yAxisLabel": "Measure"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Trenddiff Day",
+      "dataType": "Queue Performance",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "type": "TrendDiff",
+      "chartType": "Area",
+      "xAxisLabel": "Time",
+      "yAxisLabel": "Value",
+      "trendType": "Day",
+      "period": 3,
+      "id": "d118a90f-c680-4185-8efe-83d4927cecef",
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["New Sales"],
+          "customInstances": []
+        }
+      ]
+    },
+    {
+      "userId": "adminUser",
+      "name": "Trenddiff Shift",
+      "dataType": "Queue Performance",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "type": "TrendDiff",
+      "chartType": "Area",
+      "xAxisLabel": "Time",
+      "yAxisLabel": "Value",
+      "trendType": "Shift",
+      "period": 8,
+      "id": "9025f0d2-feea-43e1-b54e-25511bdd49e6",
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["New Sales"],
+          "customInstances": []
+        }
+      ]
+    },
+    {
+      "name": "Bar Vertical",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "mode": "Measures",
+      "measures": [
+        "ContactsAnswered",
+        "ContactsAbandoned"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["New Sales"],
+          "customInstances": []
+        }
+      ],
+      "chartType": "Vertical",
+      "xAxisLabel": "Date",
+      "yAxisLabel": "Value",
+      "userId": "adminUser",
+      "id": "cbcca10b-3b32-4f24-90f1-82766b7d88e2"
+    },
+    {
+      "name": "Bar Horizontal",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "mode": "Instances",
+      "measures": [
+        "ContactsOffered",
+        "ContactsAnswered",
+        "ContactsAbandoned"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "New Sales",
+            "Upgrades"
+          ],
+          "customInstances": []
+        }
+      ],
+      "instances": [
+      ],
+      "chartType": "Horizontal",
+      "xAxisLabel": "Date",
+      "yAxisLabel": "Value",
+      "userId": "adminUser",
+      "id": "3b1f5bed-66cf-4689-8ffa-28c1e32d1596"
+    },
+    {
+      "name": "Joulica Queue Vertical Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 4,
+        "columns": 4
+      },
+      "dataType": "Queue Performance",
+      "mode": "Measures",
+      "measures": [
+        "SankeyLayer1"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Checking,Bronze",
+            "Checking,Gold",
+            "Checking,Platinum",
+            "Auto Loans,Bronze",
+            "Auto Loans,Chat,en,Pacific",
+            "Bronze,Extremely Happy",
+            "Bronze,Happy",
+            "Business Banking,Chat,en,West North Central",
+            "Business Banking,Email,esp,West South Central",
+            "Business Banking,Platinum",
+            "Business Credit Card,Bronze",
+            "Business Lending,Chat,esp,New England",
+            "Business Lending,Unknown",
+            "Business Lending,Bronze",
+            "Chat,Business Credit Card"
+          ],
+          "customInstances": []
+        }
+      ],
+      "chartType": "Vertical",
+      "xAxisLabel": "Date",
+      "yAxisLabel": "Value",
+      "userId": "adminUser",
+      "id": "7dc386f9-f3ee-427e-8470-e26c40bd7528"
+    },
+    {
+      "name": "Joulica Queue Horizontal Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 4,
+        "columns": 4
+      },
+      "dataType": "Queue Performance",
+      "mode": "Instances",
+      "measures": [
+        "SankeyLayer1"
+      ],
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Checking,Bronze",
+            "Checking,Gold",
+            "Checking,Platinum",
+            "Auto Loans,Bronze",
+            "Auto Loans,Chat,en,Pacific",
+            "Bronze,Extremely Happy",
+            "Bronze,Happy",
+            "Business Banking,Chat,en,West North Central",
+            "Business Banking,Email,esp,West South Central",
+            "Business Banking,Platinum",
+            "Business Credit Card,Bronze",
+            "Business Lending,Chat,esp,New England",
+            "Business Lending,Unknown",
+            "Business Lending,Bronze",
+            "Chat,Business Credit Card"],
+          "customInstances": []
+        }
+      ],
+      "chartType": "Horizontal",
+      "xAxisLabel": "Date",
+      "yAxisLabel": "Value",
+      "userId": "adminUser",
+      "id": "e3dee1b8-77ec-4337-88d9-713a5529a1b3"
+    },
+    {
+      "name": "Queue Solid Gauge - Instance Idaho-Boise",
+      "type": "Solid Gauge",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dataType": "Queue Performance",
+      "userId": "adminUser",
+      "id": "9a927e01-2c52-4775-a857-1352c8545cee",
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "gaugeThreshold": {
+        "breakpoints": [
+          0,
+          4,
+          8,
+          15
+        ],
+        "colors": [
+          "#F44336",
+          "#388E3C",
+          "#FF6F00"
+        ]
+      },
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["Idaho-Boise"],
+          "customInstances": []
+        }
+      ],
+      "displayMode": "Latest"
+    },
+    {
+      "name": "iPhone Billboard",
+      "type": "Billboard",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["alpha"],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "CallsAbandoned"
+      ],
+      "userId": "adminUser",
+      "id": "32574818-9bf0-4960-ba4e-edb2245c72be",
+      "dataType": "Agent Performance",
+      "thresholdColor": {
+        "greater": "Green",
+        "lesser": "Red"
+      }
+    },
+    {
+      "name": "iPhone Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["alpha"],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "CallsQueuing"
+      ],
+      "userId": "adminUser",
+      "id": "cbc2f336-77db-4659-9c0f-610150291aac",
+      "dataType": "Agent Performance",
+      "chartType": "Vertical",
+      "mode": "Measures",
+      "xAxisLabel": "x",
+      "yAxisLabel": "y"
+    },
+    {
+      "name": "iPhone Line",
+      "type": "Line",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [],
+      "userId": "adminUser",
+      "id": "82e3f350-5e6a-451f-b66d-709ec37975ed",
+      "dataType": "Agent Performance",
+      "chartType": "Area",
+      "enableNavigator": true,
+      "xAxisLabel": "x",
+      "yAxisLabel": "y"
+    },
+    {
+      "name": "Animals Line",
+      "type": "Line",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Dog",
+            "Cat",
+            "Mouse",
+            "Elephant",
+            "Tiger",
+            "Snake",
+            "Bear",
+            "Dragon",
+            "Rabbit",
+            "Fish"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "userId": "adminUser",
+      "id": "3b0a6d06-4737-4c2a-926b-b37aaec68a9a",
+      "dataType": "Queue Performance",
+      "chartType": "Area",
+      "enableNavigator": true
+    },
+    {
+      "name": "US Geo Map - Instance Idaho-Boise",
+      "type": "Geo Map",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "userId": "adminUser",
+      "id": "91bec2e0-f5f4-4e15-9194-5a7fc4fedc0d",
+      "dataType": "Queue Performance",
+      "displayMode": "Latest",
+      "stateColor": {
+        "parentStateColor": "#82adbc",
+        "capitalColor": "#3d00ff"
+      },
+      "showAllData": true
+    },
+    {
+      "name": "Blank Queue Geo Map",
+      "type": "Geo Map",
+      "defaultSize": {
+        "rows": 12,
+        "columns": 12
+      },
+      "id": "77fc21b0-1687-4f11-9177-a28b5aab73d2",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [],
+      "stateColor": {
+        "parentStateColor": "#c7e4fc",
+        "capitalColor": "#004cff"
+      },
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "displayMode": "Latest"
+    },
+    {
+      "name": "Blank Queue Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 3,
+        "columns": 6
+      },
+      "id": "625576d7-e279-439a-9fe4-f1881664f953",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Idaho-Boise",
+            "Arizona-Phoenix",
+            "Illinois-Springfield",
+            "California-Sacramento",
+            "Florida-Tallahassee",
+            "Kansas-Topeka"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsOffered",
+        "ContactsAnswered"
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "chartType": "Vertical",
+      "mode": "Instances"
+    },
+    {
+      "name": "Blank Queue Line",
+      "type": "Line",
+      "defaultSize": {
+        "rows": 3,
+        "columns": 12
+      },
+      "id": "00c7d0f3-b7bd-483f-aada-3486da0d3101",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "chartType": "Area"
+    },
+    {
+      "name": "Blank Queue Billboard - Instance Arizona-Phoenix",
+      "type": "Billboard",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 6
+      },
+      "id": "e2e2b9f0-0484-4723-a6eb-befae0adf2d1",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["Arizona-Phoenix"],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "thresholdColor": {
+        "greater": "Green",
+        "lesser": "Red"
+      }
+    },
+    {
+      "name": "Blank Queue Solid Gauge",
+      "type": "Solid Gauge",
+      "defaultSize": {
+        "rows": 3,
+        "columns": 6
+      },
+      "id": "c78eacaa-5794-4712-8155-dcbbe10f8a06",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "gaugeThreshold": {
+        "breakpoints": [
+          0,
+          50,
+          100,
+          200
+        ],
+        "colors": [
+          "#F44336",
+          "#388E3C",
+          "#FF6F00"
+        ]
+      },
+      "displayMode": "Latest"
+    },
+    {
+      "name": "Blank Sankey",
+      "type": "Sankey",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "id": "b4461c52-da8e-4ab9-8bea-476a8079b57f",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [],
+      "userId": "adminUser"
+    },
+    {
+      "name": "Blank Queue TrendDiff",
+      "type": "TrendDiff",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 6
+      },
+      "id": "81e682c5-46b2-42b3-beeb-cd5ac6aa74eb",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["New Sales"],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "chartType": "Line",
+      "trendType": "Day",
+      "period": 2,
+      "numberOfLines": null
+    },
+    {
+      "name": "New Latest Table",
+      "type": "Tabular",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 6
+      },
+      "id": "ffa402f8-5625-4ed8-87c1-7b8ad9898d35",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Arizona-Phoenix",
+            "Arkansas-Little Rock",
+            "Colorado-Denver"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ServiceLevel",
+        "ContactsAnswered"
+      ],
+      "columns": [
+        {
+          "id": "Key",
+          "type": "string",
+          "title": "Instance",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": 0
+          },
+          "aggFunc": null,
+          "threshold": null
+        },
+        {
+          "id": "MeasureTimestamp",
+          "title": "Package Datetime",
+          "type": "datetime",
+          "visibility": true
+        },
+        {
+          "id": "ServiceLevel",
+          "type": "number",
+          "title": "ServiceLevel",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": 2
+          },
+          "aggFunc": null,
+          "threshold": {
+            "breakpoints": [
+              0,
+              50,
+              150,
+              200
+            ],
+            "colors": [
+              "#ff0000",
+              "#0600ff",
+              "#00ff07"
+            ]
+          }
+        },
+        {
+          "id": "ContactsAnswered",
+          "type": "number",
+          "title": "ContactsAnswered",
+          "visibility": true
+        }
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "showAllData": true,
+      "displayData": "End of Timeline",
+      "thresholdColor": {
+        "greater": "Green",
+        "lesser": "Red"
+      }
+    },
+    {
+      "name": "New Historical Table",
+      "type": "Tabular",
+      "defaultSize": {
+        "rows": 2,
+        "columns": 2
+      },
+      "id": "06b8fa8e-c573-4d47-9d3a-51b3d7eea322",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsOffered",
+        "ContactsAnswered",
+        "ContactsAbandoned"
+      ],
+      "columns": [
+        {
+          "id": "Key",
+          "type": "string",
+          "title": "Instance",
+          "visibility": true,
+          "group": {
+            "enable": true,
+            "priority": 0
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "MeasureTimestamp",
+          "title": "Package Datetime",
+          "type": "datetime",
+          "visibility": true,
+          "group": {
+            "enable": true,
+            "priority": 1
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "ContactsOffered",
+          "title": "ContactsOffered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": "sum"
+        },
+        {
+          "id": "ContactsAnswered",
+          "title": "ContactsAnswered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": "avg"
+        },
+        {
+          "id": "ContactsAbandoned",
+          "title": "ContactsAbandoned",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": "max"
+        }
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "showAllData": true,
+      "displayData": "Show Interval",
+      "thresholdColor": {
+        "greater": "Red",
+        "lesser": "Green"
+      }
+    },
+    {
+      "name": "Template Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 6
+      },
+      "isTemplate": true,
+      "id": "b9ad3a83-6551-403c-8b0f-a45830ecc9d7",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "chartType": "Horizontal",
+      "mode": "Instances"
+    },
+    {
+      "name": "Flowers Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 6
+      },
+      "isTemplate": false,
+      "id": "8e866e3c-f436-4200-aa68-9a4e4aaf2c4b",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Lily",
+            "Anemone",
+            "Chrysanthemum",
+            "Rose",
+            "Sunflower",
+            "Tulip",
+            "Violet",
+            "Waxflower",
+            "Snapdragon",
+            "Lavender"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "chartType": "Vertical",
+      "mode": "Instances"
+    },
+    {
+      "name": "US Latest Table",
+      "type": "Tabular",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 12
+      },
+      "isTemplate": false,
+      "id": "cf650307-7b2f-474b-a189-81d7c76ef31c",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Alabama-Montgomery",
+            "Alaska-Juneau",
+            "Arizona-Phoenix",
+            "Arkansas-Little Rock",
+            "California-Sacramento",
+            "Colorado-Denver",
+            "Connecticut-Hartford",
+            "Delaware-Dover",
+            "Florida-Tallahassee",
+            "Georgia-Atlanta"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "InstantaneousContactsAnswered",
+        "InstAttributeMatched",
+        "ContactsOffered",
+        "ContactsAnswered",
+        "ContactsAbandoned",
+        "ServiceLevel",
+        "WorkQueuing",
+        "WorkOffered",
+        "InstAttributeQueueTime"
+      ],
+      "columns": [
+        {
+          "id": "Key",
+          "type": "string",
+          "title": "Instance",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "MeasureTimestamp",
+          "title": "Package Datetime",
+          "type": "datetime",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "InstantaneousContactsAnswered",
+          "title": "InstantaneousContactsAnswered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "InstAttributeMatched",
+          "title": "InstAttributeMatched",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "ContactsOffered",
+          "title": "ContactsOffered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "ContactsAnswered",
+          "title": "ContactsAnswered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "ContactsAbandoned",
+          "title": "ContactsAbandoned",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "ServiceLevel",
+          "title": "ServiceLevel",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "WorkQueuing",
+          "title": "WorkQueuing",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "WorkOffered",
+          "title": "WorkOffered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "InstAttributeQueueTime",
+          "title": "InstAttributeQueueTime",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        }
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "displayData": "End of Timeline",
+      "thresholdColor": {
+        "greater": "Green",
+        "lesser": "Red"
+      }
+    },
+    {
+      "name": "Fruits Latest Table",
+      "type": "Tabular",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 12
+      },
+      "isTemplate": false,
+      "id": "ce25746d-5262-49fb-b898-23906431b994",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Orange",
+            "Apple",
+            "Durian",
+            "Lemon",
+            "Mango",
+            "Watermelon",
+            "Avocado",
+            "Cherry",
+            "Fig",
+            "Guava"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "InstantaneousContactsAnswered",
+        "InstAttributeMatched",
+        "ContactsOffered",
+        "ContactsAnswered",
+        "ContactsAbandoned",
+        "ServiceLevel",
+        "WorkQueuing",
+        "WorkOffered",
+        "InstAttributeQueueTime"
+      ],
+      "columns": [
+        {
+          "id": "Key",
+          "type": "string",
+          "title": "Instance",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "MeasureTimestamp",
+          "title": "Package Datetime",
+          "type": "datetime",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "InstantaneousContactsAnswered",
+          "title": "InstantaneousContactsAnswered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "InstAttributeMatched",
+          "title": "InstAttributeMatched",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "ContactsOffered",
+          "title": "ContactsOffered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "ContactsAnswered",
+          "title": "ContactsAnswered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "ContactsAbandoned",
+          "title": "ContactsAbandoned",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "ServiceLevel",
+          "title": "ServiceLevel",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "WorkQueuing",
+          "title": "WorkQueuing",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "WorkOffered",
+          "title": "WorkOffered",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        },
+        {
+          "id": "InstAttributeQueueTime",
+          "title": "InstAttributeQueueTime",
+          "type": "number",
+          "visibility": true,
+          "group": {
+            "enable": false,
+            "priority": null
+          },
+          "aggFunc": null
+        }
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "displayData": "End of Timeline",
+      "thresholdColor": {
+        "greater": "Green",
+        "lesser": "Red"
+      }
+    },
+    {
+      "name": "US Bar",
+      "type": "Bar",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 12
+      },
+      "isTemplate": false,
+      "id": "60b1409f-604b-4123-bb14-923f739c4692",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [
+            "Arizona-Phoenix",
+            "Illinois-Springfield",
+            "Kansas-Topeka",
+            "Hawaii-Honolulu",
+            "Michigan-Lansing",
+            "Missouri-Jefferson City",
+            "Montana-Helana",
+            "Nevada-Carson City",
+            "New York-Albany",
+            "Ohio-Columbus"
+          ],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAbandoned"
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "chartType": "Vertical",
+      "mode": "Instances"
+    },
+    {
+      "name": "Queue Solid Gauge",
+      "type": "Solid Gauge",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 6
+      },
+      "isTemplate": false,
+      "id": "c041ae64-4d15-4e04-9c98-852cd0624ebc",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": ["New Sales"],
+          "customInstances": []
+        }
+      ],
+      "measures": [
+        "ContactsAnswered"
+      ],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "gaugeThreshold": {
+        "breakpoints": [
+          0,
+          50,
+          100,
+          200
+        ],
+        "colors": [
+          "#388E3C",
+          "#FF6F00",
+          "#F44336"
+        ]
+      },
+      "displayMode": "Latest"
+    },
+    {
+      "name": "Blank Day Trendiff",
+      "type": "TrendDiff",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 6
+      },
+      "isTemplate": false,
+      "id": "a6c3ecf7-5606-480e-b258-0637e6b00739",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "chartType": "Line",
+      "trendType": "Day",
+      "period": 1
+    },
+    {
+      "name": "Blank Shift Trenddiff",
+      "type": "TrendDiff",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 6
+      },
+      "isTemplate": false,
+      "id": "7233f1a8-a2cf-4dea-a10d-c667e2f29201",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [],
+      "userId": "adminUser",
+      "dataType": "Queue Performance",
+      "chartType": "Line",
+      "trendType": "Shift",
+      "period": 8
+    },
+    {
+      "name": "Queue Sunburst",
+      "type": "Sunburst",
+      "defaultSize": {
+        "rows": 6,
+        "columns": 6
+      },
+      "isTemplate": false,
+      "id": "38ef38d6-c748-49ee-9f51-3ceaefa16f5c",
+      "dimensions": [
+        {
+          "dimension": "intent",
+          "systemInstances": [],
+          "customInstances": []
+        }
+      ],
+      "measures": [],
+      "userId": "adminUser",
+      "dataType": "Queue Performance"
+    }
+  ],
+  "users": [
+    {
+      "id": "adminUser",
+      "displayName": "Administrator",
+      "password": "12345678"
+    },
+    {
+      "id": "larryp",
+      "displayName": "Larry Page",
+      "password": "123456"
+    },
+    {
+      "id": "jackma",
+      "displayName": "Jack Ma",
+      "password": "123456"
+    },
+    {
+      "id": "ryanrogers",
+      "password": "ryan"
+    },
+    {
+      "id": "huy",
+      "password": "huy"
+    }
+  ],
+  "dashboards": [
+    {
+      "userId": "adminUser",
+      "name": "JoulicaQueuePerf",
+      "id": "a59a80e1-ebd3-472d-88ca-6042dec52f01",
+      "tabs": [
+        30
+      ],
+      "timeConfig": {
+        "type": "Week"
+      }
+    },
+    {
+      "userId": "adminUser",
+      "name": "Sankey Demo",
+      "id": "8512a70d-0bd7-44a7-87fc-8cbfc1c0b1e3"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Joulica QueuePerf Bar",
+      "id": "0c02afa9-2c93-4d7f-a4d4-d8c6e16e29eb"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Joulica QueuePerf Table",
+      "id": "23dde268-7dd5-40e8-823b-fe219c921889"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Joulica QueuePerf Trenddiff",
+      "id": "52c749df-147a-456b-bc37-9bf98f6e2226"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Joulica QueuePerf Billboard",
+      "id": "1edd2c12-a809-4707-88d0-e21e5b89a482"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Joulica QueuePerf Line",
+      "id": "8855bd09-202b-4fa2-86f2-56f1e62fa7f7"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Sample",
+      "id": "8e70d227-3bb6-47eb-af32-7ae06b6fda90"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Table Demo",
+      "id": "67505a9d-7a7b-4d79-89c8-907ba89244f5"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Bar Demo",
+      "id": "47219be3-026a-4d3f-ae2b-7df8416f62cc"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Trenddiff Demo",
+      "id": "e0581c87-f495-439e-b014-5d19d31c0af5"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Line Demo",
+      "id": "98a1e068-e15a-4721-a06f-34c186b47ed6"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Billboard Demo",
+      "id": "3617c194-61a9-4b8a-830d-b0bf4ede40e6"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Joulica Sample",
+      "id": "07309be4-ed7f-4630-9287-4d686af9b5ce"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Solid Gauge Demo",
+      "id": "99eaa0fc-4510-41ab-a788-8b14678867ef"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Demo",
+      "id": "e8d9b225-ccca-4488-8aa2-d67362237fcb"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Performance Testing",
+      "id": "1646243e-5a1d-492e-a6a7-52b0ee0fd4c9"
+    },
+    {
+      "userId": "adminUser",
+      "name": "Geo Map Demo",
+      "id": "e6571ef8-19dd-4953-a5f6-17ba908ea171"
+    },
+    {
+      "id": "bf56656f-2165-464f-851b-adb07d726d67",
+      "userId": "adminUser",
+      "name": "Blank Widgets"
+    },
+    {
+      "id": "2e54f232-2003-479b-b253-64f1d699811d",
+      "userId": "adminUser",
+      "name": "Blank Dashboard"
+    },
+    {
+      "id": "a0eb6c40-2bd9-4be6-9282-e720328085b4",
+      "userId": "adminUser",
+      "name": "New Table"
+    },
+    {
+      "id": "801f304b-67a2-4c4b-9663-7eaecbdc644a",
+      "userId": "adminUser",
+      "name": "Agent  Realtime"
+    },
+    {
+      "id": "dc0b2e89-1420-4fc9-82e6-f350bc67c5d7",
+      "userId": "adminUser",
+      "name": "Latest Dashboard"
+    }
+  ],
+  "tabs": [
+    {
+      "dashboardId": "a59a80e1-ebd3-472d-88ca-6042dec52f01",
+      "name": "New tab 1",
+      "id": "5efcb061-3dc9-4c4a-95bc-df9db11d2077",
+      "placeholders": [
+        {
+          "id": "238b8589-4585-4e8a-86d0-29e98d12d79e",
+          "widgetId": "16008a13-d882-4993-999c-27aea376a214",
+          "size": {
+            "rows": 6,
+            "columns": 4
+          },
+          "position": {
+            "x": 4,
+            "y": 6
+          },
+          "tabId": "5efcb061-3dc9-4c4a-95bc-df9db11d2077"
+        },
+        {
+          "id": "60e20f1d-560e-46d0-852b-9954b8b96a85",
+          "widgetId": "7e2cc1be-b7a6-4748-98aa-93725985a920",
+          "size": {
+            "rows": 6,
+            "columns": 4
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "5efcb061-3dc9-4c4a-95bc-df9db11d2077"
+        },
+        {
+          "id": "2ae5e8e1-3c6b-4a28-93b9-6c2bd9eae10c",
+          "widgetId": "f336aa8f-7d1b-43f5-9a3e-2a37558487b9",
+          "size": {
+            "rows": 6,
+            "columns": 4
+          },
+          "position": {
+            "x": 8,
+            "y": 6
+          },
+          "tabId": "5efcb061-3dc9-4c4a-95bc-df9db11d2077"
+        },
+        {
+          "id": "52361d1b-4651-4d0d-8511-485061b637b9",
+          "widgetId": "2d910df5-64e0-44b9-8b31-d30852065efc",
+          "size": {
+            "rows": 6,
+            "columns": 4
+          },
+          "position": {
+            "x": 8,
+            "y": 0
+          },
+          "tabId": "5efcb061-3dc9-4c4a-95bc-df9db11d2077"
+        },
+        {
+          "id": "a2fe4d3b-b7b8-484a-b6f5-5a40399349a4",
+          "widgetId": "00151d7e-1fef-4359-bfc6-aa7e76dfd23c",
+          "size": {
+            "rows": 3,
+            "columns": 2
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "5efcb061-3dc9-4c4a-95bc-df9db11d2077"
+        },
+        {
+          "id": "caa0ed75-51c3-4df1-83e2-3587015caa1b",
+          "widgetId": "c58c84b6-c143-4079-ac8c-bfa122418a33",
+          "size": {
+            "rows": 3,
+            "columns": 2
+          },
+          "position": {
+            "x": 2,
+            "y": 0
+          },
+          "tabId": "5efcb061-3dc9-4c4a-95bc-df9db11d2077"
+        },
+        {
+          "id": "c39af3c9-6dfc-4634-a388-1cd295b21de9",
+          "widgetId": "e18c84ff-191f-43ee-8bbc-213b9cb80b83",
+          "size": {
+            "rows": 6,
+            "columns": 4
+          },
+          "position": {
+            "x": 4,
+            "y": 0
+          },
+          "tabId": "5efcb061-3dc9-4c4a-95bc-df9db11d2077"
+        },
+        {
+          "id": "d421c468-fd17-4245-a6c7-e2f2324476d6",
+          "widgetId": "4e441657-6757-4fcd-a30e-f188220acea4",
+          "size": {
+            "rows": 3,
+            "columns": 4
+          },
+          "position": {
+            "x": 0,
+            "y": 3
+          },
+          "tabId": "5efcb061-3dc9-4c4a-95bc-df9db11d2077"
+        }
+      ]
+    },
+    {
+      "dashboardId": "8512a70d-0bd7-44a7-87fc-8cbfc1c0b1e3",
+      "name": "New tab 1",
+      "id": "7a82f257-71ed-4b88-aaf9-bf98fd4461d8",
+      "placeholders": [
+        {
+          "id": "b1ad16ad-2fd4-49fa-9ccf-e89f46db1b77",
+          "widgetId": "b0ab4bd2-2fdf-4058-80d9-7e6be2bf32c0",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "7a82f257-71ed-4b88-aaf9-bf98fd4461d8"
+        }
+      ]
+    },
+    {
+      "dashboardId": "0c02afa9-2c93-4d7f-a4d4-d8c6e16e29eb",
+      "name": "New tab 1",
+      "id": "8eca7b60-c0c4-48d1-91af-16e71cad20d1",
+      "placeholders": [
+        {
+          "id": "1d3cb9ab-8aeb-458f-b3d5-148c86168000",
+          "widgetId": "f336aa8f-7d1b-43f5-9a3e-2a37558487b9",
+          "size": {
+            "rows": 12,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "8eca7b60-c0c4-48d1-91af-16e71cad20d1"
+        },
+        {
+          "id": "7ae16bd2-139c-4409-86de-64504fd976b6",
+          "widgetId": "16008a13-d882-4993-999c-27aea376a214",
+          "size": {
+            "rows": 12,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "8eca7b60-c0c4-48d1-91af-16e71cad20d1"
+        }
+      ]
+    },
+    {
+      "dashboardId": "23dde268-7dd5-40e8-823b-fe219c921889",
+      "name": "New tab 1",
+      "id": "465646e9-1225-47c8-bf1d-ab11fad65dd2",
+      "placeholders": [
+        {
+          "id": "5ea6edd6-b6cb-474b-b6b4-e24870414ffc",
+          "widgetId": "2d910df5-64e0-44b9-8b31-d30852065efc",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "465646e9-1225-47c8-bf1d-ab11fad65dd2"
+        },
+        {
+          "id": "c268a7d0-22bb-4a3d-b94a-811e284cbadf",
+          "widgetId": "e18c84ff-191f-43ee-8bbc-213b9cb80b83",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "465646e9-1225-47c8-bf1d-ab11fad65dd2"
+        }
+      ]
+    },
+    {
+      "dashboardId": "52c749df-147a-456b-bc37-9bf98f6e2226",
+      "name": "New tab 1",
+      "id": "016e18d9-b648-44f4-b7a0-3573e1509526",
+      "placeholders": [
+        {
+          "id": "13bd8622-a08a-4cad-89b5-311c4a67e4bd",
+          "widgetId": "667b5802-12dc-494a-8ef8-c5fc7c145a50",
+          "size": {
+            "rows": 12,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "016e18d9-b648-44f4-b7a0-3573e1509526"
+        }
+      ]
+    },
+    {
+      "dashboardId": "1edd2c12-a809-4707-88d0-e21e5b89a482",
+      "name": "New tab 1",
+      "id": "2c44893c-2872-4c8f-b222-c6222984c3ad",
+      "placeholders": [
+        {
+          "id": "5cb83895-08cd-4fa2-be66-0f54e541ed54",
+          "widgetId": "00151d7e-1fef-4359-bfc6-aa7e76dfd23c",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "2c44893c-2872-4c8f-b222-c6222984c3ad"
+        },
+        {
+          "id": "6de699e3-85d4-4ab9-a958-c5fab4ce05cf",
+          "widgetId": "c58c84b6-c143-4079-ac8c-bfa122418a33",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "2c44893c-2872-4c8f-b222-c6222984c3ad"
+        }
+      ]
+    },
+    {
+      "dashboardId": "8855bd09-202b-4fa2-86f2-56f1e62fa7f7",
+      "name": "New tab 1",
+      "id": "723c44fb-b667-4d8f-8429-b8a5721ecd3d",
+      "placeholders": [
+        {
+          "id": "c68e77ed-1b16-4e8e-8f12-cf3ceb0a7317",
+          "widgetId": "7e2cc1be-b7a6-4748-98aa-93725985a920",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "723c44fb-b667-4d8f-8429-b8a5721ecd3d"
+        },
+        {
+          "id": "ae0cfdca-a838-4887-b199-8cf2e5e6cd15",
+          "widgetId": "4e441657-6757-4fcd-a30e-f188220acea4",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "723c44fb-b667-4d8f-8429-b8a5721ecd3d"
+        }
+      ]
+    },
+    {
+      "dashboardId": "8e70d227-3bb6-47eb-af32-7ae06b6fda90",
+      "name": "New tab 1",
+      "id": "da5ef3b3-70ae-4f98-bd12-0d98c74465e2",
+      "placeholders": [
+        {
+          "id": "f3a4247d-bade-4b54-96c7-c0fcb91b8003",
+          "widgetId": "c041ae64-4d15-4e04-9c98-852cd0624ebc",
+          "size": {
+            "rows": 3,
+            "columns": 3
+          },
+          "position": {
+            "x": 3,
+            "y": 0
+          },
+          "tabId": "da5ef3b3-70ae-4f98-bd12-0d98c74465e2"
+        },
+        {
+          "id": "6bc2c498-69dd-4987-ae91-56bbbe71defd",
+          "widgetId": "ca8e5c4a-3c4a-4594-9b30-04d2a14b5f3a",
+          "size": {
+            "rows": 3,
+            "columns": 3
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "da5ef3b3-70ae-4f98-bd12-0d98c74465e2"
+        },
+        {
+          "id": "3c7d0e2a-f795-4bdd-b214-5c4d5bcde676",
+          "widgetId": "b0ab4bd2-2fdf-4058-80d9-7e6be2bf32c0",
+          "size": {
+            "rows": 3,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "da5ef3b3-70ae-4f98-bd12-0d98c74465e2"
+        },
+        {
+          "id": "e82cedff-8d3e-4f2c-9785-b3a5505c3514",
+          "widgetId": "67d459fc-9b48-4603-a4fa-adc71deeefa3",
+          "size": {
+            "rows": 4,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 3
+          },
+          "tabId": "da5ef3b3-70ae-4f98-bd12-0d98c74465e2"
+        },
+        {
+          "id": "84a95ce1-20b7-468c-bea5-17a0d3f8eafa",
+          "widgetId": "2f174758-bd91-4dea-986c-2b64978f71b1",
+          "size": {
+            "rows": 4,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 3
+          },
+          "tabId": "da5ef3b3-70ae-4f98-bd12-0d98c74465e2"
+        },
+        {
+          "id": "778a2e64-99cb-415c-ab92-ac1c72a35b9d",
+          "widgetId": "cc2fc6ef-b586-43c5-a347-0acdeed87dad",
+          "size": {
+            "rows": 5,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 7
+          },
+          "tabId": "da5ef3b3-70ae-4f98-bd12-0d98c74465e2"
+        },
+        {
+          "id": "81575438-21e9-4a49-9b57-b4eac877e45a",
+          "widgetId": "d118a90f-c680-4185-8efe-83d4927cecef",
+          "size": {
+            "rows": 5,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 7
+          },
+          "tabId": "da5ef3b3-70ae-4f98-bd12-0d98c74465e2"
+        }
+      ]
+    },
+    {
+      "dashboardId": "67505a9d-7a7b-4d79-89c8-907ba89244f5",
+      "name": "New tab 1",
+      "id": "a9e4d311-8f1c-439e-9dcb-7bb9b7608b77",
+      "placeholders": [
+        {
+          "id": "59abe2dd-81d4-4dfd-9ec5-9a5f49127166",
+          "widgetId": "664228b7-e74e-475b-9702-2d1effd7cc76",
+          "size": {
+            "rows": 12,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "a9e4d311-8f1c-439e-9dcb-7bb9b7608b77"
+        },
+        {
+          "id": "d7d55365-d30f-4211-8b4e-35da78f0a21b",
+          "widgetId": "2f174758-bd91-4dea-986c-2b64978f71b1",
+          "size": {
+            "rows": 12,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "a9e4d311-8f1c-439e-9dcb-7bb9b7608b77"
+        }
+      ]
+    },
+    {
+      "dashboardId": "47219be3-026a-4d3f-ae2b-7df8416f62cc",
+      "name": "New tab 1",
+      "id": "6a4680d8-7ccd-44df-ab9e-10159b5dd9c2",
+      "placeholders": [
+        {
+          "id": "4ddcfaf1-74f7-4a5c-9584-791e5a426cd1",
+          "widgetId": "cbcca10b-3b32-4f24-90f1-82766b7d88e2",
+          "size": {
+            "rows": 12,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "6a4680d8-7ccd-44df-ab9e-10159b5dd9c2"
+        },
+        {
+          "id": "cbb88683-6ecb-404f-83c7-66ecaa888a33",
+          "widgetId": "3b1f5bed-66cf-4689-8ffa-28c1e32d1596",
+          "size": {
+            "rows": 12,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "6a4680d8-7ccd-44df-ab9e-10159b5dd9c2"
+        }
+      ]
+    },
+    {
+      "dashboardId": "e0581c87-f495-439e-b014-5d19d31c0af5",
+      "name": "New tab 1",
+      "id": "85d06826-0903-48ae-9a66-9e2efb0c5ee4",
+      "placeholders": [
+        {
+          "id": "4259aee2-dee1-4d5b-8e6f-3987f58df769",
+          "widgetId": "d118a90f-c680-4185-8efe-83d4927cecef",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "85d06826-0903-48ae-9a66-9e2efb0c5ee4"
+        },
+        {
+          "id": "4a19c69e-7e40-44e0-a09b-7576b8e33dd8",
+          "widgetId": "9025f0d2-feea-43e1-b54e-25511bdd49e6",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "85d06826-0903-48ae-9a66-9e2efb0c5ee4"
+        }
+      ]
+    },
+    {
+      "dashboardId": "98a1e068-e15a-4721-a06f-34c186b47ed6",
+      "name": "New tab 1",
+      "id": "efa3edfa-63b3-4a22-a527-51e111d24593",
+      "placeholders": [
+        {
+          "id": "3e76dc56-4910-4445-87bd-c86f787b4f53",
+          "widgetId": "75ffa3dd-7d2d-412a-9f70-335c81d3140d",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "efa3edfa-63b3-4a22-a527-51e111d24593"
+        },
+        {
+          "id": "48f3688b-46ec-46a1-b06b-fce8f9ff7861",
+          "widgetId": "cc2fc6ef-b586-43c5-a347-0acdeed87dad",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "efa3edfa-63b3-4a22-a527-51e111d24593"
+        }
+      ]
+    },
+    {
+      "dashboardId": "3617c194-61a9-4b8a-830d-b0bf4ede40e6",
+      "name": "New tab 1",
+      "id": "b2c2825e-bfe2-4c73-898d-891c3802182c",
+      "placeholders": [
+        {
+          "id": "fd62864b-022a-46da-ad27-217d2bb4e1e9",
+          "widgetId": "ca8e5c4a-3c4a-4594-9b30-04d2a14b5f3a",
+          "size": {
+            "rows": 5,
+            "columns": 4
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "b2c2825e-bfe2-4c73-898d-891c3802182c"
+        },
+        {
+          "id": "9d4a2377-30bc-4740-9119-743de7df50a8",
+          "widgetId": "27a57ffc-6f9c-43f4-ac76-823db4f8b42c",
+          "size": {
+            "rows": 5,
+            "columns": 4
+          },
+          "position": {
+            "x": 4,
+            "y": 0
+          },
+          "tabId": "b2c2825e-bfe2-4c73-898d-891c3802182c"
+        },
+        {
+          "id": "194c4b52-a62b-46e3-92d9-5f6c5bedbcbf",
+          "widgetId": "0aecbcd0-5fb9-4dce-98d1-6d3db1907dbc",
+          "size": {
+            "rows": 5,
+            "columns": 4
+          },
+          "position": {
+            "x": 8,
+            "y": 0
+          },
+          "tabId": "b2c2825e-bfe2-4c73-898d-891c3802182c"
+        }
+      ]
+    },
+    {
+      "dashboardId": "07309be4-ed7f-4630-9287-4d686af9b5ce",
+      "name": "New tab 1",
+      "id": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f",
+      "placeholders": [
+        {
+          "id": "e0aa990e-e81c-45cb-b39e-f7aeada1b9ff",
+          "widgetId": "7dc386f9-f3ee-427e-8470-e26c40bd7528",
+          "size": {
+            "rows": 4,
+            "columns": 5
+          },
+          "position": {
+            "x": 7,
+            "y": 4
+          },
+          "tabId": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f"
+        },
+        {
+          "id": "458e7967-0f02-44a5-b80c-52bd05838348",
+          "widgetId": "2d910df5-64e0-44b9-8b31-d30852065efc",
+          "size": {
+            "rows": 6,
+            "columns": 3
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f"
+        },
+        {
+          "id": "0b0fc185-dbb9-43bc-8972-2ebd9d7b72db",
+          "widgetId": "f336aa8f-7d1b-43f5-9a3e-2a37558487b9",
+          "size": {
+            "rows": 4,
+            "columns": 4
+          },
+          "position": {
+            "x": 3,
+            "y": 4
+          },
+          "tabId": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f"
+        },
+        {
+          "id": "2967fd19-9ad9-49b7-af38-5537a9901501",
+          "widgetId": "7e2cc1be-b7a6-4748-98aa-93725985a920",
+          "size": {
+            "rows": 4,
+            "columns": 5
+          },
+          "position": {
+            "x": 7,
+            "y": 8
+          },
+          "tabId": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f"
+        },
+        {
+          "id": "cbe57786-1c3c-4291-91d4-a776288c86de",
+          "widgetId": "e18c84ff-191f-43ee-8bbc-213b9cb80b83",
+          "size": {
+            "rows": 6,
+            "columns": 3
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f"
+        },
+        {
+          "id": "08ddc871-4f4f-4faf-8bd9-172efd03c710",
+          "widgetId": "4e441657-6757-4fcd-a30e-f188220acea4",
+          "size": {
+            "rows": 4,
+            "columns": 4
+          },
+          "position": {
+            "x": 3,
+            "y": 8
+          },
+          "tabId": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f"
+        },
+        {
+          "id": "fe339545-0160-4160-b97a-840c04f5dd7a",
+          "widgetId": "667b5802-12dc-494a-8ef8-c5fc7c145a50",
+          "size": {
+            "rows": 4,
+            "columns": 4
+          },
+          "position": {
+            "x": 3,
+            "y": 0
+          },
+          "tabId": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f"
+        },
+        {
+          "id": "917ef9aa-1d44-45ef-bf2e-9b1fe2040f76",
+          "widgetId": "b0ab4bd2-2fdf-4058-80d9-7e6be2bf32c0",
+          "size": {
+            "rows": 4,
+            "columns": 3
+          },
+          "position": {
+            "x": 7,
+            "y": 0
+          },
+          "tabId": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f"
+        },
+        {
+          "id": "249bbd16-2a3a-4822-b51d-948bfe889dab",
+          "widgetId": "c58c84b6-c143-4079-ac8c-bfa122418a33",
+          "size": {
+            "rows": 4,
+            "columns": 2
+          },
+          "position": {
+            "x": 10,
+            "y": 0
+          },
+          "tabId": "7a62c17e-f702-4c4e-b8e0-806cbf784a4f"
+        }
+      ]
+    },
+    {
+      "dashboardId": "99eaa0fc-4510-41ab-a788-8b14678867ef",
+      "name": "New tab 1",
+      "id": "0d6466bf-41a3-412b-bf0c-8d617f90fddc",
+      "placeholders": [
+        {
+          "id": "28bd485d-5821-492f-94df-617a7790ff3b",
+          "widgetId": "c041ae64-4d15-4e04-9c98-852cd0624ebc",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "0d6466bf-41a3-412b-bf0c-8d617f90fddc"
+        }
+      ]
+    },
+    {
+      "dashboardId": "e8d9b225-ccca-4488-8aa2-d67362237fcb",
+      "name": "New tab 1",
+      "id": "aea7867e-92b0-42f7-adf2-4d4ab0c37511",
+      "placeholders": [
+        {
+          "id": "c2c16329-34bc-43cd-b905-df3d5a72f5e7",
+          "widgetId": "e73c9672-f04b-4b52-9bc8-646ad4633f96",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "aea7867e-92b0-42f7-adf2-4d4ab0c37511"
+        },
+        {
+          "id": "3310763d-d435-4461-b805-ba2e1e90ec9a",
+          "widgetId": "82e3f350-5e6a-451f-b66d-709ec37975ed",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 6
+          },
+          "tabId": "aea7867e-92b0-42f7-adf2-4d4ab0c37511"
+        },
+        {
+          "id": "45b7e236-7c3f-4865-aab8-d79f16653882",
+          "widgetId": "cbc2f336-77db-4659-9c0f-610150291aac",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "aea7867e-92b0-42f7-adf2-4d4ab0c37511"
+        },
+        {
+          "id": "ad59b7ac-80ad-48ee-8de7-0ab8e962b1eb",
+          "widgetId": "32574818-9bf0-4960-ba4e-edb2245c72be",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "aea7867e-92b0-42f7-adf2-4d4ab0c37511"
+        }
+      ]
+    },
+    {
+      "dashboardId": "1646243e-5a1d-492e-a6a7-52b0ee0fd4c9",
+      "name": "New tab 1",
+      "id": "4acf739b-338b-4fbb-bc68-edb1673d4c05",
+      "placeholders": [
+        {
+          "id": "f5b83ebf-0db1-4cae-b8d2-62e7650f05b0",
+          "widgetId": "161e09ad-0391-453f-8164-bf6c3f9b1157",
+          "size": {
+            "rows": 8,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 3
+          },
+          "tabId": "4acf739b-338b-4fbb-bc68-edb1673d4c05"
+        },
+        {
+          "id": "a99c2a76-2d3d-4a81-8674-3aa6832c00ff",
+          "widgetId": "ca8e5c4a-3c4a-4594-9b30-04d2a14b5f3a",
+          "size": {
+            "rows": 3,
+            "columns": 3
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "4acf739b-338b-4fbb-bc68-edb1673d4c05"
+        },
+        {
+          "id": "5bcf8a9d-5f60-4224-99b7-da8d064b6ac5",
+          "widgetId": "9a927e01-2c52-4775-a857-1352c8545cee",
+          "size": {
+            "rows": 3,
+            "columns": 3
+          },
+          "position": {
+            "x": 3,
+            "y": 0
+          },
+          "tabId": "4acf739b-338b-4fbb-bc68-edb1673d4c05"
+        },
+        {
+          "id": "76b31129-fb3b-4145-9b91-d1b6490421ab",
+          "widgetId": "b0ab4bd2-2fdf-4058-80d9-7e6be2bf32c0",
+          "size": {
+            "rows": 3,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "4acf739b-338b-4fbb-bc68-edb1673d4c05"
+        }
+      ]
+    },
+    {
+      "dashboardId": "e6571ef8-19dd-4953-a5f6-17ba908ea171",
+      "name": "New tab 1",
+      "id": "9786b43f-5b5d-412a-89e0-ac2037c8fe8a",
+      "placeholders": [
+        {
+          "id": "7de9e693-46b8-43b0-8794-9f207abff5e9",
+          "widgetId": "91bec2e0-f5f4-4e15-9194-5a7fc4fedc0d",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "9786b43f-5b5d-412a-89e0-ac2037c8fe8a"
+        },
+        {
+          "id": "058a9a37-6cde-4414-9814-962a11584fc9",
+          "widgetId": "625576d7-e279-439a-9fe4-f1881664f953",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "9786b43f-5b5d-412a-89e0-ac2037c8fe8a"
+        },
+        {
+          "id": "aff157ec-fcf6-42a7-829a-bdaafd05880f",
+          "widgetId": "379e3bb8-d552-40e2-a598-2e24501c4bb2",
+          "size": {
+            "rows": 4,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 6
+          },
+          "tabId": "9786b43f-5b5d-412a-89e0-ac2037c8fe8a"
+        },
+        {
+          "id": "3881e7f5-8541-41e5-8f68-808b998500c6",
+          "widgetId": "c58c84b6-c143-4079-ac8c-bfa122418a33",
+          "size": {
+            "rows": 4,
+            "columns": 2
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "9786b43f-5b5d-412a-89e0-ac2037c8fe8a"
+        },
+        {
+          "id": "42cff70b-413c-4992-9ec2-01bc780b6692",
+          "widgetId": "9a927e01-2c52-4775-a857-1352c8545cee",
+          "size": {
+            "rows": 4,
+            "columns": 2
+          },
+          "position": {
+            "x": 2,
+            "y": 6
+          },
+          "tabId": "9786b43f-5b5d-412a-89e0-ac2037c8fe8a"
+        },
+        {
+          "id": "40d0a458-23e8-4656-91ff-01cf54c23087",
+          "widgetId": "e2e2b9f0-0484-4723-a6eb-befae0adf2d1",
+          "size": {
+            "rows": 4,
+            "columns": 2
+          },
+          "position": {
+            "x": 4,
+            "y": 6
+          },
+          "tabId": "9786b43f-5b5d-412a-89e0-ac2037c8fe8a"
+        },
+        {
+          "id": "2686097d-382e-41df-beb1-b58643219bc2",
+          "widgetId": "00c7d0f3-b7bd-483f-aada-3486da0d3101",
+          "size": {
+            "rows": 4,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 10
+          },
+          "tabId": "9786b43f-5b5d-412a-89e0-ac2037c8fe8a"
+        }
+      ]
+    },
+    {
+      "dashboardId": "bf56656f-2165-464f-851b-adb07d726d67",
+      "name": "New tab 1",
+      "id": "HsUVNg3",
+      "placeholders": [
+        {
+          "id": "6b682e6e-5c61-4d59-a921-7fb35c9e3d0d",
+          "widgetId": "625576d7-e279-439a-9fe4-f1881664f953",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 6
+          },
+          "tabId": "HsUVNg3"
+        },
+        {
+          "id": "c41bc6c3-9b55-4acd-9f33-5ad5dfced1c3",
+          "widgetId": "00c7d0f3-b7bd-483f-aada-3486da0d3101",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "HsUVNg3"
+        },
+        {
+          "id": "caaadbef-025e-4682-b14b-91839e3681c4",
+          "widgetId": "77fc21b0-1687-4f11-9177-a28b5aab73d2",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "HsUVNg3"
+        },
+        {
+          "id": "6f50060d-97e0-4f51-88f8-8d71ccb6aaf4",
+          "widgetId": "c4953419-901a-41e4-80ab-ddee9a0b76ad",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "HsUVNg3"
+        }
+      ]
+    },
+    {
+      "dashboardId": "2e54f232-2003-479b-b253-64f1d699811d",
+      "name": "New tab 1",
+      "id": "lDpc~ce",
+      "placeholders": []
+    },
+    {
+      "dashboardId": "a0eb6c40-2bd9-4be6-9282-e720328085b4",
+      "name": "New tab 1",
+      "id": "defS77S",
+      "placeholders": [
+        {
+          "id": "a50bec7b-9a4c-41e1-87cb-3279edbf76b0",
+          "widgetId": "06b8fa8e-c573-4d47-9d3a-51b3d7eea322",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "defS77S"
+        },
+        {
+          "id": "84770a42-2092-48da-ae91-8fa82e76f650",
+          "widgetId": "ffa402f8-5625-4ed8-87c1-7b8ad9898d35",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "defS77S"
+        }
+      ]
+    },
+    {
+      "dashboardId": "801f304b-67a2-4c4b-9663-7eaecbdc644a",
+      "name": "New tab 1",
+      "id": "pmCQbuq",
+      "placeholders": [
+        {
+          "id": "736e45ab-db8b-49e4-bd26-d360f80957c7",
+          "widgetId": "64dc501e-1929-43e5-8c29-191a14994694",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "pmCQbuq"
+        }
+      ]
+    },
+    {
+      "dashboardId": "dc0b2e89-1420-4fc9-82e6-f350bc67c5d7",
+      "name": "New tab 1",
+      "id": "eoGpa_y",
+      "placeholders": [
+        {
+          "id": "1d410bc2-44f9-48ea-b7e2-a69b62d0585a",
+          "widgetId": "c041ae64-4d15-4e04-9c98-852cd0624ebc",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 0
+          },
+          "tabId": "eoGpa_y"
+        },
+        {
+          "id": "f8e6fcd6-40d1-4e14-bc06-0f16eca2729d",
+          "widgetId": "ca8e5c4a-3c4a-4594-9b30-04d2a14b5f3a",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "tabId": "eoGpa_y"
+        },
+        {
+          "id": "dd82e9db-6f87-4470-b2e4-0f4c08e6e527",
+          "widgetId": "91bec2e0-f5f4-4e15-9194-5a7fc4fedc0d",
+          "size": {
+            "rows": 7,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 6
+          },
+          "tabId": "eoGpa_y"
+        },
+        {
+          "id": "e1ad7718-ecb7-4789-a2f2-d1bc25acc390",
+          "widgetId": "60b1409f-604b-4123-bb14-923f739c4692",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 0,
+            "y": 13
+          },
+          "tabId": "eoGpa_y"
+        },
+        {
+          "id": "54a38d87-f4b4-4311-a846-5ad7bd391179",
+          "widgetId": "ce25746d-5262-49fb-b898-23906431b994",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 19
+          },
+          "tabId": "eoGpa_y"
+        },
+        {
+          "id": "251782a2-c48f-4ee1-a964-87ed1d1a7178",
+          "widgetId": "cf650307-7b2f-474b-a189-81d7c76ef31c",
+          "size": {
+            "rows": 6,
+            "columns": 12
+          },
+          "position": {
+            "x": 0,
+            "y": 25
+          },
+          "tabId": "eoGpa_y"
+        },
+        {
+          "id": "34a776b0-0dd5-495f-baf2-d45bef7ca70b",
+          "widgetId": "b0ab4bd2-2fdf-4058-80d9-7e6be2bf32c0",
+          "size": {
+            "rows": 7,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 6
+          },
+          "tabId": "eoGpa_y"
+        },
+        {
+          "id": "2175b15a-ad15-4751-9603-4710ce6dc82b",
+          "widgetId": "8e866e3c-f436-4200-aa68-9a4e4aaf2c4b",
+          "size": {
+            "rows": 6,
+            "columns": 6
+          },
+          "position": {
+            "x": 6,
+            "y": 13
+          },
+          "tabId": "eoGpa_y"
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "package": "Queue Performance",
+      "kafkaQueue": "queue_perf",
+      "stream": "Queue",
+      "measures": [
+        {
+          "name": "InstantaneousContactsAnswered",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "InstAttributeMatched",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "ContactsOffered",
+          "format": "number",
+          "relatedMeasures": [
+            "ContactsAnswered",
+            "ContactsAbandoned"
+          ]
+        },
+        {
+          "name": "ContactsAnswered",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "ContactsAbandoned",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "ServiceLevel",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "SankeyLayer1",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "SankeyLayer2",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "WorkQueuing",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "WorkOffered",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "InstAttributeQueueTime",
+          "format": "number",
+          "relatedMeasures": []
+        }
+      ]
+    },
+    {
+      "package": "Queue Status",
+      "kafkaQueue": "queue_status",
+      "stream": "Queue",
+      "measures": [
+        {
+          "name": "Available",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "NotReady",
+          "format": "number",
+          "relatedMeasures": []
+        }
+      ]
+    },
+    {
+      "package": "Sankey",
+      "kafkaQueue": "sankey",
+      "stream": "Queue",
+      "measures": []
+    },
+    {
+      "package": "Agent Performance",
+      "kafkaQueue": "agent_perf",
+      "stream": "Agent",
+      "measures": [
+        {
+          "name": "CallsAnswered",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "InstantaneousCallsAnswered",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "CallsAbandoned",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "CallsQueuing",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "CompletedCalls",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "LoggedInTime",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "HoldTime",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "NotReadyTime",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "CreatedDate",
+          "format": "number",
+          "relatedMeasures": []
+        },
+        {
+          "name": "State",
+          "format": "string",
+          "relatedMeasures": [
+            "TimeInState",
+            "CallsAnswered"
+          ]
+        },
+        {
+          "name": "TimeInState",
+          "format": "time",
+          "relatedMeasures": []
+        }
+      ]
+    }
+  ],
+  "formulaMeasures": [
+    {
+      "name": "SumMeasure",
+      "format": "number",
+      "relatedMeasures": [],
+      "dataType": "Queue Performance",
+      "expression": "ContactsAnswered + ContactsAbandoned",
+      "userId": "adminUser",
+      "id": 1
+    },
+    {
+      "name": "ContactAnsweredAndOffered",
+      "format": "number",
+      "relatedMeasures": [],
+      "dataType": "Queue Performance",
+      "expression": "ContactsAnswered  + ContactsOffered",
+      "id": "ContactAnsweredAndOffered",
+      "userId": "adminUser"
+    }
+  ],
+  "palettes": [],
+  "roles": []
+}

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dashboard-config
+  namespace: $deploymentNamespace
+data:
+  AppConfig.json: |
+    {
+      "apiEndPoint": "/dashboardinfo",
+      "kafkaEndPoint": "/dashboardinfo/kafkaProxy",
+      "kafkaApiKey": "tc8jhfuBs6oePlfRIWbHEJZ8nDkgAKlVF4AvlsMeyBemnRtk",
+      "reportingDataGeneratorEndPoint": "http://$deploymentServicesFQDN/timelinequery/service",
+      "reportingDataSubscriptionEndPoint": "http://$deploymentServicesFQDN/timelinequery/service",
+      "webSocket": "http://$deploymentServicesFQDN/",
+      "logging": {
+        "log": true,
+        "level": "debug"
+      },
+      "version": "$dashboardVerison",
+      "fqdn": "http://$deploymentServicesFQDN/"
+    }

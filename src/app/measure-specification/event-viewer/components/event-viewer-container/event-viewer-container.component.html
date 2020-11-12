@@ -1,0 +1,7 @@
+<!-- Could be more than one source of events-->
+<div class="event-viewer-container" >
+    <app-event-viewer 
+        *ngFor="let stream of streams" 
+        [streamName]="stream">
+    </app-event-viewer>
+</div>

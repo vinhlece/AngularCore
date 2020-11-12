@@ -1,0 +1,13 @@
+<div [formGroup]="form">
+  <div formArrayName="colors" fxLayout="column" fxLayoutGap="10px">
+    <div *ngFor="let selectedColor of selectedColors; let i = index" class="color">
+      <app-auto-invoke-url-color
+        fxFlex="50"
+        [placeholder]="'Color ' + (i+1)"
+        [required]="required"
+        [formControlName]="i"
+        [auto]="true">
+      </app-auto-invoke-url-color>
+    </div>
+  </div>
+</div>

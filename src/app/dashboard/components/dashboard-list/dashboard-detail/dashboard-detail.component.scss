@@ -1,0 +1,139 @@
+@import "../../../../../styles/variables";
+
+.card-text,
+.card-number {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.dashboard-card {
+  background-color: $dashboard-card;
+}
+
+.dimension-card {
+  background-color: $dimension-card;
+}
+
+.measure-card {
+  background-color: $measure-card;
+}
+
+.window-card {
+  background-color: $window-card;
+}
+
+.widget-card {
+  background-color: $widget-card;
+}
+
+.hiddenMenu{
+  position: absolute;
+  visibility: hidden;
+}
+
+.header {
+  margin: 0 20px;
+  width: 100%;
+}
+
+.menu-dynamic-container {
+  position: relative;
+  width: 130px;
+
+  .icon {
+    position: absolute;
+    right: -30px;
+    width: fit-content
+  }
+
+  mat-icon {
+    width: 25px !important;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  background-color: var(--dashboard-card-background);
+  color: var(--dashboard-card-text);
+  transition: 0.3s;
+  height: 140px;
+  font-size: 20px;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    transform: scale(1.020);
+  }
+
+  .card-header {
+    padding-left: 12px;
+    padding-right: 7px;
+    height: 26px;
+
+    .dashboard-name {
+      font-size: 17px;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .more-vert-menu {
+      padding: 0;
+      width: 20px;
+      min-width: 20px;
+      position: relative;
+    }
+
+    mat-icon {
+      float: left;
+      width: 100%;
+      color: $button-more-vert-color;
+      width: 20px;
+    }
+  }
+
+  .dashboard-body {
+    height: 80%;
+    .logo {
+      color: white;
+      padding: 5px;
+
+      .logo-content {
+        width: 100%;
+        height: 50%;
+      }
+    }
+
+    .description {
+      padding-top: 5px;
+      font-size: 10px;
+    }
+  }
+}
+
+label {
+  text-align: right;
+  clear: both;
+  float:left;
+  margin-right:10px;
+}
+
+.joulica-button {
+  color: $button-primary-color;
+
+  .mat-icon {
+    font-size: 35px;
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.menu-icon {
+  width: 16px !important;
+  padding: 0px 15px 0 0 !important;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

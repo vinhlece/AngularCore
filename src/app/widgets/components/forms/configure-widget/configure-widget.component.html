@@ -1,0 +1,9 @@
+<form fxLayout="column" fxFlexFill class="form" appTheme>
+  <div fxFlex="100" fxLayout="row" flexLayoutAlign="center center">
+    <app-side-bar-editor-container [isEditNewSideBar]="true"
+                                   class="side-bar"
+                                   (onCancel)="handleCancel()"
+                                   (onSave)="handleSave()">
+    </app-side-bar-editor-container>
+  </div>
+</form>

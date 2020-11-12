@@ -1,0 +1,39 @@
+<div class="mat-typography" [formGroup]="form">
+  <div *ngIf="colors && colors.length > 0; else colorInput" class="color-input">
+    <mat-form-field class="full-width">
+      <mat-select formControlName="color" [placeholder]="label | translate">
+        <mat-option *ngFor="let item of colors" [value]="item">{{item}}</mat-option>
+      </mat-select>
+      <mat-error class="required"><span translate>widgets.edit_widget_form.color_required</span></mat-error>
+    </mat-form-field>
+  </div>
+  <ng-template #colorInput>
+    <label *ngIf="isLabel" for="inputColor" [ngClass]="required ? 'input-label required-star' : 'input-label'">{{label | translate}}</label>
+    <div class="color-input" fxLayout="row" fxLayoutAlign="start center">
+      <mat-form-field class="full-width" appearance="outline">
+        <input matInput
+               [class.dark-theme-box]="isDarkTheme()"
+               autocomplete="off"
+               type="text"
+               id="inputColor"
+               formControlName="color"
+               [cpPosition]="position"
+               [cpPositionRelativeToArrow]="true"
+               [colorPicker]="color"
+               [placeholder]="label | translate"
+               [cpOutputFormat]="'hex'"
+               [cpOKButton]="true"
+               [cpCancelButton]="true"
+               [cpOKButtonClass]="'color-picker-okBtn'"
+               [cpCancelButtonClass]="'color-picker-cancelBtn'"
+               (colorPickerSelect)="handlePickColor($event)"
+               [value]="color">
+        <mat-error class="required"><span translate>widgets.edit_widget_form.color_required</span></mat-error>
+      </mat-form-field>
+      <div  *ngIf="position !== 'left'"
+           [style.background]="color"
+           class="picked-color"
+      ></div>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,9 @@
+<div class="mat-typography new-form" [formGroup]="form" fxLayout="row wrap">
+  <p class="title" fxFlex="100" translate>widgets.edit_widget_form.threshold</p>
+  <div fxLayout="column" fxFlex="50" class="padding-right">
+    <app-breakpoint-threshold-values formControlName="breakpoints"></app-breakpoint-threshold-values>
+  </div>
+  <div fxLayout="column" fxFlex="50">
+    <app-breakpoint-threshold-colors formControlName="colors" [required]="required"></app-breakpoint-threshold-colors>
+  </div>
+</div>

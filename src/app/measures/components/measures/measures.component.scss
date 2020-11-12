@@ -1,0 +1,102 @@
+@import "../../../../styles/variables";
+
+.mat-column-name,
+.mat-column-dataType,
+.mat-column-packageName,
+.mat-column-default-size {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background: var(--tab-grid-background);
+  min-height: 100vh;
+}
+
+.fab {
+  color: #fff;
+  background-color: $button-primary-color;
+  height: 30px;
+  min-width: 95px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 10px;
+  &.measure {
+    line-height:30px;
+  }
+  &.formula-measure {
+    line-height:30px;
+  }
+}
+
+.row {
+  &:hover {
+    cursor: pointer;
+    background-color: #f7f7f7;
+  }
+}
+
+.error-message {
+  margin-left: 24px;
+  line-height: 32px;
+}
+
+.template-icon{
+  color: rgba(255, 0, 0, 0.9);
+}
+
+.search-box {
+  background: var(--tab-grid-background);
+}
+
+.header-search-box {
+  padding: 17px 15px 7px 24px;
+  position: relative;
+
+  .widget-library {
+    font-weight: 600;
+    font-size: 14px;
+    color: #212529;
+  }
+}
+
+::ng-deep .measures-ssearch-filed {
+  width: 98% !important;
+  margin: 10px;
+
+  .mat-form-field-flex > .mat-form-field-infix {
+    padding: 0 0 12px 0
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-icon {
+    padding: 7px 0 0 0;
+  }
+}
+
+.btn-add-measure {
+  background-color: $button-primary-color;
+  color: #ffff;
+  margin-left: 15px;
+  font-family: 'Poppins';
+}
+
+.measure-table {
+  font-family: 'Poppins';
+}
+
+.header-cell{
+  color: var(--header-cell);
+  font-size: 14px;
+  background-color: var(--table-bg);
+}
+
+.table-cell {
+  background-color: var(--table-bg);
+  color: var(--table-text);
+}

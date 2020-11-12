@@ -1,0 +1,28 @@
+<div #divContainer class="container" *ngIf="events" (mousedown)="handleMouseDown($event)" (dblclick)="handleDoubleClick($event)"
+     (contextmenu)="handleRightClick($event)">
+    <div>
+        <div *ngIf="disconnected" class="live-event-listener">
+            <p>Connection Lost</p>
+            <mat-icon matTooltip="Reconnect" (click)="reconnect()">refresh</mat-icon>
+        </div>
+        <div *ngIf="events?.length === 0 && !disconnected; else liveEventsTemplate" class="live-event-listener">
+            <p>Listening For Events</p>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+
+        <ng-template #liveEventsTemplate>
+          <div class="event-container">
+            <p [liveEvent]="250" class="live-event-data" *ngFor="let event of events">{{ event | json }}</p>
+          </div>
+          <div class="event-controls-container">
+            <div class="event-controls">
+              <mat-icon *ngIf="!eventsPaused" matTooltipShowDelay="500" matTooltip="Pause Events" (click)="pauseEvents()">pause_circle_outline</mat-icon>
+              <mat-icon *ngIf="eventsPaused" matTooltipShowDelay="500" matTooltip="Play Events" (click)="pauseEvents()">play_circle_outline</mat-icon>
+              <mat-icon *ngIf="!eventsPaused" matTooltipShowDelay="500" matTooltip="Clear Events" (click)="clearEvents()">remove_circle_outline</mat-icon>
+
+            </div>
+            <h3>Events Received {{ count }}</h3>
+          </div>
+        </ng-template>
+    </div>
+</div>

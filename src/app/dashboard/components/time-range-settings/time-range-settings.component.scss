@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+@import '../../../../styles/variables';
+
+.btn{
+  margin: 0 3px;
+  min-width: 1%;
+  padding: 0 6px;
+  line-height: 22px;
+  font-size: medium;
+  color: #fff;
+}
+
+.selected {
+  background-color: white;
+  color: mat-color($app-primary);
+}
+
+.data-point-interval-selector {
+  margin-left: 45px;
+}
+
+.time-range-container {
+  .input-label {
+    color: var(--time-explorer-label);
+    margin-right: 10px;
+    margin-left: 10px;
+    font-weight: 600;
+  }
+}
+

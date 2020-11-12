@@ -1,0 +1,60 @@
+@import '~@angular/material/theming';
+
+$mat-joulica: (
+  50: #102A3A,
+  100: #EB5620,
+  200: #eee,
+  300: #38404D,
+  400: #343D4D,
+  500: #102A3A,
+  600: #1D2E4D,
+  700: #12274D,
+  800: #0E254D,
+  900: #001B4D,
+  A100: #EB5620,
+  A200: #00474D,
+  A400: #004D40,
+  A700: #004D3F,
+  contrast: (
+    50: white,
+    100: white,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+$color-primary: #353535;
+$app-primary: mat-palette($mat-joulica, 50);
+$app-accent: mat-palette($mat-joulica, 100);
+$app-warn: mat-palette($mat-red);
+$app-measure: mat-palette($mat-yellow);
+$grid-background-color: mat-palette($mat-joulica, 200);
+
+$placeholder-title-font-size: 16px;
+$placeholder-subtitle-font-size: 14px;
+$button-primary-color: #5867DD;
+$button-secondary-color: #EAECF9;
+$button-more-vert-color: #CCCCCC;
+$label-primary-color: #58609C;
+$mat-chip-color: #EAECF9;
+$text-primary-color: #545454;
+$icon-color: #707070;
+$background-advanced-setting: #EAECF9;
+$description-color: #848484;
+$text-popup-color: #212529;
+$measure-definition-label-color: #878787;
+$dashboard-card: #264653;
+$dimension-card: #2A9D8F;
+$measure-card: #E9C46A;
+$window-card: #F4A261;
+$widget-card: #E76F51;
+$white: #FFFFFF;

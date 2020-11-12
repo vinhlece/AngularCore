@@ -1,0 +1,75 @@
+<form [formGroup]="newForm" (ngSubmit)="onSave()" class="main-form" [class.dark-theme-box]="isDarkTheme()" appTheme>
+  <div class="close-button-area">
+    <ng-container *ngIf="isAvailableControl('widgetType')">
+      <mat-icon (click)="changeView()" *ngIf="currentView === 'grid'" class="view-button" fxLayout="row" fxFlex="100" matTooltip="Change View to Groups">tab</mat-icon>
+      <mat-icon (click)="changeView()" *ngIf="currentView === 'tab'" class="view-button" fxLayout="row" fxFlex="100" matTooltip="Change View to Grid">apps</mat-icon>
+    </ng-container>
+    <div fxLayout="row" fxFlex="100">
+      <mat-icon *ngIf="isAvailableControl('name')" (click)="onSave()"
+                class="close-button save" matTooltip="Save">save</mat-icon>
+      <mat-icon class="close-button" matTooltip="Close" [matDialogClose]>close</mat-icon>
+    </div>
+  </div>
+  <mat-card class="no-shadow">
+    <mat-card-title>
+      <div class="card-title">{{formTitle | translate}}
+      </div>
+      <div><hr /></div>
+    </mat-card-title>
+    <mat-card-content>
+      <div *ngIf="isAvailableControl('widgetType')" fxLayout="row wrap" fxFlex="100">
+        <mat-card-subtitle>
+          <div class="card-name">{{'dashboard.simple_name_form.label_widget_type' | translate}}</div>
+        </mat-card-subtitle>
+
+        <div *ngIf="currentView === 'grid'" class="form-control form-simple-name" >
+          <div class="chart-all-style-type" fxLayout="row wrap">
+            <button mat-stroked-button *ngFor="let type of chartTypeObjs; let i = index;" (click)="handleChangeWidget(type)" class="chart-icon" [class.flex100]="isFlex100Image(i, chartTypeObjs)" fxFlex="{{getFlexForAllImages(i, chartTypeObjs)}}"
+              matTooltip="{{'dashboard.simple_name_form.create' | translate}} {{type.styleKey | translate}}{{type.styleKey ? ' - ' : ''}}{{type.typeKey | translate}} {{'layout.header.widget_name' | translate}}">
+              <img src="{{type.url}}">
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="currentView === 'tab'" class="form-control form-simple-name" >
+          <mat-tab-group [(selectedIndex)]="selectedTabIndex" (selectedTabChange)="onTabChange($event);">
+            <mat-tab *ngFor="let icon of icons" fxFlex="10">
+              <ng-template mat-tab-label>
+                <div class="image-icon">
+                  <img class="chart-icon" src="{{getIcon(icon)}}" alt="{{getTooltip(icon)}} {{'layout.header.widget' | translate}}" matTooltip="{{getTooltip(icon)}} {{'layout.header.widget' | translate}}">
+                </div>
+              </ng-template>
+
+              <ng-template matTabContent>
+                <mat-card-title>
+                  {{getTooltip(icon)}} {{'layout.header.widget' | translate}}
+                </mat-card-title>
+                <div class="chart-style-type" fxLayout="row wrap">
+                  <button mat-stroked-button *ngFor="let type of chartTypeObjs; let i = index;" (click)="handleChangeWidget(type)" class="chart-icon"  fxFlex="{{getFlexForImage(i, chartTypeObjs)}}"
+                   matTooltip="{{'dashboard.simple_name_form.create' | translate}} {{type.styleKey | translate}}{{type.styleKey ? ' - ' : ''}}{{type.typeKey | translate}} {{'layout.header.widget_name' | translate}}">
+                    <img src="{{type.url}}">
+                  </button>
+                </div>
+              </ng-template>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+      <div fxLayout="row wrap" fxFlex="100" *ngIf="isAvailableControl('name')">
+        <div class="name">{{'dashboard.simple_name_form.label_dashboard_name' | translate}}</div>
+        <mat-form-field appearance="outline" fxFlex="100">
+          <input matInput type="text" [placeholder]="'dashboard.simple_name_form.placeholder_dashboard_name' | translate" formControlName="name" autocomplete="off" />
+          <mat-error>
+            {{'dashboard.simple_name_form.error_dashboard_name' | translate}}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100" appearance="outline">
+          <textarea formControlName="description" placeholder="{{'dashboard.simple_name_form.placeholder_dashboard_description' | translate}}"
+                               rows="4" autocomplete="off" matInput type="text">
+          </textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

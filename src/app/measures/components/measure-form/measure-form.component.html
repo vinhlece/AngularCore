@@ -1,0 +1,32 @@
+<div [formGroup]="form" class="measure-form">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <label fxFlex="30">{{'measure.edit_formula_measure_form.name' | translate}}</label>
+    <mat-form-field fxFlex="70">
+      <input matInput class="form-control" formControlName="name" autocomplete="off" />
+      <mat-error>{{'measure.edit_formula_measure_form.error_name_required' | translate}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <label fxFlex="30">{{'measure.edit_formula_measure_form.package' | translate}}</label>
+    <mat-form-field fxFlex="70">
+      <mat-select formControlName="dataType">
+        <mat-option *ngFor="let package of packages" [value]="package.dimensions">{{package.dimensions}}</mat-option>
+      </mat-select>
+      <mat-error>{{'measure.edit_formula_measure_form.error_package_required' | translate}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <p fxFlex="70">
+      <mat-checkbox formControlName="disabled">{{'measure.measure_component.disabled' | translate}}</mat-checkbox>
+    </p>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button type="submit" class="btn-save" mat-flat-button [disabled]="form.invalid">
+      {{'measure.edit_formula_measure_form.save' | translate}}
+    </button>
+    <button type="button" class="btn-cancel" mat-flat-button (click)="handleCancel()">
+      {{'measure.edit_formula_measure_form.cancel' | translate}}
+    </button>
+  </div>
+</div>

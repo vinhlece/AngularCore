@@ -1,0 +1,14 @@
+<mat-form-field [formGroup]="form" class="search-box" appearance="outline" fxFlexAlign="center">
+  <mat-icon matPrefix>search</mat-icon>
+  <input #inputSearchBox [matAutocomplete]="auto" placeholder="{{placeHolder}}" matInput type="text"
+         formControlName="value" (keydown.enter)="keyEnter($event, inputSearchBox.value)"
+         (input)="handleTextChanged(inputSearchBox.value)"/>
+  <mat-error *ngIf="form.get('value').hasError('required')"><span translate>measure_specification.measure.error_input_data_required</span></mat-error>
+  <mat-error *ngIf="form.get('value').hasError('notExisted')"><span translate>measure_specification.measure.error_input_data_invalid</span></mat-error>
+  <mat-autocomplete class="{{isDarkTheme()}}" #auto="matAutocomplete" (optionSelected)="handleSelected($event)">
+    <mat-option *ngFor="let option of filteredOptions" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+

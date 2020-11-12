@@ -1,0 +1,19 @@
+<div class="mat-typography" [formGroup]="form">
+  <div fxLayout="row wrap" formArrayName="breakpoints" fxLayoutAlign="space-between">
+    <div class="breakpoint-value" fxLayout="column" fxFlex="45" *ngFor="let breakpoint of breakpoints; let i = index">
+      <label class="label" for="inputOldThreshold">Breakpoint {{i + 1}}</label>
+      <mat-form-field appearance="outline" class="breakpoint-style">
+        <input matInput
+               autocomplete="off"
+               type="number"
+               id="inputOldThreshold"
+               [placeholder]="'Breakpoint ' + (i + 1)"
+               [formControlName]="i"
+               [value]="breakpoint">
+        <mat-error class="required" *ngIf="hasError(i)">
+          This breakpoint is required.
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

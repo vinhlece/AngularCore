@@ -1,0 +1,17 @@
+<div [formGroup]="form">
+  <label class="input-label">{{placeholder | translate}}</label>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-select formControlName="selected" [placeholder]="placeholder | translate">
+      <div *ngIf="isTranslation; else plainString">
+        <mat-option id="pairOption" [class.dark-theme-box]="isDarkTheme()" *ngFor="let name of options" [value]="name.key">
+          {{name.value | translate}}
+        </mat-option>
+      </div>
+      <ng-template #plainString>
+        <mat-option id="stringOption" [class.dark-theme-box]="isDarkTheme()" *ngFor="let name of options" [value]="name">
+          {{name}}
+        </mat-option>
+      </ng-template>
+    </mat-select>
+  </mat-form-field>
+</div>

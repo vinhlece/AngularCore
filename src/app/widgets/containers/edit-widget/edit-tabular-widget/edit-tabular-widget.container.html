@@ -1,0 +1,50 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <div *ngIf="!isEditingOnSideBar; else editSideBar" fxLayout="row wrap" [style.height]="'100%'">
+    <app-edit-tabular-widget-form [widget]="widget" [style.height]="'100vh'"
+                                  [dataTypes]="dataTypes$ | async"
+                                  [columns]="columns$ | async"
+                                  [packages]="packages$ | async"
+                                  [packageDetails]="packageDetails$ | async"
+                                  [allDimensions]="allDimensions$ | async"
+                                  [allInstance]="allInstance$ | async"
+                                  [displayData]="displayData"
+                                  [editColumn]="editColumn"
+                                  [editType]="EditWidgetType.OnWidget"
+                                  (onSubmit)="handleSubmit($event)"
+                                  (onCancel)="handleCancel()"
+                                  (onChange)="handleChange($event)"
+                                  (onColumnChange)="handleColumnChange($event)"
+                                  (onChangeType)="handleChangeType($event)"
+                                  fxFlex="40"
+    ></app-edit-tabular-widget-form>
+    <div fxFlex="60" class="sample-widget" appTheme>
+      <app-table-component
+        [widget]="widget"
+        [data]="data$ | async"
+        [size]="{height: 500}"
+        (onColumnResize)="handleResizeColumn($event)"
+        (onMoveColumn) = "handleMoveColumn($event)"
+      ></app-table-component>
+    </div>
+  </div>
+  <ng-template #editSideBar>
+    <app-edit-tabular-widget-form [widget]="widget" [style.height]="'100vh'"
+                                  [dataTypes]="dataTypes$ | async"
+                                  [columns]="columns$ | async"
+                                  [packages]="packages$ | async"
+                                  [packageDetails]="packageDetails$ | async"
+                                  [allDimensions]="allDimensions$ | async"
+                                  [allInstance]="allInstance$ | async"
+                                  [displayData]="displayData"
+                                  [saveSubject]="saveSubject"
+                                  [editColumn]="editColumn"
+                                  [editType]="EditWidgetType.OnData"
+                                  (onSubmit)="handleSubmit($event)"
+                                  (onCancel)="handleCancel()"
+                                  (onChange)="handleChange($event)"
+                                  (onColumnChange)="handleColumnChange($event)"
+                                  (onValidate)="handleValidate($event)"
+                                  (onChangeType)="handleChangeType($event)"
+    ></app-edit-tabular-widget-form>
+  </ng-template>
+</ng-container>

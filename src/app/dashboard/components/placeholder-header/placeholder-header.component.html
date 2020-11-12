@@ -1,0 +1,175 @@
+<div class="title-container" fxLayout="row" fxLayoutAlign="space-between none" appTheme [ngStyle]="getHeaderStyle()">
+  <div fxLayout="column" fxFlex="100">
+    <app-placeholder-title
+      [titlePosition]="titlePosition"
+      [title]="title"
+      [isOverlayWidget]="isOverlayWidget"
+      (onSubmit)="handleChangeTitle($event)"
+    ></app-placeholder-title>
+    <app-placeholder-title
+      [titlePosition]="titlePosition"
+      [title]="subTitle" isSubTitle="true"
+      [isOverlayWidget]="isOverlayWidget"
+      (onSubmit)="handleChangeSubTitle($event)"
+    ></app-placeholder-title>
+  </div>
+  <div *ngIf="!isOverlayWidget" class="option-position" fxLayout="row" fxFlex="100" (mouseleave)="isShowMenu = false;" >
+    <div class="menu-contain-static" [style]="getStyleForStatic()">
+      <div>
+        <app-display-mode-select fxFlex="90"
+          *ngIf="customSettings.displayMode"
+          [selected]="displayMode"
+          [isExportMenu]="exportMenu"
+          (onChangeMode)="handleSwitchDisplayMode($event)"
+           mat-icon-button
+        ></app-display-mode-select>
+        <mat-icon fxFlex="90"
+                  *ngIf="customSettings.chartType"
+                  (click)="handleChangeChartType()"
+                  [matTooltip]="chartTypeTooltip | translate"
+                  class="icon"
+                  mat-icon-button
+        >{{chartTypeIcon}}</mat-icon>
+        <mat-icon
+                  *ngIf="customSettings.legend"
+                  fxFlex="90"
+                  class="icon"
+                  (click)="handleChangeToggleLegend()"
+                  matTooltip="{{showLegendTooltip | translate}}"
+                  [ngStyle]="getStyleLegendIcon"
+                  mat-icon-button
+        >list</mat-icon>
+        <mat-icon fxFlex="90"
+                  *ngIf="customSettings.movingTime"
+                  (click)="handleStartPauseAction()"
+                  [matTooltip]="startPauseTooltip | translate"
+                  class="icon"
+                  mat-icon-button
+        >{{startPauseIcon}}</mat-icon>
+      </div>
+    </div>
+    <div class="menu-dynamic-container">
+      <div class="menu-contain-dynamic" [style]="getStyleForDynamic()">
+        <div>
+          <button *ngIf="settings.search"
+                  class="btn search"
+                  mat-icon-button
+                  (click)="handleSearch()"
+          >
+            {{'dashboard.placeholder_header.search' | translate}}
+          </button>
+
+          <app-copy-button *ngIf="settings.copy"
+                           class="btn"
+                           (onCopy)="handleCopy()">
+          </app-copy-button>
+
+          <mat-icon *ngIf="settings.maximize"
+                    class="btn maximize"
+                    mat-icon-button
+                    (click)="handleMaximize()"
+                    matTooltip="{{'dashboard.placeholder_header.fullscreen' | translate}}"
+          >fullscreen
+          </mat-icon>
+          <mat-icon *ngIf="settings.minimize"
+                    class="btn minimize"
+                    mat-icon-button
+                    (click)="handleMinimize()"
+                    matTooltip="{{'dashboard.placeholder_header.minimize' | translate}}"
+          >fullscreen_exit
+          </mat-icon>
+          <!--
+                  <mat-menu #addMeasures="matMenu" class="addMenu">
+                    <div class="submenu-container">
+                      <button
+                        *ngFor="let item of measures"
+                        [disabled]="checkCurrentMeasure(item)"
+                        mat-menu-item
+                        class="measure-item"
+                        (click)="handleAddMeasure(item.name)">
+                        {{item.name}}
+                      </button>
+                    </div>
+
+                  </mat-menu>
+
+                  <button *ngIf="settings.timeMode"
+                          class="btn time"
+                          mat-icon-button
+                          (click)="handleSetTimeMode()">
+                    {{'dashboard.placeholder_header.select_time' | translate}}
+                  </button>
+
+                  <button *ngIf="settings.realTimeMode"
+                          class="btn real time"
+                          mat-icon-button
+                          [disabled]="isDisableRealTime"
+                          (click)="handleSetRealTimeMode()">
+                    {{getRealTimeMode()}} {{'dashboard.placeholder_header.real_time_mode' | translate}}
+                  </button>
+                  <button *ngIf="settings.highchartExport"
+                          class="btn"
+                          mat-icon-button
+                          (click)="toggleExportMenu()">
+                    {{'dashboard.placeholder_header.toggle_export' | translate}}
+                  </button>
+                  <button *ngIf="settings.gaugeMode"
+                          class="btn"
+                          mat-icon-button
+                          (click)="toggleDisplayMode()">
+                    {{'dashboard.placeholder_header.gauge_mode' | translate}}
+                  </button>
+          -->
+          <mat-icon *ngIf="settings.edit"
+                    class="btn edit"
+                    mat-icon-button
+                    (click)="handleEdit()"
+                    matTooltip="{{'dashboard.placeholder_header.preferences' | translate}}"
+          >settings</mat-icon>
+
+          <mat-icon *ngIf="settings.delete"
+                    class="btn delete"
+                    mat-icon-button
+                    (click)="handleDelete()"
+                    matTooltip="{{'dashboard.placeholder_header.delete' | translate}}"
+          >delete_forever</mat-icon>
+
+          <!--
+          <button *ngIf="settings.add"
+                  mat-menu-item
+                  [matMenuTriggerFor]="addMeasures"
+                  class="add">
+            {{'dashboard.placeholder_header.add_measure' | translate}}
+          </button>
+
+          <button *ngIf="settings.exportMenu"
+                  class="add"
+                  mat-menu-item
+                  [matMenuTriggerFor]="menu">
+            {{'dashboard.placeholder_header.export_menu' | translate}}
+          </button> -->
+
+          <!--
+          <mat-menu>
+            <button class="export-to-pdf" mat-menu-item (click)="handleExportToPDF()" translate>
+              {{'dashboard.placeholder_header.export_to_pdf' | translate}}
+            </button>
+            <button class="export-to-csv" mat-menu-item (click)="handleExportToCSV()" translate>
+              {{'dashboard.placeholder_header.export_to_csv' | translate}}
+            </button>
+            <button class="export-to-xls" mat-menu-item (click)="handleExportToXLS()" translate>
+              {{'dashboard.placeholder_header.export_to_xls' | translate}}
+            </button>
+          </mat-menu>-->
+
+        </div>
+      </div>
+      <div fxFlex="20">
+        <button class="more-vert-menu" mat-button (click)="isShowMenu = true;">
+          <mat-icon class="mat-icons">more_vert</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

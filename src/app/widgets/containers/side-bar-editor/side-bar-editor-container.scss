@@ -1,0 +1,24 @@
+.container {
+  min-width: 25vw;
+  max-width: 55vw;
+  height: 80vh;
+  font-family: 'Poppins' !important;
+}
+
+.full-height {
+  height: 100%;
+}
+
+::ng-deep {
+  .mat-typography {
+    font-family: 'Poppins' !important;
+  }
+
+  .mat-form-field {
+    font-family: 'Poppins' !important;
+  }
+
+  .mat-select {
+    font-family: 'Poppins' !important;
+  }
+}

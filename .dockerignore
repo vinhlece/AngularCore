@@ -1,0 +1,6 @@
+# Ignore everything
+**
+
+# Allow directories
+!/dist/**
+!/deploy/nginx.conf

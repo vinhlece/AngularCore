@@ -1,0 +1,20 @@
+{
+    "devt": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-joulica-reporting-devt-145332-authRole",
+            "UnauthRoleArn": "arn:aws:iam::947004291175:role/amplify-joulica-reporting-devt-145332-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::947004291175:role/amplify-joulica-reporting-devt-145332-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-joulica-reporting-devt-145332-deployment",
+            "UnauthRoleName": "amplify-joulica-reporting-devt-145332-unauthRole",
+            "StackName": "amplify-joulica-reporting-devt-145332",
+            "StackId": "arn:aws:cloudformation:us-west-2:947004291175:stack/amplify-joulica-reporting-devt-145332/da4185e0-4114-11ea-a5ca-0614748bfb9c",
+            "AmplifyAppId": "d38zrqqhlekzq7"
+        },
+        "categories": {
+            "auth": {
+                "joulicareportingad331624": {}
+            }
+        }
+    }
+}

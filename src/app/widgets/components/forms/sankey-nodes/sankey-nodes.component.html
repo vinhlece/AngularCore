@@ -1,0 +1,32 @@
+<div [formGroup]="form" appTheme>
+  <div>
+    <div class="link" translate>widgets.edit_widget_form.nodes</div>
+    <button type="button" class="add-node" mat-button (click)="handleAddNode()">
+      <span translate>widgets.edit_widget_form.add</span>
+    </button>
+  </div>
+  <mat-accordion formArrayName="nodes">
+    <mat-expansion-panel *ngFor="let node of nodes.controls; let i = index"
+                         [expanded]="expandingNode === i"
+                         (opened)="handleOpened(i)"
+                         (closed)="handleClosed(i)"
+                         class="node-panel"
+    >
+      <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title>
+          <div class="panel-title" fxLayout="row">
+            <button class="remove-btn" type="button" mat-icon-button (click)="handleRemoveNode(i)">
+              <mat-icon class="remove-icon">delete</mat-icon>
+            </button>
+            <div class="input-label">
+              <span fxFlex="56">ID</span>
+              <span translate>widgets.edit_widget_form.column</span>
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-sankey-node class="node" fxFlex="100" [formControlName]="i"></app-sankey-node>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+

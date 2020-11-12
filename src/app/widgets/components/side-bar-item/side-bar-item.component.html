@@ -1,0 +1,13 @@
+<app-draggable-widget *ngIf="item.type === 'widgets'"
+                      [widget]="item.payload"
+                      (mousedown)="handleMouseDown($event)"
+                      (dblclick)="handleDoubleClick($event)"
+></app-draggable-widget>
+<app-draggable-metrics *ngIf="item.type === 'measures'"
+                       [measure]="item.payload"
+                       (mousedown)="handleMouseDown($event)"
+></app-draggable-metrics>
+<app-draggable-metrics *ngIf="item.type === 'instances'"
+                       [instance]="item.payload"
+                       (mousedown)="handleMouseDown($event)"
+></app-draggable-metrics>

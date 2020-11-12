@@ -1,0 +1,332 @@
+@import './../../../../styles/variables';
+
+.inputs {
+  margin: auto;
+}
+
+.container {
+  width: 30em;
+  margin-top: 2%;
+  margin-right: auto;
+  margin-bottom: 0%;
+  margin-left: auto;
+  background-color: none;
+  opacity: 0.7;
+
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 3s; /* Firefox < 16 */
+      -ms-animation: fadein 3s; /* Internet Explorer */
+       -o-animation: fadein 3s; /* Opera < 12.1 */
+          animation: fadein 3s;
+
+  .login-error {
+    display: block;
+    width: 30em;
+    margin: 10% auto;
+    color: $text-primary-color;
+  }
+
+  img {
+    opacity: 1;
+  }
+
+  .input-container {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    opacity: 1;
+    background-color: white;
+    color: #353535;
+    display: flex;
+
+    clip-path: polygon(
+      0% 0%,     /* top left */
+      0% 0%,     /* top left */
+      90% 0%,    /* top right */
+      100% 50%,   /* top right */
+      100% 100%,  /* bottom right */
+      100% 100%,  /* bottom right */
+      10% 100%,   /* bottom left */
+      0 50%      /* bottom left */
+    );
+
+    mat-icon {
+      padding-left: 5px;
+    }
+
+    input {
+      padding-left: 15px;
+    }
+  }
+
+  .mat-input-underline {
+    display: none;
+  }
+
+  ::placeholder {
+    color: #353535;
+    padding-left: 15px;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #353535;
+    padding-left: 15px;
+    opacity: 1;
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #353535;
+    padding-left: 15px;
+    opacity: 1;
+  }
+}
+
+.company-logo {
+  width: 30em;
+  margin-top: 10%;
+  margin-right: auto;
+  margin-bottom: 0%;
+  margin-left: auto;
+  background-color: none;
+  opacity: 0.7;
+
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 3s; /* Firefox < 16 */
+      -ms-animation: fadein 3s; /* Internet Explorer */
+       -o-animation: fadein 3s; /* Opera < 12.1 */
+          animation: fadein 3s;
+  img {
+    opacity: 1;
+  }
+}
+
+::ng-deep .mat-form-field-underline {
+  content: none;
+  display: none;
+}
+
+::ng-deep .mat-error {
+  padding-left: 50px;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: rgba(0,0,0,0);
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  background-color: #555555;
+  color: white;
+  border: 2px solid #555555;
+  margin-top: 10%;
+  width: 100px;
+  height: 50px;
+
+  clip-path: polygon(
+    0% 0%,     /* top left */
+    0% 0%,     /* top left */
+    90% 0%,    /* top right */
+    100% 50%,   /* top right */
+    100% 100%,  /* bottom right */
+    100% 100%,  /* bottom right */
+    10% 100%,   /* bottom left */
+    0 50%      /* bottom left */
+  );
+
+  transition: width 2s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+  width: 300px;
+}
+
+.live-data {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(#000000,#353535, #000000);
+
+  span {
+    position: absolute;
+    height: 2px;
+    width: 20%;
+    color: white;
+
+    &:nth-child(1) {
+      top: 6.5%;
+      animation: lf 9s linear infinite;
+      animation-delay: -5s;
+    }
+
+    &:nth-child(2) {
+      top: 19.5%;
+      animation: lf2 9s linear infinite;
+      animation-delay: -1s;
+    }
+
+    &:nth-child(3) {
+      top: 26%;
+      animation: lf3 9s linear infinite;
+    }
+
+    &:nth-child(4) {
+      top: 32.5%;
+      animation: lf4 11s linear infinite;
+      animation-delay: -3s;
+    }
+
+    &:nth-child(5) {
+      top: 39%;
+      animation: lf 10s linear infinite;
+      animation-delay: -2s;
+    }
+
+    &:nth-child(5) {
+      top: 45.5%;
+      animation: lf2 10s linear infinite;
+      animation-delay: -4s;
+    }
+
+    &:nth-child(6) {
+      top: 52%;
+      animation: lf3 10s linear infinite;
+      animation-delay: -6s;
+    }
+
+    &:nth-child(7) {
+      top: 58.5%;
+      animation: lf 10s linear infinite;
+      animation-delay: -7s;
+    }
+
+    &:nth-child(8) {
+      top: 65%;
+      animation: lf 9s linear infinite;
+      animation-delay: -1.5s;
+    }
+
+    &:nth-child(9) {
+      top: 71.5%;
+      animation: lf2 9s linear infinite;
+      animation-delay: -4.5s;
+    }
+
+    &:nth-child(10) {
+      top: 78%;
+      animation: lf3 9s linear infinite;
+    }
+
+    &:nth-child(11) {
+      top: 84.5%;
+      animation: lf4 11s linear infinite;
+      animation-delay: -5.5s;
+    }
+
+    &:nth-child(12) {
+      top: 91%;
+      animation: lf 10s linear infinite;
+      animation-delay: -6.5s;
+    }
+
+    &:nth-child(13) {
+      top: 97.5%;
+      animation: lf2 10s linear infinite;
+      animation-delay: -7.5s;
+    }
+
+    &:nth-child(14) {
+      top: 84%;
+      animation: lf3 10s linear infinite;
+      animation-delay: -0.5s;
+    }
+
+    &:nth-child(15) {
+      top: 97.5%;
+      animation: lf 10s linear infinite;
+      animation-delay: -2.5s;
+    }
+  }
+}
+
+@keyframes lf {
+  0% {
+    right: 200%;
+  }
+  100% {
+    right: -200%;
+    opacity: 0;
+  }
+}
+@keyframes lf2 {
+  0% {
+    right: 200%;
+  }
+  100% {
+    right: -200%;
+    opacity: 0;
+  }
+}
+@keyframes lf3 {
+  0% {
+    right: 200%;
+  }
+  100% {
+    right: -100%;
+    opacity: 0;
+  }
+}
+@keyframes lf4 {
+  0% {
+    right: 200%;
+  }
+  100% {
+    right: -100%;
+    opacity: 0;
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.7; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.7; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.7; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.7; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.7; }
+}
+
+
+.theme-selector{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}

@@ -1,0 +1,24 @@
+.search {
+  width: 100%;
+  flex: 1 1 100%;
+  box-sizing: border-box;
+  height: 65px;
+  max-height: 65px;
+}
+
+div.mat-chip-list-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .mat-chip {
+    flex: 0 0 auto;
+  }
+}
+
+.call-timeline-filter {
+  div.mat-chip-list-wrapper {
+    margin: -4px -4px 0px -4px;
+  }
+}
+

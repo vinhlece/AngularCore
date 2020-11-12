@@ -1,0 +1,39 @@
+{
+  "components": [
+    {
+      "tag": "event-timeline",
+      "dependencies": [],
+      "componentClass": "MyComponent",
+      "componentPath": "components/event-timeline/event-timeline.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/event-timeline/event-timeline.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "height",
+          "type": "String",
+          "attr": "height"
+        },
+        {
+          "name": "width",
+          "type": "String",
+          "attr": "width"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      }
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.15.1",
+    "typescriptVersion": "2.9.2"
+  },
+  "bundles": []
+}

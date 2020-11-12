@@ -1,0 +1,34 @@
+@import "../../../../styles/variables";
+
+$break-small: 1058px;
+
+.time-slider {
+  padding: 0 30px;
+  @media screen and (max-width: $break-small) {
+    padding: 0 5px;
+  }
+}
+
+.slider {
+  width: 100%;
+}
+
+.time-label {
+  padding-bottom: 15px;
+  color: var(--time-explorer-date);
+}
+
+::ng-deep .mat-accent .mat-slider-thumb {
+  background-color: $button-primary-color;
+}
+
+::ng-deep .mat-accent .mat-slider-thumb-label {
+  background-color: $button-primary-color;
+}
+::ng-deep .mat-accent .mat-slider-track-fill {
+  background-color: $button-primary-color;
+}
+
+::ng-deep .mat-accent .mat-slider-ticks {
+  background-image: repeating-linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7) 10px, transparent 0, transparent);
+}

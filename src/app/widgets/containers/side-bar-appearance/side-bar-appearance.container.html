@@ -1,0 +1,109 @@
+<div class="container" *ngIf="widget">
+  <div [ngSwitch]="widget.type">
+    <app-edit-solid-gauge-widget-form *ngSwitchCase="WIDGET_TYPES.SolidGauge"
+                                      [widget]="widget"
+                                      [isEditingNewSideBar]="true"
+                                      [editType]="EditWidgetType.OnAppearance"
+                                      (onChange)="handleChange($event)"
+                                      (onValidate)="handleValidate($event)"
+    ></app-edit-solid-gauge-widget-form>
+    <app-edit-bar-widget-form *ngSwitchCase="WIDGET_TYPES.Bar"
+                                      [widget]="widget"
+                                      [isEditingNewSideBar]="true"
+                                      [chartTypes]="chartTypes"
+                                      [chartStyles]="chartStyles"
+                                      [editType]="EditWidgetType.OnAppearance"
+                                      (onChange)="handleChange($event)"
+                                      (onValidate)="handleValidate($event)"
+    ></app-edit-bar-widget-form>
+    <app-edit-trend-diff-widget-form *ngSwitchCase="WIDGET_TYPES.TrendDiff"
+                                     [widget]="widget"
+                                     [isEditingNewSideBar]="true"
+                                     [editType]="EditWidgetType.OnAppearance"
+                                     [chartTypes]="lineChartTypes"
+                                     (onChange)="handleChange($event)"
+                                     (onValidate)="handleValidate($event)"
+    ></app-edit-trend-diff-widget-form>
+    <app-edit-line-widget-form      *ngSwitchCase="WIDGET_TYPES.Line"
+                                    [widget]="widget"
+                                    [chartTypes]="lineChartTypes"
+                                    [isEditingNewSideBar]="true"
+                                    [editType]="EditWidgetType.OnAppearance"
+                                    (onChange)="handleChange($event)"
+                                    (onValidate)="handleValidate($event)"
+    ></app-edit-line-widget-form>
+    <app-edit-sankey-widget-form *ngSwitchCase="WIDGET_TYPES.Sankey"
+                                 [widget]="widget"
+                                 [isEditingNewSideBar]="true"
+                                 [editType]="EditWidgetType.OnAppearance"
+                                 (onChange)="handleChange($event)"
+                                 (onValidate)="handleValidate($event)"
+    ></app-edit-sankey-widget-form>
+    <app-edit-billboard-widget-form
+                                 *ngSwitchCase="WIDGET_TYPES.Billboard"
+                                 [widget]="widget"
+                                 [isEditingNewSideBar]="true"
+                                 [editType]="EditWidgetType.OnAppearance"
+                                 (onChange)="handleChange($event)"
+                                 (onValidate)="handleValidate($event)"
+    ></app-edit-billboard-widget-form>
+    <app-edit-liquid-fill-gauge-widget-form
+                                 *ngSwitchCase="WIDGET_TYPES.LiquidFillGauge"
+                                 [widget]="widget"
+                                 [isEditingNewSideBar]="true"
+                                 [editType]="EditWidgetType.OnAppearance"
+                                 (onChange)="handleChange($event)"
+                                 (onValidate)="handleValidate($event)">
+    </app-edit-liquid-fill-gauge-widget-form>
+    <app-edit-call-time-line-widget-form
+                                    *ngSwitchCase="WIDGET_TYPES.CallTimeLine"
+                                    [widget]="widget"
+                                    [isEditingNewSideBar]="true"
+                                    [editType]="EditWidgetType.OnAppearance"
+                                    (onChange)="handleChange($event)"
+                                    (onValidate)="handleValidate($event)"
+    ></app-edit-call-time-line-widget-form>
+    <app-edit-geo-map-widget-form   *ngSwitchCase="WIDGET_TYPES.GeoMap"
+                                    [widget]="widget"
+                                    [isEditingNewSideBar]="true"
+                                    [editType]="EditWidgetType.OnAppearance"
+                                    (onChange)="handleChange($event)"
+                                    (onValidate)="handleValidate($event)"
+    ></app-edit-geo-map-widget-form>
+    <app-edit-sunburst-form         *ngSwitchCase="WIDGET_TYPES.Sunburst"
+                                    [widget]="widget"
+                                    [isEditingNewSideBar]="true"
+                                    [editType]="EditWidgetType.OnAppearance"
+                                    (onChange)="handleChange($event)"
+                                    (onValidate)="handleValidate($event)"
+    ></app-edit-sunburst-form>
+    <app-edit-tabular-widget-form   *ngSwitchCase="WIDGET_TYPES.Tabular"
+                                    [widget]="widget"
+                                    [isEditingNewSideBar]="true"
+                                    [editType]="EditWidgetType.OnAppearance"
+                                    (onChange)="handleChange($event)"
+                                    (onValidate)="handleValidate($event)"
+    ></app-edit-tabular-widget-form>
+    <app-edit-label-widget-form   *ngSwitchCase="WIDGET_TYPES.LabelWidget"
+                                    [widget]="widget"
+                                    [isEditingNewSideBar]="true"
+                                    [editType]="EditWidgetType.OnAppearance"
+                                    (onChange)="handleChange($event)"
+                                    (onValidate)="handleValidate($event)"
+    ></app-edit-label-widget-form>
+    <app-edit-bubble-widget-form  *ngSwitchCase="WIDGET_TYPES.Bubble"
+                                  [widget]="widget"
+                                  [isEditingNewSideBar]="true"
+                                  [editType]="EditWidgetType.OnAppearance"
+                                  (onChange)="handleChange($event)"
+                                  (onValidate)="handleValidate($event)"
+    ></app-edit-bubble-widget-form>
+    <app-edit-event-viewer-widget-form *ngSwitchCase="WIDGET_TYPES.EventViewer"
+                                    [widget]="widget"
+                                    [isEditingNewSideBar]="true"
+                                    [editType]="EditWidgetType.OnAppearance"
+                                    (onChange)="handleChange($event)"
+                                    (onValidate)="handleValidate($event)"
+    ></app-edit-event-viewer-widget-form>
+  </div>
+</div>

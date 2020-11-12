@@ -1,0 +1,23 @@
+<div [formGroup]="form" class="form-control">
+  <label for="inputNumber" [ngClass]="required ? 'input-label required-star' : 'input-label'">{{label | translate}}</label>
+  <mat-form-field floatPlaceholder="never" class="form-field" appearance="outline">
+    <input matInput
+           type="number"
+           [min]="min"
+           [max]="max"
+           formControlName="number"
+           autocomplete="off"
+           (blur)="handleBlur()"
+           placeholder="{{placeholder | translate}}"
+    />
+  </mat-form-field>
+  <mat-error *ngIf="form.controls['number'].errors && form.controls['number'].errors.required">{{label | translate}}
+    <span translate>widgets.edit_widget_form.required</span>
+  </mat-error>
+  <mat-error *ngIf="form.controls['number'].errors && form.controls['number'].errors.min">{{label | translate}}
+    <span translate>widgets.edit_widget_form.larger</span>{{min - 1}}
+  </mat-error>
+  <mat-error *ngIf="form.controls['number'].errors && form.controls['number'].errors.max">{{label | translate}}
+    <span translate>widgets.edit_widget_form.smaller</span> {{max}}
+  </mat-error>
+</div>

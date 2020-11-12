@@ -1,0 +1,14 @@
+<div class="time-slider">
+  <mat-slider class="slider"
+              [min]="min"
+              [max]="max"
+              [step]="step"
+              [tickInterval]="1"
+              [value]="current ? current : max"
+              (change)="handleSlide($event)">
+  </mat-slider>
+</div>
+
+<div class="time-label" fxLayout="row" fxLayoutAlign="space-between center">
+  <label *ngFor="let item of ticks">{{item}}</label>
+</div>

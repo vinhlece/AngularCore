@@ -1,0 +1,129 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-material.css";
+@import "./variables";
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins' !important;
+}
+
+body {
+  margin: 0;
+  background-color: #ECECEF;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.custom-backdrop {
+  width: 500px;
+  background: rgba(0,0,0,0.288);
+  position: absolute;
+  top: 0;
+  left: calc(100vw - 500px);
+}
+
+* {
+  // ----- Start override mat-form-field ----- //
+  .mat-icon-button, .mat-list-item, .mat-tab-label, .mat-tab-link,.mat-option,.mat-input-element,.mat-flat-button, button {
+    font-family: 'Poppins';
+  }
+  input {
+    font-family: 'Poppins' !important;
+  }
+  .mat-form-field-infix {
+    border: none;
+    padding: 1.2em 0 1em 0 !important;
+  }
+
+  .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: none !important;
+  }
+
+  .mat-form-field-suffix {
+    top: 0 !important;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+
+  .mat-form-field-outline {
+    background-color: #FFFFFF;
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: $button-primary-color !important;
+  }
+
+  .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: red !important;
+    opacity: 0.8 !important;
+  }
+  // ----- End override mat-form-field ----- //
+}
+
+
+.add-new-widget {
+  .mat-dialog-container {
+    padding: 24px !important;
+  }
+}
+
+.custom-dialog {
+  .mat-dialog-container {
+    padding: 0 !important;
+  }
+}
+
+.dark-theme-dialog {
+  .mat-dialog-container {
+    padding: 0 !important;
+    background-color: #1e1e2f;
+  }
+}
+
+.dark-theme-dialog-add-widget {
+  .mat-dialog-container {
+    background: linear-gradient(0deg, #1e1e2f 18%, #27293d 48%, #1e1e2f 82%);
+  }
+}
+
+/** Below styles the Show More link in live-event view */
+.show-more-event-link {
+  font-weight: bold;
+  color: $color-primary;
+  opacity: .7;
+  margin-left: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+// required style
+.required-star {
+  &:after {
+    content:" *";
+    color: $button-primary-color;
+  }
+}
+
+// color picker
+
+.color-picker-okBtn,
+.color-picker-cancelBtn {
+  height: 20px;
+  width: 50px;
+  margin-bottom: 10px !important;
+}
+
+.color-picker-okBtn {
+  float: left;
+}
+
+.color-picker-cancelBtn {
+  float: right;
+}

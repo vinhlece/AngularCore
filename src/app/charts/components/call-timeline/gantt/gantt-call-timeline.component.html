@@ -1,0 +1,9 @@
+<div class="container" [ngStyle]="getChartSize()" fxLayout="column" fxLayoutAlign="center center">
+  <app-call-timeline-filter-bar class="search-bar" [widget]="getWidget()" (onSearchChange)="handleSearch($event)"></app-call-timeline-filter-bar>
+  <div [ngClass]="getChartClass()" #chartContainer fxFlex="auto"></div>
+  <app-legend class="legend-container"
+              [ngStyle]="getLegendContainerStyle()"
+              [legends]="legends"
+              [font]="widget.font"
+              (onToggle)="handleToggleLegend($event)"></app-legend>
+</div>

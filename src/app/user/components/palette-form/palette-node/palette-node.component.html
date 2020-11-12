@@ -1,0 +1,19 @@
+<div class="container" fxLayout="row" [formGroup]="form" [class.dark-theme-box]="isDarkTheme">
+  <div class="form-control" fxFlex="50">
+    <div class="color-input">
+      <mat-form-field class="full-width">
+        <input matInput
+               autocomplete="off"
+               type="text"
+               formControlName="color"
+               [colorPicker]="color"
+               [placeholder]="placeHolder"
+               [value]="color"
+               [style.background]="color"
+               [cpOutputFormat]="'hex'"
+               (colorPickerChange)="handlePickColor($event)">
+        <mat-error class="required">{{placeHolder}} is required.</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

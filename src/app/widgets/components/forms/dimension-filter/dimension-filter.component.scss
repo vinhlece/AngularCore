@@ -1,0 +1,89 @@
+@import "../../../../../styles/variables.scss";
+
+.item-filter {
+  overflow: hidden;
+
+  .search-item {
+    width: 100%;
+  }
+
+  h4 {
+    color: var(--edit-form-primary);
+  }
+}
+
+::ng-deep {
+  .filter-container {
+    .mat-list-item-content {
+      padding: 0 !important;
+    }
+
+    .mat-list-text {
+      padding-left: 10px !important;
+    }
+
+    .mat-selection-list {
+      padding-top: 0 !important;
+    }
+
+    .mat-list-option {
+      height: 35px !important;
+    }
+
+    .mat-pseudo-checkbox-checked {
+      background-color: #5867DD;
+    }
+
+    .mat-list-text {
+      font-size: 14px;
+    }
+
+    .mat-checkbox-inner-container {
+      margin-right: 10px;
+    }
+  }
+}
+
+.filter-container {
+  mat-radio-button {
+    padding: 5px 0;
+    font-weight: 100;
+  }
+
+  .mat-list-item-content {
+    padding: 0 !important;
+  }
+
+  .instances-container {
+    overflow-y: scroll;
+    &.system {
+      height: 19vh;
+      margin-top: 5px;
+    }
+
+    &.custom {
+      height: 15vh;
+      margin-top: 10px;
+    }
+  }
+
+  .group-header {
+    margin-top: 8px;
+    color: var(--edit-form-primary);
+
+    .header-title {
+      font-weight: bold;
+      padding-left: 28px;
+    }
+
+    .custom-title {
+      color: #707070;
+    }
+  }
+
+  .divider {
+    height: 1px;
+    background-color: #ECECEF;
+    margin-top: 4px;
+  }
+}

@@ -1,0 +1,8 @@
+<div (click)="changeDisplayMode()">
+  <img class="menu-icon"
+       *ngIf="selected"
+    [class.timestamp-icon]="selected == 'Timestamp'"
+    [class.historical-icon]="selected == 'Historical'"
+    src="assets/img/gauge_display_mode/{{selected}}.svg"
+    matTooltip="{{selected}}">
+</div>

@@ -1,0 +1,12 @@
+<div [formGroup]="form" fxLayout="row wrap" fxLayoutAlign="space-between center" class="form-control">
+  <mat-checkbox fxFlex="45" formControlName="enable"><span translate>widgets.edit_widget_form.threshold_line</span></mat-checkbox>
+  <mat-form-field floatPlaceholder="never" fxFlex="45" appearance="outline">
+    <input class="form-control"
+           matInput
+           autocomplete="off"
+           formControlName="value"
+           type="number"
+           min="0"
+           placeholder="{{'widgets.edit_widget_form.threshold_line_placeholder' | translate}}">
+  </mat-form-field>
+</div>

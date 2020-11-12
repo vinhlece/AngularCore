@@ -1,0 +1,12 @@
+<app-dashboard-tabs *ngIf="tabs$ | async as tabs"
+                    [tabs]="tabs"
+                    [globalFilter]="globalFilter"
+                    (onSelectTab)="handleSelectTab($event)"
+                    (onAddTab)="handleAddTab()"
+                    (onDeleteTab)="handleDeleteTab($event)"
+                    (onAddInstance)="handleAddInstance($event)"
+                    (onRemoveInstance)="handleRemoveInstance($event)"
+                    (onGlobalFilters)="dispatchGlobalFilters($event)"
+                    (onMetricsSize)="handleMetricsSize()"
+                    fxFlex="fxFill">
+</app-dashboard-tabs>

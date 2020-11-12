@@ -1,0 +1,22 @@
+mat-card-title,
+mat-card-content,
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-card {
+  padding: 0px;
+}
+
+.content {
+  height: 200px;
+}
+
+mat-card {
+  overflow: hidden !important;
+}
+
+.mat-card>.mat-card-actions:last-child {
+  padding-bottom: 25px;
+}

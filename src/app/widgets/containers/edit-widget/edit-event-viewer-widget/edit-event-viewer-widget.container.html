@@ -1,0 +1,14 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <div *ngIf="isEditingOnSideBar" fxLayout="row wrap" [style.height]="'100%'">
+    <app-edit-event-viewer-widget-form [widget]="widget" fxFlex="100"
+                              [dataTypes]="dataTypes$ | async"
+                              [packages]="packages$ | async"
+                              [saveSubject]="saveSubject"
+                              [editType]="EditWidgetType.OnData"
+                              (onSubmit)="handleSubmit($event)"
+                              (onCancel)="handleCancel()"
+                              (onChange)="handleChange($event)"
+                              (onValidate)="handleValidate($event)"
+    ></app-edit-event-viewer-widget-form>
+  </div>
+</ng-container>

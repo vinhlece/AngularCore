@@ -1,0 +1,84 @@
+@import "../../../../styles/variables";
+
+.measure-form {
+  height: 100%;
+  overflow: hidden;
+  padding: 20px;
+
+  .form-field {
+    margin-right: 10px;
+
+    .input {
+      width: 100%;
+    }
+  }
+
+  mat-icon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .measure-name {
+    width: 70%;
+  }
+
+  .down, add-events {
+    flex-grow: 1;
+  }
+
+  .add-events {
+    margin-bottom: 10px;
+  }
+
+  .metric-type {
+    color: #A0A0A0;
+  }
+
+  .bottom {
+    height: 210px;
+  }
+
+  .top {
+    height: calc(100% - 210px);
+  }
+
+  .selected-metric-type {
+    color: #102A3A;
+  }
+
+  .body-wrapper {
+    overflow: hidden;
+  }
+
+  .add-events-container {
+    height: 60%;
+  }
+
+  .option-container {
+    height: 40%;
+  }
+
+  .search-list {
+    margin-bottom: 10px;
+  }
+}
+
+.event-tag {
+  overflow-y: scroll;
+  flex: auto;
+}
+
+::ng-deep {
+  .measure-form {
+    .mat-input-element {
+      color: var(--measure-definition-label-color);
+    }
+
+    .search-wrapper {
+      .mat-chip-list-wrapper {
+        width: 440px;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <div *ngIf="!isEditingOnSideBar; else editSideBar" fxLayout="row nowrap" [style.height]="'100%'">
+    <app-edit-sunburst-form fxFlex="40" [style.height]="'100vh'"
+                            [measures]="measures$ | async"
+                            [widget]="widget"
+                            [packageDetails]="packageDetails$ | async"
+                            [allDimensions]="allDimensions$ | async"
+                            [allInstance]="allInstance$ | async"
+                            [dataTypes]="dataTypes$ | async"
+                            [packages]="packages$ | async"
+                            [editType]="EditWidgetType.OnWidget"
+                            (onChange)="handleChange($event)"
+                            (onSubmit)="handleSubmit($event)"
+                            (onCancel)="handleCancel()"
+                            (onChangeType)="handleChangeType($event)"
+    >
+    </app-edit-sunburst-form>
+    <div class="sample-widget" appTheme>
+      <app-sunburst fxFlex="60"
+                    [widget]="widget"
+                    [data]="data$ | async"
+                    [styles]="styles"
+                    [size]="{height: 512}"
+      ></app-sunburst>
+    </div>
+  </div>
+  <ng-template #editSideBar>
+    <app-edit-sunburst-form [style.height]="'100vh'"
+                            [measures]="measures$ | async"
+                            [widget]="widget"
+                            [dataTypes]="dataTypes$ | async"
+                            [packages]="packages$ | async"
+                            [packageDetails]="packageDetails$ | async"
+                            [allDimensions]="allDimensions$ | async"
+                            [allInstance]="allInstance$ | async"
+                            [saveSubject]="saveSubject"
+                            [editType]="EditWidgetType.OnData"
+                            (onChangeType)="handleChangeType($event)"
+                            (onValidate)="handleValidate($event)"
+                            (onChange)="handleChange($event)"
+                            (onSubmit)="handleSubmit($event)"
+                            (onCancel)="handleCancel()">
+    </app-edit-sunburst-form>
+  </ng-template>
+</ng-container>

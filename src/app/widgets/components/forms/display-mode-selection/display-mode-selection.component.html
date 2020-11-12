@@ -1,0 +1,9 @@
+<div [formGroup]="form" class="mat-typography">
+  <label [ngClass]="required ? 'input-label required-star' : 'input-label'" for="option">{{label | translate}}</label>
+  <mat-form-field class="field-display-mode" appearance="outline">
+    <mat-select formControlName="displayMode" placeholder="{{'widgets.edit_widget_form.select' | translate}} {{label | translate}}">
+      <mat-option id="option" [class.dark-theme-box]="isDarkTheme" *ngFor="let mode of displayModes" [value]="mode.key">{{mode.value | translate}}</mat-option>
+    </mat-select>
+    <mat-error class="required">{{label | translate}} <span translate>widgets.edit_widget_form.required</span></mat-error>
+  </mat-form-field>
+</div>

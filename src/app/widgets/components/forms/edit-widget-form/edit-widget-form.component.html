@@ -1,0 +1,552 @@
+<form fxLayout="column" fxLayout="column" fxLayoutAlign="start" [formGroup]="form" novalidate
+      class="mat-typography" (ngSubmit)="handleSubmit()" appTheme>
+  <div fxFlex="100" class="autoScroll" fxLayout="column" flexLayoutAlign="start center">
+    <app-text-input *ngIf="checkSection(options.name)"
+                    formControlName="name"
+                    class="form-control"
+                    placeholder="widgets.edit_widget_form.title"
+    ></app-text-input>
+
+    <app-text-input *ngIf="checkSection(options.subtitle)"
+                    formControlName="subtitle"
+                    class="form-control"
+                    placeholder="widgets.edit_widget_form.description"
+                    [required]="options.subtitle.required">
+    </app-text-input>
+
+    <app-list-chart-icon *ngIf="isDataTab()"
+                         [chartType]="chartType"
+                         [chartStyle]="chartStyle"
+                         [type]="options.type.value"
+                         (selectChartType) = "selectChartType($event)">
+    </app-list-chart-icon>
+
+<!--    <app-data-type-input *ngIf="checkSection(options.dataType)"-->
+<!--                         formControlName="dataType"-->
+<!--                         [dataTypes]="options.dataType.availableValues"-->
+<!--                         [isDisabled]="isDisablePackage"-->
+<!--                         class="form-control">-->
+<!--    </app-data-type-input>-->
+
+    <app-chart-type-input *ngIf="checkSection(options.chartType)"
+                          formControlName="chartType"
+                          [chartTypes]="options.chartType.availableValues"
+                          [isDarkTheme]="isDarkTheme()"
+                          class="form-control">
+    </app-chart-type-input>
+
+    <div *ngIf="checkSection(options.mode)" class="form-control">
+      <app-radio-buttons formControlName="mode" [values]="options.mode"></app-radio-buttons>
+    </div>
+
+    <app-display-mode-selection *ngIf="checkSection(options.displayMode)"
+                                formControlName="displayMode"
+                                [displayModes]="options.displayMode.availableValues"
+                                [isDarkTheme]="isDarkTheme()"
+                                class="form-control"
+    ></app-display-mode-selection>
+
+    <app-font-config *ngIf="checkSection(options.font)"
+                     class="form-control"
+                     formControlName="font"
+                     [isDarkTheme]="isDarkTheme()"
+    ></app-font-config>
+
+    <app-data-picker-chip *ngIf="checkSection(options.dimensions) && isShowItem(widgetItem.Dimension)"
+                          [type]="widgetItem.Dimension"
+                          [selectedItems]="getItems(_dimensions)"
+                          [choiceMode]="options.dimensions.choiceMode"
+                          [allItems]="dimensions"
+                          (handleAddItem)="handleAddItem($event)"
+                          (handleRemoveItem)="handleRemoveItem($event)"
+    ></app-data-picker-chip>
+
+    <app-data-picker-chip [hidden]="!(checkSection(options.measures) && isShowItem(widgetItem.Measure))"
+                          [type]="widgetItem.Measure"
+                          [selectedItems]="_measures"
+                          [choiceMode]="options.measures ? options.measures.choiceMode : null"
+                          [allItems]="measures"
+                          (handleAddItem)="handleAddItem($event)"
+                          (handleRemoveItem)="handleRemoveItem($event)"
+    ></app-data-picker-chip>
+
+    <app-columns-settings *ngIf="checkSection(options.columns)"
+                          formControlName="columns"
+                          class="form-control"
+                          [editColumn]="editColumn"
+                          [availableColumns]="options.columns.availableValues"
+                          (onColumnChange)="handleColumnChange($event)"
+    ></app-columns-settings>
+
+    <app-data-picker-chip [hidden]="!(checkSection(options.instance) && isShowItem(widgetItem.Instance))"
+                          [type]="widgetItem.Instance"
+                          [showAllData]="options.showAllData"
+                          [selectedItems]="_instances"
+                          [choiceMode]="options.instance.choiceMode"
+                          [allItems]="allInstance"
+                          (handleAddItem)="handleAddItem($event)"
+                          (handleRemoveItem)="handleRemoveItem($event)"
+                          (handleChangeShowAllInstance)="handleChangeShowAllInstance($event)"
+    ></app-data-picker-chip>
+
+    <app-data-picker-chip [hidden]="!(checkSection(options.windows) && isShowItem(widgetItem.Window))"
+                          [type]="widgetItem.Window"
+                          [selectedItems]="_windows"
+                          [choiceMode]="options.windows.choiceMode"
+                          [allItems]="windows"
+                          (handleAddItem)="handleAddItem($event)"
+                          (handleRemoveItem)="handleRemoveItem($event)"
+    ></app-data-picker-chip>
+
+<!--    <div *ngIf="checkSection(options.measures)" class="form-control">-->
+<!--      <div class="input-label" [ngStyle]="getMargin(widgetItem.Measure)" fxLayout="row">-->
+<!--        <div fxFlex="50" fxLayoutAlign="start center" translate>widgets.edit_widget_form.measure</div>-->
+<!--        <div fxFlex="50" *ngIf="!hasItem(widgetItem.Measure)" fxLayoutAlign="end center">-->
+<!--          <button type="button" class="add-button" mat-flat-button (click)="handleClearItem(widgetItem.Measure)">-->
+<!--            <span translate>widgets.edit_widget_form.clear</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div *ngIf="options.measures.value && options.measures.value.length > 0">-->
+<!--        <div fxLayout="column" fxLayoutGap="10px">-->
+<!--          <app-widget-items *ngFor="let measure of options.measures.value"-->
+<!--                            (onDeleteDimension)="handleDeleteItem(measure, widgetItem.Measure)"-->
+<!--                            [dimension]="measure"-->
+<!--                            [package]="options.dataType.value"></app-widget-items>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div *ngIf="isAvailabelAdd(options.measures)">-->
+<!--        <button type="button" class="add-button" mat-flat-button (click)="showDialog(widgetItem.Measure)">-->
+<!--          <span translate>widgets.edit_widget_form.add</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div *ngIf="checkSection(options.dimensions)" class="form-control">-->
+<!--      <div class="input-label" fxLayout="row" [ngStyle]="getMargin(widgetItem.Dimension)">-->
+<!--        <div fxFlex="50" fxLayoutAlign="start center" translate>widgets.edit_widget_form.dimension</div>-->
+<!--        <div fxFlex="50" *ngIf="!hasItem(widgetItem.Dimension)" fxLayoutAlign="end center">-->
+<!--          <button type="button" class="add-button" mat-flat-button (click)="handleClearItem(widgetItem.Dimension)">-->
+<!--            <span translate>widgets.edit_widget_form.clear</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div *ngIf="options.dimensions.value && options.dimensions.value.length > 0">-->
+<!--        <div fxLayout="column" fxLayoutGap="10px">-->
+<!--          <app-widget-items *ngFor="let dimension of options.dimensions.value"-->
+<!--                            (onDeleteDimension)="handleDeleteDimension(dimension.dimension)"-->
+<!--                            (onInstancesFilter)="showDialog(widgetItem.Instance, dimension)"-->
+<!--                            [filter]="true"-->
+<!--                            [dimension]="dimension.dimension"-->
+<!--                            [count]="getNumOfSelectedInstances(dimension)"-->
+<!--                            [package]="getSelectedInstances(dimension)">-->
+<!--          </app-widget-items>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div *ngIf="isAvailabelAdd(options.dimensions)">-->
+<!--        <button class="add-button" type="button" mat-flat-button (click)="showDialog(widgetItem.Dimension)">-->
+<!--          <span translate>widgets.edit_widget_form.add</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div *ngIf="checkSection(options.windows)" class="form-control">-->
+<!--      <div class="input-label" fxLayout="row" [ngStyle]="getMargin(widgetItem.Window)">-->
+<!--        <div fxFlex="50" fxLayoutAlign="start center" translate>widgets.edit_widget_form.window</div>-->
+<!--        <div fxFlex="50" *ngIf="!hasItem(widgetItem.Window)" fxLayoutAlign="end center">-->
+<!--          <button type="button" class="add-button" mat-flat-button (click)="handleClearItem(widgetItem.Window)">-->
+<!--            <span translate>widgets.edit_widget_form.clear</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div *ngIf="options.windows.value && options.windows.value.length > 0">-->
+<!--        <div fxLayout="column" fxLayoutGap="10px">-->
+<!--          <app-widget-items *ngFor="let window of options.windows.value"-->
+<!--                            (onDeleteDimension)="handleDeleteItem(window, widgetItem.Window)"-->
+<!--                            [dimension]="window">-->
+<!--          </app-widget-items>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div *ngIf="isAvailabelAdd(options.windows)">-->
+<!--        <button class="add-button" type="button" mat-flat-button (click)="showDialog(widgetItem.Window)">-->
+<!--          <span translate>widgets.edit_widget_form.add</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <app-display-data *ngIf="checkSection(options.displayData)"
+                      formControlName="displayData"
+                      [options]="options.displayData.availableValues"
+                      [isDarkTheme]="isDarkTheme()"
+                      class="form-control"
+    ></app-display-data>
+
+    <div *ngIf="checkSection(options.hideIcon)" class="form-control show-all-data">
+      <app-checkbox formControlName="hideIcon"
+                    label="widgets.edit_widget_form.hide_icon"
+      ></app-checkbox>
+      <app-description><span translate class="description-label">widgets.edit_widget_form.hide_icon_description</span></app-description>
+    </div>
+
+    <app-time-range *ngIf="checkSection(options.customTimeRange) && options.customTimeRange.enabled"
+                    formControlName="customTimeRange"
+                    [isInterval]="options.customTimeRange.required"
+                    [typeRequired]="false"
+                    [inputValidators]="options.customTimeRange.inputValidators"
+    ></app-time-range>
+
+    <app-display-mode-selection *ngIf="checkSection(options.labelMode)"
+                                formControlName="labelMode"
+                                [displayModes]="options.labelMode.availableValues"
+                                [label]="'widgets.edit_widget_form.label_option'"
+                                [isDarkTheme]="isDarkTheme()"
+                                [required]="false"
+                                class="form-control"
+    ></app-display-mode-selection>
+
+    <div *ngIf="checkSection(options.trendType)" class="form-control">
+      <label class="label required-star" for="trend-type" translate>widgets.edit_widget_form.trend_type</label>
+      <div id="trend-type" fxLayout="row wrap" fxLayoutAlign="start center" class="trend-type">
+        <mat-radio-group formControlName="trendType" fxFlex="80" fxLayout="row wrap"
+                         (change)="handleTrendTypeChange($event)">
+          <mat-radio-button *ngFor="let trendType of options.trendType.availableValues" fxFlex="50" [value]="trendType.key">
+            {{trendType.value | translate}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <app-widget-size *ngIf="checkSection(options.defaultSize)"
+                     formControlName="defaultSize"
+                     class="form-control"
+                     [min]="1"
+                     [max]="12">
+    </app-widget-size>
+
+    <app-title-position *ngIf="checkSection(options.titlePosition)"
+                        formControlName="titlePosition"
+                        class="form-control">
+    </app-title-position>
+
+    <app-breakpoint-threshold-input *ngIf="checkSection(options.gaugeThreshold)"
+                                    [required]="options.gaugeThreshold.required"
+                                    formControlName="gaugeThreshold"
+                                    class="form-control">
+    </app-breakpoint-threshold-input>
+
+    <app-threshold-color-input *ngIf="checkSection(options.thresholdColor)"
+                               formControlName="thresholdColor"
+                               [isDarkTheme]="isDarkTheme()"
+                               class="form-control">
+    </app-threshold-color-input>
+
+    <app-number-input *ngIf="checkSection(options.arcWidth)"
+                      formControlName="arcWidth"
+                      [min]="0"
+                      [max]="100"
+                      [label]="'widgets.edit_widget_form.arc_width'"
+                      [placeholder]="'widgets.edit_widget_form.arc_width_default'"
+                      class="form-control arc-width">
+    </app-number-input>
+
+    <app-gauge-value
+      *ngIf="checkSection(options.gaugeValue)"
+      formControlName="gaugeValue"
+      class="form-control"
+      [required]="options.gaugeValue.required"
+    >
+    </app-gauge-value>
+
+    <app-state-color-input *ngIf="checkSection(options.stateColor)"
+                           formControlName="stateColor"
+                           class="form-control"
+    ></app-state-color-input>
+
+    <app-threshold-line-input *ngIf="checkSection(options.thresholdLine)"
+                              formControlName="thresholdLine"
+                              class="form-control"
+    ></app-threshold-line-input>
+
+    <app-measure-input *ngIf="checkSection(options.segmentTypes)"
+                       formControlName="segmentTypes"
+                       class="form-control segmentTypes"
+                       [label]="'widgets.edit_widget_form.segment_types'"
+                       [mode]="options.segmentTypes.choiceMode"
+                       [required]="options.segmentTypes.required"
+                       [options]="getMeasureNames(options.segmentTypes.availableValues)">
+    </app-measure-input>
+
+    <app-selection *ngIf="checkSection(options.groupBy)"
+                   formControlName="groupBy"
+                   class="form-control groupBy"
+                   [placeholder]="'widgets.edit_widget_form.group_by'"
+                   [required]="options.groupBy.required"
+                   [options]="options.groupBy.availableValues">
+    </app-selection>
+
+    <app-instance-input *ngIf="checkSection(options.queues)"
+                        class="form-control"
+                        formControlName="queues"
+                        [mode]="options.queues.choiceMode"
+                        [placeholder]="'widgets.edit_widget_form.queues'"
+    ></app-instance-input>
+
+    <app-instance-input *ngIf="checkSection(options.agents)"
+                        class="form-control"
+                        formControlName="agents"
+                        [mode]="options.agents.choiceMode"
+                        [placeholder]="'widgets.edit_widget_form.agents'"
+    ></app-instance-input>
+
+    <div class="font-color-container form-control" *ngIf="checkSection(options.color)" >
+      <app-color-input-component formControlName="color" [isLabel]="true" [label]="'widgets.edit_widget_form.font_color'" [required]="required"></app-color-input-component>
+    </div>
+
+    <app-checkbox *ngIf="checkSection(options.flashing)"
+                  formControlName="flashing"
+                  class="form-control"
+                  [label]="'widgets.edit_widget_form.flashing'"
+    ></app-checkbox>
+
+    <app-number-input *ngIf="checkSection(options.xAxisMin)"
+                      formControlName="xAxisMin"
+                      [min]="0"
+                      [label]="'widgets.edit_widget_form.x_minimum'"
+                      class="form-control">
+    </app-number-input>
+
+    <div *ngIf="checkSection(options.hideKPI)" class="form-control">
+      <app-hide-kpi formControlName="hideKPI"
+      ></app-hide-kpi>
+      <app-description><span translate>widgets.edit_widget_form.hide_kpi_description</span></app-description>
+    </div>
+
+    <div *ngIf="checkSection(options.enableNavigator)" class="form-control">
+      <app-checkbox formControlName="enableNavigator" label="widgets.edit_widget_form.enable_navigator"></app-checkbox>
+      <app-description><span translate>widgets.edit_widget_form.enable_navigator_description</span></app-description>
+    </div>
+
+    <div *ngIf="checkSection(options.hideLegend)" class="form-control">
+      <app-checkbox formControlName="hideLegend"
+                    label="widgets.edit_widget_form.hide_legends"
+      ></app-checkbox>
+      <app-description><span translate>widgets.edit_widget_form.hide_legends</span></app-description>
+    </div>
+
+    <app-date-time-picker *ngIf="checkSection(options.timestamps)"
+                          formControlName="timestamps"
+                          class="form-control"
+                          [widget]="widget"
+                          [placeholder]="'widgets.edit_widget_form.historical_timestamps'"
+                          [mode]="options.timestamps.choiceMode"
+    >
+    </app-date-time-picker>
+
+    <app-stack-settings *ngIf="isShowingStackBy()"
+                        formControlName="stackBy"
+                        [values]="getStackByItems()"
+                        [stackItems]="options.stackBy.value">
+    </app-stack-settings>
+
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <app-number-input *ngIf="checkSection(options.yAxisMin)"
+                        formControlName="yAxisMin"
+                        fxFlex="45"
+                        [min]="0"
+                        [label]="'widgets.edit_widget_form.y_minimum'"
+                        class="form-control">
+      </app-number-input>
+
+      <app-number-input *ngIf="checkSection(options.yAxisMax)"
+                        formControlName="yAxisMax"
+                        fxFlex="45"
+                        [min]="0"
+                        [label]="'widgets.edit_widget_form.y_maximum'"
+                        class="form-control">
+      </app-number-input>
+    </div>
+    <app-checkbox *ngIf="checkSection(options.waveRise)"
+                  formControlName="waveRise"
+                  fxFlex="45"
+                  [label]="'If checked, the wave rises from 0 to full height, otherwise starts at full height.'"
+                  class="form-control lfg-check-box">
+    </app-checkbox>
+    <app-checkbox *ngIf="checkSection(options.waveHeightScaling)"
+                  formControlName="waveHeightScaling"
+                  fxFlex="45"
+                  [label]="'Controls wave size scaling at low and high fill percentages.
+                            When checked, wave height reaches its maximum at 50% fill, and minimum at 0% and 100% fill.
+                            This helps to prevent the wave from making the wave circle from appear totally full or empty when near its minimum or maximum fill.'"
+                  class="form-control lfg-check-box">
+    </app-checkbox>
+    <app-checkbox *ngIf="checkSection(options.waveAnimate)"
+                  formControlName="waveAnimate"
+                  fxFlex="45"
+                  [label]="'If checked, the wave scrolls otherwise it is static.'"
+                  class="form-control lfg-check-box">
+    </app-checkbox>
+    <app-checkbox *ngIf="checkSection(options.valueCountUp)"
+                  formControlName="valueCountUp"
+                  fxFlex="45"
+                  [label]="'If checked, the value counts up from 0 to its final value, otherwise the final value is displayed.'"
+                  class="form-control lfg-check-box">
+    </app-checkbox>
+    <app-checkbox *ngIf="checkSection(options.displayPercent)"
+                  formControlName="displayPercent"
+                  fxFlex="45"
+                  [label]="'If checked, a % symbol is displayed after the value.'"
+                  class="form-control lfg-check-box">
+    </app-checkbox>
+    <app-color-input-component *ngIf="checkSection(options.waveTextColor)"
+                               formControlName="waveTextColor"
+                               fxFlex="45"
+                               [isLabel]="true"
+                               [label]="'The color of the value text when the wave overlaps it.'"
+                               class="form-control"
+                               [required]="false">
+    </app-color-input-component>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <app-number-input *ngIf="checkSection(options.minValue)"
+                        formControlName="minValue"
+                        fxFlex="45"
+                        [min]="0"
+                        [placeholder]="'The Gauge Minimum Value'"
+                        class="form-control">
+      </app-number-input>
+      <app-number-input *ngIf="checkSection(options.maxValue)"
+                        formControlName="maxValue"
+                        fxFlex="45"
+                        [min]="1"
+                        [placeholder]="'The Gauge Maximum Value'"
+                        class="form-control">
+      </app-number-input>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <app-color-input-component *ngIf="checkSection(options.waveColor)"
+                                 formControlName="waveColor"
+                                 fxFlex="45"
+                                 [isLabel]="true"
+                                 [label]="'The color of the fill wave.'"
+                                 [required]="false">
+      </app-color-input-component>
+      <app-color-input-component *ngIf="checkSection(options.circleColor)"
+                                 formControlName="circleColor"
+                                 fxFlex="45"
+                                 [isLabel]="true"
+                                 [label]="'The color of the outer circle.'"
+                                 class="form-control"
+                                 [required]="false">
+      </app-color-input-component>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <app-color-input-component *ngIf="checkSection(options.textColor)"
+                                 formControlName="textColor"
+                                 fxFlex="45"
+                                 [isLabel]="true"
+                                 [label]="'The color of the value text when the wave does not overlap it.'"
+                                 [required]="false">
+      </app-color-input-component>
+      <app-number-input *ngIf="checkSection(options.textSize)"
+                        formControlName="textSize"
+                        fxFlex="45"
+                        [min]="0"
+                        [placeholder]="'The relative height of the text to display in the wave circle. 1 = 50%'"
+                        class="form-control">
+      </app-number-input>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <app-number-input *ngIf="checkSection(options.waveHeight)"
+                        formControlName="waveHeight"
+                        fxFlex="45"
+                        [min]="0"
+                        [placeholder]="'The wave height as a percentage of the radius of the wave circle.'"
+                        class="form-control">
+      </app-number-input>
+      <app-number-input *ngIf="checkSection(options.waveRiseTime)"
+                        formControlName="waveRiseTime"
+                        fxFlex="45"
+                        [min]="0"
+                        [placeholder]="'The amount of time in milliseconds for the wave to rise from 0 to its final height.'"
+                        class="form-control">
+      </app-number-input>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <app-number-input *ngIf="checkSection(options.waveAnimateTime)"
+                        formControlName="waveAnimateTime"
+                        fxFlex="45"
+                        [min]="0"
+                        [placeholder]="'The amount of time in milliseconds for a full wave to enter the wave circle.'"
+                        class="form-control">
+      </app-number-input>
+      <app-number-input *ngIf="checkSection(options.waveOffset)"
+                        formControlName="waveOffset"
+                        fxFlex="45"
+                        [min]="0"
+                        [max]="5"
+                        [placeholder]="'The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.'"
+                        class="form-control">
+      </app-number-input>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <app-number-input *ngIf="checkSection(options.waveCount)"
+                        formControlName="waveCount"
+                        fxFlex="45"
+                        [min]="1"
+                        [max]="5"
+                        [placeholder]="'The number of full waves per width of the wave circle.'">
+      </app-number-input>
+      <app-number-input *ngIf="checkSection(options.circleThickness)"
+                        formControlName="circleThickness"
+                        fxFlex="45"
+                        [min]="0"
+                        [placeholder]="'The outer circle thickness as a percentage of its radius.'"
+                        class="form-control">
+      </app-number-input>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <app-number-input *ngIf="checkSection(options.circleFillGap)"
+                        formControlName="circleFillGap"
+                        fxFlex="45"
+                        [min]="0"
+                        [placeholder]="'The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.'"
+                        class="form-control">
+      </app-number-input>
+      <app-number-input *ngIf="checkSection(options.textVertPosition)"
+                        formControlName="textVertPosition"
+                        fxFlex="45"
+                        [min]="0"
+                        [max]="1"
+                        [placeholder]="'The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.'">
+      </app-number-input>
+    </div>
+
+    <app-number-input *ngIf="checkSection(options.period)"
+                      formControlName="period"
+                      [label]="'widgets.edit_widget_form.period'"
+                      [min]="1"
+                      class="form-control"
+                      [required]="options.period.required"
+    >
+    </app-number-input>
+
+    <app-number-input *ngIf="checkSection(options.numberOfLines)"
+                      formControlName="numberOfLines"
+                      [min]="0"
+                      [label]="'widgets.edit_widget_form.line_maximum'"
+                      class="form-control">
+    </app-number-input>
+
+    <app-sankey-nodes *ngIf="checkSection(options.nodes)"
+                      formControlName="nodes"
+                      class="form-control"
+    ></app-sankey-nodes>
+
+    <app-urls-input *ngIf="checkSection(options.urls)"
+                    class="form-control"
+                    formControlName="urls"
+                    [measures]="options.urls.availableValues"
+    ></app-urls-input>
+
+
+  </div>
+</form>

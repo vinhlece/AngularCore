@@ -1,0 +1,52 @@
+<form [formGroup]="newUserForm" (ngSubmit)="onSave()">
+<mat-card class="no-shadow">
+    <mat-card-title>{{formTitle}}</mat-card-title>
+    <mat-card-content>
+      <div fxLayout="row wrap"
+           fxLayoutAlign="start center"
+           class = "cardInput"
+      >
+        <label>User ID:</label>
+        <mat-form-field>
+          <input matInput type="text" formControlName="id"/>
+          <mat-error>
+            User ID is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  <mat-card-content>
+    <div fxLayout="row wrap"
+         fxLayoutAlign="start center"
+         class = "cardInput"
+    >
+      <label>Display Name:</label>
+      <mat-form-field>
+        <input matInput type="text" formControlName="displayName"/>
+        <mat-error>
+          Display Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+    <mat-card-content>
+      <div fxLayout="row wrap"
+           fxLayoutAlign="start center"
+           class = "cardInput"
+      >
+        <label>Password:</label>
+        <mat-form-field>
+          <input matInput type="password" formControlName="password"/>
+          <mat-error>
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button id="cancelButton" mat-raised-button type="button" (click)="onCancel()" color="accent">Cancel</button>
+      <button id="saveButton" mat-raised-button type="submit" [disabled]="!newUserForm.valid" color="primary">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+

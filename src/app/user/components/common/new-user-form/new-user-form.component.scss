@@ -1,0 +1,23 @@
+mat-card-title,
+mat-card-content,
+mat-card-actions{
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  margin-right: 10px;
+}
+
+mat-card.no-shadow {
+  box-shadow: none;
+}
+.cardInput {
+  width: 100%;
+  label {
+    flex-basis: 100px;
+  }
+  mat-form-field {
+    flex-grow: 7;
+  }
+}

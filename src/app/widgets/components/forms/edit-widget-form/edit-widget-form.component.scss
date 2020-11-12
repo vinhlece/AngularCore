@@ -1,0 +1,108 @@
+@import "../../../../../styles/variables";
+.form-control {
+  margin-bottom: 22px;
+}
+
+.trend-type {
+  margin-bottom: 6px;
+}
+
+app-checkbox > div > mat-checkbox > label .lfg-check-box {
+  color: #58609C;
+  white-space: normal;
+}
+
+.lfg-check-box{
+  color: #58609C;
+}
+
+app-checkbox {
+  margin-bottom: 6px;
+}
+
+app-urls-input {
+  margin-bottom: 0;
+}
+
+.cancel-btn {
+  font-weight: bold;
+  float: right;
+}
+
+.autoScroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: var(--edit-form-bg);
+}
+
+.btn-group {
+  padding: 10px;
+  background-color: var(--edit-form-bg);
+}
+
+.advanced-settings {
+  display: inline-flex;
+
+  .icon {
+    margin-left: 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .mat-icon {
+    font-size: 20px;
+    color: $label-primary-color;
+  }
+}
+
+.collapse-area {
+  .collapse-body {
+    padding-top: 10px;
+  }
+}
+
+.chart-type {
+  margin-top: 7px;
+  margin-bottom: -7px;
+  mat-icon {
+    font-size: 27px;
+  }
+}
+
+.save-button {
+  background-color: $button-primary-color;
+  color: white;
+}
+
+.cancel-button {
+  background-color: $button-secondary-color;
+  color: rgba(0,0,0,0.87);
+}
+
+.input-label {
+  color: $label-primary-color;
+}
+
+.add-button {
+  background-color: var(--widget-item-bg);
+  color: var(--widget-item-title);
+  min-width: 65px;
+  font-size: 12px;
+  height: 25px;
+  font-weight: normal;
+  line-height: 0px;
+  margin-top: 7px;
+}
+
+.arc-width {
+  width: 60%;
+}
+
+.chart-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}

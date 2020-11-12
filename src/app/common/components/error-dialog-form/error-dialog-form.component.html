@@ -1,0 +1,18 @@
+<div class="container" fxLayout="column">
+  <div mat-dialog-title fxFlex="25%">
+    <div class="container" fxLayout="row" fxLayoutAlign="start center">
+      <mat-icon color="accent">error</mat-icon>
+    </div>
+  </div>
+  <div mat-dialog-content class="container" fxFlex="50%">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <span class="msgContent">{{errorMsg}}</span>
+    </div>
+  </div>
+  <div mat-dialog-actions fxFlex="25%">
+    <div class="container" fxLayout="row" fxLayoutAlign="end center">
+      <button type="button" mat-raised-button color="primary" [mat-dialog-close]="errorMsg">OK</button>
+    </div>
+  </div>
+</div>
+

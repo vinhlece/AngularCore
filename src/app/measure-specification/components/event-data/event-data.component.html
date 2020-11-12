@@ -1,0 +1,60 @@
+<form fxLayout="column" [formGroup]="form" class="event-data-container">
+  <div formArrayName="input">
+    <div *ngFor="let event of eventSources; let i = index">
+      <div [formGroupName]="i">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <app-text-input fxFlex="70" class="form-field" formControlName="source"
+            [placeholder]="'measure_specification.event_data.placeholder_event_source_url' | translate"
+            [isShowTitle]="false" (onEnter)="handleGetSourceStream(i, $event)">
+          </app-text-input>
+          <div *ngIf="!event.isConnected; else connectIcon" fxLayoutAlign="center center">
+            <button type="button" mat-icon-button (click)="handleGetSourceStream(i)">
+              <mat-icon>save</mat-icon>
+            </button>
+          </div>
+          <ng-template #connectIcon>
+            <div>
+              <button type="button" *ngIf="!getSelectedStreams(i); else selectedStream" mat-icon-button>
+                <mat-icon>check_circle</mat-icon>
+              </button>
+              <ng-template #selectedStream>
+                <button type="button" class="streams-selected">
+                  <span>{{getSelectedStreams(i)}}</span>
+                </button>
+              </ng-template>
+              <button type="button" mat-icon-button (click)="handleDeleteEventSource(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button type="button" mat-icon-button (click)="event.showDetail = !event.showDetail">
+                <mat-icon>{{event.showDetail ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}}</mat-icon>
+              </button>
+            </div>
+          </ng-template>
+        </div>
+        <div fxLayout="column" *ngIf="event.showDetail && event.streams.length > 0">
+          <div class="select-stream">{{'measure_specification.event_data.label_select_streams' | translate}}</div>
+          <div class="streams" formArrayName="streams" fxLayout="column" fxLayoutGap="5px">
+            <div *ngFor="let stream of streams[event.source]; let j = index" class="color" fxLayoutAlign="start center">
+              <ng-container *ngIf="!stream.isEdit; else editStream">
+                <mat-checkbox fxFlex="72" class="checkbox" [formControlName]="j" (change)="onStreamChange($event, i)">{{stream.name}}</mat-checkbox>
+                <button type="button" mat-icon-button (click)="handleOpenEditStream(event, stream)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </ng-container>
+              <ng-template #editStream>
+                <app-text-input #inputStream fxFlex="70" class="form-field" [placeholder]="'Enter stream name'" [isShowTitle]="false" value="{{stream.name}}"
+                  (onEnter)="handleUpdateStream(event, stream, inputStream.form.value)"></app-text-input>
+                <button type="button" mat-icon-button (click)="handleUpdateStream(event, stream, inputStream.form.value)">
+                  <mat-icon>save</mat-icon>
+                </button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <mat-error *ngIf="!event.isConnected && event.source && event.isError">
+          {{'measure_specification.event_data.error_cannot_connect_to' | translate}} {{event.source}}
+        </mat-error>
+      </div>
+    </div>
+  </div>
+</form>

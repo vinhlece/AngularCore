@@ -1,0 +1,31 @@
+<div [formGroup]="form" appTheme>
+  <div>
+    <div class="link input-label" translate>widgets.edit_widget_form.hyperlink</div>
+    <button type="button" class="add-url" mat-button (click)="handleAddUrl()">
+      <span translate>widgets.edit_widget_form.add</span>
+    </button>
+  </div>
+  <mat-accordion formArrayName="urls">
+    <mat-expansion-panel *ngFor="let control of urls.controls; let i = index"
+                         [expanded]="expandingUrl === i"
+                         (opened)="handleOpened(i)"
+                         (closed)="handleClosed(i)"
+                         class="url-panel"
+    >
+      <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title>
+          <div class="panel-title">
+            <button class="remove-url-btn" type="button" mat-icon-button (click)="handleRemoveUrl(i)">
+              <mat-icon class="remove-url-icon">delete</mat-icon>
+            </button>
+            <span class="url-title">{{control.value.name}}</span>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <app-url-input [formControlName]="i" [measures]="measures"></app-url-input>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+

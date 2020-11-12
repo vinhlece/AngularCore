@@ -1,0 +1,222 @@
+@import '~@angular/material/_theming';
+@import '../../../../styles/variables';
+
+.time-explorer {
+  display: block;
+  background-color: var(--time-explorer-bg);
+  padding: 15px 10px 0 10px;
+}
+
+.timestamp-info {
+  margin-left: auto;
+  button {
+    border-radius: 2px;
+    height: 22px;
+    border: 0;
+    min-width: 50px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.play-btn {
+      background-color: $button-primary-color;
+      color: #fff;
+      margin-left: 12px;
+    }
+
+    &.reset-btn {
+      color: $text-primary-color;
+      background-color: $button-secondary-color;
+      margin-right: 12px;
+    }
+  }
+}
+
+.top-container {
+  width: 100%;
+  margin: auto;
+  z-index: 1000;
+  background-color: var(--time-explorer-bg);
+  height: 2em;
+
+  .left-panel {
+    white-space: nowrap;
+    color: var(--time-explorer-text);
+    margin-left: 10px;
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .right-panel {
+    text-align: right;
+    width: 100%;
+  }
+
+  mat-icon {
+    margin-right: 20px;
+    cursor: pointer;
+    color: var(--mat-icon);
+  }
+}
+
+::ng-deep {
+  .color-menu-item {
+    width: 640px;
+    overflow: hidden !important;
+
+    .mat-icon-button {
+      width: unset !important;
+    }
+
+    .mat-menu-content {
+      padding: 0 !important;
+    }
+
+    .mat-menu-item .mat-icon {
+      margin-right: 0 !important;
+    }
+  }
+}
+
+.color-item {
+  width: 100%;
+  height: 32px;
+  padding: 0 22px 0 22px;
+}
+
+.collapse-button:hover {
+  cursor: pointer;
+}
+
+.time-range-settings, .replay {
+
+  float: left;
+}
+
+.selected {
+  background: rgba(88, 103, 221, 0.10);
+}
+
+.margin {
+  margin-top: 5px;
+  font-size: 14px;
+  padding: 0 22px 0 22px;
+
+}
+
+.replay-status {
+  color: #ffffff;
+  padding-left: 20px;
+}
+
+.replaying-animation {
+  // Chrome, Opera, Safari
+  -webkit-animation-name: replaying;
+  -webkit-animation: replaying 1s infinite;
+  // Firefox
+  -moz-animation-name: replaying;
+  -moz-animation: replaying 1.5s infinite;
+  // IE 10+
+  animation-name: replaying;
+  animation: replaying 1.5s infinite;
+}
+
+@-webkit-keyframes replaying {
+  0% {
+    opacity: 0
+  }
+  25% {
+    opacity: 0.25
+  }
+  50% {
+    opacity: 0.5
+  }
+  75% {
+    opacity: 0.75
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@-moz-keyframes replaying {
+  0% {
+    opacity: 0
+  }
+  25% {
+    opacity: 0.25
+  }
+  50% {
+    opacity: 0.5
+  }
+  75% {
+    opacity: 0.75
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes replaying {
+  0% {
+    opacity: 0
+  }
+  25% {
+    opacity: 0.25
+  }
+  50% {
+    opacity: 0.5
+  }
+  75% {
+    opacity: 0.75
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+.color-label {
+  cursor: default;
+  font-weight: bold;
+  color: var(--menu-title);
+}
+
+.instance-color {
+  height: 25px;
+}
+
+.menu-icon {
+  width: 16px !important;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.instance-color {
+    height: 16px;
+
+    &.icon {
+      margin-left: 5px;
+    }
+  }
+}
+
+.instance-name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.addInstance {
+  padding: 0 5px !important;
+}
+
+.date {
+  color: var(--time-explorer-date);
+}
+
+.menu-title {
+  color: var(--menu-title);
+}

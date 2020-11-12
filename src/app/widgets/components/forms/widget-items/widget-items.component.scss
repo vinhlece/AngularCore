@@ -1,0 +1,30 @@
+@import "../../../../../styles/variables";
+
+.container {
+  background-color: var(--widget-item-bg);
+  padding: 10px;
+
+  .mat-icons {
+    vertical-align: baseline;
+    color: $button-more-vert-color;
+    min-width: 45px !important;
+    height: 30px;
+  }
+
+  .dimension {
+    font-weight: bold;
+    color: var(--widget-item-title);
+  }
+
+  .package {
+    font-size: 14px;
+    color: var(--widget-item-subtitle);
+  }
+}
+
+::ng-deep {
+  .widget-menu {
+    min-width: 80px;
+    width: 80px;
+  }
+}

@@ -1,0 +1,60 @@
+@import "../../../../styles/variables";
+
+.event-data-container {
+  padding: 20px;
+
+  .form-field {
+    margin-right: 10px;
+
+    .input {
+      width: 100%;
+    }
+  }
+
+  .checkbox, .form-field {
+    color: $measure-definition-label-color;
+  }
+
+  mat-icon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .streams {
+    margin-left: 10px;
+  }
+
+  .select-stream {
+    color: #102A3A;
+  }
+
+  .streams-selected {
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    background-color: #000000;
+    color: #ffff;
+    margin-left: 9px;
+    margin-right: 9px;
+    border: 1px solid #000;
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
+::ng-deep {
+  .event-data-container {
+    .mat-checkbox-checked {
+      &.mat-accent {
+        .mat-checkbox-background {
+          background-color: $button-primary-color;
+        }
+      }
+    }
+  }
+}
+
+

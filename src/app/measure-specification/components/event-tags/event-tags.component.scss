@@ -1,0 +1,72 @@
+@import "../../../../styles/variables";
+
+.container {
+  padding: 20px;
+  height: 100%;
+
+  .divider {
+    margin: 20px 0;
+  }
+
+  .title {
+    margin-bottom: 20px;
+  }
+
+  input, textarea {
+    color: var(--measure-definition-label-color);
+  }
+
+  .other-event {
+    font-weight: bold;
+    color: var(--measure-definition-label-color);
+  }
+
+  .search-filed {
+    width: 100%;
+  }
+
+  .invalid-query {
+    padding: 0px;
+  }
+
+  .event-qualifier {
+    height: 60%;
+    overflow: hidden;
+  }
+
+  .event-qualifier-container {
+    overflow-y: auto;
+  }
+
+  .event-qualifier-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .custom-event-qualifier {
+    height: 40%;
+    overflow: hidden;
+  }
+
+  .custom-event-qualifier-container {
+    overflow-y: auto;
+  }
+}
+
+mat-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.disabled {
+  color: darkgray;
+}
+
+::ng-deep {
+  .custom-event {
+    .wrapper {
+      width: 440px !important;
+    }
+  }
+}

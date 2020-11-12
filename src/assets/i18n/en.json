@@ -1,0 +1,518 @@
+{
+  "layout": {
+    "header": {
+      "close_menu": "Close Menu",
+      "dashboard_management": "Dashboard Management",
+      "widget_management": "Widget Management",
+      "measure_directory": "Measure Directory",
+      "language": "Language",
+      "color_palette": "Color Palette",
+      "user_manage": "User Manage",
+      "version": "Version",
+      "logout": "Log out",
+      "library": "Library",
+      "widget": "Widgets",
+      "widget_name": "Widget",
+      "measure": "Measures",
+      "instance": "Instances",
+      "label_widget": "Widgets Library",
+      "label_measure": "Measures Library",
+      "label_instance": "Instances Library",
+      "dark_mode": "Dark Mode",
+      "light_mode": "Light Mode"
+    }
+  },
+  "dashboard": {
+    "dashboard_list": {
+      "add_new_dashboard": "Add New Dashboard",
+      "rename": "Rename",
+      "delete": "Delete",
+      "copy": "Copy"
+    },
+    "placeholder": {
+      "show_table": "Show Table",
+      "show_timeline": "Show Timeline",
+      "show_billboard": "Show Billboard",
+      "delete_instance": "Delete Instance",
+      "delete_measure": "Delete Measure",
+      "delete_agent": "Delete Agent",
+      "delete_queue": "Delete Queue",
+      "delete_segment_type": "Delete Segment Type",
+      "invoke_url": "Invoke Url",
+      "edit_measure": "Edit Measure",
+      "blank_widget": "Blank Widget",
+      "no_data": "No data",
+      "websocket": "WebSocket",
+      "has_lost": "Connection Lost",
+      "no_connection": "Not Connected"
+    },
+    "placeholder_header": {
+      "search": "Search",
+      "fullscreen": "Fullscreen",
+      "minimize": "Minimize",
+      "select_time": "Select Time",
+      "real_time_mode": "Real Time",
+      "toggle_export": "Toggle Export",
+      "gauge_mode": "Display Mode",
+      "preferences": "Preferences",
+      "delete": "Delete",
+      "add_measure": "Add Measure",
+      "export_menu": "Export",
+      "export_to_pdf": "Export to PDF",
+      "export_to_csv": "Export to CSV",
+      "export_to_xls": "Export to XLS",
+      "copy": "Copy"
+    },
+    "header": {
+      "add_label_widget": "Add label widget",
+      "add_event_viewer_widget": "Add event viewer widget",
+      "add_new_widget": "Add new widget",
+      "logging": "On/Off logging",
+      "shift_trend_diff": "Shift Trend Diff",
+      "day_trend_diff": "Day Trend Diff",
+      "week_trend_diff": "Week Trend Diff",
+      "global_filter": "Global Filter",
+      "time_explorer": "Time Explorer",
+      "notifications": "Notifications",
+      "color_palette": "Color Palette",
+      "instance_color": "Instance Color"
+    },
+    "time_explorer": {
+      "time_range": "Time Range",
+      "interval_value": "Interval Value",
+      "interval_unit": "Interval Unit",
+      "predictive_range": "Predictive Range",
+      "play": "Play",
+      "reset": "Reset",
+      "pause": "Pause",
+      "resume": "Resume",
+      "replaying_event": "REPLAYING EVENTS",
+      "replaying_pause": "REPLAYING PAUSED",
+      "off": "Off"
+    },
+    "simple_name_form": {
+      "label_widget_type": "Widget Type",
+      "placeholder_widget_type": "Select widget type",
+      "error_widget_type": "Widget type is required",
+      "label_dashboard_name": "Dashboard Name",
+      "placeholder_dashboard_name": "Enter dashboard name",
+      "placeholder_dashboard_description": "Description",
+      "error_dashboard_name": "Dashboard name is required",
+      "cancel": "Cancel",
+      "save": "Save",
+      "next": "Next",
+      "title_new_dashboard": "New Dashboard",
+      "title_rename_dashboard": "Rename Dashboard",
+      "title_create_new_widget": "Create new widget",
+      "create": "Create"
+    },
+    "time_range_settings": {
+      "second": "second",
+      "minute": "minute",
+      "hour": "hour",
+      "day": "day",
+      "week": "week",
+      "month": "month",
+      "year": "year"
+    }
+  },
+  "widgets": {
+    "widget_list": {
+      "widget_management": "Widget Management",
+      "name": "Name",
+      "package": "Package",
+      "type": "Type",
+      "default_size": "Default size",
+      "launch": "Launch",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "configure_widget": {
+      "data": "Data Picker",
+      "appearance": "Appearance",
+      "widget_info": "Widget Info"
+    },
+    "edit_widget_form": {
+      "title": "Widget title",
+      "description": "Description",
+      "package": "Package",
+      "chart_type": "Chart types",
+      "chart_type_placeholder": "Select chart type...",
+      "chart_type_required": "Chart type is required.",
+      "chart_style": "Chart Style",
+      "chart_style_placeholder": "Select chart style...",
+      "chart_style_required": "Chart style is required.",
+      "hide_legends": "Hide legends",
+      "hide_legends_description": "Check this if you want to hide all legends",
+      "hide_kpi_upper": "Hide KPI upper thresholds",
+      "hide_kpi_lower": "Hide KPI lower thresholds",
+      "legend_options": "Legend Options",
+      "hide_measure": "Hide measure",
+      "hide_instance": "Hide instance",
+      "hide_window": "Hide window",
+      "alias": "Alias",
+      "hide_kpi_description": "Check this if you want to hide KPI thresholds",
+      "enable_navigator": "Show navigator",
+      "enable_navigator_description": "Select to enable line navigator",
+      "measure": "Measure",
+      "clear": "Clear",
+      "add": "Add",
+      "dimension": "Dimension",
+      "font_color": "Font color",
+      "color": "Color",
+      "show_all_data": "Show all data",
+      "show_all_data_description": "Check this if you want widget to show all data when instances is empty.",
+      "window": "Window",
+      "instance": "Instance",
+      "display_data": "Display data",
+      "display_data_placeholder": "Select display data...",
+      "display_data_required": "Display data is required.",
+      "hide_icon": "Hide expand icon",
+      "hide_icon_description": "Hide last row expand icon",
+      "time_range": "Time range",
+      "from": "From",
+      "to": "To",
+      "interval_value": "Interval value",
+      "interval_unit": "Interval unit",
+      "display_mode": "Display mode",
+      "label_option": "Label option",
+      "required": " is required.",
+      "larger": "must be larger than",
+      "smaller": "must be less than",
+      "min_value": "Min Value",
+      "max_value": "Max Value",
+      "threshold": "Threshold:",
+      "breakpoint_required": "This breakpoint is required",
+      "greater_color": "Greater color",
+      "greater_color_placeholder": "Select a greater color",
+      "color_required": "Color config is required.",
+      "lesser_color": "Lesser color",
+      "lesser_color_placeholder": "Select a lesser color",
+      "trend_type": "Trend Type",
+      "default_rows": "Default rows",
+      "default_rows_required": "Rows is required.",
+      "default_rows_check": "Rows must be from {{min}} to {{max}}",
+      "default_columns": "Default columns",
+      "default_columns_required": "Columns is required.",
+      "default_columns_check": "Columns must be from {{min}} to {{max}}",
+      "parent_state_color": "Parent State Color",
+      "capital_color": "Capital Color",
+      "threshold_line": "Show threshold line",
+      "threshold_line_placeholder": "Threshold value",
+      "flashing": "Flashing",
+      "segment_types": "Segment types",
+      "group_by": "Group by",
+      "queues": "Queues",
+      "agents": "Agents",
+      "instance_example": "Example",
+      "instance_error": "Instance is required",
+      "instance_placeholder": "Enter instance name",
+      "clear_all": "Clear All",
+      "font_family": "Font family",
+      "font_size": "Font size",
+      "font_weight": "Font weight",
+      "x_minimum": "Minimum of X axis",
+      "arc_width": "ARC width",
+      "arc_width_default": "Default is 40",
+      "title_position": "Title position",
+      "advanced_setting": "Advanced Setting",
+      "historical_timestamps": "Historical Timestamps",
+      "y_minimum": "Minimum of Y axis",
+      "y_maximum": "Maximum of Y axis",
+      "period": "Period",
+      "line_maximum": "Maximum number of lines",
+      "nodes": "Nodes",
+      "save": "Save",
+      "cancel": "Cancel",
+      "select": "Select",
+      "hyperlink": "Hyperlinks",
+      "search": "Search...",
+      "delete": "Delete",
+      "filter": "Filter",
+      "no_instance": "No instances",
+      "custom": "Custom",
+      "one_instance": "1 selected instance",
+      "more_instances": "{{count}} selected instances",
+      "column": "Column",
+      "new_url": "New Url",
+      "name_url": "Name",
+      "base_url": "Base Url",
+      "example": "Example",
+      "columns_setting": "Columns setting",
+      "add_instance": "+Add Instance",
+      "change_chart_type": "Change Chart Type",
+      "change_chart_type_description_1": "The chart type you have selected support single measure, single dimension and single window. <br> Please select the data you wish to apply to the new chart.",
+      "change_chart_type_description_2": "The chart type you have selected support single measure and single window. <br> Please select the data you wish to apply to the new chart."
+    },
+    "add_widget_form": {
+      "option_set_template": "Set as template",
+      "label_widget_name": "Widget name",
+      "label_widget_type": "Widget type",
+      "package_placeholder": "Select Package name...",
+      "error_widget_type_required": "Widget type is required."
+    },
+    "sidebar": {
+      "search_placeholder": "Search ...",
+      "search_box_sub_title": "Double click on an item to add"
+    },
+    "form": {
+      "breakpoint_threshold_colors": "Color {{value}}",
+      "column_editor": {
+        "label_name": "Name: ",
+        "label_type": "Type: ",
+        "label_title": "Title: ",
+        "label_width": "Width: ",
+        "label_aggregation": "Aggregation: ",
+        "label_group": "Group",
+        "label_visibility": "Visibility",
+        "label_group_options": "Group option: ",
+        "label_group_hour": "Group hour: ",
+        "save": "Save",
+        "cancel": "Cancel"
+      }
+    }
+  },
+  "user": {
+    "login_form": {
+      "username": "Username",
+      "error_username_required": "Username is required",
+      "password": "Password",
+      "error_password_required": "Password is required",
+      "label_login": "Login"
+    }
+  },
+  "measure": {
+    "measure_component": {
+      "add_measure": "Add measure",
+      "add_formula_measure": "Add formula measure",
+      "name": "Name",
+      "package": "Package",
+      "status": "Status",
+      "enabled":  "Enabled",
+      "disabled": "Disabled",
+      "edit": "Edit",
+      "delete": "Delete",
+      "search_placeholder": "Search ..."
+    },
+    "edit_formula_measure_form": {
+      "name": "Name: ",
+      "error_name_required": "Name is required.",
+      "error_name_pattern": "Name must contain A-Z, a-z characters only.",
+      "error_existing_name": "This name is used. Please use another name.",
+      "package": "Package: ",
+      "error_package_required": "Package is required.",
+      "measure": "Measures: ",
+      "expression": "Expression: ",
+      "error_expression_required": "Expression is required.",
+      "save": "Save",
+      "cancel": "Cancel"
+    }
+  },
+  "measure_specification": {
+    "side_bar": {
+      "tab_event_data": "Event Data",
+      "tab_event_tags": "Event Tags",
+      "tab_event_measure": "Measure",
+      "cancel": "Cancel",
+      "save": "Save",
+      "next": "Next"
+    },
+    "event_data": {
+      "placeholder_event_source_url": "Event Source URL",
+      "error_cannot_connect_to": "Can not connect to",
+      "label_select_streams": "Select Streams"
+    },
+    "event_tags": {
+      "other_events": "Other Events",
+      "placeholder_search_events": "Search All Events",
+      "placeholder_event_name": "Event name",
+      "error_event_name_required": "Event name is required.",
+      "placeholder_query": "key = value",
+      "error_query_required": "Query is required.",
+      "error_query_invalid": "Query is invalid."
+    },
+    "measure": {
+      "placeholder_measure_name": "Measure Name",
+      "placeholder_add_events": "Add Events",
+      "placeholder_add_dimension": "Add Dimension",
+      "placeholder_add_package": "Add To Package",
+      "placeholder_add_interval": "Add Interval (Optional)",
+      "timer_tool_tip": "Timer",
+      "duration_tool_tip": "Duration",
+      "counter_tool_tip": "Counter",
+      "error_input_data_required": "Input data is required.",
+      "error_input_data_invalid": "Input data is invalid."
+    }
+  },
+  "charts": {
+    "tabular": {
+      "ag_grid": {
+        "page": "Page",
+        "to": "to",
+        "of": "of",
+        "next": "Next",
+        "last": "Last",
+        "first": "First",
+        "previous": "Previous",
+        "loadingOoo": "Loading...",
+        "selectAll": "Select All",
+        "searchOoo": "Search...",
+        "blanks": "Blanc",
+        "autosizeThiscolumn": "Autosize This Column",
+        "autosizeAllColumns": "Autosize All Columns",
+        "resetColumns": "Reset Columns",
+        "pinColumn": "Pin Column",
+        "pinLeft": "Pin Left",
+        "pinRight": "Pin Right",
+        "noPin": "No Pin",
+        "equals": "Equals",
+        "notEqual": "Not equal",
+        "lessThan": "Less than",
+        "greaterThan": "Greater than",
+        "inRange": "In range",
+        "lessThanOrEqual": "Less Than Or Equal",
+        "greaterThanOrEqual": "Greater Than Or Equal",
+        "filterOoo": "Filter ...",
+        "contains": "Contains",
+        "notContains": "Not Contains",
+        "startsWith": "Starts with",
+        "endsWith": "Ends with",
+        "andCondition": "AND",
+        "orCondition": "OR",
+        "group": "Group"
+      },
+      "other": {
+        "page_size": "Page size"
+      }
+    },
+    "time_line": {
+      "start": "Start",
+      "end": "End"
+    },
+    "call_timepline": {
+      "call_timeline_filter_bar": {
+        "placeholder_search": "Just input 1 search value for each search type."
+      }
+    },
+    "tooltip": {
+      "line_chart": "Show line chart",
+      "spline_chart": "Show spline chart",
+      "area_chart": "Show area chart",
+      "show_legend": "Show Legend",
+      "hide_legend": "Hide Legend",
+      "play_moving_timeline": "Play moving timeline",
+      "pause_moving_timeline": "Pause moving timeline"
+    }
+  },
+  "highchart": {
+    "contextButtonTitle": "Chart context menu",
+    "downloadCSV": "Download CSV",
+    "downloadJPEG": "Download JPEG image",
+    "downloadPDF": "Download PDF document",
+    "downloadPNG": "Download PNG image",
+    "downloadSVG": "Download SVG vector image",
+    "downloadXLS": "Download XLS",
+    "drillUpText": "◁ Back to {series.name}",
+    "invalidDate": "undefined",
+    "loading": "Loading...",
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "shortMonths": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "shortWeekdays": "undefined",
+    "noData": "No data to display",
+    "numericSymbolMagnitude": "1000",
+    "openInCloud": "Open in Highcharts Cloud",
+    "printChart": "Print chart",
+    "resetZoom": "Reset zoom",
+    "resetZoomTitle": "Reset zoom level 1:1",
+    "viewData": "View data table",
+    "viewFullscreen": "View in full screen",
+    "rangeSelectorAll": "All",
+    "rangeSelectorZoom": "Zoom",
+    "rangeSelectorTo": "To",
+    "rangeSelectorFrom": "From"
+  },
+  "select": {
+    "display_mode": {
+      "latest": "Latest",
+      "historical": "Historical",
+      "timestamp": "Timestamp"
+    },
+    "data_display_type": {
+      "show_interval": "Show Interval",
+      "end_of_timeline": "End of Timeline"
+    },
+    "line_chart_type": {
+      "line": "Line",
+      "area": "Area",
+      "spline": "Spline"
+    },
+    "trend_type": {
+      "day": "Day",
+      "shift": "Shift"
+    },
+    "agg_function": {
+      "sum": "sum",
+      "avg": "avg",
+      "min": "min",
+      "max": "max",
+      "count": "count",
+      "first": "first",
+      "last": "last"
+    },
+    "group_option": {
+      "month": "month",
+      "week": "week",
+      "day": "day",
+      "hour": "hour"
+    },
+    "widget_threshold_color": {
+      "green": "Green",
+      "red": "Red"
+    },
+    "title_position": {
+      "left": "Left",
+      "center": "Center",
+      "right": "Right",
+      "justify": "Justify"
+    },
+    "bar_chart_style": {
+      "normal": "Normal",
+      "stacked": "Stacked",
+      "horizontal": "Horizontal",
+      "vertical": "Vertical"
+    },
+    "time_group": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "last_24_hours": "Last24Hours",
+      "last_7_days": "Last7Days",
+      "last_30_days": "Last30Days",
+      "this_month": "ThisMonth",
+      "custom": "CustomRange",
+      "all": "All",
+      "day": "Day",
+      "hour": "Hour",
+      "minute": "Minute"
+    },
+    "duration_type": {
+      "increment": "Increment",
+      "decrement": "Decrement"
+    },
+    "font_weight": {
+      "normal": "normal",
+      "bold": "bold",
+      "bolder": "bolder",
+      "lighter": "lighter"
+    },
+    "label_mode": {
+      "none": "None",
+      "show_name": "Show Name",
+      "show_value": "Show Value"
+    },
+    "data_mode": {
+      "instances": "Instances",
+      "measures": "Measures",
+      "time_range": "Time Range"
+    }
+  }
+}

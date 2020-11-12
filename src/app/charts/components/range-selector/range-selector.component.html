@@ -1,0 +1,16 @@
+<div class="container" fxLayout="row" fxLayoutAlign="space-between center" [formGroup]="form">
+  <div class="time-input-container" fxFlex="45">
+    <label>From</label>
+    <input class="time-input" formControlName="from" [matAutocomplete]="fromAuto" />
+    <mat-autocomplete #fromAuto="matAutocomplete">
+      <mat-option class="input-font" *ngFor="let option of autoCompleteOptions" [value]="option">{{option}}</mat-option>
+    </mat-autocomplete>
+  </div>
+  <div class="time-input-container" fxFlex="45">
+    <label>To</label>
+    <input class="time-input" formControlName="to" [matAutocomplete]="toAuto" />
+    <mat-autocomplete #toAuto="matAutocomplete">
+      <mat-option class="input-font" *ngFor="let option of autoCompleteOptions" [value]="option">{{option}}</mat-option>
+    </mat-autocomplete>
+  </div>
+</div>

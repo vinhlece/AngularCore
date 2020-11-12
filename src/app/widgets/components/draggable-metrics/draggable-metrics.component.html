@@ -1,0 +1,27 @@
+<div class="mat-typography wrapper" fxLayout="column" fxLayoutAlign="end center" appTheme>
+  <div class="name" *ngIf="group && group.measure && group.measure.length === 1">
+    <strong class="word-style">{{group.measure[0]}}</strong>
+  </div>
+  <div class="name instance" *ngIf="group">
+    <strong>Group: {{group?.group}}</strong>
+  </div>
+  <div class="name" *ngIf="measure">
+    <strong class="word-style">{{measure?.name}}</strong>
+    <p class="data-type mat-caption">{{measure?.dataType}}</p>
+  </div>
+  <div *ngIf="instance" class="name instance">
+    <div><strong>{{instance}}</strong></div>
+  </div>
+  <div *ngIf="agent" class="name agent">
+    <div><strong>Agent: {{agent}}</strong></div>
+  </div>
+  <div *ngIf="queue" class="name queue">
+    <div><strong>Queue: {{queue}}</strong></div>
+  </div>
+  <div *ngIf="segmentType" class="name segmentType">
+    <div><strong>Segment Type: {{segmentType}}</strong></div>
+  </div>
+  <div *ngIf="node" class="name queue">
+    <div><strong>Node: {{node}}</strong></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+@import "../../../../../styles/variables";
+
+:host {
+  display: block;
+}
+
+.form-field,
+.input {
+  width: 100%;
+}
+
+.input-label {
+  color: $label-primary-color;
+}
+

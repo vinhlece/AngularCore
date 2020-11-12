@@ -1,0 +1,27 @@
+@import "../../../../../styles/variables";
+
+.form-control {
+  margin-bottom: 22px;
+}
+
+.container {
+  margin-bottom: 22px;
+}
+
+.chart-type {
+  margin-top: 7px;
+  margin-bottom: -7px;
+  mat-icon {
+    font-size: 27px;
+  }
+}
+
+.selected-icon {
+  height: 10px;
+  width: 10px;
+  background-color: $button-primary-color;
+  border-radius: 50%;
+  position: relative;
+  top: -45px;
+  left: 75px;
+}

@@ -1,0 +1,45 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <div *ngIf="!isEditingOnSideBar; else editSideBar" class="mat-typography" fxLayout="row nowrap">
+    <app-edit-billboard-widget-form class="form"
+                                    fxFlex="40"
+                                    [widget]="widget"
+                                    [dataTypes]="dataTypes$ | async"
+                                    [measures]="measures$ | async"
+                                    [packageDetails]="packageDetails$ | async"
+                                    [allDimensions]="allDimensions$ | async"
+                                    [allInstance]="allInstance$ | async"
+                                    [editType]="EditWidgetType.OnWidget"
+                                    [packages]="packages$ | async"
+                                    (onChange)="handleChange($event)"
+                                    (onSubmit)="handleSubmit($event)"
+                                    (onCancel)="handleCancel()"
+                                    (onChangeType)="handleChangeType($event)"
+    ></app-edit-billboard-widget-form>
+    <div class="sample-widget" appTheme>
+      <app-billboard class="preview"
+                     [widget]="widget"
+                     [data]="data$ | async"
+                     [styles]="styles"
+                     [instanceColors]="instanceColor$ | async"
+                     [size]="{width: 490, height: 490}"
+      ></app-billboard>
+    </div>
+  </div>
+  <ng-template #editSideBar>
+    <app-edit-billboard-widget-form [widget]="widget" [style.height]="'100vh'"
+                                    [dataTypes]="dataTypes$ | async"
+                                    [measures]="measures$ | async"
+                                    [packages]="packages$ | async"
+                                    [packageDetails]="packageDetails$ | async"
+                                    [allDimensions]="allDimensions$ | async"
+                                    [allInstance]="allInstance$ | async"
+                                    [saveSubject]="saveSubject"
+                                    [editType]="EditWidgetType.OnData"
+                                    (onChange)="handleChange($event)"
+                                    (onSubmit)="handleSubmit($event)"
+                                    (onCancel)="handleCancel()"
+                                    (onValidate)="handleValidate($event)"
+                                    (onChangeType)="handleChangeType($event)"
+    ></app-edit-billboard-widget-form>
+  </ng-template>
+</ng-container>

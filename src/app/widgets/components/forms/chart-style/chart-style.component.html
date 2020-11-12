@@ -1,0 +1,11 @@
+<div [formGroup]="form" class="mat-typography">
+  <label class="input-label required-star" for="option" translate>widgets.edit_widget_form.chart_style</label>
+  <mat-form-field class="field-chart-style" appearance="outline">
+    <mat-select formControlName="chartStyle" [placeholder]="'widgets.edit_widget_form.chart_style_placeholder' | translate">
+      <mat-option [class.dark-theme-box]="isDarkTheme()" id="option" *ngFor="let chartStyle of chartStyles" [value]="chartStyle.key">
+        {{chartStyle.style | translate}} - {{chartStyle.type | translate}}
+      </mat-option>
+    </mat-select>
+    <mat-error class="required">{{'widgets.edit_widget_form.chart_style_required' | translate}}</mat-error>
+  </mat-form-field>
+</div>

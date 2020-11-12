@@ -1,0 +1,53 @@
+<form [formGroup]="form" [class.dark-theme-box]="isDarkTheme()" class="mat-typography formula-measure-form" novalidate (submit)="submit()" appTheme>
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <label for="name" fxFlex="20">{{'measure.edit_formula_measure_form.name' | translate}}</label>
+    <mat-form-field floatPlaceholder="never" fxFlex="80">
+      <input matInput id="name" type="text" formControlName="name" autocomplete="off">
+      <mat-error *ngIf="form.controls['name'].errors && form.controls['name'].errors.required" class="required">
+        {{'measure.edit_formula_measure_form.error_name_required' | translate}}
+      </mat-error>
+      <mat-error *ngIf="form.controls['name'].errors && form.controls['name'].errors.pattern" class="pattern">
+        {{'measure.edit_formula_measure_form.error_name_pattern' | translate}}
+      </mat-error>
+      <mat-error *ngIf="form.controls['name'].errors && form.controls['name'].errors.availableName" class="availableName">
+        {{'measure.edit_formula_measure_form.error_existing_name' | translate}}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <label for="dataType" fxFlex="20">{{'measure.edit_formula_measure_form.package' | translate}}</label>
+    <mat-form-field floatPlaceholder="never" fxFlex="80">
+      <mat-select id="dataType" formControlName="dataType" (selectionChange)="changePackage($event)">
+        <mat-option [class.dark-theme-box]="isDarkTheme()" *ngFor="let package of packages" [value]="package.dimensions">
+          {{package.dimensions}}
+        </mat-option>
+      </mat-select>
+      <mat-error class="required">{{'measure.edit_formula_measure_form.error_package_required' | translate}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="measure-list" *ngIf="packageMeasures && packageMeasures.length > 0" fxLayout="row"
+    fxLayoutAlign="end center">
+    <div fxFlex="80">
+      <label><strong>{{'measure.edit_formula_measure_form.measure' | translate}}</strong></label>
+      <mat-chip-list>
+        <mat-chip *ngFor="let item of packageMeasures" (click)="addMeasureToExpression(item.name)">{{item.name}}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <label for="expression" fxFlex="20">{{'measure.edit_formula_measure_form.expression' | translate}}</label>
+    <mat-form-field floatPlaceholder="never" fxFlex="80">
+      <textarea matInput matAutosizeMinRows="5" id="expression" type="text" formControlName="expression"></textarea>
+      <mat-error class="required">{{'measure.edit_formula_measure_form.error_expression_required' | translate}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button type="submit" class="btn-save" mat-flat-button [disabled]="form.invalid">
+      {{'measure.edit_formula_measure_form.save' | translate}}
+    </button>
+    <button type="button" class="btn-cancel" mat-flat-button (click)="onCancel.emit()">
+      {{'measure.edit_formula_measure_form.cancel' | translate}}
+    </button>
+  </div>
+</form>

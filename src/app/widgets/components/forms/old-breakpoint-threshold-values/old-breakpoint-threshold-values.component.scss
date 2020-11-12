@@ -1,0 +1,17 @@
+@import "../../../../../styles/variables";
+
+.lower-bound, .upper-bound {
+  width: 48%;
+}
+
+.upper-bound {
+  float: right;
+}
+
+.breakpoint-value {
+  margin-bottom: 10px;
+}
+
+.label {
+  color: $label-primary-color;
+}

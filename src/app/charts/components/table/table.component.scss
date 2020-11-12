@@ -1,0 +1,96 @@
+.table-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.ag-grid-table{
+  width: 100%;
+}
+
+.page-size-config {
+  position: absolute;
+  bottom: -7px;
+  left: 24px;
+  color: var(--table-paging-text);
+  font-size: 13px;
+  height: 38px;
+  width: 140px;
+}
+
+.page-size {
+  width: 50px;
+  border-bottom: 0.4px solid;
+
+  ::ng-deep {
+    .mat-select-value,
+    .mat-select-arrow {
+      color: var(--table-paging-text);
+    }
+  }
+}
+
+.ag-header-cell-label {
+  justify-content: center;
+}
+
+.ag-header-cell {
+  padding: 0 !important;
+}
+
+.ag-icon-expanded, .ag-icon-contracted {
+  position: relative;
+  top: 3px;
+  left: 0;
+  margin-right: 4px !important;
+}
+
+.manualExpand {
+  .ag-icon-expanded {
+    display: none !important;
+  }
+
+  .ag-icon-contracted {
+    display: none !important;
+  }
+}
+
+.range-selector {
+  float: right;
+}
+
+.even-color {
+  background-color: #e6e6e6;
+}
+
+.ag-theme-material .ag-row {
+  border: 1px solid #dbdbdb;
+}
+
+.ag-row-even {
+  background-color: var(--table-row-even-bg);
+  color: var(--table-text);
+}
+
+.ag-row-odd,
+.ag-body-viewport {
+  background-color: var(--table-row-odd-bg);
+  color: var(--table-text);
+}
+
+.ag-theme-material {
+  .ag-paging-panel,
+  .ag-header-row {
+    background-color: var(--table-paging-bg);
+    color: var(--table-text);
+  }
+
+  button {
+    background-color: var(--table-button-bg);
+
+    &:disabled {
+      background-color: var(--table-button-bg);
+    }
+  }
+}

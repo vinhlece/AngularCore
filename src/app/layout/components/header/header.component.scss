@@ -1,0 +1,119 @@
+@import "../../../../styles/variables";
+
+.toolbar {
+  padding: 0;
+}
+
+.right-account {
+  margin-left: auto;
+  //.mat-icon {
+  //  font-size: 30px;
+  //}
+}
+
+.logo {
+  padding: 18px 10px 0;
+  width: 100%;
+}
+
+.logo-expanded {
+  padding: 13px 21px 0;
+  width: 120px;
+}
+
+#btnUserName {
+  color: #fff;
+  margin-left: auto;
+  //position: absolute;
+  //bottom: 30px;
+  //left: -2px;
+  //min-width: 50px;
+}
+
+.username {
+  margin-left: 4px;
+}
+
+.no-padding-margin {
+  padding: 0;
+  margin: 0;
+}
+
+.selected {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.colorPalette {
+  min-width: 150px;
+}
+
+.colorPaletteIcon {
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.position-fixed{
+  position: fixed
+}
+
+.side-nav {
+  background: var(--header-background);
+  min-width: 60px;
+  overflow: hidden;
+}
+
+#btnMenu {
+  //margin-left: 5px;
+  //width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.example-container {
+  z-index: 0 !important;
+}
+
+.bottom-user-profile {
+  position: absolute;
+  bottom: 0;
+}
+
+.dark-mode-icon {
+  position: absolute;
+  bottom: 50px;
+}
+
+.cdk-overlay-connected-position-bounding-box {
+  min-width: 180px;
+  min-height: 112px;
+}
+
+.header {
+  .list-item {
+
+    .expand-menu {
+      margin-right: 30px;
+    }
+  }
+
+  .mat-list-item-content {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .menu-icon {
+    height: 17px !important;
+    width: 15px !important;
+    border-radius: 0% !important;
+    padding: 6px !important;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .highlight-item {
+    background-color: rgba(255,255,255,0.1);
+  }
+}

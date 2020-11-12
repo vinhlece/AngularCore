@@ -1,0 +1,61 @@
+<div class="container" appTheme>
+  <div class="header-container" fxLayout="row" fxLayoutAlign="space-between">
+    <div class="left-panel" fxLayoutAlign="start center">
+      <span class="header-title" translate>widgets.widget_list.widget_management</span>
+    </div>
+    <div fxLayoutAlign="end center">
+      <mat-icon *ngIf="!errorMessage" routerLink="new">add</mat-icon>
+    </div>
+  </div>
+  <div class="table-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container cdkColumnDef="name">
+        <mat-header-cell *cdkHeaderCellDef mat-sort-header class="header-cell">
+          <span translate>widgets.widget_list.name</span>
+        </mat-header-cell>
+        <mat-cell *cdkCellDef="let widget" class="table-cell">
+          <mat-icon class="template-icon" *ngIf="widget.isTemplate">title</mat-icon>
+          <span>{{widget.name}}</span>
+        </mat-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="data-type">
+        <mat-header-cell *cdkHeaderCellDef mat-sort-header class="header-cell">
+          <span translate>widgets.widget_list.package</span>
+        </mat-header-cell>
+        <mat-cell *cdkCellDef="let widget" class="table-cell">{{widget.dataType}}</mat-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="type">
+        <mat-header-cell *cdkHeaderCellDef mat-sort-header class="header-cell">
+          <span translate>widgets.widget_list.type</span>
+        </mat-header-cell>
+        <mat-cell *cdkCellDef="let widget" class="table-cell">{{widget.type}}</mat-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="default-size">
+        <mat-header-cell *cdkHeaderCellDef mat-sort-header class="header-cell">
+          <span translate>widgets.widget_list.default_size</span>
+        </mat-header-cell>
+        <mat-cell *cdkCellDef="let widget" class="table-cell">
+          {{widget.defaultSize.rows}} rows &times; {{widget.defaultSize.columns}} columns
+        </mat-cell>
+      </ng-container>
+      <mat-header-row class="table-header" *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row class="row" *cdkRowDef="let row; columns: displayedColumns;" (click)="clickOnRow(row)"
+               (contextmenu)="handleContextMenu($event, row)"></mat-row>
+    </mat-table>
+  </div>
+  <mat-error class="error-message" *ngIf="errorMessage">{{errorMessage}}</mat-error>
+</div>
+<app-context-menu [event]="contextMenuEvent">
+  <div appContextMenuItem (click)="launchWidget()">
+    <mat-icon>launch</mat-icon>
+    <span translate>widgets.widget_list.launch</span>
+  </div>
+  <div appContextMenuItem (click)="editWidget()">
+    <mat-icon>mode_edit</mat-icon>
+    <span translate>widgets.widget_list.edit</span>
+  </div>
+  <div appContextMenuItem (click)="deleteWidget()">
+    <mat-icon>delete</mat-icon>
+    <span translate>widgets.widget_list.delete</span>
+  </div>
+</app-context-menu>

@@ -1,0 +1,44 @@
+<mat-tab-group class="container"
+               *ngIf="tabs && addButtons"
+               [selectedIndex]="selectedTabIdx"
+               (selectedIndexChange)="handleSelectTab($event)"
+               [@.disabled]="true" fxFlex="fxFill">
+  <mat-tab *ngFor="let tab of tabs; trackBy: trackByFn; let idx = index;" label="{{tab.name}}">
+    <div *mat-tab-label class="view-tab" fxLayout="column" fxLayoutAlign="center center">
+      <label class="tab-name">{{tab.name}}</label>
+      <button class="delete-button" mat-icon-button (click)="handleDeleteTab($event, tab)">
+        <mat-icon color="accent">clear</mat-icon>
+      </button>
+    </div>
+    <div fxLayout="column" fxFlexFill fxLayoutAlign="start stretch" appTheme>
+      <mat-accordion fxFlex="none" id="globalFilters" [class.dark-theme-box]="isDarkTheme()">
+        <mat-expansion-panel class="global-filter" *ngIf="globalFilter"
+                             appTwinkle
+                             appDroppable accept=".app-draggable-component"
+                             (onDrop)="handleAddInstance($event)">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="header-global-filter" style="display: none;">
+              Global Filters
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="global-instances">
+            <mat-chip-list matPrefix>
+              <mat-chip *ngFor="let value of globalInstances"
+                        (removed)="handleRemoveInstance(value)">
+                {{value}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <app-tab-editor fxFlex *ngIf="idx === selectedTabIdx" [tabId]="tab.id"></app-tab-editor>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+<div *ngIf="isEmptyPlaceholder" appTheme
+     fxFlex="fxFill" fxLayout="column" fxLayoutAlign="center center" class="empty-container">
+  <h3 class="blank-widget">You have not added any widget yet.</h3>
+  <button mat-flat-button (click)="handleAddTab($event)">Add Widget</button>
+</div>

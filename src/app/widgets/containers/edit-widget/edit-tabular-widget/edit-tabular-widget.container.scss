@@ -1,0 +1,24 @@
+:host {
+  display: grid;
+
+  ::ng-deep .ag-theme-material {
+    font-weight: bold !important;
+
+    .ag-group-contracted {
+      span {
+        padding-bottom: 10px;
+      }
+    }
+    .ag-group-value {
+      span {
+        position: relative;
+        top: -6px;
+      }
+    }
+
+    .ag-group-child-count {
+      position: relative;
+      top: -6px;
+    }
+  }
+}

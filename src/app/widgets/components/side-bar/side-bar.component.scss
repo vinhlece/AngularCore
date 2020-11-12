@@ -1,0 +1,71 @@
+.sidenav-wrapper {
+  background-color: var(--library-bg);
+  color: var(--librart-text);
+  height: 94vh;
+  font-family: 'Poppins';
+}
+
+.sidenav-wrapper-content {
+  height: 82vh;
+  overflow-y: auto;
+  background-color: var(--library-bg);
+}
+
+.sidenav-content {
+  padding: 0 8px;
+}
+
+.close-icon {
+  width: 15px;
+}
+
+.header-search-box {
+  padding: 17px 15px 7px 24px;
+  position: relative;
+
+  .widget-library {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--library-text);
+  }
+}
+
+::ng-deep .search-filed {
+  width: 86%;
+
+  .mat-form-field-flex > .mat-form-field-infix {
+    padding: 0 0 12px 0
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-icon {
+    padding: 7px 0 0 0;
+  }
+
+  .mat-form-field-prefix {
+    top: 0.4em !important;
+    left: -0.2em !important;
+  }
+}
+
+.search-box {
+  mat-form-field {
+    margin-left: -5px;
+  }
+}
+
+.search-box-sub-title {
+  font-family: 'Poppins';
+  padding: 15px 15px 7px 24px;
+  font-size: 14px;
+  color: var(--library-text);
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,93 @@
+@import './../../../../styles/variables';
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-weight: bolder;
+  overflow: scroll;
+  
+}
+.event-container {
+  background: black;
+  color: white;
+  a {
+    background: black;
+    color: $button-more-vert-color;
+    opacity: .5;
+  }
+}
+.live-event-listener {
+  width: 80%;
+  height: 30%;
+  margin: 5% auto;
+}
+
+.live-event-container {
+  overflow: scroll;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@keyframes scaleIn {
+  from {transform: scaleY(0)}
+  to {transform: scaleY(1)}
+}
+
+p.live-event-data:first-child {
+    position: relative;
+    animation: scaleIn .2s; 
+}
+
+p.live-event-data {
+    padding: 0px 10px;
+    font-style: italic;
+    word-break: break-all;
+    text-align: left;
+    opacity: .7;
+}
+div.event-controls-container {
+  $controls-opactity: .4;
+  $controls-color: $text-primary-color;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: white; 
+  box-shadow: -2px 0px 6px 0px rgba(0,0,0,0.54);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      font-size: 22px;
+      opacity: $controls-opactity;
+      color: $controls-color;
+      padding: 0 30px;
+    }
+
+  div.event-controls {
+    padding: 0 30px;
+    color: $controls-color;
+    mat-icon {
+      opacity: $controls-opactity;
+      font-size: 40px;
+      margin: 0px 10px;
+    }
+    mat-icon:hover {
+      cursor: pointer;
+      opacity: .9;
+      font-size: 40px;
+      margin: 0px 10px;
+    }
+  }
+}

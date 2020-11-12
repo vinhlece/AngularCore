@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <label fxFlex="15">User Id: </label>
+    <div fxFlex="85">
+      <mat-form-field class="field">
+        <input matInput formControlName="userId" value="{{user.id}}">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <label fxFlex="15">Display name: </label>
+    <div fxFlex="85">
+      <mat-form-field class="field">
+        <input matInput formControlName="displayName" value="{{user.displayName}}">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="start" class="roles">
+    <label fxFlex="15">Roles: </label>
+    <div fxFlex="85" formArrayName="roles">
+      <div *ngFor="let role of roles; let i = index" class="checkbox">
+        <mat-checkbox [formControlName]="i" [value]="role.name">{{role.name}}</mat-checkbox>
+      </div>
+      <span class="description">You can select multiple roles.</span>
+    </div>
+  </div>
+
+  <div class="btn-group" fxLayout="row" fxLayoutAlign="start">
+    <div fxFlex="15">
+      <button type="submit" class="save-btn" mat-raised-button color="primary" [disabled]="form.invalid">
+        Save
+      </button>
+    </div>
+    <div fxFlex="85">
+      <button type="button" class="cancel-btn" mat-button color="warn" (click)="handleCancel()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</form>

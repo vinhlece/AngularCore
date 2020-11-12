@@ -1,0 +1,7 @@
+<div [formGroup]="form">
+  <app-text-input formControlName="name" [placeholder]="'widgets.edit_widget_form.name_url' | translate"></app-text-input>
+
+  <app-text-input formControlName="baseUrl" [placeholder]="'widgets.edit_widget_form.base_url' | translate"></app-text-input>
+  <span class="base-description"><span translate>widgets.edit_widget_form.example</span>: https://www.Joulica.com/search?instance=$instance</span>
+  <app-selection formControlName="measure" placeholder="Measure" [options]="measures"></app-selection>
+</div>

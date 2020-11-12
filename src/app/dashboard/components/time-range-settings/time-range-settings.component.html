@@ -1,0 +1,32 @@
+<div fxLayout="row" class="time-range-container" fxLayoutAlign="start center" appTheme>
+  <label class="input-label" for="option" translate>dashboard.time_explorer.time_range</label>
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-select id="select"
+                [value]="currentSettings"
+                [compareWith]="compareWith"
+                (selectionChange)="handleChangeTimeRangeSettings($event)"
+    >
+      <mat-option id="option"
+                  [class.dark-theme-box]="isDarkTheme()"
+                  *ngFor="let settings of availableSettings"
+                  [value]="settings"
+      >{{getText(settings)}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <app-interval-selector class="data-point-interval-selector"
+                         *ngIf="currentSettings"
+                         [intervals]="currentSettings.dataPointInterval.intervals"
+                         [value]="currentSettings.dataPointInterval.value"
+                         [darkTheme]="isDarkTheme()"
+                         (onChange)="handleChangeDataPointInterval($event)"
+  ></app-interval-selector>
+
+  <app-interval-selector class="data-point-interval-selector"
+                         *ngIf="predictiveSettings"
+                         label="dashboard.time_explorer.predictive_range"
+                         [intervals]="predictiveSettings.available"
+                         [value]="predictiveSettings.value"
+                         [darkTheme]="isDarkTheme()"
+                         (onChange)="handleChangePredictiveRange($event)"
+  ></app-interval-selector>
+</div>

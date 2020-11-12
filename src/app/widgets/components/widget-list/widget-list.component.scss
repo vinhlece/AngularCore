@@ -1,0 +1,63 @@
+@import '../../../../styles/variables';
+
+.cdk-column-name,
+.cdk-column-data-type,
+.cdk-column-type,
+.cdk-column-default-size {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  &:hover {
+    cursor: pointer;
+    background-color: #f7f7f7;
+  }
+}
+
+.error-message {
+  margin-left: 24px;
+  line-height: 32px;
+}
+
+.template-icon{
+  color: rgba(255, 0, 0, 0.9);
+}
+
+.container {
+  background: var(--tab-grid-background);
+  min-height: 100vh;
+}
+
+.header-container {
+  height: 2em;
+  background-color: var(--widget-list-header);
+  padding: 0 7px 0 11px;
+
+  mat-icon {
+    cursor: pointer;
+  }
+
+  .header-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--widget-list-title);
+  }
+}
+
+.table-container {
+  margin: 10px;
+  max-height: 95.5vh;
+  overflow: auto;
+}
+
+.header-cell{
+  color: var(--header-cell);
+  font-size: 14px;
+  background-color: var(--table-bg);
+}
+
+.table-cell {
+  background-color: var(--table-bg);
+  color: var(--table-text);
+}

@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: $dockerImageName
+  namespace: $deploymentNamespace
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: $deploymentServicesFQDN
+    http:
+      paths:
+      - path: /$serviceUrlPath(/|$)(.*)
+        backend:
+          serviceName: $dockerImageName
+          servicePort: 80

@@ -1,0 +1,23 @@
+<div class="sidenav-wrapper" [formGroup]="form" appTheme>
+  <div class="sidenav-inner">
+    <div class="search-box" fxLayout="column">
+      <div class="header-search-box" fxLayout="row" fxLayoutAlign="space-between none">
+        <span class="widget-library">{{currentLibrary.label | translate}}</span>
+        <button class="close-button" (click)="handleCloseSideBar($event)">
+          <img class="close-icon" src="assets/img/menu/black_close.svg">
+        </button>
+      </div>
+      <mat-form-field class="search-filed" appearance="outline" fxFlexAlign="center">
+        <mat-icon matPrefix>search</mat-icon>
+        <input autocomplete="off" placeholder="{{'widgets.sidebar.search_placeholder' | translate}}" formControlName="searchText" matInput type="text" (input)="onSearchChange($event)" />
+      </mat-form-field>
+      <span class="search-box-sub-title">{{'widgets.sidebar.search_box_sub_title' | translate}}</span>
+    </div>
+    <div class="sidenav-wrapper-content">
+      <div class="sidenav-content" fxLayout="column" fxLayoutAlign="start center">
+        <app-side-bar-item-container fxFlexFill *ngFor="let item of matches" [item]="item">
+        </app-side-bar-item-container>
+      </div>
+    </div>
+  </div>
+</div>

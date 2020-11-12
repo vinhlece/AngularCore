@@ -1,0 +1,33 @@
+@import '../../../../styles/variables.scss';
+
+.form {
+  height: 100%;
+}
+
+label {
+  margin-right: 10px;
+}
+
+mat-card.no-shadow {
+  box-shadow: none;
+  height: 93%;
+
+  .mat-card-title {
+    font-size: 18px;
+  }
+
+  .action-button {
+    padding-right: 12px;
+  }
+}
+
+.save-button {
+  background-color: $button-primary-color;
+  color: white;
+}
+
+.cancel-button {
+  background-color: $button-secondary-color;
+  color: rgba(0,0,0,0.87);
+  margin-left: 10px;
+}

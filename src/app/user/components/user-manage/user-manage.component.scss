@@ -1,0 +1,26 @@
+.mat-elevation-z8 {
+  transition: none !important;
+  box-shadow: none !important;
+}
+.row {
+  &:hover {
+    cursor: pointer;
+    background-color: #f7f7f7;
+  }
+}
+
+.user-manage {
+  height: 100vh;
+  background-color: var(--time-explorer-bg);
+}
+
+.header-cell {
+  color: var(--header-cell);
+  font-size: 14px;
+  background-color: var(--table-bg);
+}
+
+.table-cell {
+  background-color: var(--table-bg);
+  color: var(--table-text);
+}

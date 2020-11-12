@@ -1,0 +1,21 @@
+.data-chip-list {
+  width: 100%;
+  margin-top: -15px;
+  .title {
+    margin-bottom: 10px;
+  }
+  .show-all-data {
+    margin-bottom: 5px;
+  }
+}
+::ng-deep {
+  .data-chip-list {
+    .mat-form-field-appearance-outline .mat-form-field-wrapper {
+      width: 406px !important;
+    }
+  }
+
+  .md-chips{
+    box-shadow: 0 0px !important;
+  }
+}

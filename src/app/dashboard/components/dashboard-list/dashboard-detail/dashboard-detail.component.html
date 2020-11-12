@@ -1,0 +1,81 @@
+<div class="card font-style" [ngStyle]="getCardStyle()">
+  <div class="card-header">
+    <span fxFlex="90" class="dashboard-name">{{dashboard.name}}</span>
+    <div [ngStyle]="getMenuStyle()" class="menu-dynamic-container" fxLayout="row" (mouseleave)="isShowMenu = false">
+      <div class="icon" [style]="getStyleForDynamic()">
+        <mat-icon
+          class="btn-copy"
+          mat-icon-button
+          (click)="copyDashboard(dashboard, $event)"
+          matTooltip="{{'dashboard.dashboard_list.copy' | translate}}"
+        >file_copy</mat-icon>
+
+        <mat-icon
+          class="btn-edit"
+          mat-icon-button
+          (click)="renameDashboard(dashboard, $event)"
+          matTooltip="{{'dashboard.dashboard_list.rename' | translate}}"
+        >edit</mat-icon>
+
+        <mat-icon
+          class="btn-delete"
+          mat-icon-button
+          (click)="handleDeleteDashboard(dashboard.id, $event)"
+          matTooltip="{{'dashboard.placeholder_header.delete' | translate}}"
+        >delete_forever</mat-icon>
+      </div>
+
+      <button [ngStyle]="getButtonStyle()" style="position: absolute;"  class="more-vert-menu" mat-button (click)="showMenu($event)">
+        <mat-icon class="mat-icons">more_vert</mat-icon>
+      </button>
+    </div>
+
+  </div>
+  <div class="dashboard-body">
+    <div fxFlex="50" class="logo" fxLayout="row" fxLayoutGap="5px">
+      <div fxLayout="column" fxFlex="50" fxLayoutGap="5px">
+        <div fxFlex="50" class="logo-content dimension-card">
+          <div fxFlex="50" fxLayoutAlign="center center">
+            <mat-icon>data_usage</mat-icon>
+          </div>
+          <div fxFlex="50">
+            <div class="card-number" [ngStyle]="getNumberStyle()">{{getNumberOfObject(dashboard.id, 'dimensions')}}</div>
+            <div class="card-text" [ngStyle]="getTextStyle()">Dimensions</div>
+          </div>
+        </div>
+        <div fxFlex="50" class="logo-content measure-card">
+          <div fxFlex="50" fxLayoutAlign="center center">
+            <mat-icon>category</mat-icon>
+          </div>
+          <div fxFlex="50">
+            <div class="card-number" [ngStyle]="getNumberStyle()">{{getNumberOfObject(dashboard.id, 'measures')}}</div>
+            <div class="card-text" [ngStyle]="getTextStyle()">Measures</div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column" fxFlex="50" fxLayoutGap="5px">
+        <div fxFlex="50" class="logo-content window-card">
+          <div fxFlex="50" fxLayoutAlign="center center">
+            <mat-icon>timer</mat-icon>
+          </div>
+          <div fxFlex="50">
+            <div class="card-number" [ngStyle]="getNumberStyle()">{{getNumberOfObject(dashboard.id, 'windows')}}</div>
+            <div class="card-text" [ngStyle]="getTextStyle()">Windows</div>
+          </div>
+        </div>
+        <div fxFlex="50" class="logo-content widget-card">
+          <div fxFlex="50" fxLayoutAlign="center center">
+            <mat-icon>widgets</mat-icon>
+          </div>
+          <div fxFlex="50">
+            <div class="card-number" [ngStyle]="getNumberStyle()">{{getNumberOfObject(dashboard.id, 'widgets')}}</div>
+            <div class="card-text" [ngStyle]="getTextStyle()">Widgets</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="50" class="description">
+      {{dashboard.description}}
+    </div>
+  </div>
+</div>

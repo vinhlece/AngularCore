@@ -1,0 +1,41 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <div *ngIf="!isEditingOnSideBar; else editSideBar" fxLayout="row wrap" [style.height]="'100%'">
+    <app-edit-call-time-line-widget-form fxFlex="40" [style.height]="'100vh'"
+                                         [widget]="widget"
+                                         [dataTypes]="dataTypes$ | async"
+                                         [measures]="measures$ | async"
+                                         [segmentTypes]="segmentTypes$ | async"
+                                         [packages]="packages$ | async"
+                                         [chartTypes]="chartTypes"
+                                         [editType]="EditWidgetType.OnWidget"
+                                         (onChange)="handleChange($event)"
+                                         (onSubmit)="handleSubmit($event)"
+                                         (onCancel)="handleCancel()"
+                                         (onChangeType)="handleChangeType($event)"
+    ></app-edit-call-time-line-widget-form>
+    <div class="sample-widget" appTheme>
+      <app-call-timeline [widget]="widget"
+                         [data]="data$ | async"
+                         [colorPalette]="colorPalette$ | async"
+                         (onSearchChange)="handleChange($event)"
+                         fxFlex="60"
+      ></app-call-timeline>
+    </div>
+  </div>
+  <ng-template #editSideBar>
+    <app-edit-call-time-line-widget-form [widget]="widget" [style.height]="'100vh'"
+                                         [dataTypes]="dataTypes$ | async"
+                                         [measures]="measures$ | async"
+                                         [segmentTypes]="segmentTypes$ | async"
+                                         [packages]="packages$ | async"
+                                         [chartTypes]="chartTypes"
+                                         [saveSubject]="saveSubject"
+                                         [editType]="EditWidgetType.OnData"
+                                         (onChange)="handleChange($event)"
+                                         (onSubmit)="handleSubmit($event)"
+                                         (onCancel)="handleCancel()"
+                                         (onValidate)="handleValidate($event)"
+                                         (onChangeType)="handleChangeType($event)"
+    ></app-edit-call-time-line-widget-form>
+  </ng-template>
+</ng-container>

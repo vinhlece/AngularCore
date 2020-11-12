@@ -1,0 +1,14 @@
+<div class="container">
+  <app-gantt-call-timeline [size]="size"
+                           [widget]="widget"
+                           [data]="filterData$ | async"
+                           [zoom]="zoom"
+                           [colorPalette]="colorPalette"
+                           (onSearch)="handleSearch($event)"
+                           (onMouseDown)="handleMouseDown($event)"
+                           (onContextMenu)="handleContextMenu($event)"
+                           (onToggleLegend)="handleToggleLegend($event)"
+                           (onZoom)="handleZoom($event)"
+                           (onDoubleClick)="handleDoubleClick($event)"
+  ></app-gantt-call-timeline>
+</div>

@@ -1,0 +1,17 @@
+<div [formGroup]="form">
+  <div fxLayout="row wrap" fxLayoutAlign="start center">
+    <app-selection class="time-range margin-top"
+      formControlName="type"
+      [options]="rangeOptions"
+      [placeholder]="'widgets.edit_widget_form.time_range'"
+      (onSelected)="handleSelect($event)"
+    ></app-selection>
+  </div>
+  <div *ngIf="isCustomRange" class="margin-top">
+    <app-input-range formControlName="range"></app-input-range>
+  </div>
+  <div *ngIf="isInterval" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="20px">
+    <app-time-range-interval class="margin-top" formControlName="interval"></app-time-range-interval>
+  </div>
+</div>
+

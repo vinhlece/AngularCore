@@ -1,0 +1,18 @@
+<div class="container">
+  <div *ngFor="let legend of legends" class="legend-container">
+    <mat-icon class="cursor-pointer"
+              [ngStyle]="getPointStyle(legend)"
+              [matTooltip]="legend.name"
+              (click)="handleToggle(legend)"
+    >
+      fiber_manual_record
+    </mat-icon>
+    <label class="legend-label cursor-pointer"
+           [ngStyle]="getLabelStyle(legend)"
+           [matTooltip]="legend.name"
+           (click)="handleToggle(legend)"
+    >
+      {{legend.name}}
+    </label>
+  </div>
+</div>

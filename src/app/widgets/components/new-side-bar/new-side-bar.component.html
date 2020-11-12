@@ -1,0 +1,9 @@
+<div class="full-height">
+  <app-configure-widget [style.height]="'100%'"
+    [widget]="widget"
+    (onCreateWidgetType)="createNewWidget($event)"
+    (onUpdateWidgetType)="updateWidget($event)"
+    (onCancel)="handleCancel()"
+    (onSave)="handleSave($event)"
+  ></app-configure-widget>
+</div>

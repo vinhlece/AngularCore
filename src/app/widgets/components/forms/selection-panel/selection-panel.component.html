@@ -1,0 +1,66 @@
+<div class="container" [formGroup]="form" fxLayout="column" appTheme>
+  <div fxLayout="row" fxFlex="100">
+    <div class="container" fxLayout="row" fxFlex="100">
+      <mat-selection-list fxFlex="100" class="panel" formControlName="selectedAvailableItems">
+        <mat-list-option *ngFor="let item of items" [value]="item" checkboxPosition="before">
+          <span class="item" matTooltip="{{getDisplayValue(item)}}">{{getDisplayValue(item)}}</span>
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+
+  <div class="move-btn-group" fxLayout="row" fxFlex="100" fxLayoutAlign="center center" >
+    <button class="move-btn"
+            type="button"
+            mat-icon-button
+            [disabled]="!enableAddBtn"
+            (click)="handleAdd()"
+    >
+      <mat-icon>arrow_downward</mat-icon>
+    </button>
+    <button class="move-btn"
+            type="button"
+            mat-icon-button
+            [disabled]="!enableRemoveBtn"
+            (click)="handleRemove()"
+    >
+      <mat-icon>arrow_upward</mat-icon>
+    </button>
+  </div>
+  <div fxLayout="row" fxFlex="100">
+    <div class="container" fxLayout="row" fxFlex="100">
+      <mat-selection-list class="panel" formControlName="selectedAddedItems" fxFlex="90">
+        <mat-list-option *ngFor="let item of addedItems; index as i"
+                         [value]="item"
+                         [selected]="isAddedItemSelected(item)"
+                         checkboxPosition="before"
+        >
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="item" matTooltip="{{getDisplayValue(item)}}">{{getDisplayValue(item)}}</div>
+            <button type="button" mat-icon-button (click)="handleClickSelectedItem(item)" class="setting-column">
+              <mat-icon>settings</mat-icon>
+            </button>
+          </div>
+        </mat-list-option>
+      </mat-selection-list>
+      <div class="move-btn-group btn-up-down" fxLayout="column" fxFlex="10" fxLayoutAlign="center right">
+        <button class="move-btn"
+                type="button"
+                mat-icon-button
+                [disabled]="!enableMoveUp"
+                (click)="handleMoveUp()"
+        >
+          <mat-icon>arrow_upward</mat-icon>
+        </button>
+        <button class="move-btn"
+                type="button"
+                mat-icon-button
+                [disabled]="!enableMoveDown"
+                (click)="handleMoveDown()"
+        >
+          <mat-icon>arrow_downward</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

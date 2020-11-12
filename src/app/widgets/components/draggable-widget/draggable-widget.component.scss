@@ -1,0 +1,45 @@
+@import '~@angular/material/theming';
+@import '../../../../styles/variables';
+
+$config: mat-typography-config();
+
+.wrapper {
+  padding: 8px 5px;
+  background-color: var(--library-item-bg);
+  border-radius: 3px;
+}
+
+.icon-wrapper {
+  margin: auto;
+  position: relative;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+
+.name {
+  color: var(--library-text);
+  width: 100%;
+}
+
+.stream {
+  color: var(--library-item-stream);
+  width: 100%;
+}
+
+.default-size {
+  font-size: mat-font-size($config, subheading-2);;
+  color: white;
+  width: 100%;
+}
+.template{
+  position: absolute;
+  color: rgba(255, 0, 0, 0.9);
+  left: -5px;
+  top: -5px;
+  font-size: 17px;
+  font-weight: bold;
+}

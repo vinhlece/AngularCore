@@ -1,0 +1,33 @@
+<div class="custom-panel">
+  <mat-expansion-panel [expanded]="expanded">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{title | translate}}
+      </mat-panel-title>
+      <div class="icon">
+        <div *ngIf="valid; else error">
+          <mat-icon class="valid">check_circle_outline</mat-icon>
+        </div>
+        <ng-template #error>
+          <mat-icon class="error">error_outline</mat-icon>
+        </ng-template>
+      </div>
+    </mat-expansion-panel-header>
+    <app-edit-widget-form [options]="options"
+                          [packages]="packages"
+                          [packageDetails]="packageDetails"
+                          [allDimensions]="allDimensions"
+                          [allInstance]="allInstance"
+                          [section]="section"
+                          [saveSubject]="saveSubject"
+                          [widget]="widget"
+                          (onSubmit)="handleSubmit($event)"
+                          (onChange)="handleChange($event)"
+                          (onCancel)="handleCancel()"
+                          (onValidate)="handleValidate($event)"
+                          (onChangeType)="handleChangeType($event)"
+    ></app-edit-widget-form>
+  </mat-expansion-panel>
+</div>
+
+

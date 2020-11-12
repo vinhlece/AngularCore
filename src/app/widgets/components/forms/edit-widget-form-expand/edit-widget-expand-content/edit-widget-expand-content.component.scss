@@ -1,0 +1,52 @@
+.icon {
+  float: right;
+  margin-right: 15px;
+
+  .error {
+    color: #ffbf00;
+  }
+
+  .valid {
+    color: green;
+  }
+}
+
+::ng-deep {
+  .custom-panel {
+    .mat-expansion-panel-body {
+      max-width: 500px;
+      height: 64vh;
+      overflow-y: auto;
+    }
+
+    .mat-expansion-panel-header-title {
+      color: var(--widget-item-title);
+    }
+
+    .mat-expansion-panel-header.mat-expanded {
+      &:hover {
+        background: var(--mat-card);
+      }
+    }
+
+    .mat-expansion-panel:not(.mat-expanded) {
+      .mat-expansion-panel-header:hover {
+        background: var(--mat-card);
+      }
+    }
+
+    .mat-expansion-panel-header.mat-expanded:focus {
+      background: var(--mat-card);
+    }
+
+    .mat-expansion-panel-header,
+    .mat-expansion-panel-body {
+      background-color: var(--edit-form-bg);
+    }
+
+    .mat-stroked-button {
+      padding: 0 7px;
+    }
+  }
+}
+

@@ -1,0 +1,11 @@
+<ng-container *ngIf="user$ | async as user">
+  <app-edit-user-form
+    *ngIf="roles$ | async as roles"
+    [roles]="roles"
+    [user]="user"
+    [rolesByUser]="rolesByUser$ | async"
+    (cancel)="handleCancel()"
+    (save)="handleSave($event)">
+  </app-edit-user-form>
+</ng-container>
+

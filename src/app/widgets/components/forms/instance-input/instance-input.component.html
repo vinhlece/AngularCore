@@ -1,0 +1,35 @@
+<div [formGroup]="form" [ngSwitch]="mode" class="instance">
+  <div *ngSwitchCase="'single'">
+    <label class="input-label" for="input">{{placeholder | translate}}</label>
+    <mat-form-field class="form-field" appearance="outline">
+      <input id="input" matInput formControlName="values" [placeholder]="placeholder | translate" autocomplete="off"/>
+    </mat-form-field>
+  </div>
+  <div *ngSwitchCase="'multiple'">
+    <label class="input-label" for="input">{{placeholder | translate}}</label>
+    <mat-form-field class="form-field instances-multiple" appearance="outline">
+      <input matInput
+             autocomplete="off"
+             id="input-instance"
+             [placeholder]="placeholder | translate"
+             [matChipInputFor]="instances"
+             [matChipInputSeparatorKeyCodes]="separatorKeyCodes"
+             [matChipInputAddOnBlur]="true"
+             (matChipInputTokenEnd)="handleAddValue($event)"/>
+    </mat-form-field>
+    <mat-hint *ngIf="checkWidget()" class="mat-hint">
+      {{'widgets.edit_widget_form.instance_example' | translate}}: Ipad,Iphone
+    </mat-hint>
+    <mat-error *ngIf="checkWidget() && showError"><span translate>widgets.edit_widget_form.instance_error</span></mat-error>
+    <app-description *ngIf="description">{{description | translate}}</app-description>
+    <mat-chip-list #instances matPrefix class="chip-list-instances">
+      <mat-chip *ngFor="let value of selectedOptions"
+                (removed)="handleRemoveValue(value)">
+        {{value}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <div *ngIf="selectedOptions.length > 0" class="remove-btn" (click)="handleRemoveAll()" translate>widgets.edit_widget_form.clear_all</div>
+    </mat-chip-list>
+  </div>
+</div>
+

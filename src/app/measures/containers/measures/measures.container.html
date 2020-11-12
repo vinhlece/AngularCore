@@ -1,0 +1,7 @@
+<div class="tabs" fxLayout="row" mat-progress-spinner>
+  <app-header-container [routerList]="routerList"></app-header-container>
+  <app-progress-spinner [data$]="measures$">
+
+  </app-progress-spinner>
+  <app-measures [measures]="measures$ | async" fxFlex="fxFill"></app-measures>
+</div>

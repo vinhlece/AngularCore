@@ -1,0 +1,24 @@
+<div [formGroup]="form" [ngSwitch]="mode">
+  <label class="label-input" for="option">{{(label ? label : 'widgets.edit_widget_form.measure') | translate}}</label>
+  <div *ngSwitchCase="'single'">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-select formControlName="selections"
+                  [placeholder]="options.length ? placeholder : 'widgets.edit_widget_form.no_measure' | translate">
+        <mat-option id="option" *ngFor="let name of options" [value]="name">{{name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div *ngSwitchCase="'multiple'" formArrayName="selections" class="measure-input">
+    <div *ngIf="options.length; else noMeasures">
+      <div *ngFor="let name of options; let i = index" class="checkboxes">
+        <mat-checkbox [formControlName]="i" [value]="name">{{name}}</mat-checkbox>
+      </div>
+    </div>
+    <ng-template #noMeasures>
+      <div class="empty-box">
+        <span translate>widgets.edit_widget_form.no_measure</span>
+      </div>
+    </ng-template>
+  </div>
+
+</div>

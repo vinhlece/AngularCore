@@ -1,0 +1,9 @@
+<div [formGroup]="form">
+  <label class="input-label" for="option">{{'widgets.add_widget_form.label_widget_type' | translate}}</label>
+  <mat-form-field class="field" appearance="outline">
+    <mat-select id="option" formControlName="type" [placeholder]="'dashboard.simple_name_form.placeholder_widget_type' | translate">
+      <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+    </mat-select>
+    <mat-error>{{'widgets.add_widget_form.error_widget_type_required' | translate}}</mat-error>
+  </mat-form-field>
+</div>

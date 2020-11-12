@@ -1,0 +1,41 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <div *ngIf="!isEditingOnSideBar; else editSideBar" fxLayout="row wrap" [style.height]="'100%'">
+    <app-edit-bubble-widget-form [widget]="widget" [style.height]="'100vh'"
+                              [dataTypes]="dataTypes$ | async"
+                              [measures]="measures$ | async"
+                              [packages]="packages$ | async"
+                              [packageDetails]="packageDetails$ | async"
+                              [allDimensions]="allDimensions$ | async"
+                              [allInstance]="allInstance$ | async"
+                              [editType]="EditWidgetType.OnWidget"
+                              (onSubmit)="handleSubmit($event)"
+                              (onCancel)="handleCancel()"
+                              (onChange)="handleChange($event)"
+                              fxFlex="40"
+    ></app-edit-bubble-widget-form>
+    <div fxFlex="60" class="sample-widget" appTheme>
+      <app-bubble-chart
+        [widget]="widget"
+        [data]="data$ | async"
+        [colorPalette]="colorPalette$ | async"
+        [styles]="styles"
+      ></app-bubble-chart>
+    </div>
+  </div>
+  <ng-template #editSideBar>
+    <app-edit-bubble-widget-form [widget]="widget"
+                              [dataTypes]="dataTypes$ | async"
+                              [measures]="measures$ | async"
+                              [packages]="packages$ | async"
+                              [packageDetails]="packageDetails$ | async"
+                              [allDimensions]="allDimensions$ | async"
+                              [allInstance]="allInstance$ | async"
+                              [saveSubject]="saveSubject"
+                              [editType]="EditWidgetType.OnData"
+                              (onSubmit)="handleSubmit($event)"
+                              (onCancel)="handleCancel()"
+                              (onChange)="handleChange($event)"
+                              (onValidate)="handleValidate($event)"
+    ></app-edit-bubble-widget-form>
+  </ng-template>
+</ng-container>

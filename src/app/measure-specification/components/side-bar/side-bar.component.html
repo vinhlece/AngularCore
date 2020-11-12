@@ -1,0 +1,43 @@
+<form class="sidenav-wrapper" fxLayout="column" [formGroup]="form"
+      novalidate (ngSubmit)="handleSubmit()" appTheme>
+  <div class="sidenav-inner" fxFlex="94" fxLayout="row" flexLayoutAlign="center center">
+    <mat-tab-group #tabGroup mat-stretch-tabs class="measure-sidebar-tab-group" (selectedTabChange)="onTabChanged()">>
+      <mat-tab label="{{'measure_specification.side_bar.tab_event_data' | translate}}">
+        <app-event-data (getStream)="handleGetStream($event)"
+                        (updateStream)="handleUpdateStream($event)"
+                        (onEventStream)="handleEventStream($event)"
+                        [streams]="streams"
+        ></app-event-data>
+      </mat-tab>
+      <mat-tab label="{{'measure_specification.side_bar.tab_event_tags' | translate}}">
+        <app-event-tags [addEvent]="addEvent"
+                        class="event-tags"
+                        [currentEventSource]="eventStreams"
+                        [existEventTags]="existEventTags"
+                        [customEvents]="eventTags"
+                        (onAddCustomEvent)="handleSaveCustomEvent($event)"
+                        (onEditCustomEvent)="handleUpdateCustomEvent($event)"
+                        (onDeleteCustomEvent)="handleDeleteCustomEvent($event)"
+        ></app-event-tags>
+      </mat-tab>
+      <mat-tab label="{{'measure_specification.side_bar.tab_event_measure' | translate}}">
+        <app-measure formControlName="measure" [allEventTags]="allEventTags"
+                     [packages]="packages" [windows]="windows"></app-measure>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div fxFlex fxLayout="row" class="btn-group">
+    <div fxFlex="50" fxLayoutAlign="start center" fxLayoutGap="10px" class="button">
+      <button class="save-button" type="submit" [disabled]="isDisabled()"
+              mat-flat-button>{{getButtonText()}}</button>
+      <button class="cancel-button" type="button" mat-flat-button>
+        {{'measure_specification.side_bar.cancel' | translate}}
+      </button>
+    </div>
+    <div fxFlex *ngIf="isEventTagTab" class="add-icon" fxLayoutAlign="end center">
+      <button type="button" mat-icon-button (click)="addCustomEvent()">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+    </div>
+  </div>
+</form>

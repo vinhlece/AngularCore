@@ -1,0 +1,15 @@
+<div [formGroup]="form" fxLayout="row wrap" fxLayoutAlign="space-between center">
+  <app-color-input-component fxFlex="45%"
+                             [label]="'widgets.edit_widget_form.parent_state_color'"
+                             [isLabel]="true"
+                             formControlName="parentStateColor"
+                             class="form-control">
+  </app-color-input-component>
+
+  <app-color-input-component fxFlex="45%"
+                             [label]="'widgets.edit_widget_form.capital_color'"
+                             [isLabel]="true"
+                             formControlName="capitalColor"
+                             class="form-control">
+  </app-color-input-component>
+</div>

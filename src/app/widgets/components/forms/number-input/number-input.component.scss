@@ -1,0 +1,19 @@
+@import "../../../../../styles/variables";
+
+:host {
+  display: block;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.input-label {
+  color: $label-primary-color;
+}
+
+::ng-deep {
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+}

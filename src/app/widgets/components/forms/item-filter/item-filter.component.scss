@@ -1,0 +1,46 @@
+@import "../../../../../styles/variables";
+
+.item-filter {
+  .search-item {
+    width: 100%;
+  }
+
+  .package-item {
+    font-weight: normal;
+    color: $text-popup-color;;
+
+    .title {
+      font-size: 15px;
+    }
+    .value-item {
+      font-size: 14px;
+    }
+  }
+
+  .item-container {
+    height: 43vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-top: 10px;
+  }
+}
+
+::ng-deep {
+  .item-filter {
+    .mat-form-field {
+      max-width: 100% !important;
+    }
+
+    .mat-expansion-panel {
+      background-color: var(--edit-form-bg);
+    }
+
+    .mat-expansion-panel-header {
+      padding: 0px 5px 0px 0px;
+    }
+
+    .mat-expansion-panel-body {
+      padding: 0px !important;
+    }
+  }
+}

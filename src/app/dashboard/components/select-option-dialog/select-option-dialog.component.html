@@ -1,0 +1,11 @@
+<mat-card class="root mat-elevation-z0" [formGroup]="form">
+  <mat-card-title class="title">{{data.title}}</mat-card-title>
+  <mat-card-content fxLayout="column" fxLayoutAlign="start center" class="content">
+    <app-checkbox-list [required]="true" [options]="data.options" formControlName="options"></app-checkbox-list>
+    <app-description>You can select multiple options.</app-description>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="button" (click)="handleSave()" mat-raised-button color="primary" [disabled]="form.invalid">Save</button>
+    <button type="button" (click)="handleClose()" mat-button color="accent">Close</button>
+  </mat-card-actions>
+</mat-card>

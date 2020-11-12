@@ -1,0 +1,56 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" appTheme class="container palette" [class.dark-theme-box]="isDarkTheme()">
+  <div fxLayout="column" fxLayoutAlign="start">
+    <!--ColorPalette settings-->
+    <div fxLayout="row">
+      <h4>Palette Color Settings</h4>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field class="field">
+        <input matInput [placeholder]="'Palette name'" formControlName="name" autocomplete="off"
+               (blur)="handleBlur()">
+        <mat-error id="paletteNameRequiredError" class="required">Palette name is required.</mat-error>
+      </mat-form-field>
+    </div>
+    <div formArrayName="colors">
+      <div *ngFor="let node of nodes.controls; let i = index" fxLayout="row">
+        <app-palette-node [placeHolder]="'Color ' + (i+1)" [formControlName]="i" [isDarkTheme]="isDarkTheme()"></app-palette-node>
+        <button type="button" mat-icon-button (click)="handleRemoveNode(i)">
+          <mat-icon color="accent">remove</mat-icon>
+        </button>
+      </div>
+    </div>
+    <button class="add-node-buton" type="button" mat-icon-button (click)="handleAddNode()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <mat-divider></mat-divider>
+    <!--Threadhold color settings-->
+    <div fxLayout="row">
+      <h4>Threshold Color Settings</h4>
+    </div>
+    <div formArrayName="threshold" fxLayout="row" fxLayoutGap="20px">
+      <div *ngFor="let selectedColor of thresholdColors; let i = index" class="color">
+        <app-palette-node fxFlex="100" [placeHolder]="'Color ' + (i+1)" [formControlName]="i"></app-palette-node>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <!--Header font settings-->
+    <div fxLayout="row">
+      <h4>Header Font Settings</h4>
+    </div>
+    <app-header-font [required]="true" formControlName="headerFont"></app-header-font>
+
+    <div fxLayout="row">
+      <div>
+        <button type="submit" class="save-btn" mat-raised-button color="primary" [disabled]="form.invalid">
+          Save
+        </button>
+        <button type="button" class="cancel-btn" mat-button color="warn" (click)="handleCancel()">
+          Cancel
+        </button>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <span *ngIf="errorMessage$ | async as message" style="color: red" id="error">{{message}}</span>
+    </div>
+  </div>
+</form>

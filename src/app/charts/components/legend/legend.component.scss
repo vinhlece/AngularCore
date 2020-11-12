@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.legend-container {
+  position: relative;
+  padding: 0 10px;
+  text-align: center;
+  display: flex;
+  justify-self: start;
+}
+
+.legend-label {
+  margin-left: 5px;
+  color: #333333;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Lucida Sans Unicode';
+  fill: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  margin-top: 5px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

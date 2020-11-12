@@ -1,0 +1,26 @@
+@import "../../../../../styles/variables.scss";
+
+.container {
+  background-color: var(--library-bg);
+  padding: 20px;
+  color: var(--menu-title);
+}
+
+.widget-field {
+  margin-top: 7px !important;
+}
+
+:host::ng-deep .mat-checkbox-layout {
+  margin-top: 7px !important;
+}
+
+.btn-save {
+  background-color: $button-primary-color;
+  color: white;
+}
+
+.btn-cancel {
+  background-color: $button-secondary-color;
+  color: rgba(0,0,0,0.87);
+  margin-left: 10px;
+}

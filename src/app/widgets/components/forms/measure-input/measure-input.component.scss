@@ -1,0 +1,39 @@
+@import "../../../../../styles/variables";
+
+:host {
+  display: block;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.checkboxes {
+  margin-bottom: 6px;
+}
+
+.label-input {
+  color: $label-primary-color;
+}
+
+.measure-input {
+  max-height: 140px;
+  overflow-y: auto;
+  border: solid 1px #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 0.25em;
+}
+
+
+::ng-deep {
+  .mat-chip.mat-standard-chip {
+    background-color: $mat-chip-color;
+  }
+}
+
+.empty-box {
+  span {
+    color: #B0B0B0;
+  }
+}

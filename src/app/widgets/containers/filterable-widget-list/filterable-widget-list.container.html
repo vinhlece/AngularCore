@@ -1,0 +1,16 @@
+<div class="tabs" fxLayout="row">
+    <app-header-container [routerList]="routerList"></app-header-container>
+    <app-progress-spinner [data$]="widgets$">
+
+    </app-progress-spinner>
+    <app-widget-list
+      *ngIf="widgets$ | async"
+      [widgets]="widgets$ | async"
+      [errorMessage]="errorMessage$ | async"
+      (onLaunch)="launch($event)"
+      (onEdit)="edit($event)"
+      (onDelete)="remove($event)"
+      fxFlex="fxFill"
+    >
+    </app-widget-list>
+</div>

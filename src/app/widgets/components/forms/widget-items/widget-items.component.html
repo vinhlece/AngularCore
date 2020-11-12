@@ -1,0 +1,27 @@
+<div class="container" fxLayout="column">
+  <div fxLayout="row">
+    <div class="dimension" fxFlex="90" fxLayoutAlign="start center" appTheme>{{dimension}}</div>
+    <div fxFlex="10">
+      <button type="button" class="mat-icons" mat-button [matMenuTriggerFor]="itemMenu">
+        <mat-icon fxLayoutAlign="center center">more_vert</mat-icon>
+      </button>
+      <mat-menu class="widget-menu" #itemMenu="matMenu" dir="rtl" overlapTrigger="false" class="{{isDarkTheme()}}">
+        <div fxLayout="column nowrap" fxLayoutAlign="center center">
+          <button class="btn search"
+                  *ngIf="filter"
+                  mat-icon-button
+                  (click)="handleFilter()">
+            <span translate>widgets.edit_widget_form.filter</span>
+          </button>
+
+          <button class="btn maximize"
+                  mat-icon-button
+                  (click)="handleDelete()">
+            <span translate>widgets.edit_widget_form.delete</span>
+          </button>
+        </div>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="package" *ngIf="package" fxFlex="100" fxLayoutAlign="start start">{{package  | translate: {count: count} }}</div>
+</div>

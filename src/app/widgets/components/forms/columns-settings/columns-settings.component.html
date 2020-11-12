@@ -1,0 +1,6 @@
+<div [formGroup]="form" style="height: 670px;">
+  <app-selection-panel formControlName="addedColumns"
+                       [items]="availableColumns"
+                       (onClickSelectedItem)="handleClickSelectedItem($event)">
+  </app-selection-panel>
+</div>

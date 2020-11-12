@@ -1,0 +1,8 @@
+<app-role-form
+  *ngIf="roles$ | async as roles"
+  [roles]="roles"
+  (deleteRoleEventEmitter)="deleteRoleByID($event)">
+</app-role-form>
+<button id="btnOpenCreateNewRole" class="fab" mat-fab (click)="openCreateNewRoleDialog()">
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,42 @@
+<mat-sidenav-container class="sidebar-container">
+  <mat-sidenav #sidenav
+               class="edit-sideNav"
+               mode="over"
+               position="end"
+               autoFocus="false"
+               disableClose>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidebar-content">
+    <div class="dashboard-viewer" *ngIf="dashboard$ | async">
+      <div class="tabs" fxLayout="row">
+        <app-header-container [routerList]="routerList" (onTriggerAction)="handleTriggerAction($event)"></app-header-container>
+        <app-side-bar-container [class.search-bar]="searchSlideState == 'in'" [@searchSlideState]="searchSlideState"
+                                (@searchSlideState.done)="handleAnimationDone()"
+                                (onCloseSideBar)="handleCloseSideBar()"
+                                [currentLibrary]="currentLibrary">
+        </app-side-bar-container>
+        <div class="content" fxLayout="column">
+          <app-time-explorer-container [dashboard]="dashboard$ | async"
+            (onToggleGlobalFilter)="toggleGlobalFilter()"
+            (onClickAddWidget)="handleAddNewWidget($event)"
+            (onClickAddLabelWidget)="handleAddLabelWidget($event)"
+          ></app-time-explorer-container>
+          <app-dashboard-tabs-container class="dashboard-tabs-container"
+                                        [globalFilter]="showGlobalFilter"
+                                        [dashboard]="dashboard$ | async"
+                                        [user]="user$ | async"
+                                        (onAddTab)="handleClickAddTab($event)"
+          >
+          </app-dashboard-tabs-container>
+        </div>
+        <app-new-side-bar-container
+          [@searchSlideState]="searchSlideStateNew"
+          (@searchSlideState.done)="handleAnimationDone()"
+          [state]="searchSlideStateNew"
+          (onCancel)="handleClose()"
+          (onSave)="handleSave()"
+        ></app-new-side-bar-container>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

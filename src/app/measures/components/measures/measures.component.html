@@ -1,0 +1,62 @@
+<div class="container" appTheme>
+  <div class="search-box" fxLayout="column">
+    <mat-form-field class="measures-ssearch-filed" appearance="outline" fxFlexAlign="center">
+      <mat-icon matPrefix>search</mat-icon>
+      <input style="padding-bottom: 0 !important;" autocomplete="off" placeholder="{{'measure.measure_component.search_placeholder' | translate}}" matInput type="text"
+             (keyup)="applyFilter($event.target.value)" />
+    </mat-form-field>
+    <div fxLayout="row">
+      <button mat-flat-button [routerLink]="['/measuresDefinition']" *ngIf="!errorMessage" class="btn-add-measure">
+        {{'measure.measure_component.add_measure' | translate}}
+      </button>
+      <button mat-flat-button routerLink="add_formula" *ngIf="!errorMessage" class="btn-add-measure">
+        {{'measure.measure_component.add_formula_measure' | translate}}
+      </button>
+    </div>
+  </div>
+
+  <mat-table [dataSource]="dataSource" matSort class="measure-table">
+    <ng-container matColumnDef="name">
+      <mat-header-cell class="header-cell" *matHeaderCellDef="" mat-sort-header>
+        {{'measure.measure_component.name' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let measure" class="table-cell">
+        <span>{{measure.name}}</span>
+      </mat-cell>
+    </ng-container>
+    <!-- <ng-container matColumnDef="packageName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Package Name</mat-header-cell>
+      <mat-cell *matCellDef="let measure">{{measure.dataType}}</mat-cell>
+    </ng-container> -->
+    <ng-container matColumnDef="dataType">
+      <mat-header-cell class="header-cell" *matHeaderCellDef mat-sort-header>
+        {{'measure.measure_component.package' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let measure" class="table-cell">{{measure.dataType}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <mat-header-cell class="header-cell" *matHeaderCellDef mat-sort-header>
+        {{'measure.measure_component.status' | translate}}
+      </mat-header-cell>
+      <mat-cell *matCellDef="let measure" class="table-cell">
+        <label *ngIf="!measure.disabled" [style.color]="'#00ff00'">{{'measure.measure_component.enabled' | translate}}</label>
+        <label *ngIf="measure.disabled" [style.color]="'#ff0000'">{{'measure.measure_component.disabled' | translate}}</label>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row class="table-header" *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row class="row" *matRowDef="let row; columns: displayedColumns;" (click)="clickOnRow(row)"
+             (contextmenu)="handleContextMenu($event, row)"></mat-row>
+  </mat-table>
+  <mat-error class="error-message" *ngIf="errorMessage">{{errorMessage}}</mat-error>
+  <app-context-menu [event]="contextMenuEvent">
+    <div appContextMenuItem (click)="editMeausre()">
+      <mat-icon>mode_edit</mat-icon>
+      <span>{{'measure.measure_component.edit' | translate}}</span>
+    </div>
+    <div appContextMenuItem (click)="deleteMeausre()">
+      <mat-icon>delete</mat-icon>
+      <span>{{'measure.measure_component.delete' | translate}}</span>
+    </div>
+  </app-context-menu>
+</div>

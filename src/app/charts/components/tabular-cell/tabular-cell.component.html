@@ -1,0 +1,16 @@
+<div class="container"
+     fxLayout="row"
+     fxLayoutAlign="center center"
+     [ngStyle]="getStyle()"
+     appTwinkle>
+  <label *ngIf="hasValue(primary)" title="{{formatValue(primary)}}">
+    {{formatValue(primary)}}
+  </label>
+  &nbsp;
+  <label *ngIf="hasValue(secondary)" title="{{formatValue(secondary)}}">
+    ({{formatValue(secondary)}})
+  </label>
+
+  <mat-icon *ngIf="getArrow(primary,secondary) === 'up'" [style.color]="secondary.color">arrow_upward</mat-icon>
+  <mat-icon *ngIf="getArrow(primary,secondary) === 'down'" [style.color]="secondary.color">arrow_downward</mat-icon>
+</div>

@@ -1,0 +1,18 @@
+.grid-lines {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+}
+
+.vertical-line {
+  position: absolute;
+  width: 1px;
+  background-color: #f7f7f7;
+}
+
+.horizontal-line {
+  position: absolute;
+  height: 1px;
+  background-color: #f7f7f7;
+}

@@ -1,0 +1,10 @@
+@import "../../../../../styles/variables";
+
+:host {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.input-label {
+  color: $label-primary-color;
+}

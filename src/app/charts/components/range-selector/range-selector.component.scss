@@ -1,0 +1,23 @@
+.container {
+  margin: 5px 10px;
+  width: 260px;
+}
+
+.time-input-container {
+  font-family: "Poppins";
+  font-size: 12px;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-input {
+  margin-left: 5px;
+  width: 90px;
+}
+
+.input-font {
+  font-family: "Poppins";
+  font-size: 12px;
+}

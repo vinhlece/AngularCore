@@ -1,0 +1,42 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <div *ngIf="!isEditingOnSideBar; else editSideBar" fxLayout="row nowrap" [style.height]="'100%'">
+    <app-edit-solid-gauge-widget-form fxFlex="40" [style.height]="'100vh'"
+                                      [widget]="widget"
+                                      [dataTypes]="dataTypes$ | async"
+                                      [measures]="measures$ | async"
+                                      [packageDetails]="packageDetails$ | async"
+                                      [allDimensions]="allDimensions$ | async"
+                                      [editType]="EditWidgetType.OnWidget"
+                                      [packages]="packages$ | async"
+                                      (onChange)="handleChange($event)"
+                                      (onSubmit)="handleSubmit($event)"
+                                      (onCancel)="handleCancel()"
+                                      (onChangeType)="handleChangeType($event)"
+    ></app-edit-solid-gauge-widget-form>
+    <div class="sample-widget" appTheme>
+      <app-solid-gauge [widget]="widget"
+                       [data]="data$ | async"
+                       [styles]="styles"
+                       [size]="{height: 512}"
+                       fxFlex="60"
+      ></app-solid-gauge>
+    </div>
+  </div>
+  <ng-template #editSideBar>
+    <app-edit-solid-gauge-widget-form [widget]="widget" [style.height]="'100vh'"
+                                      [dataTypes]="dataTypes$ | async"
+                                      [measures]="measures$ | async"
+                                      [packages]="packages$ | async"
+                                      [packageDetails]="packageDetails$ | async"
+                                      [allDimensions]="allDimensions$ | async"
+                                      [allInstance]="allInstance$ | async"
+                                      [saveSubject]="saveSubject"
+                                      [editType]="EditWidgetType.OnData"
+                                      (onChange)="handleChange($event)"
+                                      (onSubmit)="handleSubmit($event)"
+                                      (onCancel)="handleCancel()"
+                                      (onValidate)="handleValidate($event)"
+                                      (onChangeType)="handleChangeType($event)"
+    ></app-edit-solid-gauge-widget-form>
+  </ng-template>
+</ng-container>

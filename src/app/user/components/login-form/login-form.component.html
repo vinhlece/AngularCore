@@ -1,0 +1,81 @@
+<div class='live-data'>
+  <span id="1-j">01001010</span>
+  <span id="2-o">01001111</span>
+  <span id="3-u">01001100</span>
+  <span id="4-l">01001001</span>
+  <span id="5-i">01001001</span>
+  <span id="6-c">01000011</span>
+  <span id="7-a">01000001</span>
+
+  <span id="1-j">01001010</span>
+  <span id="2-o">01001111</span>
+  <span id="3-u">01001100</span>
+  <span id="4-l">01001001</span>
+  <span id="5-i">01001001</span>
+  <span id="6-c">01000011</span>
+  <span id="7-a">01000001</span>
+</div>
+
+<div class="company-logo" fxLayout="row" fxLayoutAlign="space-around">
+  <div  fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="70">
+    </div>
+  </div>
+</div>
+
+<div class="container" fxLayout="row" fxLayoutAlign="space-around">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxFlex="50" fxLayoutAlign="center">
+
+    <div fxLayout="column" fxLayoutAlign="center">
+      <!--Username input-->
+      <div fxLayout="row" fxLayoutGap="10px" class="inputs">
+        <div fxFlex="70">
+          <mat-form-field [floatLabel]="false" appearance="fill">
+              <div class="input-container">
+                <mat-icon matPrefix>person</mat-icon>
+                <input matInput
+                autocomplete="off"
+                type="text"
+                id="username"
+                formControlName="userName"
+                placeholder="{{'user.login_form.username' | translate}}"/>
+              </div>
+            <mat-error id="userNameRequiredError">{{'user.login_form.error_username_required' | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!--End Username input-->
+      <!--Password input-->
+      <div fxLayout="row" fxLayoutGap="10px" class="inputs">
+        <div fxFlex="70">
+          <mat-form-field [floatLabel]="false" appearance="fill">
+            <div class="input-container">
+              <mat-icon matPrefix>lock</mat-icon>
+              <input matInput
+              autocomplete="off"
+              type="password"
+              id="password"
+              formControlName="password"
+              placeholder="{{'user.login_form.password' | translate}}"/>
+            </div>
+            <mat-error id="passwordRequiredError">{{'user.login_form.error_password_required' | translate}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!--End Password input-->
+      <div class="button-container inputs">
+        <button class="button" mat-raised-button color="primary" type="submit">{{'user.login_form.label_login' | translate}}</button>
+      </div>
+      <div class="login-error">
+        <span *ngIf="errorMessage$ | async as error" id="error">{{error.errorMessage}}</span>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="theme-selector">
+  <button mat-mini-fab (click)="onClickOpenBottomSheet()">
+    <mat-icon>style</mat-icon>
+  </button>
+</div>

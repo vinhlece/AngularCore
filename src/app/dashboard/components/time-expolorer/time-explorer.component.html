@@ -1,0 +1,117 @@
+<div class="top-container" fxLayout="row" appTheme>
+  <div class="left-panel" fxLayoutAlign="start center">
+    <button mat-icon-button [routerLink]="['/dashboards']">
+      <mat-icon class="no-padding-margin">keyboard_backspace</mat-icon>
+    </button>
+    {{dashboard.name}}
+  </div>
+  <div class="right-panel" fxLayoutAlign="end center">
+    <mat-menu class="{{isDarkTheme()}}" #manageLogging="matMenu">
+      <button mat-menu-item [ngClass]="{'selected': getSelectedLogging(null)}" (click)="handleOffLogging()">Off</button>
+      <button mat-menu-item [ngClass]="{'selected': getSelectedLogging(LogLevel.debug)}" (click)="handleOnDebug()">On Debug</button>
+      <button mat-menu-item [ngClass]="{'selected': getSelectedLogging(LogLevel.info)}" (click)="handleOnInfo()">On Info</button>
+    </mat-menu>
+    <mat-icon matTooltip="{{'dashboard.header.add_label_widget' | translate}}" (click)="handleAddLabelWidget()">label</mat-icon>
+    <mat-icon matTooltip="{{'dashboard.header.add_new_widget' | translate}}" (click)="handleAddWidget($event)">add</mat-icon>
+    <mat-icon matTooltip="{{'dashboard.header.logging' | translate}}" [matMenuTriggerFor]="manageLogging">rotate_90_degrees_ccw</mat-icon>
+    <mat-icon matTooltip="{{'dashboard.header.global_filter' | translate}}" (click)="handleToggleGlobalFilter($event)">horizontal_split</mat-icon>
+    <mat-icon matTooltip="{{'dashboard.header.time_explorer' | translate}}" id="time-explorer" (click)="handleClickTimeSliderLabel()">access_time</mat-icon>
+    <mat-icon matTooltip="{{'dashboard.header.notifications' | translate}}">notifications</mat-icon>
+    <mat-icon matTooltip="{{'dashboard.header.color_palette' | translate}}" [matMenuTriggerFor]="colorPalette">color_lens</mat-icon>
+    <mat-icon matTooltip="{{'dashboard.header.instance_color' | translate}}" [matMenuTriggerFor]="instanceColor">format_color_text</mat-icon>
+    <mat-menu class="{{isDarkTheme()}}" #colorPalette="matMenu" class="color-menu-item | translate" xPosition="before" yPosition="below" overlapTrigger="false">
+      <div mat-menu-item class="color-label" fxLayout="row" fxLayoutAlign="space-between none" appTheme>
+        <span>{{'dashboard.header.color_palette' | translate}}</span>
+        <button mat-icon-button [routerLink]="['/palette']">
+          <mat-icon class="no-padding-margin">add</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <div *ngFor="let palette of palettes" class="menuItem" fxLayout="column"
+           [ngClass]="{'selected': palette.id === user.selectedPalette}">
+        <div class="margin" fxLayout="row" fxLayoutAlign="space-between none">
+          <span fxFlex="80">{{palette.name}}:</span>
+          <div fxFlex="20" fxLayout="row" fxLayoutAlign="space-between none">
+            <img class="menu-icon" src="assets/img/menu/rename.svg">
+            <img class="menu-icon" src="assets/img/menu/delete.svg">
+          </div>
+        </div>
+        <div id="plette-item" class="color-item" mat-menu-item fxLayout="row" (click)="handleChangeColorPalette(palette)">
+          <div *ngFor="let color of palette.colors" [ngStyle]="getColor(color, palette.colors)"></div>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-menu>
+
+    <mat-menu class="{{isDarkTheme()}}" #instanceColor="matMenu" class="color-menu-item | translate" xPosition="before" yPosition="below" overlapTrigger="false">
+      <div mat-menu-item class="color-label" fxLayout="row" fxLayoutAlign="space-between none" appTheme>
+        <span class="menu-title">{{'dashboard.header.instance_color' | translate}}</span>
+        <button mat-icon-button (click)="triggerNewInstanceColor($event)">
+          <mat-icon class="no-padding-margin">add</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <div *ngFor="let item of instanceColors" class="menuItem" mat-menu-item fxLayout="column" (click)="preventMenuItem($event)">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <span class="instance-name" fxFlex="40">{{item.name}}</span>
+          <span class="instance-color" fxFlex="40" [ngStyle]="getColor(item.color)">
+            <input matInput
+                   type="text"
+                   id="inputColor"
+                   [cpPosition]="'left'"
+                   [cpPositionRelativeToArrow]="true"
+                   [colorPicker]="item.color"
+                   [cpOutputFormat]="'hex'"
+                   [cpOKButton]="true"
+                   [cpCancelButton]="true"
+                   [cpOKButtonClass]="'color-picker-okBtn'"
+                   [cpCancelButtonClass]="'color-picker-cancelBtn'"
+                   (colorPickerSelect)="handlePickColor($event, item.name)"
+            >
+          </span>
+          <img fxFlex class="menu-icon instance-color" src="assets/img/menu/delete.svg" (click)="deleteInstanceColor(item.name)">
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <div *ngIf="isNewInstanceColor" fxLayoutAlign="center center" fxLayout="column" (click)="preventMenuItem($event)">
+        <div class="menuItem addInstance" mat-menu-item fxLayoutAlign="space-between">
+          <app-instance-color (onAddNewInstanceColor)="addNewInstanceColor($event)"></app-instance-color>
+        </div>
+      </div>
+    </mat-menu>
+  </div>
+</div>
+<div class="time-explorer mat-typography"
+     appDroppable accept=".app-draggable-component"
+     [@timeSliderState]="timeSliderState"
+     (@timeSliderState.done)="handleAnimationDone()"
+     appTheme
+     (onDrop)="handleDrop($event)">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <div class="time-range-settings">
+      <app-time-range-settings [availableSettings]="availableSettings"
+                               [currentSettings]="currentSettings"
+                               [predictiveSettings]="predictiveSettings"
+                               (onChangeTimeRangeSettings)="handleChangeTimeRangeSetting($event)"
+                               (onChangePredictiveSettings)="handleChangePredictiveSetting($event)"
+      ></app-time-range-settings>
+    </div>
+    <div class="replay" *ngIf="!isReplayStopped">
+      <span class="replay-status replaying-animation" *ngIf="isReplaying" translate><strong>dashboard.time_explorer.replaying_event</strong></span>
+      <span class="replay-status" *ngIf="isReplayPaused" translate><strong>dashboard.time_explorer.replaying_pause</strong></span>
+    </div>
+    <div *ngIf="timeSlider()" fxLayoutAlign="end center" fxLayoutGap="12px" class="timestamp-info">
+      <label class="date">{{currentTimestampLabel}}</label>
+      <button type="button" class="play-btn" (click)="toggleSlider()">
+        {{getSliderState() | translate}}
+      </button>
+      <button type="button" class="reset-btn" (click)="stopSlider()">
+        <span translate>dashboard.time_explorer.reset</span>
+      </button>
+    </div>
+  </div>
+  <app-time-slider *ngIf="timeSlider()" [min]="min" [max]="max"
+                   [current]="currentTimestamp" [step]="step"
+                   [stopSubject]="stopSubject"
+                   (onSlide)="handleChangeCurrentTimestamp($event)"></app-time-slider>
+</div>

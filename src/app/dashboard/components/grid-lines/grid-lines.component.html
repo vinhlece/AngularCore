@@ -1,0 +1,4 @@
+<div class="grid-lines" [style.width.px]="metrics.gridLinesWidth" [style.height.px]="metrics.gridLinesHeight" [style.margin-top.px]="metrics.padding.top / 2">
+  <div *ngFor="let line of horizontalLines" [style.width.px]="metrics.gridLinesWidth" [style.top.px]="line.top" [style.left.px]="line.left" class="horizontal-line"></div>
+  <div *ngFor="let line of verticalLines" [style.height.px]="metrics.gridLinesHeight" [style.top.px]="line.top" [style.left.px]="line.left" class="vertical-line"></div>
+</div>

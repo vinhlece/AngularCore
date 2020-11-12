@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Elements | Demo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    .top {
+      margin-bottom: 22px;
+    }
+
+    .widget {
+      margin: 20px 10px;
+      width: 48%;
+      height: 100%;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      box-sizing: border-box;
+      width: 100%;
+      height: 28%;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body style="background-color: white; color: #ffffff; font-family: 'Helvetica'">
+<div class="top">
+  <time-explorer></time-explorer>
+</div>
+
+<div class="row" style="background-color: inherit">
+  <!-- Gauge widget -->
+  <widget-launcher class="widget" placeholder-id="89012522-0626-4f7a-be58-a2b56b69f215" background-color="white" color="inherit" font="inherit"></widget-launcher>
+  <!-- Billboard widget -->
+  <widget-launcher class="widget" placeholder-id="6bc2c498-69dd-4987-ae91-56bbbe71defd" background-color="white" color="inherit" font="inherit"></widget-launcher>
+  <!-- Sankey widget -->
+  <widget-launcher class="widget" placeholder-id="3c7d0e2a-f795-4bdd-b214-5c4d5bcde676" background-color="white" color="inherit" font="inherit"></widget-launcher>
+</div>
+
+<div class="row" style="background-color: inherit">
+  <!-- Bar widget -->
+  <widget-launcher class="widget" placeholder-id="4ddcfaf1-74f7-4a5c-9584-791e5a426cd1" background-color="white" color="inherit" font="inherit"></widget-launcher>
+
+  <!-- Tabular widget -->
+  <widget-launcher class="widget" placeholder-id="59abe2dd-81d4-4dfd-9ec5-9a5f49127166" background-color="white" color="inherit" font="inherit"></widget-launcher>
+</div>
+
+<div class="row" style="background-color: inherit">
+  <!-- Line widget -->
+  <widget-launcher class="widget" placeholder-id="778a2e64-99cb-415c-ab92-ac1c72a35b9d" background-color="white" color="inherit" font="inherit"></widget-launcher>
+
+  <!-- Trend diff widget -->
+  <widget-launcher class="widget" placeholder-id="81575438-21e9-4a49-9b57-b4eac877e45a" background-color="white" color="inherit" font="inherit"></widget-launcher>
+</div>
+
+<script src="../../dist/embedded/runtime.js"></script>
+<script src="../../dist/embedded/polyfills.js"></script>
+<script src="../../dist/embedded/scripts.js"></script>
+<script src="../../dist/embedded/styles.js"></script>
+<script src="../../dist/embedded/vendor.js"></script>
+<script src="../../dist/embedded/main.js"></script>
+</body>
+</html>

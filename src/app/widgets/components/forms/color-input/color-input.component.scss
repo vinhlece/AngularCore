@@ -1,0 +1,23 @@
+@import "../../../../../styles/variables";
+
+.full-width {
+  width: 90px;
+}
+
+.dot {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.input-label {
+  color: $label-primary-color;
+}
+
+.picked-color {
+  height: 30px;
+  display: inline-block;
+  width: 30px;
+  vertical-align: middle;
+  margin-left: 20px;
+}

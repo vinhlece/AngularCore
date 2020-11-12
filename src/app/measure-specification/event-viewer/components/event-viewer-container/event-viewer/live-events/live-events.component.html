@@ -1,0 +1,45 @@
+<div 
+    class="live-event" 
+    [id]="i"
+    [class.first]="firstEvent" 
+    [class.last]="lastEvent" 
+    *ngFor="let ev of events; let i = index; first as firstEvent; last as lastEvent">
+    <div class="live-event-header">
+        <p>{{ ev.created }} </p>
+        <div class="live-event-actions">
+            <button 
+                *ngIf="liveEvents"
+                (click)="handleStoreEvent(ev)"
+                mat-icon-button 
+                matTooltip="Store Event" 
+                matTooltipShowDelay="1000" 
+                aria-label="Format Data" >
+                <mat-icon >star_border</mat-icon>
+            </button>
+            <button 
+                (click)="formatJson(ev, i)"
+                mat-icon-button 
+                matTooltip="Format Data" 
+                matTooltipShowDelay="1000" 
+                aria-label="Format Data" >
+                <mat-icon>format_list_bulleted</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="!showFormatted || showId !== i; else showFormattedTemplate;" class="live-event-data">
+        <p [liveEvent]="200">{{ ev | json }} </p>
+    </div>
+
+    <ng-template #showFormattedTemplate>
+        <div *ngIf="showId === i" class="live-event-data formatted" >
+            <p 
+                *ngFor="let item of events[0] | keyvalue; let ind = index" 
+                [id]="ind" 
+                [class.odd]="ind % 2 === 0" 
+                class="event-key">{{ item.key }}: 
+                <span class="event-value"> {{ item.value }}</span>
+            </p>
+        </div>
+    </ng-template>
+</div>

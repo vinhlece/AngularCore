@@ -1,0 +1,38 @@
+<form [formGroup]="newForm" (ngSubmit)="onSave()" class="data-dialog" appTheme [class.dark-theme-box]="isDarkTheme()">
+  <mat-card class="no-shadow">
+    <mat-card-title>{{formTitle | translate}} {{formTitleType}}</mat-card-title><hr>
+    <mat-card-content>
+      <app-item-filter *ngIf="!isDimensionFilter"
+                       formControlName="item"
+                       [mode]="inputData.choiceMode"
+                       [options]="inputData.items"
+                       [filterPackage]="inputData.selection[0].packageName"
+                       [showAllData]="inputData.showAllData"
+                       [type]="inputData.type"
+      ></app-item-filter>
+      <app-dimension-filter-container
+        #dimensionFilterContainer
+        *ngIf="isDimensionFilter"
+        [customInstances]="inputData.items"
+        formControlName="item"
+        [mode]="inputData.choiceMode"
+        [inputValidators]="inputData.inputValidators"
+        [selections]="this.inputData.selection"
+        [dimension]="inputData.dimension"
+      ></app-dimension-filter-container>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="bottom-action">
+      <div>
+        <div *ngIf="inputData.type == 'instance'" class="add-link" (click)="handleToggleAddInstance()">
+          {{'widgets.edit_widget_form.add_instance' | translate}}
+        </div>
+      </div>
+      <div>
+        <button class="normal-style cancel-button" id="cancelButton" mat-flat-button
+        type="button" (click)="onCancel()">Cancel</button>
+        <button class="normal-style save-button" id="saveButton" mat-flat-button type="submit">Done</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>

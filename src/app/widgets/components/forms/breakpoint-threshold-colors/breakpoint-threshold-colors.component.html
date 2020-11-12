@@ -1,0 +1,11 @@
+<div [formGroup]="form">
+  <div formArrayName="colors" fxLayout="column wrap">
+    <div *ngFor="let selectedColor of selectedColors; let i = index" class="color">
+      <app-auto-invoke-url-color
+        [placeholder]="'widgets.form.breakpoint_threshold_colors' | translate: {value: (i + 1)}"
+        [required]="required"
+        [formControlName]="i">
+      </app-auto-invoke-url-color>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+@import "../../../../styles/variables";
+
+.sidenav-wrapper {
+  background-color: #ffffff;
+  height: 100vh;
+  font-family: 'Poppins';
+}
+
+.btn-group {
+  padding-left: 20px;
+  background-color: var(--edit-form-bg);
+
+  .button {
+    color: #fff;
+    font-size: 14px;
+
+    .save-button {
+      background-color: #878787;
+    }
+
+    .cancel-button {
+      background-color: #999999;
+    }
+  }
+}
+
+::ng-deep {
+  .measure-sidebar-tab-group {
+    .mat-tab-body-wrapper {
+      height: 100%;
+    }
+
+    .mat-tab-body .mat-tab-body-active {
+      overflow-y: hidden;
+    }
+
+    .mat-tab-body-content {
+      overflow: hidden;
+      background-color: var(--edit-form-bg);
+    }
+
+    .mat-tab-body.mat-tab-body-active {
+      overflow-y: hidden;
+    }
+
+    .mat-tab-label {
+      color: var(--edit-form-label);
+      background-color: var(--edit-form-bg);
+      opacity: var(--opacity);
+    }
+
+    .mat-ink-bar {
+      background-color: var(--ink-bar) !important;
+    }
+  }
+}
+
+.add-icon {
+  margin-right: 20px;
+
+  mat-icon {
+    &:hover {
+      cursor: pointer;
+    }
+    font-size: 35px;
+  }
+}
+
+.event-tags {
+  height: 100%;
+}

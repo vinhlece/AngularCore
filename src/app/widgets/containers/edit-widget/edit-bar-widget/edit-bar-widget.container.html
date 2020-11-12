@@ -1,0 +1,47 @@
+<ng-container *ngIf="widget$ | async as widget">
+  <div *ngIf="!isEditingOnSideBar; else editSideBar" fxLayout="row wrap" [style.height]="'100%'">
+    <app-edit-bar-widget-form [widget]="widget" [style.height]="'100vh'"
+                              [chartTypes]="chartTypes"
+                              [chartStyles]="chartStyles"
+                              [dataTypes]="dataTypes$ | async"
+                              [packageDetails]="packageDetails$ | async"
+                              [allDimensions]="allDimensions$ | async"
+                              [allInstance]="allInstance$ | async"
+                              [measures]="measures$ | async"
+                              [packages]="packages$ | async"
+                              [editType]="EditWidgetType.OnWidget"
+                              (onSubmit)="handleSubmit($event)"
+                              (onCancel)="handleCancel()"
+                              (onChange)="handleChange($event)"
+                              (onChangeType)="handleChangeType($event)"
+                              fxFlex="40"
+    ></app-edit-bar-widget-form>
+    <div fxFlex="60" class="sample-widget" appTheme>
+      <app-bar-chart
+        [widget]="widget"
+        [data]="data$ | async"
+        [colorPalette]="colorPalette$ | async"
+        [styles]="styles"
+      ></app-bar-chart>
+    </div>
+  </div>
+  <ng-template #editSideBar>
+    <app-edit-bar-widget-form [widget]="widget" [style.height]="'100vh'"
+                              [chartTypes]="chartTypes"
+                              [chartStyles]="chartStyles"
+                              [dataTypes]="dataTypes$ | async"
+                              [measures]="measures$ | async"
+                              [packages]="packages$ | async"
+                              [packageDetails]="packageDetails$ | async"
+                              [allDimensions]="allDimensions$ | async"
+                              [allInstance]="allInstance$ | async"
+                              [saveSubject]="saveSubject"
+                              [editType]="EditWidgetType.OnData"
+                              (onSubmit)="handleSubmit($event)"
+                              (onCancel)="handleCancel()"
+                              (onChange)="handleChange($event)"
+                              (onValidate)="handleValidate($event)"
+                              (onChangeType)="handleChangeType($event)"
+    ></app-edit-bar-widget-form>
+  </ng-template>
+</ng-container>

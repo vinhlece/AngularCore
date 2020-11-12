@@ -1,0 +1,16 @@
+<mat-card class="root mat-elevation-z0" [formGroup]="form">
+  <mat-card-title class="title">Select Time Range</mat-card-title>
+  <mat-card-content class="content">
+    <app-time-range
+      [isInterval]="isRequiredInterval()"
+      [typeRequired]="isRequiredType()"
+      formControlName="timeGroup"
+      style="width: 422px"
+      [inputValidators]="validateInput"
+    ></app-time-range>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="button" (click)="handleSave()" mat-raised-button color="primary" [disabled]="form.invalid">Save</button>
+    <button type="button" (click)="handleClose()" mat-button color="accent">Close</button>
+  </mat-card-actions>
+</mat-card>

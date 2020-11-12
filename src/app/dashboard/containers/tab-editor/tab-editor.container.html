@@ -1,0 +1,26 @@
+<div fxLayout="column" fxlayoutAlign="start stretch" fxFlexFill>
+  <div fxFlex>
+    <app-tab-grid *ngIf="(placeholders$ | async)"
+                  [placeholders]="(placeholders$ | async)"
+                  [rows]="12"
+                  [columns]="12"
+                  [metrics]="metrics$ | async"
+                  (onReady)="handleReady()"
+                  (onChange)="handlePlaceholderChange($event)"
+                  (onRequestMetrics)="handleRequestMetrics($event)"
+                  (onDragStart)="handleDragStart($event)"
+                  (onDrag)="handleDrag($event)"
+                  (onDragStop)="handleDragStop($event)"
+                  (onResizeStart)="handleResizeStart()"
+                  (onResizeStop)="handleResizeStop()">
+    </app-tab-grid>
+    <div class="maximized-container"
+         *ngIf="maximizedPlaceholder$ | async"
+         [ngStyle]="{'padding.px': (metrics$ | async).padding.top}">
+      <app-tab-launcher-item-container
+        [isMaximized]="true"
+        [placeholderId]="(maximizedPlaceholder$ | async).id">
+      </app-tab-launcher-item-container>
+    </div>
+  </div>
+</div>
