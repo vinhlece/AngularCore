@@ -1,5 +1,5 @@
 # Reporting Dashboard
-# For Develop local
+# For local
 Client dev server: Run `npm start`. Navigate to `http://localhost:4200/`.
 
 Sample json-server: `npm run start:backend:sample`
